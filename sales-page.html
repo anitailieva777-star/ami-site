@@ -1,0 +1,2067 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+  <meta charset="UTF-8" !important>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>A.M.I. – Карти Любов към Себе си | A Mindful Inspiration</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Lato:ital,wght@0,300;0,400;0,700;1,300&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box !important;
+      margin: 0 !important;
+      padding: 0 !important;
+    }
+
+    :root {
+      --dusty-rose: #E8C4C4 !important;
+      --warm-blush: #F2D9D9 !important;
+      --nude-cream: #FAF0E8 !important;
+      --antique-gold: #C9A84C !important;
+      --soft-white: #FDFAF7 !important;
+      --dark-pink: #8B4F6B !important;
+      --text-dark: #3D2B2B !important;
+      --text-mid: #6B4E4E !important;
+      --text-light: #9E7A7A !important;
+    }
+
+    html {
+      scroll-behavior: smooth !important;
+    }
+
+    body {
+      font-family: 'Lato', sans-serif !important;
+      background-color: #FDFAF7 !important;
+      color: #3D2B2B !important;
+      font-size: 16px !important;
+      line-height: 1.7 !important;
+      -webkit-font-smoothing: antialiased !important;
+    }
+
+    /* ===== URGENCY BAR ===== */
+    .urgency-bar {
+      background: linear-gradient(135deg, #8B4F6B 0%, #6B3A50 100%) !important;
+      color: #FDFAF7 !important;
+      text-align: center !important;
+      padding: 12px 20px !important;
+      font-family: 'Lato', sans-serif !important;
+      font-size: 14px !important;
+      font-weight: 400 !important;
+      letter-spacing: 0.03em !important;
+    }
+
+    .urgency-bar strong {
+      font-weight: 700 !important;
+      color: #F2D9D9 !important;
+    }
+
+    .urgency-bar .pulse {
+      display: inline-block !important;
+      animation: pulse 2s ease-in-out infinite !important;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.6; }
+    }
+
+    /* ===== HEADER ===== */
+    .site-header {
+      background: #FDFAF7 !important;
+      border-bottom: 1px solid #F2D9D9 !important;
+      padding: 16px 40px !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: space-between !important;
+      position: sticky !important;
+      top: 0 !important;
+      z-index: 100 !important;
+      box-shadow: 0 2px 20px rgba(139,79,107,0.06) !important;
+    }
+
+    .logo-text {
+      font-family: 'Playfair Display', serif !important;
+      font-size: 22px !important;
+      font-weight: 700 !important;
+      color: #8B4F6B !important;
+      letter-spacing: 0.08em !important;
+      text-decoration: none !important;
+    }
+
+    .logo-sub {
+      font-family: 'Lato', sans-serif !important;
+      font-size: 10px !important;
+      letter-spacing: 0.15em !important;
+      color: #C9A84C !important;
+      text-transform: uppercase !important;
+      display: block !important;
+      margin-top: -2px !important;
+    }
+
+    .header-cta {
+      background: linear-gradient(135deg, #8B4F6B 0%, #6B3A50 100%) !important;
+      color: #FDFAF7 !important;
+      padding: 10px 24px !important;
+      border-radius: 50px !important;
+      font-family: 'Lato', sans-serif !important;
+      font-size: 13px !important;
+      font-weight: 700 !important;
+      letter-spacing: 0.05em !important;
+      text-decoration: none !important;
+      transition: all 0.3s ease !important;
+      border: none !important;
+      cursor: pointer !important;
+    }
+
+    .header-cta:hover {
+      transform: translateY(-1px) !important;
+      box-shadow: 0 6px 20px rgba(139,79,107,0.35) !important;
+    }
+
+    /* ===== SECTIONS ===== */
+    .section {
+      padding: 80px 40px !important;
+    }
+
+    .container {
+      max-width: 1200px !important;
+      margin: 0 auto !important;
+    }
+
+    .section-label {
+      font-family: 'Lato', sans-serif !important;
+      font-size: 11px !important;
+      font-weight: 700 !important;
+      letter-spacing: 0.2em !important;
+      text-transform: uppercase !important;
+      color: #C9A84C !important;
+      display: block !important;
+      margin-bottom: 12px !important;
+    }
+
+    h1, h2, h3, h4 {
+      font-family: 'Playfair Display', serif !important;
+      line-height: 1.25 !important;
+      color: #3D2B2B !important;
+    }
+
+    h1 {
+      font-size: clamp(28px, 4vw, 46px) !important;
+      font-weight: 700 !important;
+    }
+
+    h2 {
+      font-size: clamp(24px, 3vw, 38px) !important;
+      font-weight: 600 !important;
+    }
+
+    h3 {
+      font-size: clamp(18px, 2.2vw, 26px) !important;
+      font-weight: 600 !important;
+    }
+
+    em {
+      font-style: italic !important;
+      color: #8B4F6B !important;
+    }
+
+    /* ===== HERO ===== */
+    .hero {
+      background: linear-gradient(160deg, #FDFAF7 0%, #FAF0E8 50%, #F2D9D9 100%) !important;
+      padding: 60px 40px 80px !important;
+    }
+
+    .hero-inner {
+      max-width: 1200px !important;
+      margin: 0 auto !important;
+      display: flex !important;
+      gap: 60px !important;
+      align-items: flex-start !important;
+    }
+
+    .hero-images {
+      flex: 0 0 55% !important;
+      position: relative !important;
+    }
+
+    .hero-main-img {
+      width: 100% !important;
+      border-radius: 20px !important;
+      display: block !important;
+      box-shadow: 0 20px 60px rgba(139,79,107,0.18) !important;
+      object-fit: cover !important;
+      aspect-ratio: 4/3 !important;
+      background: linear-gradient(135deg, #F2D9D9 0%, #E8C4C4 100%) !important;
+    }
+
+    .hero-img-placeholder {
+      width: 100% !important;
+      aspect-ratio: 4/3 !important;
+      border-radius: 20px !important;
+      background: linear-gradient(135deg, #F2D9D9 0%, #E8C4C4 50%, #FAF0E8 100%) !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      box-shadow: 0 20px 60px rgba(139,79,107,0.18) !important;
+      overflow: hidden !important;
+      position: relative !important;
+    }
+
+    .hero-img-placeholder img {
+      width: 100% !important;
+      height: 100% !important;
+      object-fit: cover !important;
+      display: block !important;
+    }
+
+    .badge-float {
+      position: absolute !important;
+      background: linear-gradient(135deg, #8B4F6B, #6B3A50) !important;
+      color: #FDFAF7 !important;
+      font-family: 'Lato', sans-serif !important;
+      font-size: 12px !important;
+      font-weight: 700 !important;
+      padding: 8px 16px !important;
+      border-radius: 50px !important;
+      letter-spacing: 0.05em !important;
+      box-shadow: 0 4px 15px rgba(139,79,107,0.4) !important;
+    }
+
+    .badge-float.top-right {
+      top: 16px !important;
+      right: 16px !important;
+    }
+
+    .hero-content {
+      flex: 1 !important;
+      padding-top: 8px !important;
+    }
+
+    .brand-name {
+      font-family: 'Playfair Display', serif !important;
+      font-size: 13px !important;
+      letter-spacing: 0.2em !important;
+      text-transform: uppercase !important;
+      color: #C9A84C !important;
+      display: flex !important;
+      align-items: center !important;
+      gap: 8px !important;
+      margin-bottom: 16px !important;
+    }
+
+    .brand-name::before, .brand-name::after {
+      content: '' !important;
+      flex: 1 !important;
+      height: 1px !important;
+      background: linear-gradient(90deg, transparent, #C9A84C) !important;
+    }
+
+    .brand-name::after {
+      background: linear-gradient(90deg, #C9A84C, transparent) !important;
+    }
+
+    .hero-tagline {
+      font-family: 'Playfair Display', serif !important;
+      font-size: clamp(22px, 2.5vw, 32px) !important;
+      font-weight: 700 !important;
+      color: #3D2B2B !important;
+      line-height: 1.3 !important;
+      margin-bottom: 8px !important;
+    }
+
+    .hero-subtitle {
+      font-family: 'Lato', sans-serif !important;
+      font-size: 15px !important;
+      color: #6B4E4E !important;
+      font-style: italic !important;
+      margin-bottom: 24px !important;
+    }
+
+    .hero-benefits-list {
+      list-style: none !important;
+      margin-bottom: 28px !important;
+    }
+
+    .hero-benefits-list li {
+      display: flex !important;
+      align-items: flex-start !important;
+      gap: 10px !important;
+      font-size: 14px !important;
+      color: #3D2B2B !important;
+      padding: 6px 0 !important;
+      border-bottom: 1px solid #F2D9D9 !important;
+    }
+
+    .hero-benefits-list li:last-child {
+      border-bottom: none !important;
+    }
+
+    .check-icon {
+      color: #C9A84C !important;
+      font-size: 16px !important;
+      flex-shrink: 0 !important;
+      margin-top: 2px !important;
+    }
+
+    /* ===== PACKAGES ===== */
+    .packages-label {
+      font-family: 'Lato', sans-serif !important;
+      font-size: 11px !important;
+      font-weight: 700 !important;
+      letter-spacing: 0.15em !important;
+      text-transform: uppercase !important;
+      color: #9E7A7A !important;
+      margin-bottom: 12px !important;
+      display: block !important;
+    }
+
+    .packages-grid {
+      display: grid !important;
+      grid-template-columns: repeat(3, 1fr) !important;
+      gap: 12px !important;
+    }
+
+    .package-card {
+      border: 1.5px solid #E8C4C4 !important;
+      border-radius: 16px !important;
+      padding: 16px 14px !important;
+      background: #FDFAF7 !important;
+      cursor: pointer !important;
+      transition: all 0.3s ease !important;
+      position: relative !important;
+      text-align: center !important;
+    }
+
+    .package-card:hover {
+      border-color: #8B4F6B !important;
+      box-shadow: 0 8px 25px rgba(139,79,107,0.12) !important;
+      transform: translateY(-2px) !important;
+    }
+
+    .package-card.popular {
+      border-color: #8B4F6B !important;
+      border-width: 2px !important;
+      background: linear-gradient(160deg, #FDFAF7 0%, #FAF0E8 100%) !important;
+      box-shadow: 0 8px 30px rgba(139,79,107,0.15) !important;
+    }
+
+    .popular-badge {
+      position: absolute !important;
+      top: -11px !important;
+      left: 50% !important;
+      transform: translateX(-50%) !important;
+      background: linear-gradient(135deg, #8B4F6B, #C9A84C) !important;
+      color: #FDFAF7 !important;
+      font-size: 10px !important;
+      font-weight: 700 !important;
+      font-family: 'Lato', sans-serif !important;
+      letter-spacing: 0.1em !important;
+      text-transform: uppercase !important;
+      padding: 3px 12px !important;
+      border-radius: 50px !important;
+      white-space: nowrap !important;
+    }
+
+    .package-name {
+      font-family: 'Playfair Display', serif !important;
+      font-size: 14px !important;
+      font-weight: 600 !important;
+      color: #3D2B2B !important;
+      margin-bottom: 4px !important;
+      display: block !important;
+    }
+
+    .package-includes {
+      font-size: 11px !important;
+      color: #9E7A7A !important;
+      margin-bottom: 10px !important;
+      line-height: 1.5 !important;
+    }
+
+    .package-price-old {
+      font-size: 11px !important;
+      color: #B89A9A !important;
+      text-decoration: line-through !important;
+      display: block !important;
+    }
+
+    .package-price-new {
+      font-family: 'Playfair Display', serif !important;
+      font-size: 22px !important;
+      font-weight: 700 !important;
+      color: #8B4F6B !important;
+      display: block !important;
+      line-height: 1.1 !important;
+    }
+
+    .package-save {
+      font-size: 10px !important;
+      color: #C9A84C !important;
+      font-weight: 700 !important;
+      letter-spacing: 0.05em !important;
+      display: block !important;
+      margin-bottom: 10px !important;
+    }
+
+    .pkg-btn {
+      display: block !important;
+      background: linear-gradient(135deg, #8B4F6B 0%, #6B3A50 100%) !important;
+      color: #FDFAF7 !important;
+      padding: 9px 10px !important;
+      border-radius: 50px !important;
+      font-family: 'Lato', sans-serif !important;
+      font-size: 11px !important;
+      font-weight: 700 !important;
+      letter-spacing: 0.05em !important;
+      text-align: center !important;
+      text-decoration: none !important;
+      transition: all 0.3s ease !important;
+      border: none !important;
+      cursor: pointer !important;
+      width: 100% !important;
+    }
+
+    .pkg-btn:hover {
+      box-shadow: 0 6px 20px rgba(139,79,107,0.4) !important;
+      transform: translateY(-1px) !important;
+    }
+
+    .pkg-btn.gold {
+      background: linear-gradient(135deg, #C9A84C 0%, #A8893C 100%) !important;
+    }
+
+    /* ===== TRUST STRIP ===== */
+    .trust-strip {
+      background: #FAF0E8 !important;
+      padding: 20px 40px !important;
+      border-top: 1px solid #F2D9D9 !important;
+      border-bottom: 1px solid #F2D9D9 !important;
+    }
+
+    .trust-inner {
+      max-width: 1200px !important;
+      margin: 0 auto !important;
+      display: flex !important;
+      justify-content: center !important;
+      gap: 40px !important;
+      flex-wrap: wrap !important;
+    }
+
+    .trust-item {
+      display: flex !important;
+      align-items: center !important;
+      gap: 8px !important;
+      font-size: 13px !important;
+      color: #6B4E4E !important;
+    }
+
+    .trust-icon {
+      font-size: 18px !important;
+      color: #C9A84C !important;
+    }
+
+    /* ===== PROBLEM SECTION ===== */
+    .problem-section {
+      background: #FDFAF7 !important;
+      padding: 80px 40px !important;
+    }
+
+    .problem-inner {
+      max-width: 800px !important;
+      margin: 0 auto !important;
+      text-align: center !important;
+    }
+
+    .problem-intro {
+      font-size: 18px !important;
+      color: #6B4E4E !important;
+      font-style: italic !important;
+      margin-bottom: 40px !important;
+      font-family: 'Playfair Display', serif !important;
+    }
+
+    .pain-list {
+      list-style: none !important;
+      text-align: left !important;
+      max-width: 600px !important;
+      margin: 0 auto 40px !important;
+    }
+
+    .pain-list li {
+      padding: 14px 20px !important;
+      margin-bottom: 10px !important;
+      background: linear-gradient(135deg, #FFF5F5 0%, #FAF0E8 100%) !important;
+      border-left: 3px solid #E8C4C4 !important;
+      border-radius: 0 10px 10px 0 !important;
+      font-size: 15px !important;
+      color: #3D2B2B !important;
+      display: flex !important;
+      align-items: center !important;
+      gap: 12px !important;
+    }
+
+    .pain-emoji {
+      font-size: 20px !important;
+      flex-shrink: 0 !important;
+    }
+
+    .problem-close {
+      font-family: 'Playfair Display', serif !important;
+      font-size: 20px !important;
+      color: #8B4F6B !important;
+      font-style: italic !important;
+      font-weight: 600 !important;
+    }
+
+    /* ===== SOLUTION SECTION ===== */
+    .solution-section {
+      background: linear-gradient(160deg, #FAF0E8 0%, #F2D9D9 100%) !important;
+      padding: 80px 40px !important;
+      text-align: center !important;
+    }
+
+    .solution-inner {
+      max-width: 800px !important;
+      margin: 0 auto !important;
+    }
+
+    .solution-text {
+      font-size: 17px !important;
+      color: #3D2B2B !important;
+      line-height: 1.8 !important;
+      margin-bottom: 24px !important;
+    }
+
+    .gold-divider {
+      width: 60px !important;
+      height: 2px !important;
+      background: linear-gradient(90deg, transparent, #C9A84C, transparent) !important;
+      margin: 30px auto !important;
+    }
+
+    /* ===== BENEFITS SECTION ===== */
+    .benefits-section {
+      background: #FDFAF7 !important;
+      padding: 80px 40px !important;
+    }
+
+    .benefits-inner {
+      max-width: 1100px !important;
+      margin: 0 auto !important;
+    }
+
+    .section-header {
+      text-align: center !important;
+      margin-bottom: 56px !important;
+    }
+
+    .benefits-grid {
+      display: grid !important;
+      grid-template-columns: repeat(3, 1fr) !important;
+      gap: 32px !important;
+    }
+
+    .benefit-card {
+      background: linear-gradient(160deg, #FDFAF7 0%, #FAF0E8 100%) !important;
+      border: 1px solid #F2D9D9 !important;
+      border-radius: 24px !important;
+      padding: 40px 32px !important;
+      text-align: center !important;
+      transition: all 0.4s ease !important;
+    }
+
+    .benefit-card:hover {
+      transform: translateY(-6px) !important;
+      box-shadow: 0 20px 50px rgba(139,79,107,0.12) !important;
+      border-color: #E8C4C4 !important;
+    }
+
+    .benefit-icon {
+      width: 70px !important;
+      height: 70px !important;
+      background: linear-gradient(135deg, #F2D9D9 0%, #E8C4C4 100%) !important;
+      border-radius: 50% !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      margin: 0 auto 20px !important;
+      font-size: 28px !important;
+    }
+
+    .benefit-title {
+      font-family: 'Playfair Display', serif !important;
+      font-size: 20px !important;
+      font-weight: 600 !important;
+      color: #3D2B2B !important;
+      margin-bottom: 12px !important;
+    }
+
+    .benefit-text {
+      font-size: 14px !important;
+      color: #6B4E4E !important;
+      line-height: 1.8 !important;
+    }
+
+    /* ===== HOW IT WORKS ===== */
+    .howitworks-section {
+      background: linear-gradient(160deg, #F2D9D9 0%, #FAF0E8 100%) !important;
+      padding: 80px 40px !important;
+    }
+
+    .steps-grid {
+      display: grid !important;
+      grid-template-columns: repeat(3, 1fr) !important;
+      gap: 40px !important;
+      max-width: 900px !important;
+      margin: 0 auto !important;
+      text-align: center !important;
+    }
+
+    .step-number {
+      font-family: 'Playfair Display', serif !important;
+      font-size: 48px !important;
+      font-weight: 700 !important;
+      color: #E8C4C4 !important;
+      display: block !important;
+      line-height: 1 !important;
+      margin-bottom: 8px !important;
+    }
+
+    .step-title {
+      font-family: 'Playfair Display', serif !important;
+      font-size: 18px !important;
+      font-weight: 600 !important;
+      color: #3D2B2B !important;
+      margin-bottom: 8px !important;
+    }
+
+    .step-desc {
+      font-size: 14px !important;
+      color: #6B4E4E !important;
+      line-height: 1.7 !important;
+    }
+
+    /* ===== WHAT'S INSIDE ===== */
+    .inside-section {
+      background: #FDFAF7 !important;
+      padding: 80px 40px !important;
+    }
+
+    .inside-inner {
+      max-width: 1000px !important;
+      margin: 0 auto !important;
+    }
+
+    .inside-grid {
+      display: grid !important;
+      grid-template-columns: 1fr 1fr !important;
+      gap: 50px !important;
+      align-items: center !important;
+    }
+
+    .inside-img-container {
+      border-radius: 20px !important;
+      overflow: hidden !important;
+      box-shadow: 0 20px 60px rgba(139,79,107,0.15) !important;
+      aspect-ratio: 4/3 !important;
+      background: linear-gradient(135deg, #F2D9D9 0%, #E8C4C4 100%) !important;
+    }
+
+    .inside-img-container img {
+      width: 100% !important;
+      height: 100% !important;
+      object-fit: cover !important;
+      display: block !important;
+    }
+
+    .inside-list {
+      list-style: none !important;
+    }
+
+    .inside-list li {
+      display: flex !important;
+      gap: 14px !important;
+      align-items: flex-start !important;
+      padding: 12px 0 !important;
+      border-bottom: 1px solid #F2D9D9 !important;
+    }
+
+    .inside-list li:last-child {
+      border-bottom: none !important;
+    }
+
+    .inside-dot {
+      width: 8px !important;
+      height: 8px !important;
+      background: linear-gradient(135deg, #C9A84C, #8B4F6B) !important;
+      border-radius: 50% !important;
+      margin-top: 7px !important;
+      flex-shrink: 0 !important;
+    }
+
+    /* ===== SOCIAL PROOF ===== */
+    .social-proof-section {
+      background: linear-gradient(160deg, #FAF0E8 0%, #F2D9D9 60%, #FAF0E8 100%) !important;
+      padding: 80px 40px !important;
+    }
+
+    .testimonials-grid {
+      display: grid !important;
+      grid-template-columns: repeat(2, 1fr) !important;
+      gap: 24px !important;
+      max-width: 1000px !important;
+      margin: 0 auto !important;
+    }
+
+    .testimonial-card {
+      background: #FDFAF7 !important;
+      border-radius: 20px !important;
+      padding: 32px !important;
+      box-shadow: 0 8px 30px rgba(139,79,107,0.08) !important;
+      transition: all 0.3s ease !important;
+      position: relative !important;
+    }
+
+    .testimonial-card:hover {
+      transform: translateY(-4px) !important;
+      box-shadow: 0 16px 40px rgba(139,79,107,0.14) !important;
+    }
+
+    .quote-mark {
+      font-family: 'Playfair Display', serif !important;
+      font-size: 60px !important;
+      line-height: 0.5 !important;
+      color: #E8C4C4 !important;
+      display: block !important;
+      margin-bottom: 16px !important;
+    }
+
+    .stars {
+      color: #C9A84C !important;
+      font-size: 16px !important;
+      letter-spacing: 2px !important;
+      display: block !important;
+      margin-bottom: 12px !important;
+    }
+
+    .testimonial-text {
+      font-size: 14px !important;
+      color: #3D2B2B !important;
+      line-height: 1.8 !important;
+      font-style: italic !important;
+      margin-bottom: 20px !important;
+    }
+
+    .testimonial-author {
+      display: flex !important;
+      align-items: center !important;
+      gap: 12px !important;
+    }
+
+    .author-avatar {
+      width: 46px !important;
+      height: 46px !important;
+      border-radius: 50% !important;
+      overflow: hidden !important;
+      background: linear-gradient(135deg, #E8C4C4, #C9A84C) !important;
+      flex-shrink: 0 !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      font-family: 'Playfair Display', serif !important;
+      font-size: 16px !important;
+      font-weight: 700 !important;
+      color: #FDFAF7 !important;
+    }
+
+    .author-name {
+      font-family: 'Playfair Display', serif !important;
+      font-size: 15px !important;
+      font-weight: 600 !important;
+      color: #3D2B2B !important;
+      display: block !important;
+    }
+
+    .author-role {
+      font-size: 12px !important;
+      color: #9E7A7A !important;
+    }
+
+    /* ===== PACKAGES FULL SECTION ===== */
+    .packages-section {
+      background: #FDFAF7 !important;
+      padding: 80px 40px !important;
+    }
+
+    .packages-full-grid {
+      display: grid !important;
+      grid-template-columns: repeat(3, 1fr) !important;
+      gap: 24px !important;
+      max-width: 1100px !important;
+      margin: 0 auto !important;
+      align-items: start !important;
+    }
+
+    .package-full-card {
+      border: 1.5px solid #E8C4C4 !important;
+      border-radius: 24px !important;
+      overflow: hidden !important;
+      background: #FDFAF7 !important;
+      transition: all 0.3s ease !important;
+      position: relative !important;
+    }
+
+    .package-full-card:hover {
+      box-shadow: 0 20px 50px rgba(139,79,107,0.14) !important;
+      transform: translateY(-4px) !important;
+    }
+
+    .package-full-card.featured {
+      border-color: #8B4F6B !important;
+      border-width: 2px !important;
+      box-shadow: 0 12px 40px rgba(139,79,107,0.18) !important;
+      transform: scale(1.03) !important;
+    }
+
+    .package-full-card.featured:hover {
+      transform: scale(1.03) translateY(-4px) !important;
+    }
+
+    .pkg-header {
+      padding: 28px 28px 20px !important;
+      text-align: center !important;
+      border-bottom: 1px solid #F2D9D9 !important;
+    }
+
+    .pkg-header.featured-header {
+      background: linear-gradient(135deg, #8B4F6B 0%, #6B3A50 100%) !important;
+    }
+
+    .pkg-name {
+      font-family: 'Playfair Display', serif !important;
+      font-size: 22px !important;
+      font-weight: 700 !important;
+      color: #3D2B2B !important;
+      display: block !important;
+      margin-bottom: 4px !important;
+    }
+
+    .pkg-header.featured-header .pkg-name {
+      color: #FDFAF7 !important;
+    }
+
+    .pkg-subtitle-text {
+      font-size: 12px !important;
+      color: #9E7A7A !important;
+      font-style: italic !important;
+      display: block !important;
+    }
+
+    .pkg-header.featured-header .pkg-subtitle-text {
+      color: #F2D9D9 !important;
+    }
+
+    .pkg-body {
+      padding: 24px 28px !important;
+    }
+
+    .pkg-items-list {
+      list-style: none !important;
+      margin-bottom: 24px !important;
+    }
+
+    .pkg-items-list li {
+      display: flex !important;
+      align-items: flex-start !important;
+      gap: 10px !important;
+      font-size: 14px !important;
+      color: #3D2B2B !important;
+      padding: 8px 0 !important;
+      border-bottom: 1px dashed #F2D9D9 !important;
+    }
+
+    .pkg-items-list li:last-child {
+      border-bottom: none !important;
+    }
+
+    .pkg-check {
+      color: #C9A84C !important;
+      font-size: 15px !important;
+      flex-shrink: 0 !important;
+      margin-top: 1px !important;
+    }
+
+    .pkg-price-block {
+      text-align: center !important;
+      padding: 20px 0 !important;
+      border-top: 1px solid #F2D9D9 !important;
+      border-bottom: 1px solid #F2D9D9 !important;
+      margin-bottom: 20px !important;
+    }
+
+    .pkg-old-price {
+      font-size: 13px !important;
+      color: #B89A9A !important;
+      text-decoration: line-through !important;
+      display: block !important;
+      margin-bottom: 4px !important;
+    }
+
+    .pkg-new-price {
+      font-family: 'Playfair Display', serif !important;
+      font-size: 40px !important;
+      font-weight: 700 !important;
+      color: #8B4F6B !important;
+      display: block !important;
+      line-height: 1 !important;
+      margin-bottom: 6px !important;
+    }
+
+    .pkg-saving {
+      font-size: 12px !important;
+      color: #C9A84C !important;
+      font-weight: 700 !important;
+      background: #FAF0E8 !important;
+      padding: 4px 12px !important;
+      border-radius: 50px !important;
+      display: inline-block !important;
+    }
+
+    .pkg-cta-btn {
+      display: block !important;
+      width: 100% !important;
+      padding: 14px 20px !important;
+      border-radius: 50px !important;
+      font-family: 'Lato', sans-serif !important;
+      font-size: 14px !important;
+      font-weight: 700 !important;
+      letter-spacing: 0.06em !important;
+      text-align: center !important;
+      text-decoration: none !important;
+      transition: all 0.3s ease !important;
+      border: none !important;
+      cursor: pointer !important;
+      text-transform: uppercase !important;
+    }
+
+    .pkg-cta-btn.primary {
+      background: linear-gradient(135deg, #8B4F6B 0%, #6B3A50 100%) !important;
+      color: #FDFAF7 !important;
+    }
+
+    .pkg-cta-btn.primary:hover {
+      box-shadow: 0 8px 25px rgba(139,79,107,0.45) !important;
+      transform: translateY(-2px) !important;
+    }
+
+    .pkg-cta-btn.gold-btn {
+      background: linear-gradient(135deg, #C9A84C 0%, #A8893C 100%) !important;
+      color: #FDFAF7 !important;
+    }
+
+    .pkg-cta-btn.gold-btn:hover {
+      box-shadow: 0 8px 25px rgba(201,168,76,0.45) !important;
+      transform: translateY(-2px) !important;
+    }
+
+    .pkg-cta-btn.outline-btn {
+      background: transparent !important;
+      color: #8B4F6B !important;
+      border: 2px solid #8B4F6B !important;
+    }
+
+    .pkg-cta-btn.outline-btn:hover {
+      background: #8B4F6B !important;
+      color: #FDFAF7 !important;
+    }
+
+    .pkg-note {
+      font-size: 11px !important;
+      color: #9E7A7A !important;
+      text-align: center !important;
+      margin-top: 10px !important;
+      font-style: italic !important;
+    }
+
+    .pkg-popular-ribbon {
+      position: absolute !important;
+      top: -1px !important;
+      left: 50% !important;
+      transform: translateX(-50%) !important;
+      background: linear-gradient(135deg, #C9A84C 0%, #A8893C 100%) !important;
+      color: #FDFAF7 !important;
+      font-size: 10px !important;
+      font-weight: 700 !important;
+      font-family: 'Lato', sans-serif !important;
+      letter-spacing: 0.12em !important;
+      text-transform: uppercase !important;
+      padding: 5px 16px !important;
+      border-radius: 0 0 12px 12px !important;
+    }
+
+    /* ===== GUARANTEE ===== */
+    .guarantee-section {
+      background: linear-gradient(160deg, #FAF0E8 0%, #F2D9D9 100%) !important;
+      padding: 80px 40px !important;
+    }
+
+    .guarantee-inner {
+      max-width: 800px !important;
+      margin: 0 auto !important;
+      text-align: center !important;
+    }
+
+    .guarantee-badge-large {
+      width: 120px !important;
+      height: 120px !important;
+      background: linear-gradient(135deg, #8B4F6B 0%, #6B3A50 100%) !important;
+      border-radius: 50% !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      margin: 0 auto 30px !important;
+      box-shadow: 0 10px 30px rgba(139,79,107,0.3) !important;
+      font-size: 40px !important;
+    }
+
+    /* ===== CTA SECTION ===== */
+    .cta-section {
+      background: linear-gradient(135deg, #3D2B2B 0%, #6B3A50 50%, #8B4F6B 100%) !important;
+      padding: 80px 40px !important;
+      text-align: center !important;
+    }
+
+    .cta-section h2 {
+      color: #FDFAF7 !important;
+      margin-bottom: 16px !important;
+    }
+
+    .cta-section p {
+      color: #F2D9D9 !important;
+      font-size: 17px !important;
+      margin-bottom: 40px !important;
+      font-style: italic !important;
+    }
+
+    .cta-main-btn {
+      display: inline-block !important;
+      background: linear-gradient(135deg, #C9A84C 0%, #A8893C 100%) !important;
+      color: #FDFAF7 !important;
+      padding: 18px 48px !important;
+      border-radius: 50px !important;
+      font-family: 'Lato', sans-serif !important;
+      font-size: 16px !important;
+      font-weight: 700 !important;
+      letter-spacing: 0.08em !important;
+      text-transform: uppercase !important;
+      text-decoration: none !important;
+      transition: all 0.3s ease !important;
+      border: none !important;
+      cursor: pointer !important;
+      box-shadow: 0 8px 30px rgba(201,168,76,0.4) !important;
+    }
+
+    .cta-main-btn:hover {
+      transform: translateY(-3px) !important;
+      box-shadow: 0 14px 40px rgba(201,168,76,0.55) !important;
+    }
+
+    .cta-sub {
+      font-size: 13px !important;
+      color: #E8C4C4 !important;
+      margin-top: 20px !important;
+      display: block !important;
+    }
+
+    .urgency-count {
+      display: inline-flex !important;
+      align-items: center !important;
+      gap: 8px !important;
+      background: rgba(255,255,255,0.1) !important;
+      border: 1px solid rgba(242,217,217,0.3) !important;
+      color: #F2D9D9 !important;
+      padding: 10px 24px !important;
+      border-radius: 50px !important;
+      font-size: 13px !important;
+      font-weight: 700 !important;
+      margin-bottom: 32px !important;
+      letter-spacing: 0.05em !important;
+    }
+
+    /* ===== FAQ ===== */
+    .faq-section {
+      background: #FDFAF7 !important;
+      padding: 80px 40px !important;
+    }
+
+    .faq-inner {
+      max-width: 800px !important;
+      margin: 0 auto !important;
+    }
+
+    .faq-item {
+      border: 1px solid #F2D9D9 !important;
+      border-radius: 16px !important;
+      margin-bottom: 12px !important;
+      overflow: hidden !important;
+      background: #FDFAF7 !important;
+      transition: all 0.3s ease !important;
+    }
+
+    .faq-item:hover {
+      border-color: #E8C4C4 !important;
+      box-shadow: 0 4px 15px rgba(139,79,107,0.08) !important;
+    }
+
+    .faq-question {
+      padding: 20px 24px !important;
+      font-family: 'Playfair Display', serif !important;
+      font-size: 17px !important;
+      font-weight: 600 !important;
+      color: #3D2B2B !important;
+      cursor: pointer !important;
+      display: flex !important;
+      justify-content: space-between !important;
+      align-items: center !important;
+      gap: 16px !important;
+      list-style: none !important;
+      user-select: none !important;
+    }
+
+    .faq-question::-webkit-details-marker { display: none !important; }
+
+    .faq-arrow {
+      width: 24px !important;
+      height: 24px !important;
+      border-radius: 50% !important;
+      background: #F2D9D9 !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      flex-shrink: 0 !important;
+      color: #8B4F6B !important;
+      font-size: 14px !important;
+      font-weight: 700 !important;
+    }
+
+    .faq-answer {
+      padding: 0 24px 20px !important;
+      font-size: 15px !important;
+      color: #6B4E4E !important;
+      line-height: 1.8 !important;
+    }
+
+    /* ===== FINAL CTA ===== */
+    .final-cta {
+      background: linear-gradient(160deg, #FAF0E8 0%, #F2D9D9 100%) !important;
+      padding: 80px 40px !important;
+      text-align: center !important;
+    }
+
+    .final-cta-inner {
+      max-width: 700px !important;
+      margin: 0 auto !important;
+    }
+
+    /* ===== FOOTER ===== */
+    .site-footer {
+      background: #3D2B2B !important;
+      padding: 40px !important;
+      text-align: center !important;
+    }
+
+    .footer-links {
+      display: flex !important;
+      justify-content: center !important;
+      gap: 32px !important;
+      flex-wrap: wrap !important;
+      margin-bottom: 20px !important;
+    }
+
+    .footer-links a {
+      color: #E8C4C4 !important;
+      text-decoration: none !important;
+      font-size: 13px !important;
+      transition: color 0.3s ease !important;
+    }
+
+    .footer-links a:hover {
+      color: #C9A84C !important;
+    }
+
+    .footer-copy {
+      font-size: 12px !important;
+      color: #9E7A7A !important;
+    }
+
+    /* ===== UTILITIES ===== */
+    .text-center { text-align: center !important; }
+    .text-gold { color: #C9A84C !important; }
+    .text-pink { color: #8B4F6B !important; }
+    .italic { font-style: italic !important; }
+
+    .mb-8 { margin-bottom: 8px !important; }
+    .mb-16 { margin-bottom: 16px !important; }
+    .mb-24 { margin-bottom: 24px !important; }
+    .mb-32 { margin-bottom: 32px !important; }
+    .mb-40 { margin-bottom: 40px !important; }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 900px) {
+      .hero-inner {
+        flex-direction: column !important;
+        gap: 40px !important;
+      }
+
+      .hero-images {
+        flex: none !important;
+        width: 100% !important;
+      }
+
+      .packages-grid {
+        grid-template-columns: 1fr !important;
+      }
+
+      .benefits-grid {
+        grid-template-columns: 1fr !important;
+        gap: 20px !important;
+      }
+
+      .steps-grid {
+        grid-template-columns: 1fr !important;
+        gap: 32px !important;
+      }
+
+      .testimonials-grid {
+        grid-template-columns: 1fr !important;
+      }
+
+      .packages-full-grid {
+        grid-template-columns: 1fr !important;
+      }
+
+      .package-full-card.featured {
+        transform: none !important;
+      }
+
+      .package-full-card.featured:hover {
+        transform: translateY(-4px) !important;
+      }
+
+      .inside-grid {
+        grid-template-columns: 1fr !important;
+      }
+
+      .trust-inner {
+        gap: 20px !important;
+      }
+
+      .hero { padding: 40px 20px 60px !important; }
+      .section, .problem-section, .solution-section, .benefits-section,
+      .howitworks-section, .inside-section, .social-proof-section,
+      .packages-section, .guarantee-section, .cta-section,
+      .faq-section, .final-cta {
+        padding: 60px 20px !important;
+      }
+
+      .site-header {
+        padding: 14px 20px !important;
+      }
+
+      .header-cta {
+        display: none !important;
+      }
+
+      .footer-links {
+        gap: 16px !important;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .urgency-bar {
+        font-size: 12px !important;
+        padding: 10px 16px !important;
+      }
+
+      .pkg-new-price {
+        font-size: 32px !important;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<!-- URGENCY BAR -->
+<div class="urgency-bar">
+  <span class="pulse">⚠️</span>
+  <strong> Лимитирана серия – само 100 комплекта налични.</strong>
+  Присъедини се към жените, които вече избраха себе си.
+</div>
+
+<!-- HEADER -->
+<header class="site-header">
+  <a href="#" class="logo-text">
+    A.M.I.
+    <span class="logo-sub">A Mindful Inspiration</span>
+  </a>
+  <a href="/checkout" class="header-cta">Вземи своя комплект →</a>
+</header>
+
+
+<!-- ==================== HERO ==================== -->
+<section class="hero">
+  <div class="hero-inner">
+
+    <!-- LEFT: Product Images -->
+    <div class="hero-images">
+      <div class="hero-img-placeholder">
+        <!-- Replace src with your actual product image URL -->
+        <img
+          src="https://ami-inspiration.com/cdn/shop/files/ami-cards-hero.jpg"
+          alt="A.M.I. Карти Любов към Себе си – комплект"
+          onerror="this.style.display='none'; this.parentNode.style.background='linear-gradient(135deg,#F2D9D9 0%,#E8C4C4 50%,#FAF0E8 100%)'"
+        >
+        <div class="badge-float top-right">32 карти</div>
+      </div>
+    </div>
+
+    <!-- RIGHT: Info & Packages -->
+    <div class="hero-content">
+      <div class="brand-name">A.M.I. — A Mindful Inspiration</div>
+
+      <h1 class="hero-tagline mb-8">
+        Любов към Себе си<br>
+        <em>– започва с 10 минути на ден</em>
+      </h1>
+
+      <p class="hero-subtitle mb-24">
+        32 карти за осъзната грижа към себе си + QR код с медитации
+      </p>
+
+      <ul class="hero-benefits-list mb-28">
+        <li>
+          <span class="check-icon">✦</span>
+          <span>Постави <strong>себе си на първо място</strong> без чувство за вина</span>
+        </li>
+        <li>
+          <span class="check-icon">✦</span>
+          <span>Само <strong>10 минути на ден</strong> за повече спокойствие и вътрешен баланс</span>
+        </li>
+        <li>
+          <span class="check-icon">✦</span>
+          <span>Утвърждение + действие + медитация – <strong>промяна, която се превръща в навик</strong></span>
+        </li>
+      </ul>
+
+      <!-- PACKAGE SELECTOR -->
+      <span class="packages-label">Избери своя комплект:</span>
+      <div class="packages-grid">
+
+        <div class="package-card">
+          <span class="package-name">Само Картите</span>
+          <p class="package-includes">Карти A.M.I.<br>+ QR медитации</p>
+          <span class="package-price-old">88.50€</span>
+          <span class="package-price-new">26€</span>
+          <span class="package-save">Спестяваш 62.50€</span>
+          <a href="/checkout" class="pkg-btn">Избирам</a>
+        </div>
+
+        <div class="package-card popular">
+          <span class="popular-badge">★ Най-популярен</span>
+          <span class="package-name">Ритуалът</span>
+          <p class="package-includes">Карти + Дневник<br>"Пътят към Себе си"</p>
+          <span class="package-price-old">137€</span>
+          <span class="package-price-new">49€</span>
+          <span class="package-save">Спестяваш 88€</span>
+          <a href="/checkout" class="pkg-btn">Избирам</a>
+        </div>
+
+        <div class="package-card">
+          <span class="package-name">Пълна Трансформация</span>
+          <p class="package-includes">Карти + Дневник<br>+ Гривна "Женска хармония"</p>
+          <span class="package-price-old">177€</span>
+          <span class="package-price-new">67€</span>
+          <span class="package-save">Спестяваш 110€</span>
+          <a href="/checkout" class="pkg-btn gold">Избирам</a>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- TRUST STRIP -->
+<div class="trust-strip">
+  <div class="trust-inner">
+    <div class="trust-item">
+      <span class="trust-icon">🚚</span>
+      <span>Безплатна доставка над 50€</span>
+    </div>
+    <div class="trust-item">
+      <span class="trust-icon">🛡️</span>
+      <span>30-дневна гаранция за промяна</span>
+    </div>
+    <div class="trust-item">
+      <span class="trust-icon">📦</span>
+      <span>Лимитирана серия – 100 комплекта</span>
+    </div>
+    <div class="trust-item">
+      <span class="trust-icon">✨</span>
+      <span>Ръчно изработена подаръчна кутия</span>
+    </div>
+  </div>
+</div>
+
+
+<!-- ==================== PROBLEM ==================== -->
+<section class="problem-section">
+  <div class="problem-inner">
+    <span class="section-label">Познаваш ли това?</span>
+    <h2 class="mb-16">Събуждаш се уморена<br><em>още преди деня да е започнал.</em></h2>
+
+    <p class="problem-intro mb-40">
+      Всеки ден правиш всичко за всички – само не и за себе си.
+    </p>
+
+    <ul class="pain-list">
+      <li>
+        <span class="pain-emoji">😶</span>
+        <span>Казваш „да" дори когато искаш да кажеш „не" – защото се страхуваш да не разочароваш някого</span>
+      </li>
+      <li>
+        <span class="pain-emoji">🪞</span>
+        <span>Гледаш се в огледалото и не виждаш жената, която знаеш, че е там – само умора и съмнение</span>
+      </li>
+      <li>
+        <span class="pain-emoji">💭</span>
+        <span>Чувстваш, че трябва да се доказваш непрекъснато – на работа, в любовта, пред себе си</span>
+      </li>
+      <li>
+        <span class="pain-emoji">🔋</span>
+        <span>Дори когато имаш свободно време, не знаеш как да се грижиш за себе си без чувство за вина</span>
+      </li>
+      <li>
+        <span class="pain-emoji">💔</span>
+        <span>Позволяваш личните ти граници да бъдат прекрачвани, защото дълбоко вътре се питаш дали изобщо ги заслужаваш</span>
+      </li>
+    </ul>
+
+    <p class="problem-close">
+      Не е слабост. Просто никой не ти е показал как.
+    </p>
+  </div>
+</section>
+
+
+<!-- ==================== SOLUTION ==================== -->
+<section class="solution-section">
+  <div class="solution-inner">
+    <span class="section-label">Решението</span>
+    <h2 class="mb-24">Представи си да започваш всяка сутрин<br><em>с послание точно за теб.</em></h2>
+
+    <div class="gold-divider"></div>
+
+    <p class="solution-text">
+      Картите A.M.I. са създадени за жената, която е готова да спре да чака разрешение, за да се обича.
+      Всяка карта е малка врата – към себе си, към спокойствието, към жената, която вече си.
+    </p>
+
+    <p class="solution-text">
+      Не нужен часове медитация. Не нужни скъпи ретрийти. Само <strong>10 минути сутринта</strong> –
+      едно утвърждение, едно малко действие, една медитация. И деня вече тече по-леко.
+    </p>
+
+    <div class="gold-divider"></div>
+
+    <p style="font-family: 'Playfair Display', serif; font-size: 20px; font-style: italic; color: #8B4F6B; font-weight: 600;">
+      „Аз съм ценност и се грижа за себе си с любов и уважение."
+    </p>
+    <p style="font-size: 13px; color: #9E7A7A; margin-top: 8px;">– от картите A.M.I.</p>
+  </div>
+</section>
+
+
+<!-- ==================== BENEFITS ==================== -->
+<section class="benefits-section">
+  <div class="benefits-inner">
+    <div class="section-header">
+      <span class="section-label">Три ключови предимства</span>
+      <h2>Какво се променя с A.M.I.</h2>
+    </div>
+
+    <div class="benefits-grid">
+
+      <div class="benefit-card">
+        <div class="benefit-icon">🌸</div>
+        <h3 class="benefit-title">Себе си на първо място</h3>
+        <p class="benefit-text">
+          Картите A.M.I. ти напомнят всяка сутрин, че грижата за себе си не е лукс – тя е твоето право.
+          Личното ти време и внимание вече не идват последни. <em>Без вина. Без извинения.</em>
+        </p>
+      </div>
+
+      <div class="benefit-card">
+        <div class="benefit-icon">⏱️</div>
+        <h3 class="benefit-title">10 минути. Цял ден разлика.</h3>
+        <p class="benefit-text">
+          Комбинацията от утвърждение + действие + медитация работи защото е малка, конкретна и повторяема.
+          Така <em>промяната се превръща в навик</em> – без сила на воля, само с постоянство.
+        </p>
+      </div>
+
+      <div class="benefit-card">
+        <div class="benefit-icon">☀️</div>
+        <h3 class="benefit-title">Енергия за целия ден</h3>
+        <p class="benefit-text">
+          Когато сутринта тръгва от вътрешен баланс, а не от тревожност – всичко останало тече по-леко.
+          По-спокойни решения, <em>по-добро настроение</em>, по-ясни граници.
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ==================== HOW IT WORKS ==================== -->
+<section class="howitworks-section">
+  <div class="container">
+    <div class="section-header text-center">
+      <span class="section-label">Твоят ритуал</span>
+      <h2>Три стъпки. Всяка сутрин.</h2>
+    </div>
+
+    <div class="steps-grid">
+      <div>
+        <span class="step-number">01</span>
+        <h3 class="step-title">Извади карта</h3>
+        <p class="step-desc">
+          Всяка сутрин взимаш една карта – интуитивно, без да мислиш.
+          Тя винаги е точно тази, от която имаш нужда.
+        </p>
+      </div>
+      <div>
+        <span class="step-number">02</span>
+        <h3 class="step-title">Прочети и усети</h3>
+        <p class="step-desc">
+          Утвърждението е за четене. Малкото действие – за правене.
+          Двете заедно отварят нещо в теб, което не се нуждае от обяснение.
+        </p>
+      </div>
+      <div>
+        <span class="step-number">03</span>
+        <h3 class="step-title">Медитирай (по желание)</h3>
+        <p class="step-desc">
+          Сканирай QR кода на картата и влез в 5-минутна медитация, специално подбрана за нейното послание.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ==================== WHAT'S INSIDE ==================== -->
+<section class="inside-section">
+  <div class="inside-inner">
+    <div class="section-header text-center">
+      <span class="section-label">В комплекта</span>
+      <h2>Всичко, което е вътре</h2>
+    </div>
+
+    <div class="inside-grid">
+      <div class="inside-img-container">
+        <!-- Replace src with your actual product image URL -->
+        <img
+          src="https://ami-inspiration.com/cdn/shop/files/ami-cards-open.jpg"
+          alt="A.M.I. Карти – съдържание на кутията"
+          onerror="this.style.display='none'; this.parentNode.style.background='linear-gradient(135deg,#FAF0E8 0%,#E8C4C4 100%)'"
+        >
+      </div>
+
+      <div>
+        <ul class="inside-list">
+          <li>
+            <div class="inside-dot"></div>
+            <div>
+              <strong>32 карти за осъзната грижа</strong><br>
+              <span style="font-size:13px;color:#9E7A7A;">Всяка с утвърждение, малко действие и QR код</span>
+            </div>
+          </li>
+          <li>
+            <div class="inside-dot"></div>
+            <div>
+              <strong>QR код с подбрани медитации</strong><br>
+              <span style="font-size:13px;color:#9E7A7A;">Специално съчетани с всяка карта</span>
+            </div>
+          </li>
+          <li>
+            <div class="inside-dot"></div>
+            <div>
+              <strong>Луксозна подаръчна кутия</strong><br>
+              <span style="font-size:13px;color:#9E7A7A;">Идеална за себе си или като подарък</span>
+            </div>
+          </li>
+          <li>
+            <div class="inside-dot"></div>
+            <div>
+              <strong>Дървена поставка за карта</strong><br>
+              <span style="font-size:13px;color:#9E7A7A;">Показвай дневното си послание на видно място</span>
+            </div>
+          </li>
+          <li>
+            <div class="inside-dot"></div>
+            <div>
+              <strong>Лично послание от А.И.</strong><br>
+              <span style="font-size:13px;color:#9E7A7A;">Написано с ръка, точно за теб</span>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ==================== SOCIAL PROOF ==================== -->
+<section class="social-proof-section">
+  <div class="container">
+    <div class="section-header text-center">
+      <span class="section-label">Истински истории</span>
+      <h2>Жените, които вече избраха себе си</h2>
+    </div>
+
+    <div class="testimonials-grid">
+
+      <div class="testimonial-card">
+        <span class="quote-mark">"</span>
+        <span class="stars">★★★★★</span>
+        <p class="testimonial-text">
+          Бях скептична – мислех, че картите са просто красива кутия.
+          Но след първата седмица осъзнах, че за пръв път от години
+          започвам деня за себе си, а не за всички около мен.
+          Малкото действие на всяка карта е магическото – конкретно е,
+          изпълними е и те кара да се чувстваш, че наистина правиш нещо за себе си.
+        </p>
+        <div class="testimonial-author">
+          <div class="author-avatar">М</div>
+          <div>
+            <span class="author-name">Мария Д.</span>
+            <span class="author-role">Майка на две деца, 38 г. • София</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="testimonial-card">
+        <span class="quote-mark">"</span>
+        <span class="stars">★★★★★</span>
+        <p class="testimonial-text">
+          Като йога инструктор съм виждала много инструменти за mindfulness,
+          но картите A.M.I. имат нещо специално – те са едновременно женствени и дълбоки.
+          Слагам картата на видно място в студиото и тя напомня не само на мен,
+          но и на всички мои ученички. Утвърждението „Аз съм ценност"
+          ми се върти в главата цял ден.
+        </p>
+        <div class="testimonial-author">
+          <div class="author-avatar">Р</div>
+          <div>
+            <span class="author-name">Радост И.</span>
+            <span class="author-role">Йога инструктор, 31 г. • Пловдив</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="testimonial-card">
+        <span class="quote-mark">"</span>
+        <span class="stars">★★★★★</span>
+        <p class="testimonial-text">
+          Управлявам собствен бизнес и дълго време смятах,
+          че нямам право да се спирам. Картите ми показаха,
+          че паузата не е слабост – тя е стратегия.
+          След месец с A.M.I. взимам по-ясни решения,
+          говоря по-директно и спрях да се извинявам за това кой съм.
+          Препоръчвам ги на всяка жена, която е забравила себе си в ролите си.
+        </p>
+        <div class="testimonial-author">
+          <div class="author-avatar">В</div>
+          <div>
+            <span class="author-name">Виктория Н.</span>
+            <span class="author-role">Предприемач, 43 г. • Варна</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="testimonial-card">
+        <span class="quote-mark">"</span>
+        <span class="stars">★★★★★</span>
+        <p class="testimonial-text">
+          Купих ги за себе си като подарък за рождения ми ден
+          и се оказа най-добрият избор. Като дизайнер работя с красота всеки ден,
+          но тези карти ми показаха красотата вътре в мен.
+          Медитациите с QR кода са невероятно добре подбрани –
+          точно когато мислиш, че просто ще слушаш,
+          се оказва, че плачеш от облекчение.
+        </p>
+        <div class="testimonial-author">
+          <div class="author-avatar">С</div>
+          <div>
+            <span class="author-name">Симона К.</span>
+            <span class="author-role">Графичен дизайнер, 29 г. • Бургас</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ==================== PACKAGES FULL ==================== -->
+<section class="packages-section">
+  <div class="container">
+    <div class="section-header text-center">
+      <span class="section-label">Избери своя комплект</span>
+      <h2>Три пътя към себе си.</h2>
+      <p style="color:#6B4E4E; margin-top:12px; font-style:italic; font-size:16px;">Всеки пакет е неустоима оферта. Избери според сърцето си.</p>
+    </div>
+
+    <div class="packages-full-grid">
+
+      <!-- PACK 1 -->
+      <div class="package-full-card">
+        <div class="pkg-header">
+          <span class="pkg-name">Само Картите</span>
+          <span class="pkg-subtitle-text">Твоят старт към себе си</span>
+        </div>
+        <div class="pkg-body">
+          <ul class="pkg-items-list">
+            <li>
+              <span class="pkg-check">✦</span>
+              <span><strong>32 карти A.M.I.</strong> „Любов към Себе си" с утвърждение, действие и QR медитация</span>
+            </li>
+            <li>
+              <span class="pkg-check">✦</span>
+              <span>Луксозна подаръчна кутия с панделка</span>
+            </li>
+            <li>
+              <span class="pkg-check">✦</span>
+              <span>Дървена поставка за карта A.M.I.</span>
+            </li>
+            <li>
+              <span class="pkg-check">✦</span>
+              <span>QR код с подбрани медитации</span>
+            </li>
+          </ul>
+          <div class="pkg-price-block">
+            <span class="pkg-old-price">Редовна цена: 88.50€</span>
+            <span class="pkg-new-price">26€</span>
+            <span class="pkg-saving">✦ Спестяваш 62.50€</span>
+          </div>
+          <a href="/checkout" class="pkg-cta-btn outline-btn">Избирам Картите</a>
+          <p class="pkg-note">Безплатна доставка · Сигурно плащане</p>
+        </div>
+      </div>
+
+      <!-- PACK 2 - FEATURED -->
+      <div class="package-full-card featured">
+        <span class="pkg-popular-ribbon">★ Най-популярен избор</span>
+        <div class="pkg-header featured-header">
+          <span class="pkg-name">Ритуалът</span>
+          <span class="pkg-subtitle-text">Карти + Дневник за пълен ритуал</span>
+        </div>
+        <div class="pkg-body">
+          <ul class="pkg-items-list">
+            <li>
+              <span class="pkg-check">✦</span>
+              <span><strong>32 карти A.M.I.</strong> „Любов към Себе си"</span>
+            </li>
+            <li>
+              <span class="pkg-check">✦</span>
+              <span><strong>Дневник „Пътят към Себе си"</strong> – за трансформация и осъзнатост</span>
+            </li>
+            <li>
+              <span class="pkg-check">✦</span>
+              <span>Луксозна подаръчна кутия + дървена поставка</span>
+            </li>
+            <li>
+              <span class="pkg-check">✦</span>
+              <span>QR код с медитации за всяка карта</span>
+            </li>
+            <li>
+              <span class="pkg-check">✦</span>
+              <span>Лично послание, написано с ръка</span>
+            </li>
+          </ul>
+          <div class="pkg-price-block">
+            <span class="pkg-old-price">Стойност: 137€</span>
+            <span class="pkg-new-price">49€</span>
+            <span class="pkg-saving">✦ Спестяваш 88€ – 64% отстъпка</span>
+          </div>
+          <a href="/checkout" class="pkg-cta-btn primary">✦ Искам Ритуала</a>
+          <p class="pkg-note">Безплатна доставка · Сигурно плащане</p>
+        </div>
+      </div>
+
+      <!-- PACK 3 -->
+      <div class="package-full-card">
+        <div class="pkg-header">
+          <span class="pkg-name">Пълна Трансформация</span>
+          <span class="pkg-subtitle-text">Карти + Дневник + Гривна талисман</span>
+        </div>
+        <div class="pkg-body">
+          <ul class="pkg-items-list">
+            <li>
+              <span class="pkg-check">✦</span>
+              <span><strong>32 карти A.M.I.</strong> „Любов към Себе си"</span>
+            </li>
+            <li>
+              <span class="pkg-check">✦</span>
+              <span><strong>Дневник „Пътят към Себе си"</strong></span>
+            </li>
+            <li>
+              <span class="pkg-check">✦</span>
+              <span><strong>Енергийна гривна „Женска хармония"</strong> – розов кварц и лунен камък в злато</span>
+            </li>
+            <li>
+              <span class="pkg-check">✦</span>
+              <span>Луксозна кутия + поставка + QR медитации</span>
+            </li>
+            <li>
+              <span class="pkg-check">✦</span>
+              <span>Лично послание + сертификат за автентичност на камъните</span>
+            </li>
+          </ul>
+          <div class="pkg-price-block">
+            <span class="pkg-old-price">Стойност: 177€</span>
+            <span class="pkg-new-price">67€</span>
+            <span class="pkg-saving">✦ Спестяваш 110€ – 62% отстъпка</span>
+          </div>
+          <a href="/checkout" class="pkg-cta-btn gold-btn">✦ Пълната Трансформация</a>
+          <p class="pkg-note">Безплатна доставка · Сигурно плащане</p>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- bump product images row -->
+    <div style="display:flex; justify-content:center; gap:32px; margin-top:48px; flex-wrap:wrap;">
+      <div style="text-align:center; max-width:220px;">
+        <div style="width:220px; height:160px; border-radius:16px; overflow:hidden; background:linear-gradient(135deg,#F2D9D9,#E8C4C4); margin:0 auto 12px; box-shadow:0 8px 25px rgba(139,79,107,0.12);">
+          <!-- Replace src with your actual bracelet image URL -->
+          <img src="https://ami-inspiration.com/cdn/shop/files/ami-bracelet.jpg"
+               alt="Гривна Женска хармония"
+               style="width:100%;height:100%;object-fit:cover;display:block;"
+               onerror="this.style.display='none'">
+        </div>
+        <p style="font-family:'Playfair Display',serif;font-size:14px;color:#3D2B2B;font-weight:600;">Гривна „Женска хармония"</p>
+        <p style="font-size:12px;color:#9E7A7A;">Розов кварц · Лунен камък · Злато</p>
+      </div>
+      <div style="text-align:center; max-width:220px;">
+        <div style="width:220px; height:160px; border-radius:16px; overflow:hidden; background:linear-gradient(135deg,#FAF0E8,#E8C4C4); margin:0 auto 12px; box-shadow:0 8px 25px rgba(139,79,107,0.12);">
+          <!-- Replace src with your actual journal image URL -->
+          <img src="https://ami-inspiration.com/cdn/shop/files/ami-journal.jpg"
+               alt="Дневник Пътят към Себе си"
+               style="width:100%;height:100%;object-fit:cover;display:block;"
+               onerror="this.style.display='none'">
+        </div>
+        <p style="font-family:'Playfair Display',serif;font-size:14px;color:#3D2B2B;font-weight:600;">Дневник „Пътят към Себе си"</p>
+        <p style="font-size:12px;color:#9E7A7A;">За трансформация и осъзнатост</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ==================== GUARANTEE ==================== -->
+<section class="guarantee-section">
+  <div class="guarantee-inner">
+    <div class="guarantee-badge-large">🛡️</div>
+
+    <span class="section-label">Нашата гаранция</span>
+    <h2 class="mb-16">30 дни за вътрешна промяна.<br><em>Или връщаме парите.</em></h2>
+
+    <p style="font-size:17px; color:#6B4E4E; max-width:600px; margin:0 auto 24px; line-height:1.8;">
+      Ако след 30 дни ежедневна практика не усетиш промяна в това как се чувстваш към себе си –
+      ще ти върнем всяка стотинка. Без въпроси. Без бюрокрация.
+    </p>
+
+    <p style="font-size:14px; color:#9E7A7A; font-style:italic;">
+      Защото вярваме толкова дълбоко в силата на тези карти,
+      че рискът е изцяло наш.
+    </p>
+  </div>
+</section>
+
+
+<!-- ==================== URGENCY CTA ==================== -->
+<section class="cta-section">
+  <div class="container">
+    <div class="urgency-count">
+      <span>⚠️</span>
+      <span>Остават само 100 комплекта от тази серия</span>
+    </div>
+
+    <h2 class="mb-16">Готова ли си да избереш себе си?</h2>
+
+    <p>
+      Не чакай „по-добрия момент". Той е сега.
+    </p>
+
+    <a href="/checkout" class="cta-main-btn">
+      ✦ Вземи своя ритуал сега
+    </a>
+
+    <span class="cta-sub">
+      🛡️ 30-дневна гаранция · 🚚 Бърза доставка · 🔒 Сигурно плащане
+    </span>
+  </div>
+</section>
+
+
+<!-- ==================== FAQ ==================== -->
+<section class="faq-section">
+  <div class="faq-inner">
+    <div class="section-header text-center">
+      <span class="section-label">Въпроси и отговори</span>
+      <h2>Имаш въпроси? Имаме отговори.</h2>
+    </div>
+
+    <details class="faq-item" open>
+      <summary class="faq-question">
+        За кого са подходящи картите A.M.I.?
+        <span class="faq-arrow">+</span>
+      </summary>
+      <p class="faq-answer">
+        Картите са създадени специално за жени, които живеят в постоянно напрежение между грижата за другите и забравянето за себе си. Ако се разпознаваш в думи като „ниско самочувствие", „страх от отхвърляне", „не знам как да кажа не" – тези карти са за теб. Не е нужен предишен опит с медитация или духовни практики.
+      </p>
+    </details>
+
+    <details class="faq-item">
+      <summary class="faq-question">
+        Колко време отнема дневният ритуал?
+        <span class="faq-arrow">+</span>
+      </summary>
+      <p class="faq-answer">
+        Само 10 минути на ден. Извади карта (1 мин), прочети утвърждението и направи малкото действие (4 мин), сканирай QR кода за кратка медитация (5 мин). Можеш да го правиш с кафето си или преди да станеш от леглото. Ключът е постоянството, не продължителността.
+      </p>
+    </details>
+
+    <details class="faq-item">
+      <summary class="faq-question">
+        Как работи 30-дневната гаранция?
+        <span class="faq-arrow">+</span>
+      </summary>
+      <p class="faq-answer">
+        Ако след 30 дни редовна практика с картите не усетиш никаква промяна в начина, по който се отнасяш към себе си – просто ни пиши. Ще ти върнем пълната сума без въпроси. Единственото, което искаме, е да си дала честен шанс на ритуала.
+      </p>
+    </details>
+
+    <details class="faq-item">
+      <summary class="faq-question">
+        Мога ли да подаря картите на близка?
+        <span class="faq-arrow">+</span>
+      </summary>
+      <p class="faq-answer">
+        Абсолютно – луксозната подаръчна кутия с панделка е специално създадена и за подаряване. Картите A.M.I. са един от най-смислените подаръци, които можеш да дадеш на жена, която обичаш. При поръчка можеш да добавиш лично послание.
+      </p>
+    </details>
+
+    <details class="faq-item">
+      <summary class="faq-question">
+        Колко бързо ще получа поръчката си?
+        <span class="faq-arrow">+</span>
+      </summary>
+      <p class="faq-answer">
+        Доставката в България е 2-4 работни дни. За международни поръчки – 5-10 работни дни. Всяка поръчка е ръчно пакетирана с внимание. Ще получиш имейл с проследяване веднага щом пакетът е изпратен.
+      </p>
+    </details>
+
+  </div>
+</section>
+
+
+<!-- ==================== FINAL CTA ==================== -->
+<section class="final-cta">
+  <div class="final-cta-inner">
+    <span class="section-label">Последна стъпка</span>
+    <h2 class="mb-16">
+      Вземи своя ритуал.<br>
+      <em>Защото ти го заслужаваш.</em>
+    </h2>
+
+    <p style="font-size:17px; color:#6B4E4E; margin-bottom:32px; font-family:'Playfair Display',serif; font-style:italic;">
+      „Пътят към себе си не започва когато всичко е наред.<br>
+      Той започва когато решиш, че ти имаш значение."
+    </p>
+
+    <a href="/checkout" class="cta-main-btn" style="background:linear-gradient(135deg,#8B4F6B 0%,#6B3A50 100%);box-shadow:0 8px 30px rgba(139,79,107,0.4);">
+      ✦ Да, избирам себе си сега
+    </a>
+
+    <div style="display:flex; justify-content:center; gap:32px; margin-top:32px; flex-wrap:wrap;">
+      <span style="font-size:13px; color:#9E7A7A;">⚠️ Само 100 комплекта</span>
+      <span style="font-size:13px; color:#9E7A7A;">🛡️ 30-дневна гаранция</span>
+      <span style="font-size:13px; color:#9E7A7A;">🚚 Бърза доставка</span>
+      <span style="font-size:13px; color:#9E7A7A;">🔒 Сигурно плащане</span>
+    </div>
+  </div>
+</section>
+
+
+<!-- ==================== FOOTER ==================== -->
+<footer class="site-footer">
+  <p style="font-family:'Playfair Display',serif; font-size:18px; color:#E8C4C4; margin-bottom:8px; font-style:italic;">A.M.I. – A Mindful Inspiration</p>
+  <p style="font-size:12px; color:#9E7A7A; margin-bottom:24px;">Създадено с любов, за жени, които са готови да обичат себе си.</p>
+
+  <div class="footer-links">
+    <a href="https://ami-inspiration.com/obschi-usloviya">Общи условия</a>
+    <a href="https://ami-inspiration.com/politika-za-poveritelnost">Политика за поверителност</a>
+    <a href="https://ami-inspiration.com/dostavka-i-plaschane">Доставка и плащане</a>
+  </div>
+
+  <p class="footer-copy">© 2025 A.M.I. – A Mindful Inspiration. Всички права запазени.</p>
+</footer>
+
+<script>
+  // FAQ accordion arrow toggle
+  document.querySelectorAll('.faq-item').forEach(function(item) {
+    var summary = item.querySelector('.faq-question');
+    var arrow = item.querySelector('.faq-arrow');
+    if (!summary || !arrow) return;
+    function updateArrow() {
+      arrow.textContent = item.open ? '−' : '+';
+    }
+    updateArrow();
+    item.addEventListener('toggle', updateArrow);
+  });
+
+  // Smooth scroll for anchor links
+  document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
+    anchor.addEventListener('click', function(e) {
+      var target = document.querySelector(this.getAttribute('href'));
+      if (target) {
+        e.preventDefault();
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+  });
+
+  // Fade-in on scroll
+  var observer = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        entry.target.style.opacity = '1';
+        entry.target.style.transform = 'translateY(0)';
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.benefit-card, .testimonial-card, .package-full-card, .faq-item').forEach(function(el) {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(20px)';
+    el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+    observer.observe(el);
+  });
+</script>
+
+</body>
+</html>
