@@ -1,0 +1,1143 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+  <meta charset="UTF-8" !important>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Добрият Мъж е Лош Съпруг – Иван Петров | Официална страница</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;1,400;1,700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box !important;
+      margin: 0 !important;
+      padding: 0 !important;
+    }
+
+    :root {
+      --navy: #0d1117 !important;
+      --navy-l: #111827 !important;
+      --navy-m: #1a2332 !important;
+      --burg: #8B0000 !important;
+      --burg-l: #A80000 !important;
+      --gold: #C9A84C !important;
+      --gold-l: #D4AF6A !important;
+      --white: #F5F0E8 !important;
+      --muted: #9CA3AF !important;
+      --dim: #6B7280 !important;
+      --card: #141b27 !important;
+    }
+
+    html { scroll-behavior: smooth !important; }
+
+    body {
+      background-color: #0d1117 !important;
+      color: #F5F0E8 !important;
+      font-family: 'Inter', system-ui, -apple-system, sans-serif !important;
+      line-height: 1.6 !important;
+      -webkit-font-smoothing: antialiased !important;
+    }
+
+    h1, h2, h3, h4 {
+      font-family: 'Playfair Display', Georgia, 'Times New Roman', serif !important;
+      line-height: 1.15 !important;
+    }
+
+    img { max-width: 100% !important; height: auto !important; display: block !important; }
+
+    a { color: inherit !important; text-decoration: none !important; }
+
+    /* ── ANNOUNCEMENT BAR ── */
+    .ann-bar {
+      background: linear-gradient(90deg, #5a0000, #8B0000, #5a0000) !important;
+      padding: 11px 20px !important;
+      text-align: center !important;
+      font-size: 13px !important;
+      font-weight: 500 !important;
+      color: #F5F0E8 !important;
+      letter-spacing: 0.02em !important;
+    }
+    .ann-bar strong { color: #D4AF6A !important; font-weight: 700 !important; }
+
+    /* ── DIVIDER ── */
+    .divider {
+      display: block !important;
+      width: 100% !important;
+      height: 1px !important;
+      background: linear-gradient(90deg, transparent, #C9A84C 30%, #C9A84C 70%, transparent) !important;
+    }
+
+    /* ── HERO ── */
+    .hero {
+      background-color: #0d1117 !important;
+      padding: 64px 24px !important;
+      position: relative !important;
+      overflow: hidden !important;
+    }
+    .hero::before {
+      content: '' !important;
+      position: absolute !important;
+      inset: 0 !important;
+      background:
+        radial-gradient(ellipse at 10% 70%, rgba(139,0,0,0.10) 0%, transparent 55%),
+        radial-gradient(ellipse at 90% 15%, rgba(201,168,76,0.06) 0%, transparent 45%) !important;
+      pointer-events: none !important;
+      z-index: 0 !important;
+    }
+
+    .hero-wrap {
+      max-width: 1180px !important;
+      margin: 0 auto !important;
+      display: flex !important;
+      gap: 52px !important;
+      align-items: flex-start !important;
+      position: relative !important;
+      z-index: 2 !important;
+    }
+
+    /* left 58% */
+    .hero-img-col {
+      flex: 0 0 58% !important;
+    }
+    .hero-img-box {
+      border-radius: 8px !important;
+      overflow: hidden !important;
+      background: linear-gradient(135deg, #1a2332, #0d1117) !important;
+      box-shadow: 0 40px 100px rgba(0,0,0,0.75), 0 0 50px rgba(139,0,0,0.08) !important;
+      min-height: 380px !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+    }
+    .hero-img-box img {
+      width: 100% !important;
+      border-radius: 8px !important;
+    }
+
+    /* right 42% */
+    .hero-cnt-col {
+      flex: 1 !important;
+      padding-top: 4px !important;
+    }
+
+    .badge-limited {
+      display: inline-flex !important;
+      align-items: center !important;
+      gap: 6px !important;
+      background: rgba(168,0,0,0.12) !important;
+      border: 1px solid rgba(168,0,0,0.40) !important;
+      color: #c04040 !important;
+      font-size: 11px !important;
+      font-weight: 700 !important;
+      letter-spacing: 0.12em !important;
+      text-transform: uppercase !important;
+      padding: 6px 14px !important;
+      border-radius: 3px !important;
+      margin-bottom: 20px !important;
+    }
+
+    .hero-author {
+      font-size: 13px !important;
+      color: #C9A84C !important;
+      letter-spacing: 0.18em !important;
+      text-transform: uppercase !important;
+      margin-bottom: 10px !important;
+    }
+
+    .hero-title {
+      font-size: clamp(30px, 3.5vw, 46px) !important;
+      font-weight: 800 !important;
+      color: #F5F0E8 !important;
+      margin-bottom: 18px !important;
+    }
+    .hero-title .red { color: #A80000 !important; font-style: italic !important; }
+
+    .hero-sub {
+      font-size: 15px !important;
+      color: #9CA3AF !important;
+      line-height: 1.75 !important;
+      margin-bottom: 28px !important;
+      font-weight: 300 !important;
+    }
+
+    .hero-checks {
+      list-style: none !important;
+      margin-bottom: 36px !important;
+      display: flex !important;
+      flex-direction: column !important;
+      gap: 12px !important;
+    }
+    .hero-checks li {
+      display: flex !important;
+      align-items: flex-start !important;
+      gap: 10px !important;
+      font-size: 14px !important;
+      color: #9CA3AF !important;
+    }
+    .chk-icon {
+      flex-shrink: 0 !important;
+      width: 20px !important;
+      height: 20px !important;
+      border-radius: 50% !important;
+      border: 1px solid #C9A84C !important;
+      background: rgba(201,168,76,0.10) !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      margin-top: 1px !important;
+      color: #C9A84C !important;
+      font-size: 11px !important;
+      font-weight: 700 !important;
+    }
+    .hero-checks li strong { color: #F5F0E8 !important; }
+
+    /* ── PACKAGES ── */
+    .pkgs {
+      display: grid !important;
+      grid-template-columns: repeat(3, 1fr) !important;
+      gap: 12px !important;
+      margin-bottom: 18px !important;
+    }
+
+    .pkg {
+      background: #141b27 !important;
+      border: 1px solid rgba(201,168,76,0.14) !important;
+      border-radius: 6px !important;
+      padding: 20px 14px !important;
+      position: relative !important;
+      transition: border-color 0.25s, transform 0.25s !important;
+    }
+    .pkg:hover {
+      border-color: rgba(201,168,76,0.40) !important;
+      transform: translateY(-2px) !important;
+    }
+    .pkg.pop {
+      border: 2px solid #C9A84C !important;
+      background: linear-gradient(160deg, #182030, #1a2a3a) !important;
+    }
+    .pop-tag {
+      position: absolute !important;
+      top: -13px !important;
+      left: 50% !important;
+      transform: translateX(-50%) !important;
+      background: linear-gradient(135deg, #C9A84C, #D4AF6A) !important;
+      color: #0d1117 !important;
+      font-size: 9px !important;
+      font-weight: 800 !important;
+      letter-spacing: 0.10em !important;
+      text-transform: uppercase !important;
+      padding: 4px 12px !important;
+      border-radius: 2px !important;
+      white-space: nowrap !important;
+    }
+
+    .pkg-name {
+      font-family: 'Playfair Display', serif !important;
+      font-size: 13px !important;
+      font-weight: 600 !important;
+      color: #F5F0E8 !important;
+      text-align: center !important;
+      margin-bottom: 6px !important;
+    }
+    .pkg.pop .pkg-name { color: #D4AF6A !important; }
+
+    .pkg-old {
+      font-size: 11px !important;
+      color: #6B7280 !important;
+      text-decoration: line-through !important;
+      text-align: center !important;
+      margin-bottom: 2px !important;
+    }
+    .pkg-price {
+      font-family: 'Playfair Display', serif !important;
+      font-size: 28px !important;
+      font-weight: 700 !important;
+      color: #C9A84C !important;
+      text-align: center !important;
+      line-height: 1 !important;
+      margin-bottom: 14px !important;
+    }
+    .pkg-price sup {
+      font-size: 14px !important;
+      vertical-align: top !important;
+      margin-top: 5px !important;
+      display: inline-block !important;
+    }
+
+    .pkg-feats {
+      list-style: none !important;
+      margin-bottom: 16px !important;
+      display: flex !important;
+      flex-direction: column !important;
+      gap: 6px !important;
+    }
+    .pkg-feats li {
+      font-size: 11px !important;
+      color: #9CA3AF !important;
+      display: flex !important;
+      align-items: flex-start !important;
+      gap: 5px !important;
+      line-height: 1.4 !important;
+    }
+    .pkg-feats li .y { color: #C9A84C !important; flex-shrink: 0 !important; }
+    .pkg-feats li .n { color: #374151 !important; flex-shrink: 0 !important; }
+    .pkg-feats li.off { color: #374151 !important; }
+
+    .pkg-btn {
+      display: block !important;
+      width: 100% !important;
+      padding: 11px 10px !important;
+      background: linear-gradient(135deg, #8B0000, #5a0000) !important;
+      color: #F5F0E8 !important;
+      font-family: 'Inter', sans-serif !important;
+      font-size: 10px !important;
+      font-weight: 700 !important;
+      letter-spacing: 0.10em !important;
+      text-transform: uppercase !important;
+      text-align: center !important;
+      border-radius: 3px !important;
+      border: none !important;
+      cursor: pointer !important;
+      transition: all 0.25s !important;
+    }
+    .pkg-btn:hover { background: linear-gradient(135deg, #A80000, #8B0000) !important; transform: translateY(-1px) !important; }
+    .pkg-btn.pop-btn {
+      background: linear-gradient(135deg, #C9A84C, #D4AF6A) !important;
+      color: #0d1117 !important;
+    }
+    .pkg-btn.pop-btn:hover { background: linear-gradient(135deg, #D4AF6A, #C9A84C) !important; }
+
+    .urgency {
+      background: rgba(139,0,0,0.09) !important;
+      border: 1px solid rgba(139,0,0,0.28) !important;
+      border-radius: 4px !important;
+      padding: 10px 14px !important;
+      font-size: 12px !important;
+      color: #9CA3AF !important;
+      line-height: 1.5 !important;
+    }
+    .urgency strong { color: #c04040 !important; }
+
+    /* ── SECTION BASE ── */
+    .sec {
+      padding: 88px 24px !important;
+    }
+    .sec-alt { background-color: #111827 !important; }
+    .sec-mid { background-color: #0f1520 !important; }
+
+    .wrap { max-width: 960px !important; margin: 0 auto !important; }
+    .wrap-w { max-width: 1120px !important; margin: 0 auto !important; }
+
+    .sec-label {
+      font-size: 11px !important;
+      font-weight: 700 !important;
+      letter-spacing: 0.22em !important;
+      text-transform: uppercase !important;
+      color: #C9A84C !important;
+      text-align: center !important;
+      margin-bottom: 14px !important;
+    }
+    .sec-title {
+      font-size: clamp(26px, 3.5vw, 42px) !important;
+      font-weight: 700 !important;
+      color: #F5F0E8 !important;
+      text-align: center !important;
+      margin-bottom: 16px !important;
+    }
+    .sec-sub {
+      font-size: 17px !important;
+      color: #9CA3AF !important;
+      text-align: center !important;
+      max-width: 580px !important;
+      margin: 0 auto !important;
+      margin-bottom: 60px !important;
+      line-height: 1.75 !important;
+      font-weight: 300 !important;
+    }
+
+    /* ── PROBLEM ── */
+    .pain-grid {
+      display: grid !important;
+      grid-template-columns: repeat(2, 1fr) !important;
+      gap: 20px !important;
+      margin-top: 52px !important;
+    }
+    .pain-card {
+      background: rgba(139,0,0,0.07) !important;
+      border: 1px solid rgba(139,0,0,0.20) !important;
+      border-left: 3px solid #A80000 !important;
+      border-radius: 4px !important;
+      padding: 26px 24px !important;
+    }
+    .pain-card h4 {
+      font-size: 16px !important;
+      font-weight: 600 !important;
+      color: #F5F0E8 !important;
+      margin-bottom: 8px !important;
+      font-family: 'Inter', sans-serif !important;
+    }
+    .pain-card p { font-size: 14px !important; color: #9CA3AF !important; line-height: 1.65 !important; }
+
+    .pain-quote {
+      margin-top: 48px !important;
+      text-align: center !important;
+      font-family: 'Playfair Display', serif !important;
+      font-style: italic !important;
+      font-size: 20px !important;
+      color: #C9A84C !important;
+      line-height: 1.6 !important;
+      padding: 0 32px !important;
+    }
+
+    /* ── SOLUTION ── */
+    .sol-grid {
+      display: grid !important;
+      grid-template-columns: 1fr 1fr !important;
+      gap: 64px !important;
+      align-items: center !important;
+    }
+    .sol-img img {
+      border-radius: 8px !important;
+      box-shadow: 0 28px 72px rgba(0,0,0,0.65), 0 0 40px rgba(201,168,76,0.06) !important;
+      max-width: 360px !important;
+      margin: 0 auto !important;
+    }
+    .sol-img { background: linear-gradient(135deg, #1a2332, #0d1117) !important; border-radius: 8px !important; min-height: 320px !important; display: flex !important; align-items: center !important; justify-content: center !important; }
+    .sol-cnt { display: flex !important; flex-direction: column !important; gap: 0 !important; }
+    .sol-cnt .sec-label { text-align: left !important; margin-bottom: 14px !important; }
+    .sol-cnt h3 {
+      font-size: clamp(22px, 2.5vw, 30px) !important;
+      font-weight: 700 !important;
+      color: #F5F0E8 !important;
+      margin-bottom: 20px !important;
+      line-height: 1.3 !important;
+    }
+    .sol-cnt h3 em { color: #C9A84C !important; }
+    .sol-cnt p {
+      font-size: 15px !important;
+      color: #9CA3AF !important;
+      line-height: 1.8 !important;
+      margin-bottom: 18px !important;
+    }
+    .sol-list {
+      list-style: none !important;
+      display: flex !important;
+      flex-direction: column !important;
+      gap: 13px !important;
+      margin-top: 8px !important;
+    }
+    .sol-list li {
+      display: flex !important;
+      align-items: flex-start !important;
+      gap: 12px !important;
+      font-size: 14px !important;
+      color: #F5F0E8 !important;
+    }
+    .sol-list li .arr { color: #C9A84C !important; flex-shrink: 0 !important; font-weight: 700 !important; margin-top: 1px !important; }
+
+    /* ── BENEFITS ── */
+    .ben-grid {
+      display: grid !important;
+      grid-template-columns: repeat(3, 1fr) !important;
+      gap: 28px !important;
+      margin-top: 52px !important;
+    }
+    .ben-card {
+      background: #141b27 !important;
+      border: 1px solid rgba(201,168,76,0.10) !important;
+      border-radius: 6px !important;
+      padding: 38px 28px !important;
+      position: relative !important;
+      overflow: hidden !important;
+    }
+    .ben-card::before {
+      content: '' !important;
+      position: absolute !important;
+      top: 0 !important; left: 0 !important; right: 0 !important;
+      height: 3px !important;
+      background: linear-gradient(90deg, #8B0000, #C9A84C) !important;
+    }
+    .ben-num {
+      font-family: 'Playfair Display', serif !important;
+      font-size: 56px !important;
+      font-weight: 700 !important;
+      color: rgba(201,168,76,0.08) !important;
+      line-height: 1 !important;
+      margin-bottom: 18px !important;
+    }
+    .ben-title {
+      font-size: 19px !important;
+      font-weight: 600 !important;
+      color: #F5F0E8 !important;
+      margin-bottom: 14px !important;
+      line-height: 1.3 !important;
+    }
+    .ben-text { font-size: 14px !important; color: #9CA3AF !important; line-height: 1.75 !important; }
+    .ben-text em { color: #C9A84C !important; font-style: normal !important; font-weight: 500 !important; }
+
+    /* ── TESTIMONIALS ── */
+    .test-grid {
+      display: grid !important;
+      grid-template-columns: repeat(3, 1fr) !important;
+      gap: 24px !important;
+      margin-top: 52px !important;
+    }
+    .test-card {
+      background: #141b27 !important;
+      border: 1px solid rgba(201,168,76,0.10) !important;
+      border-radius: 6px !important;
+      padding: 32px 26px !important;
+    }
+    .stars { color: #C9A84C !important; font-size: 15px !important; letter-spacing: 2px !important; margin-bottom: 16px !important; }
+    .test-q {
+      font-size: 14px !important;
+      color: #9CA3AF !important;
+      line-height: 1.75 !important;
+      font-style: italic !important;
+      margin-bottom: 26px !important;
+    }
+    .test-auth {
+      display: flex !important;
+      align-items: center !important;
+      gap: 14px !important;
+    }
+    .test-auth img {
+      width: 48px !important;
+      height: 48px !important;
+      border-radius: 50% !important;
+      object-fit: cover !important;
+      border: 2px solid rgba(201,168,76,0.25) !important;
+      background: #1a2332 !important;
+    }
+    .test-name { font-size: 14px !important; font-weight: 600 !important; color: #F5F0E8 !important; margin-bottom: 2px !important; }
+    .test-role { font-size: 12px !important; color: #C9A84C !important; }
+
+    /* ── GUARANTEE ── */
+    .guar-box {
+      max-width: 660px !important;
+      margin: 0 auto !important;
+      background: #141b27 !important;
+      border: 1px solid rgba(201,168,76,0.20) !important;
+      border-radius: 8px !important;
+      padding: 52px 48px !important;
+      text-align: center !important;
+    }
+    .guar-icon {
+      width: 80px !important;
+      height: 80px !important;
+      background: linear-gradient(135deg, #C9A84C, #D4AF6A) !important;
+      border-radius: 50% !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      margin: 0 auto !important;
+      margin-bottom: 24px !important;
+      font-size: 34px !important;
+      line-height: 1 !important;
+    }
+    .guar-title {
+      font-size: 26px !important;
+      font-weight: 700 !important;
+      color: #F5F0E8 !important;
+      margin-bottom: 18px !important;
+    }
+    .guar-title span { color: #C9A84C !important; }
+    .guar-text { font-size: 15px !important; color: #9CA3AF !important; line-height: 1.75 !important; }
+    .guar-cta { margin-top: 16px !important; color: #C9A84C !important; font-weight: 600 !important; font-size: 15px !important; }
+
+    /* ── CTA BAND ── */
+    .cta-band {
+      background: linear-gradient(135deg, #0d1117 0%, #140505 100%) !important;
+      padding: 88px 24px !important;
+      text-align: center !important;
+      position: relative !important;
+      overflow: hidden !important;
+    }
+    .cta-band::before {
+      content: '' !important;
+      position: absolute !important;
+      inset: 0 !important;
+      background: radial-gradient(ellipse at center, rgba(139,0,0,0.13) 0%, transparent 65%) !important;
+      pointer-events: none !important;
+    }
+    .cta-title {
+      font-size: clamp(28px, 4vw, 46px) !important;
+      font-weight: 700 !important;
+      color: #F5F0E8 !important;
+      margin-bottom: 20px !important;
+      position: relative !important;
+      z-index: 2 !important;
+    }
+    .cta-title span { color: #C9A84C !important; }
+    .cta-sub {
+      font-size: 17px !important;
+      color: #9CA3AF !important;
+      max-width: 500px !important;
+      margin: 0 auto !important;
+      margin-bottom: 44px !important;
+      font-weight: 300 !important;
+      line-height: 1.7 !important;
+      position: relative !important;
+      z-index: 2 !important;
+    }
+    .cta-btn-wrap {
+      max-width: 420px !important;
+      margin: 0 auto !important;
+      position: relative !important;
+      z-index: 2 !important;
+    }
+    .btn-gold {
+      display: block !important;
+      width: 100% !important;
+      padding: 20px 32px !important;
+      background: linear-gradient(135deg, #C9A84C, #D4AF6A) !important;
+      color: #0d1117 !important;
+      font-family: 'Inter', sans-serif !important;
+      font-size: 16px !important;
+      font-weight: 700 !important;
+      letter-spacing: 0.08em !important;
+      text-transform: uppercase !important;
+      text-align: center !important;
+      border-radius: 4px !important;
+      border: none !important;
+      cursor: pointer !important;
+      transition: all 0.3s !important;
+    }
+    .btn-gold:hover {
+      background: linear-gradient(135deg, #D4AF6A, #C9A84C) !important;
+      transform: translateY(-2px) !important;
+      box-shadow: 0 12px 36px rgba(201,168,76,0.35) !important;
+    }
+    .cta-micro {
+      margin-top: 16px !important;
+      font-size: 12px !important;
+      color: #6B7280 !important;
+      position: relative !important;
+      z-index: 2 !important;
+    }
+
+    /* ── FAQ ── */
+    .faq-list {
+      display: flex !important;
+      flex-direction: column !important;
+      gap: 14px !important;
+      margin-top: 52px !important;
+    }
+    .faq-item {
+      background: #141b27 !important;
+      border: 1px solid rgba(201,168,76,0.09) !important;
+      border-radius: 6px !important;
+    }
+    .faq-q {
+      padding: 22px 28px !important;
+      font-size: 16px !important;
+      font-weight: 600 !important;
+      color: #F5F0E8 !important;
+      display: flex !important;
+      justify-content: space-between !important;
+      align-items: center !important;
+      gap: 16px !important;
+      cursor: default !important;
+    }
+    .faq-q::after {
+      content: '+' !important;
+      color: #C9A84C !important;
+      font-size: 22px !important;
+      flex-shrink: 0 !important;
+      line-height: 1 !important;
+      font-weight: 300 !important;
+    }
+    .faq-a {
+      padding: 0 28px 22px !important;
+      font-size: 15px !important;
+      color: #9CA3AF !important;
+      line-height: 1.75 !important;
+    }
+
+    /* ── FINAL CTA ── */
+    .final {
+      background-color: #111827 !important;
+      padding: 88px 24px !important;
+      text-align: center !important;
+      position: relative !important;
+    }
+    .final::before {
+      content: '' !important;
+      position: absolute !important;
+      top: 0 !important; left: 0 !important; right: 0 !important;
+      height: 1px !important;
+      background: linear-gradient(90deg, transparent, #C9A84C, transparent) !important;
+    }
+    .final-book {
+      width: 180px !important;
+      margin: 0 auto !important;
+      margin-bottom: 36px !important;
+      filter: drop-shadow(0 24px 48px rgba(0,0,0,0.65)) !important;
+    }
+    .price-row {
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      gap: 18px !important;
+      margin-bottom: 36px !important;
+      flex-wrap: wrap !important;
+    }
+    .price-old {
+      font-size: 22px !important;
+      color: #6B7280 !important;
+      text-decoration: line-through !important;
+    }
+    .price-new {
+      font-family: 'Playfair Display', serif !important;
+      font-size: 52px !important;
+      font-weight: 700 !important;
+      color: #C9A84C !important;
+      line-height: 1 !important;
+    }
+    .price-save {
+      background: rgba(139,0,0,0.18) !important;
+      border: 1px solid #A80000 !important;
+      color: #c04040 !important;
+      font-size: 12px !important;
+      font-weight: 700 !important;
+      padding: 5px 12px !important;
+      border-radius: 3px !important;
+      letter-spacing: 0.05em !important;
+    }
+    .final-btn-wrap {
+      max-width: 500px !important;
+      margin: 0 auto !important;
+    }
+    .final-micro {
+      margin-top: 14px !important;
+      font-size: 12px !important;
+      color: #6B7280 !important;
+    }
+
+    /* ── FOOTER ── */
+    .footer {
+      background: #080c12 !important;
+      padding: 32px 24px !important;
+      text-align: center !important;
+      border-top: 1px solid rgba(201,168,76,0.08) !important;
+    }
+    .footer-links {
+      display: flex !important;
+      justify-content: center !important;
+      gap: 32px !important;
+      flex-wrap: wrap !important;
+      margin-bottom: 14px !important;
+    }
+    .footer-links a {
+      font-size: 12px !important;
+      color: #6B7280 !important;
+      transition: color 0.2s !important;
+    }
+    .footer-links a:hover { color: #C9A84C !important; }
+    .footer-copy { font-size: 11px !important; color: #374151 !important; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      .hero-wrap { flex-direction: column !important; gap: 36px !important; }
+      .hero-img-col { flex: none !important; width: 100% !important; max-width: 520px !important; margin: 0 auto !important; }
+      .pkgs { grid-template-columns: 1fr !important; gap: 22px !important; }
+      .sol-grid { grid-template-columns: 1fr !important; gap: 44px !important; }
+      .ben-grid { grid-template-columns: 1fr !important; }
+      .test-grid { grid-template-columns: 1fr !important; }
+      .pain-grid { grid-template-columns: 1fr !important; }
+    }
+
+    @media (max-width: 600px) {
+      .hero { padding: 44px 16px !important; }
+      .sec { padding: 64px 16px !important; }
+      .guar-box { padding: 36px 24px !important; }
+      .price-new { font-size: 40px !important; }
+      .footer-links { gap: 18px !important; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ANNOUNCEMENT BAR -->
+  <div class="ann-bar">
+    ⚠️ Лимитирана серия — само <strong>100 копия</strong> са с включен бонус PDF гайд + персонален книгоразделител
+  </div>
+
+  <!-- ═══════════════════════════════════════
+       HERO — Shopify-style split layout
+  ════════════════════════════════════════ -->
+  <section class="hero">
+    <div class="hero-wrap">
+
+      <!-- LEFT: Book image (58%) -->
+      <div class="hero-img-col">
+        <div class="hero-img-box">
+          <!-- Replace [BOOK_IMAGE_URL] with your CDN URL -->
+          <img src="[BOOK_IMAGE_URL]"
+               alt="Книгата Добрият Мъж е Лош Съпруг от Иван Петров"
+               style="width:100% !important; border-radius:8px !important;"
+               onerror="this.parentNode.innerHTML='<div style=\'padding:60px 40px !important;text-align:center !important;\'><p style=\'font-family:Playfair Display,serif !important;font-size:28px !important;color:#C9A84C !important;line-height:1.3 !important;\'>Добрият Мъж<br>е Лош Съпруг</p><p style=\'color:#9CA3AF !important;margin-top:12px !important;font-size:14px !important;\'>Иван Петров</p></div>'">
+        </div>
+      </div>
+
+      <!-- RIGHT: Content (42%) -->
+      <div class="hero-cnt-col">
+
+        <div class="badge-limited">🔴&nbsp; Лимитирана оферта</div>
+
+        <p class="hero-author">Иван Петров</p>
+
+        <h1 class="hero-title">
+          Добрият Мъж<br>е <span class="red">Лош Съпруг</span>
+        </h1>
+
+        <p class="hero-sub">
+          Открий защо добрите ти качества ти пречат в любовта — и как да изградиш стабилна връзка с жена, която те цени наистина.
+        </p>
+
+        <ul class="hero-checks">
+          <li>
+            <span class="chk-icon">✓</span>
+            <span><strong>Практична система</strong>, не теория — конкретни действия, приложими от утре</span>
+          </li>
+          <li>
+            <span class="chk-icon">✓</span>
+            <span><strong>Ставаш мъжът, когото тя не иска да загуби</strong> — без игри, без маски</span>
+          </li>
+          <li>
+            <span class="chk-icon">✓</span>
+            <span><strong>Прекъсваш повтарящия се цикъл</strong> — спираш да започваш отначало с всяка нова жена</span>
+          </li>
+        </ul>
+
+        <!-- PACKAGES -->
+        <div class="pkgs">
+
+          <!-- Basic -->
+          <div class="pkg">
+            <p class="pkg-name">Само Книгата</p>
+            <p class="pkg-old">21.99 €</p>
+            <p class="pkg-price"><sup>€</sup>12.99</p>
+            <ul class="pkg-feats">
+              <li><span class="y">✓</span> Физическа книга</li>
+              <li><span class="y">✓</span> Доставка в БГ</li>
+              <li class="off"><span class="n">–</span> <s>PDF Гайд</s></li>
+              <li class="off"><span class="n">–</span> <s>Аудио книга</s></li>
+            </ul>
+            <a href="/checkout" class="pkg-btn">Поръчай</a>
+          </div>
+
+          <!-- Popular -->
+          <div class="pkg pop">
+            <div class="pop-tag">⭐ Най-популярен</div>
+            <p class="pkg-name">Книга + Бонус</p>
+            <p class="pkg-old">36.97 €</p>
+            <p class="pkg-price"><sup>€</sup>19.99</p>
+            <ul class="pkg-feats">
+              <li><span class="y">✓</span> Физическа книга</li>
+              <li><span class="y">✓</span> PDF гайд "Кодът на Сигналите"</li>
+              <li><span class="y">✓</span> Персонален книгоразделител</li>
+              <li><span class="y">✓</span> eBook версия (PDF)</li>
+            </ul>
+            <a href="/checkout" class="pkg-btn pop-btn">Вземи сега →</a>
+          </div>
+
+          <!-- Premium -->
+          <div class="pkg">
+            <p class="pkg-name">Пълна Трансформация</p>
+            <p class="pkg-old">79.95 €</p>
+            <p class="pkg-price"><sup>€</sup>34.99</p>
+            <ul class="pkg-feats">
+              <li><span class="y">✓</span> Физическа книга + eBook</li>
+              <li><span class="y">✓</span> PDF гайд + книгоразделител</li>
+              <li><span class="y">✓</span> Аудио книга (4+ часа)</li>
+              <li><span class="y">✓</span> 30-дневна работна тетрадка</li>
+            </ul>
+            <a href="/checkout" class="pkg-btn">Поръчай</a>
+          </div>
+
+        </div><!-- /pkgs -->
+
+        <div class="urgency">
+          ⚠️ <strong>Само 100 копия</strong> са с включен бонус PDF гайд "Кодът на Сигналите" и персонален книгоразделител. Остават ограничен брой.
+        </div>
+
+      </div><!-- /hero-cnt-col -->
+    </div><!-- /hero-wrap -->
+  </section>
+
+  <span class="divider"></span>
+
+  <!-- ═══════════════════════════════════════
+       PROBLEM
+  ════════════════════════════════════════ -->
+  <section class="sec sec-alt">
+    <div class="wrap">
+      <p class="sec-label">Разпознаваш ли се?</p>
+      <h2 class="sec-title">Правиш всичко правилно.<br><span style="color:#A80000 !important;">Пак не работи.</span></h2>
+      <p class="sec-sub">Ти си вниманието, ти си грижата, ти си сигурността. Но тя губи интерес. Всеки път.</p>
+
+      <div class="pain-grid">
+        <div class="pain-card">
+          <h4>Даваш прекалено много</h4>
+          <p>Винаги си на линия, отстъпчив, внимателен. И точно заради това тя спира да те вижда като предизвикателство — и губи интерес.</p>
+        </div>
+        <div class="pain-card">
+          <h4>Чувстваш се объркан</h4>
+          <p>Следваш "правилата" — добро поведение, уважение, сигурност. Но нещо в динамиката не е наред и не разбираш защо.</p>
+        </div>
+        <div class="pain-card">
+          <h4>Съмняваш се в себе си</h4>
+          <p>Може би е проблем в теб? Може би не си достатъчно добър? Не. Проблемът е в модела на поведение, не в теб като личност.</p>
+        </div>
+        <div class="pain-card">
+          <h4>Повтаряш същия сценарий</h4>
+          <p>С нова жена, после пак с друга. Същото начало, същото разочарование. Цикълът не спира от само себе си.</p>
+        </div>
+      </div>
+
+      <p class="pain-quote">
+        "Бъди добър мъж" е страхотен съвет за живота.<br>
+        Но в любовта — правилата са различни.
+      </p>
+    </div>
+  </section>
+
+  <span class="divider"></span>
+
+  <!-- ═══════════════════════════════════════
+       SOLUTION
+  ════════════════════════════════════════ -->
+  <section class="sec">
+    <div class="wrap">
+      <div class="sol-grid">
+
+        <div class="sol-img">
+          <img src="[BOOK_IMAGE_URL]"
+               alt="Добрият Мъж е Лош Съпруг — книга"
+               onerror="this.style.display='none';">
+        </div>
+
+        <div class="sol-cnt">
+          <p class="sec-label" style="text-align:left !important;">Решението</p>
+          <h3>Не ставай различен мъж.<br>Научи се как да <em>присъстваш</em> различно.</h3>
+          <p>Тази книга не те учи да играеш игри. Не те кара да се преструваш, да манипулираш или да губиш себе си.</p>
+          <p>Тя разкрива скритата механика на привличането — ясна, конкретна, приложима. Не теория, а система, изградена от реални ситуации.</p>
+          <ul class="sol-list">
+            <li><span class="arr">→</span> Какво точно правиш, което изгасва интереса й</li>
+            <li><span class="arr">→</span> Как да задържаш уважението без да се доказваш постоянно</li>
+            <li><span class="arr">→</span> Как да четеш сигналите й — и да реагираш правилно</li>
+            <li><span class="arr">→</span> Защо "добрият мъж" губи и как да промениш това</li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <span class="divider"></span>
+
+  <!-- ═══════════════════════════════════════
+       3 KEY BENEFITS
+  ════════════════════════════════════════ -->
+  <section class="sec sec-alt">
+    <div class="wrap-w">
+      <p class="sec-label">Три ключови предимства</p>
+      <h2 class="sec-title">Какво получаваш от тази книга</h2>
+
+      <div class="ben-grid">
+        <div class="ben-card">
+          <div class="ben-num">01</div>
+          <h3 class="ben-title">Практична система, не теория</h3>
+          <p class="ben-text">Никакви общи съвети. Само <em>конкретни модели на поведение</em> — какво да правиш и какво да спреш, приложими веднага в съобщения, срещи и ежедневни ситуации.</p>
+        </div>
+        <div class="ben-card">
+          <div class="ben-num">02</div>
+          <h3 class="ben-title">Ставаш мъжът, когото тя не иска да загуби</h3>
+          <p class="ben-text">Без игри, без маски, без да ставаш друг човек. <em>Само ясно, уверено присъствие</em>, което естествено задържа уважението и интереса й — завинаги.</p>
+        </div>
+        <div class="ben-card">
+          <div class="ben-num">03</div>
+          <h3 class="ben-title">Прекъсваш повтарящия се цикъл</h3>
+          <p class="ben-text">Спираш да започваш отначало с всяка нова жена. Същият модел, същото разочарование. <em>Книгата прекъсва цикъла — веднъж завинаги.</em></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <span class="divider"></span>
+
+  <!-- ═══════════════════════════════════════
+       SOCIAL PROOF
+  ════════════════════════════════════════ -->
+  <section class="sec">
+    <div class="wrap-w">
+      <p class="sec-label">Истории от читатели</p>
+      <h2 class="sec-title">Те вече направиха промяната</h2>
+      <p class="sec-sub">Реални мъже, реални резултати. Не съвършени истории — честни такива.</p>
+
+      <div class="test-grid">
+
+        <div class="test-card">
+          <div class="stars">★★★★★</div>
+          <p class="test-q">"Прилагах всичко, което 'трябва' да прави добрият мъж. И пак губех жените, в които се влюбвах. Тази книга ме накара да разбера защо — и как да го спра. Прочетох я за два дни."</p>
+          <div class="test-auth">
+            <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Мартин К." onerror="this.style.background='#1a2332' !important; this.removeAttribute('src');">
+            <div>
+              <p class="test-name">Мартин К., 38 г.</p>
+              <p class="test-role">Предприемач</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="test-card">
+          <div class="stars">★★★★★</div>
+          <p class="test-q">"Мислех, че проблемът е в мен — твърде зает, твърде директен. Оказа се, че проблемът е в начина, по който давах от себе си. Промяната дойде бързо. Отношенията ми са коренно различни."</p>
+          <div class="test-auth">
+            <img src="https://randomuser.me/api/portraits/men/51.jpg" alt="Георги П." onerror="this.style.background='#1a2332' !important; this.removeAttribute('src');">
+            <div>
+              <p class="test-name">Георги П., 34 г.</p>
+              <p class="test-role">IT Специалист</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="test-card">
+          <div class="stars">★★★★★</div>
+          <p class="test-q">"Не исках 'игри' или трикове. Тази книга не ги предлага. Само ясни принципи, с които вече ме уважават — и ме искат. Жената, с която съм сега, казва, че съм различен от всеки, когото е срещала."</p>
+          <div class="test-auth">
+            <img src="https://randomuser.me/api/portraits/men/22.jpg" alt="Александър Д." onerror="this.style.background='#1a2332' !important; this.removeAttribute('src');">
+            <div>
+              <p class="test-name">Александър Д., 41 г.</p>
+              <p class="test-role">Интериорен дизайнер</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <span class="divider"></span>
+
+  <!-- ═══════════════════════════════════════
+       GUARANTEE
+  ════════════════════════════════════════ -->
+  <section class="sec sec-alt">
+    <div class="wrap">
+      <div class="guar-box">
+        <div class="guar-icon">🛡</div>
+        <h2 class="guar-title">30-дневна гаранция за <span>вътрешна промяна</span></h2>
+        <p class="guar-text">Ако след 30 дни не усетиш разлика в това как жените реагират на теб — и в това как ти реагираш на тях — ние връщаме парите ти. Без въпроси. Без усложнения. 100% от сумата обратно.</p>
+        <p class="guar-cta">Единственият риск е да не опиташ.</p>
+      </div>
+    </div>
+  </section>
+
+  <span class="divider"></span>
+
+  <!-- ═══════════════════════════════════════
+       CTA BAND
+  ════════════════════════════════════════ -->
+  <section class="cta-band">
+    <div class="wrap">
+      <h2 class="cta-title">Готов ли си да <span>спреш цикъла</span>?</h2>
+      <p class="cta-sub">Не следващото свиждане. Не следващата жена. Сега — с тази книга.</p>
+      <div class="cta-btn-wrap">
+        <a href="/checkout" class="btn-gold">Вземи своето копие →</a>
+        <p class="cta-micro">✓ 30-дневна гаранция &nbsp;·&nbsp; ✓ Доставка в цяла България &nbsp;·&nbsp; ✓ Сигурно плащане</p>
+      </div>
+    </div>
+  </section>
+
+  <span class="divider"></span>
+
+  <!-- ═══════════════════════════════════════
+       FAQ
+  ════════════════════════════════════════ -->
+  <section class="sec sec-alt">
+    <div class="wrap">
+      <p class="sec-label">Въпроси и отговори</p>
+      <h2 class="sec-title">Имаш въпроси? Ние имаме отговори.</h2>
+
+      <div class="faq-list">
+
+        <div class="faq-item">
+          <div class="faq-q">Тази книга ли ще ме научи да манипулирам жените?</div>
+          <div class="faq-a">Не. Книгата не предлага манипулация, игри или трикове. Тя разкрива психологията на привличането и ти дава инструменти да присъстваш по-уверено и автентично. Не ставаш различен човек — ставаш по-ясна версия на себе си.</div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q">Подходяща ли е за мен, ако вече съм в отношения?</div>
+          <div class="faq-a">Да. Много от читателите са мъже в отношения, при които усещат, че нещо се е загубило — интересът, страстта, уважението. Книгата помага да разбереш динамиката и да я промениш — преди да е станало твърде късно.</div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q">Колко бързо ще усетя разлика?</div>
+          <div class="faq-a">Много читатели споделят промяна в рамките на 1–2 седмици след прилагане на принципите. Системата е ясна и резултатите идват бързо при последователно прилагане.</div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q">Какво е PDF гайдът "Кодът на Сигналите"?</div>
+          <div class="faq-a">Бонус материал, включен в първите 100 копия — систематизиран "речник" на женските сигнали. Какво означава реално това, което тя казва и как реагира. Получаваш го автоматично с поръчката, докато са налични.</div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q">Как работи гаранцията за връщане на пари?</div>
+          <div class="faq-a">Имаш 30 дни след получаване на книгата. Ако не усетиш промяна и не си доволен — свържи се с нас и ти връщаме 100% от сумата. Без въпроси, без условия, без оправдания.</div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <span class="divider"></span>
+
+  <!-- ═══════════════════════════════════════
+       FINAL CTA
+  ════════════════════════════════════════ -->
+  <section class="final">
+    <div class="wrap">
+
+      <div class="final-book">
+        <img src="[BOOK_IMAGE_URL]"
+             alt="Добрият Мъж е Лош Съпруг"
+             style="width:100% !important; border-radius:6px !important;"
+             onerror="this.style.display='none';">
+      </div>
+
+      <p class="sec-label">Последна стъпка</p>
+      <h2 class="sec-title" style="margin-bottom:12px !important;">
+        Вземи своето копие<br>
+        <span style="color:#C9A84C !important; font-style:italic !important;">преди да са свършили</span>
+      </h2>
+      <p class="sec-sub" style="margin-bottom:36px !important;">
+        Само 100 копия с пълния бонус пакет. Без риск. С 30-дневна гаранция.
+      </p>
+
+      <div class="price-row">
+        <span class="price-old">21.99 €</span>
+        <span class="price-new">12.99 €</span>
+        <span class="price-save">–41%</span>
+      </div>
+
+      <div class="final-btn-wrap">
+        <a href="/checkout" class="btn-gold">Поръчай сега — само 12.99 € →</a>
+        <p class="final-micro">🛡 30-дневна гаранция &nbsp;·&nbsp; 🚚 Доставка в цяла България &nbsp;·&nbsp; 🔒 Сигурно плащане</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════
+       FOOTER
+  ════════════════════════════════════════ -->
+  <footer class="footer">
+    <div class="footer-links">
+      <a href="https://ami-inspiration.com/obschi-usloviya">Общи условия</a>
+      <a href="https://ami-inspiration.com/politika-za-poveritelnost">Политика за поверителност</a>
+      <a href="https://ami-inspiration.com/dostavka-i-plaschane">Доставка и плащане</a>
+    </div>
+    <p class="footer-copy">© 2024 Иван Петров. Всички права запазени.</p>
+  </footer>
+
+</body>
+</html>
