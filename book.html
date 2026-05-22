@@ -498,7 +498,7 @@
       background: #141b27 !important;
       border: 1px solid rgba(201,168,76,0.10) !important;
       border-radius: 6px !important;
-      padding: 38px 28px !important;
+      padding: 0 !important;
       position: relative !important;
       overflow: hidden !important;
     }
@@ -508,6 +508,34 @@
       top: 0 !important; left: 0 !important; right: 0 !important;
       height: 3px !important;
       background: linear-gradient(90deg, #8B0000, #C9A84C) !important;
+      z-index: 3 !important;
+    }
+    .ben-card-img {
+      width: 100% !important;
+      height: 210px !important;
+      overflow: hidden !important;
+      position: relative !important;
+    }
+    .ben-card-img img {
+      width: 100% !important;
+      height: 100% !important;
+      object-fit: cover !important;
+      display: block !important;
+      transition: transform 0.55s ease !important;
+    }
+    .ben-card:hover .ben-card-img img {
+      transform: scale(1.06) !important;
+    }
+    .ben-card-img::after {
+      content: '' !important;
+      position: absolute !important;
+      inset: 0 !important;
+      background: linear-gradient(to bottom, rgba(20,27,39,0.20) 0%, rgba(20,27,39,0.82) 100%) !important;
+      pointer-events: none !important;
+      z-index: 1 !important;
+    }
+    .ben-card-body {
+      padding: 22px 28px 32px !important;
     }
     .ben-num {
       font-family: 'Playfair Display', serif !important;
@@ -540,18 +568,19 @@
       border-radius: 6px !important;
       padding: 32px 26px !important;
     }
-    .stars { color: #C9A84C !important; font-size: 15px !important; letter-spacing: 2px !important; margin-bottom: 16px !important; }
+    .stars { color: #C9A84C !important; font-size: 15px !important; letter-spacing: 2px !important; margin-bottom: 14px !important; }
     .test-q {
       font-size: 14px !important;
       color: #9CA3AF !important;
       line-height: 1.75 !important;
       font-style: italic !important;
-      margin-bottom: 26px !important;
+      margin-bottom: 0 !important;
     }
     .test-auth {
       display: flex !important;
       align-items: center !important;
       gap: 14px !important;
+      margin-bottom: 18px !important;
     }
     .test-auth img {
       width: 48px !important;
@@ -563,6 +592,55 @@
     }
     .test-name { font-size: 14px !important; font-weight: 600 !important; color: #F5F0E8 !important; margin-bottom: 2px !important; }
     .test-role { font-size: 12px !important; color: #C9A84C !important; }
+
+    /* ── MID-PAGE CTA (benefits section) ── */
+    .mid-cta {
+      margin-top: 60px !important;
+      text-align: center !important;
+    }
+    .mid-cta-inner {
+      display: inline-flex !important;
+      flex-direction: column !important;
+      align-items: center !important;
+      gap: 14px !important;
+      background: rgba(201,168,76,0.05) !important;
+      border: 1px solid rgba(201,168,76,0.20) !important;
+      border-radius: 8px !important;
+      padding: 32px 48px !important;
+    }
+    .mid-cta-eyebrow {
+      font-size: 11px !important;
+      font-weight: 700 !important;
+      letter-spacing: 0.18em !important;
+      text-transform: uppercase !important;
+      color: #C9A84C !important;
+    }
+    .mid-cta-price {
+      font-family: 'Playfair Display', serif !important;
+      font-size: 36px !important;
+      font-weight: 700 !important;
+      color: #F5F0E8 !important;
+      line-height: 1 !important;
+    }
+    .mid-cta-price s {
+      font-size: 18px !important;
+      color: #6B7280 !important;
+      margin-right: 10px !important;
+      font-weight: 400 !important;
+    }
+    .mid-cta a.btn-gold {
+      max-width: 340px !important;
+      font-size: 14px !important;
+      padding: 16px 32px !important;
+    }
+    .mid-cta-note {
+      font-size: 11px !important;
+      color: #6B7280 !important;
+    }
+    @media (max-width: 600px) {
+      .mid-cta-inner { padding: 24px 20px !important; width: 100% !important; }
+      .mid-cta a.btn-gold { max-width: 100% !important; }
+    }
 
     /* ── GUARANTEE ── */
     .guar-box {
@@ -599,8 +677,11 @@
 
     /* ── CTA BAND ── */
     .cta-band {
-      background: linear-gradient(135deg, #0d1117 0%, #140505 100%) !important;
-      padding: 88px 24px !important;
+      background-image: url('https://content.app-sources.com/s/060969136638313651/uploads/%D0%98%D0%B7%D0%BE%D0%B1%D1%80%D0%B0%D0%B6%D0%B5%D0%BD%D0%B8%D1%8F/Fon_na_sajt-9457059.png') !important;
+      background-size: cover !important;
+      background-position: center center !important;
+      background-color: #0d1117 !important;
+      padding: 100px 24px !important;
       text-align: center !important;
       position: relative !important;
       overflow: hidden !important;
@@ -609,7 +690,9 @@
       content: '' !important;
       position: absolute !important;
       inset: 0 !important;
-      background: radial-gradient(ellipse at center, rgba(139,0,0,0.13) 0%, transparent 65%) !important;
+      background:
+        rgba(10,14,20,0.76),
+        radial-gradient(ellipse at center, rgba(139,0,0,0.18) 0%, transparent 65%) !important;
       pointer-events: none !important;
     }
     .cta-title {
@@ -999,22 +1082,58 @@
       <h2 class="sec-title">Какво получаваш от тази книга</h2>
 
       <div class="ben-grid">
+
+        <!-- Card 1: Practical system — man writing/planning with purpose -->
         <div class="ben-card">
-          <div class="ben-num">01</div>
-          <h3 class="ben-title">Практична система, не теория</h3>
-          <p class="ben-text">Никакви общи съвети. Само <em>конкретни модели на поведение</em> — какво да правиш и какво да спреш, приложими веднага в съобщения, срещи и ежедневни ситуации.</p>
+          <div class="ben-card-img">
+            <img src="https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?w=700&q=80"
+                 alt="Мъж планира и действа систематично">
+          </div>
+          <div class="ben-card-body">
+            <div class="ben-num">01</div>
+            <h3 class="ben-title">Практична система, не теория</h3>
+            <p class="ben-text">Никакви общи съвети. Само <em>конкретни модели на поведение</em> — какво да правиш и какво да спреш, приложими веднага в съобщения, срещи и ежедневни ситуации.</p>
+          </div>
         </div>
+
+        <!-- Card 2: Confident man — self-assured portrait, sophisticated -->
         <div class="ben-card">
-          <div class="ben-num">02</div>
-          <h3 class="ben-title">Ставаш мъжът, когото тя не иска да загуби</h3>
-          <p class="ben-text">Без игри, без маски, без да ставаш друг човек. <em>Само ясно, уверено присъствие</em>, което естествено задържа уважението и интереса й — завинаги.</p>
+          <div class="ben-card-img">
+            <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=700&q=80"
+                 alt="Уверен мъж с авторитетно присъствие">
+          </div>
+          <div class="ben-card-body">
+            <div class="ben-num">02</div>
+            <h3 class="ben-title">Ставаш мъжът, когото тя не иска да загуби</h3>
+            <p class="ben-text">Без игри, без маски, без да ставаш друг човек. <em>Само ясно, уверено присъствие</em>, което естествено задържа уважението и интереса й — завинаги.</p>
+          </div>
         </div>
+
+        <!-- Card 3: Breaking the cycle — man looking at horizon, liberation -->
         <div class="ben-card">
-          <div class="ben-num">03</div>
-          <h3 class="ben-title">Прекъсваш повтарящия се цикъл</h3>
-          <p class="ben-text">Спираш да започваш отначало с всяка нова жена. Същият модел, същото разочарование. <em>Книгата прекъсва цикъла — веднъж завинаги.</em></p>
+          <div class="ben-card-img">
+            <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=700&q=80"
+                 alt="Мъж освободен от повтарящите се грешки">
+          </div>
+          <div class="ben-card-body">
+            <div class="ben-num">03</div>
+            <h3 class="ben-title">Прекъсваш повтарящия се цикъл</h3>
+            <p class="ben-text">Спираш да започваш отначало с всяка нова жена. Същият модел, същото разочарование. <em>Книгата прекъсва цикъла — веднъж завинаги.</em></p>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- MID-PAGE CTA — placed after benefits, high purchase intent moment -->
+      <div class="mid-cta">
+        <div class="mid-cta-inner">
+          <p class="mid-cta-eyebrow">Готов да приложиш системата?</p>
+          <p class="mid-cta-price"><s>21.99 €</s>12.99 €</p>
+          <a href="/checkout" class="btn-gold">Вземи книгата сега →</a>
+          <p class="mid-cta-note">🛡 30-дневна гаранция &nbsp;·&nbsp; 🚚 Доставка в България</p>
         </div>
       </div>
+
     </div>
   </section>
 
@@ -1032,8 +1151,6 @@
       <div class="test-grid">
 
         <div class="test-card">
-          <div class="stars">★★★★★</div>
-          <p class="test-q">"Прилагах всичко, което 'трябва' да прави добрият мъж. И пак губех жените, в които се влюбвах. Тази книга ме накара да разбера защо — и как да го спра. Прочетох я за два дни."</p>
           <div class="test-auth">
             <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Мартин К." onerror="this.style.background='#1a2332' !important; this.removeAttribute('src');">
             <div>
@@ -1041,11 +1158,11 @@
               <p class="test-role">Предприемач</p>
             </div>
           </div>
+          <div class="stars">★★★★★</div>
+          <p class="test-q">"Прилагах всичко, което 'трябва' да прави добрият мъж. И пак губех жените, в които се влюбвах. Тази книга ме накара да разбера защо — и как да го спра. Прочетох я за два дни."</p>
         </div>
 
         <div class="test-card">
-          <div class="stars">★★★★★</div>
-          <p class="test-q">"Мислех, че проблемът е в мен — твърде зает, твърде директен. Оказа се, че проблемът е в начина, по който давах от себе си. Промяната дойде бързо. Отношенията ми са коренно различни."</p>
           <div class="test-auth">
             <img src="https://randomuser.me/api/portraits/men/51.jpg" alt="Георги П." onerror="this.style.background='#1a2332' !important; this.removeAttribute('src');">
             <div>
@@ -1053,11 +1170,11 @@
               <p class="test-role">IT Специалист</p>
             </div>
           </div>
+          <div class="stars">★★★★★</div>
+          <p class="test-q">"Мислех, че проблемът е в мен — твърде зает, твърде директен. Оказа се, че проблемът е в начина, по който давах от себе си. Промяната дойде бързо. Отношенията ми са коренно различни."</p>
         </div>
 
         <div class="test-card">
-          <div class="stars">★★★★★</div>
-          <p class="test-q">"Не исках 'игри' или трикове. Тази книга не ги предлага. Само ясни принципи, с които вече ме уважават — и ме искат. Жената, с която съм сега, казва, че съм различен от всеки, когото е срещала."</p>
           <div class="test-auth">
             <img src="https://randomuser.me/api/portraits/men/22.jpg" alt="Александър Д." onerror="this.style.background='#1a2332' !important; this.removeAttribute('src');">
             <div>
@@ -1065,6 +1182,8 @@
               <p class="test-role">Интериорен дизайнер</p>
             </div>
           </div>
+          <div class="stars">★★★★★</div>
+          <p class="test-q">"Не исках 'игри' или трикове. Тази книга не ги предлага. Само ясни принципи, с които вече ме уважават — и ме искат. Жената, с която съм сега, казва, че съм различен от всеки, когото е срещала."</p>
         </div>
 
       </div>
