@@ -1284,6 +1284,48 @@
 
 
     /* ============================================
+       CONVERTBUILDER UNIVERSAL WRAPPER RESET
+       Нулира ВСИЧКИ wrapper-и на всички размери
+    ============================================ */
+
+    div, section, article, main, aside, header, footer, nav {
+      max-width: 100% !important;
+      box-sizing: border-box !important;
+    }
+
+    /* Нулира ConvertBuilder row/column wrapper-и */
+    [class*="row"],
+    [class*="col"],
+    [class*="container"],
+    [class*="wrapper"],
+    [class*="widget"],
+    [class*="section"],
+    [class*="block"],
+    [class*="inner"],
+    [class*="content"] {
+      max-width: 100% !important;
+      box-sizing: border-box !important;
+    }
+
+    @media (max-width: 820px) {
+      [class*="row"],
+      [class*="col"],
+      [class*="container"],
+      [class*="wrapper"],
+      [class*="widget"],
+      [class*="section"],
+      [class*="block"],
+      [class*="inner"],
+      [class*="content"] {
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+        width: 100% !important;
+      }
+    }
+
+    /* ============================================
        CONVERTBUILDER MOBILE FIXES
     ============================================ */
 
