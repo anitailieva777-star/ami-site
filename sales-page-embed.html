@@ -533,7 +533,216 @@
       margin: 30px auto !important;
     }
 
-    /* ===== BENEFITS SECTION ===== */
+    /* ===== BEFORE/AFTER SECTION ===== */
+    .before-after-section {
+      background: #FDFAF7 !important;
+      padding: 80px 40px !important;
+    }
+
+    .ba-grid {
+      display: grid !important;
+      grid-template-columns: 1fr 1fr !important;
+      gap: 32px !important;
+      max-width: 1000px !important;
+      margin: 0 auto !important;
+    }
+
+    .ba-card {
+      border-radius: 24px !important;
+      overflow: hidden !important;
+      box-shadow: 0 12px 40px rgba(0,0,0,0.10) !important;
+    }
+
+    .ba-img-wrap {
+      width: 100% !important;
+      aspect-ratio: 3/4 !important;
+      position: relative !important;
+      overflow: hidden !important;
+      display: flex !important;
+      align-items: flex-end !important;
+    }
+
+    .ba-img-wrap img {
+      width: 100% !important;
+      height: 100% !important;
+      object-fit: cover !important;
+      object-position: top !important;
+      display: block !important;
+      position: absolute !important;
+      top: 0 !important; left: 0 !important;
+    }
+
+    .ba-img-before {
+      background: linear-gradient(160deg, #2C2C3E 0%, #4A3A4A 50%, #6B4E4E 100%) !important;
+    }
+
+    .ba-img-after {
+      background: linear-gradient(160deg, #FAF0E8 0%, #F2D9D9 50%, #E8C4C4 100%) !important;
+    }
+
+    .ba-overlay {
+      position: absolute !important;
+      bottom: 0 !important; left: 0 !important; right: 0 !important;
+      padding: 28px 24px !important;
+      z-index: 2 !important;
+    }
+
+    .ba-overlay-before {
+      background: linear-gradient(0deg, rgba(30,20,30,0.92) 0%, transparent 100%) !important;
+    }
+
+    .ba-overlay-after {
+      background: linear-gradient(0deg, rgba(139,79,107,0.88) 0%, transparent 100%) !important;
+    }
+
+    .ba-label {
+      display: inline-block !important;
+      font-family: 'Lato', sans-serif !important;
+      font-size: 10px !important;
+      font-weight: 700 !important;
+      letter-spacing: 0.2em !important;
+      text-transform: uppercase !important;
+      padding: 4px 14px !important;
+      border-radius: 50px !important;
+      margin-bottom: 12px !important;
+    }
+
+    .ba-label-before {
+      background: rgba(255,255,255,0.15) !important;
+      color: #E8C4C4 !important;
+      border: 1px solid rgba(255,255,255,0.2) !important;
+    }
+
+    .ba-label-after {
+      background: #C9A84C !important;
+      color: #FDFAF7 !important;
+    }
+
+    .ba-title {
+      font-family: 'Playfair Display', serif !important;
+      font-size: 22px !important;
+      font-weight: 700 !important;
+      color: #FDFAF7 !important;
+      display: block !important;
+      margin-bottom: 14px !important;
+      line-height: 1.3 !important;
+    }
+
+    .ba-points {
+      list-style: none !important;
+    }
+
+    .ba-points li {
+      font-size: 13px !important;
+      color: rgba(255,255,255,0.85) !important;
+      padding: 4px 0 !important;
+      display: flex !important;
+      align-items: flex-start !important;
+      gap: 8px !important;
+      line-height: 1.5 !important;
+    }
+
+    .ba-dot-before { color: #9E7A7A !important; flex-shrink: 0 !important; }
+    .ba-dot-after  { color: #C9A84C !important; flex-shrink: 0 !important; }
+
+    .ba-placeholder-text {
+      position: absolute !important;
+      top: 50% !important;
+      left: 50% !important;
+      transform: translate(-50%,-50%) !important;
+      font-family: 'Playfair Display', serif !important;
+      font-size: 13px !important;
+      color: rgba(255,255,255,0.35) !important;
+      text-align: center !important;
+      pointer-events: none !important;
+      z-index: 1 !important;
+      line-height: 1.6 !important;
+    }
+
+    /* Декоративни фигури за ПРЕДИ */
+    .ba-deco-before {
+      position: absolute !important;
+      top: 0 !important; left: 0 !important; right: 0 !important; bottom: 0 !important;
+      z-index: 0 !important;
+      overflow: hidden !important;
+    }
+
+    .ba-deco-before::before {
+      content: '' !important;
+      position: absolute !important;
+      width: 200px !important; height: 200px !important;
+      border-radius: 50% !important;
+      background: rgba(107,58,80,0.3) !important;
+      top: -40px !important; right: -40px !important;
+      filter: blur(40px) !important;
+    }
+
+    .ba-deco-before::after {
+      content: '' !important;
+      position: absolute !important;
+      width: 150px !important; height: 150px !important;
+      border-radius: 50% !important;
+      background: rgba(44,44,62,0.5) !important;
+      bottom: 30% !important; left: -30px !important;
+      filter: blur(30px) !important;
+    }
+
+    /* Декоративни фигури за СЛЕД */
+    .ba-deco-after {
+      position: absolute !important;
+      top: 0 !important; left: 0 !important; right: 0 !important; bottom: 0 !important;
+      z-index: 0 !important;
+      overflow: hidden !important;
+    }
+
+    .ba-deco-after::before {
+      content: '' !important;
+      position: absolute !important;
+      width: 220px !important; height: 220px !important;
+      border-radius: 50% !important;
+      background: rgba(242,217,217,0.6) !important;
+      top: -30px !important; left: -30px !important;
+      filter: blur(35px) !important;
+    }
+
+    .ba-deco-after::after {
+      content: '' !important;
+      position: absolute !important;
+      width: 180px !important; height: 180px !important;
+      border-radius: 50% !important;
+      background: rgba(201,168,76,0.25) !important;
+      bottom: 20% !important; right: -20px !important;
+      filter: blur(25px) !important;
+    }
+
+    /* Емоджи силует */
+    .ba-silhouette {
+      position: absolute !important;
+      top: 50% !important;
+      left: 50% !important;
+      transform: translate(-50%, -58%) !important;
+      font-size: 90px !important;
+      opacity: 0.18 !important;
+      z-index: 1 !important;
+      filter: grayscale(1) !important;
+    }
+
+    @media (max-width: 768px) {
+      .ba-grid {
+        grid-template-columns: 1fr !important;
+        gap: 20px !important;
+      }
+      .ba-img-wrap {
+        aspect-ratio: 4/3 !important;
+      }
+      .before-after-section {
+        padding: 60px 20px !important;
+      }
+    }
+
+    /* ===== END BEFORE/AFTER ===== */
+
+
     .benefits-section {
       background: #FDFAF7 !important;
       padding: 80px 40px !important;
@@ -1604,6 +1813,104 @@
     <p style="font-size: 13px; color: #9E7A7A; margin-top: 8px;">– от картите A.M.I.</p>
   </div>
 </section>
+
+
+<!-- ==================== BEFORE / AFTER ==================== -->
+<section class="before-after-section">
+  <div class="container">
+    <div class="section-header text-center">
+      <span class="section-label">Трансформацията</span>
+      <h2>Животът преди и след A.M.I.</h2>
+      <p style="color:#6B4E4E !important; font-style:italic !important; margin-top:12px !important; font-size:16px !important;">
+        Две версии на един и същи живот. Коя избираш?
+      </p>
+    </div>
+
+    <div class="ba-grid">
+
+      <!-- ПРЕДИ -->
+      <div class="ba-card">
+        <div class="ba-img-wrap ba-img-before">
+
+          <!-- Декоративен фон -->
+          <div class="ba-deco-before"></div>
+
+          <!-- Силует -->
+          <span class="ba-silhouette">😔</span>
+
+          <!-- Замести с реална снимка — виж бележката под секцията -->
+          <!-- <img src="URL_НА_ТВОЯТА_СНИМКА_ПРЕДИ" alt="Преди A.M.I."> -->
+
+          <div class="ba-overlay ba-overlay-before">
+            <span class="ba-label ba-label-before">Преди</span>
+            <span class="ba-title">Изгубена в очакванията на другите</span>
+            <ul class="ba-points">
+              <li><span class="ba-dot-before">✕</span> Събуждаш се уморена още преди деня да е започнал</li>
+              <li><span class="ba-dot-before">✕</span> Казваш „да" дори когато искаш да кажеш „не"</li>
+              <li><span class="ba-dot-before">✕</span> Чувстваш се невидима и подценена</li>
+              <li><span class="ba-dot-before">✕</span> Постоянна тревожност и вътрешно напрежение</li>
+              <li><span class="ba-dot-before">✕</span> Търсиш одобрение отвън, защото не го намираш вътре</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- СЛЕД -->
+      <div class="ba-card">
+        <div class="ba-img-wrap ba-img-after">
+
+          <!-- Декоративен фон -->
+          <div class="ba-deco-after"></div>
+
+          <!-- Силует -->
+          <span class="ba-silhouette" style="opacity:0.22 !important; filter:none !important;">🌸</span>
+
+          <!-- Замести с реална снимка — виж бележката под секцията -->
+          <!-- <img src="URL_НА_ТВОЯТА_СНИМКА_СЛЕД" alt="След A.M.I."> -->
+
+          <div class="ba-overlay ba-overlay-after">
+            <span class="ba-label ba-label-after">✦ След A.M.I.</span>
+            <span class="ba-title">Уверена, спокойна, в хармония със себе си</span>
+            <ul class="ba-points">
+              <li><span class="ba-dot-after">✦</span> Започваш деня с намерение и вътрешен мир</li>
+              <li><span class="ba-dot-after">✦</span> Поставяш граници с лекота и без вина</li>
+              <li><span class="ba-dot-after">✦</span> Познаваш собствената си стойност</li>
+              <li><span class="ba-dot-after">✦</span> Спокойствие, което не зависи от другите</li>
+              <li><span class="ba-dot-after">✦</span> Обичаш себе си — и това се вижда</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- CTA под секцията -->
+    <div style="text-align:center !important; margin-top:40px !important;">
+      <a href="/checkout" style="
+        display:inline-block !important;
+        background:linear-gradient(135deg,#8B4F6B 0%,#6B3A50 100%) !important;
+        color:#FDFAF7 !important;
+        padding:16px 40px !important;
+        border-radius:50px !important;
+        font-family:'Lato',sans-serif !important;
+        font-size:15px !important;
+        font-weight:700 !important;
+        letter-spacing:0.06em !important;
+        text-decoration:none !important;
+        text-transform:uppercase !important;
+        box-shadow:0 8px 25px rgba(139,79,107,0.35) !important;
+        transition:all 0.3s ease !important;
+      ">✦ Искам да живея „След" версията</a>
+      <p style="font-size:12px !important; color:#9E7A7A !important; margin-top:12px !important; font-style:italic !important;">
+        🛡️ 30-дневна гаранция за промяна или връщане на парите
+      </p>
+    </div>
+
+  </div>
+</section>
+<!-- Бележка: За да добавиш реални снимки, отмахни коментарите с <img src="...">
+     и замени URL_НА_ТВОЯТА_СНИМКА_ПРЕДИ / СЛЕД с линковете към твоите снимки.
+     Препоръчително: снимки с пропорция 3:4, минимум 600x800px. -->
 
 
 <!-- ==================== BENEFITS ==================== -->
