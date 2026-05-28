@@ -1341,18 +1341,7 @@
         box-sizing: border-box !important;
       }
 
-      :has(> #ami-page-root),
-      :has(> * > #ami-page-root),
-      :has(> * > * > #ami-page-root),
-      :has(> * > * > * > #ami-page-root),
-      :has(> * > * > * > * > #ami-page-root) {
-        padding: 0 !important;
-        margin: 0 !important;
-        width: 100% !important;
-        max-width: 100% !important;
-        box-sizing: border-box !important;
-        overflow-x: hidden !important;
-      }
+      /* :has() правилата се прилагат динамично чрез JS по-долу */
     }
 
     /* ============================================
@@ -1360,6 +1349,28 @@
     ============================================ */
 
   </style>
+
+  <script>
+    /* Прилага :has() правилата динамично –
+       безопасно за editor-и с по-стар CSS engine */
+    try {
+      if (window.CSS && CSS.supports('selector(:has(*))')) {
+        var style = document.createElement('style');
+        style.textContent = [
+          '@media (max-width:820px){',
+          ':has(>#ami-page-root),',
+          ':has(>*>#ami-page-root),',
+          ':has(>*>*>#ami-page-root),',
+          ':has(>*>*>*>#ami-page-root),',
+          ':has(>*>*>*>*>#ami-page-root){',
+          'padding:0!important;margin:0!important;',
+          'width:100%!important;max-width:100%!important;',
+          'box-sizing:border-box!important;overflow-x:hidden!important}}'
+        ].join('');
+        document.head.appendChild(style);
+      }
+    } catch(e) {}
+  </script>
 
 
 <div id="ami-page-root">
@@ -2130,45 +2141,55 @@
 </footer>
 
 <script>
+try {
   // FAQ accordion arrow toggle
   document.querySelectorAll('.faq-item').forEach(function(item) {
-    var summary = item.querySelector('.faq-question');
-    var arrow = item.querySelector('.faq-arrow');
-    if (!summary || !arrow) return;
-    function updateArrow() {
-      arrow.textContent = item.open ? '−' : '+';
-    }
-    updateArrow();
-    item.addEventListener('toggle', updateArrow);
+    try {
+      var summary = item.querySelector('.faq-question');
+      var arrow = item.querySelector('.faq-arrow');
+      if (!summary || !arrow) return;
+      function updateArrow() { arrow.textContent = item.open ? '−' : '+'; }
+      updateArrow();
+      item.addEventListener('toggle', updateArrow);
+    } catch(e) {}
   });
+} catch(e) {}
 
+try {
   // Smooth scroll for anchor links
   document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
     anchor.addEventListener('click', function(e) {
-      var target = document.querySelector(this.getAttribute('href'));
-      if (target) {
-        e.preventDefault();
-        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }
+      try {
+        var target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          e.preventDefault();
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      } catch(e) {}
     });
   });
+} catch(e) {}
 
-  // Fade-in on scroll
-  var observer = new IntersectionObserver(function(entries) {
-    entries.forEach(function(entry) {
-      if (entry.isIntersecting) {
-        entry.target.style.opacity = '1';
-        entry.target.style.transform = 'translateY(0)';
-      }
+try {
+  // Fade-in on scroll – само ако IntersectionObserver е наличен
+  if ('IntersectionObserver' in window) {
+    var observer = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateY(0)';
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.benefit-card, .testimonial-card, .package-full-card, .faq-item').forEach(function(el) {
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(20px)';
+      el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+      observer.observe(el);
     });
-  }, { threshold: 0.1 });
-
-  document.querySelectorAll('.benefit-card, .testimonial-card, .package-full-card, .faq-item').forEach(function(el) {
-    el.style.opacity = '0';
-    el.style.transform = 'translateY(20px)';
-    el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-    observer.observe(el);
-  });
+  }
+} catch(e) {}
 </script>
 
 </div><!-- /#ami-page-root -->
