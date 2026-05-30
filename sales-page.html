@@ -4,7 +4,7 @@
   <meta charset="UTF-8" !important>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>A.M.I. – Карти Любов към Себе си | A Mindful Inspiration</title>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Lato:ital,wght@0,300;0,400;0,700;1,300&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,600&family=Lato:ital,wght@0,300;0,400;0,700;1,300&display=swap" rel="stylesheet">
   <style>
     *, *::before, *::after {
       box-sizing: border-box !important;
@@ -37,16 +37,28 @@
       -webkit-font-smoothing: antialiased !important;
     }
 
+    /* ===== STICKY TOP WRAPPER ===== */
+    .sticky-top-wrapper {
+      position: sticky !important;
+      top: 0 !important;
+      z-index: 200 !important;
+    }
+
     /* ===== URGENCY BAR ===== */
     .urgency-bar {
       background: linear-gradient(135deg, #8B4F6B 0%, #6B3A50 100%) !important;
       color: #FDFAF7 !important;
       text-align: center !important;
-      padding: 12px 20px !important;
+      padding: 10px 20px !important;
       font-family: 'Lato', sans-serif !important;
-      font-size: 14px !important;
+      font-size: 13px !important;
       font-weight: 400 !important;
       letter-spacing: 0.03em !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      gap: 10px !important;
+      flex-wrap: wrap !important;
     }
 
     .urgency-bar strong {
@@ -57,6 +69,22 @@
     .urgency-bar .pulse {
       display: inline-block !important;
       animation: pulse 2s ease-in-out infinite !important;
+    }
+
+    .limited-badge {
+      display: inline-flex !important;
+      align-items: center !important;
+      gap: 5px !important;
+      background: rgba(201,168,76,0.25) !important;
+      border: 1px solid #C9A84C !important;
+      color: #F5E0A0 !important;
+      font-size: 11px !important;
+      font-weight: 700 !important;
+      letter-spacing: 0.1em !important;
+      text-transform: uppercase !important;
+      padding: 3px 10px !important;
+      border-radius: 50px !important;
+      white-space: nowrap !important;
     }
 
     @keyframes pulse {
@@ -72,8 +100,7 @@
       display: flex !important;
       align-items: center !important;
       justify-content: space-between !important;
-      position: sticky !important;
-      top: 0 !important;
+      position: relative !important;
       z-index: 100 !important;
       box-shadow: 0 2px 20px rgba(139,79,107,0.06) !important;
     }
@@ -1193,6 +1220,53 @@
       color: #9E7A7A !important;
     }
 
+    /* ===== HERO HEADLINE TYPOGRAPHY ===== */
+    .hero-audience-tag {
+      font-family: 'Lato', sans-serif !important;
+      font-size: 13px !important;
+      font-weight: 400 !important;
+      font-style: italic !important;
+      color: #C9A84C !important;
+      letter-spacing: 0.04em !important;
+      display: block !important;
+      margin-bottom: 14px !important;
+    }
+
+    .hero-tagline .hero-bold {
+      font-weight: 900 !important;
+      color: #3D2B2B !important;
+    }
+
+    .hero-tagline .hero-question {
+      color: #8B4F6B !important;
+      font-style: italic !important;
+      font-weight: 400 !important;
+    }
+
+    /* ===== HERO IMAGES LAYOUT ===== */
+    .hero-imgs-row {
+      display: flex !important;
+      gap: 12px !important;
+      margin-bottom: 20px !important;
+    }
+
+    .hero-img-woman,
+    .hero-img-product {
+      flex: 1 !important;
+      border-radius: 16px !important;
+      overflow: hidden !important;
+      position: relative !important;
+      box-shadow: 0 16px 40px rgba(139,79,107,0.18) !important;
+    }
+
+    .hero-img-woman img,
+    .hero-img-product img {
+      width: 100% !important;
+      aspect-ratio: 3/4 !important;
+      object-fit: cover !important;
+      display: block !important;
+    }
+
     /* ===== UTILITIES ===== */
     .text-center { text-align: center !important; }
     .text-gold { color: #C9A84C !important; }
@@ -1212,7 +1286,12 @@
         gap: 40px !important;
       }
 
+      .hero-content {
+        order: 1 !important;
+      }
+
       .hero-images {
+        order: 2 !important;
         flex: none !important;
         width: 100% !important;
       }
@@ -1290,35 +1369,49 @@
 </head>
 <body>
 
-<!-- URGENCY BAR -->
-<div class="urgency-bar">
-  <span class="pulse">⚠️</span>
-  <strong> Лимитирана серия – само 100 комплекта налични.</strong>
-  Присъедини се към жените, които вече избраха себе си.
-</div>
+<!-- STICKY TOP WRAPPER -->
+<div class="sticky-top-wrapper">
 
-<!-- HEADER -->
-<header class="site-header">
-  <a href="#" class="logo-text">
-    A.M.I.
-    <span class="logo-sub">A Mindful Inspiration</span>
-  </a>
-  <a href="/checkout" class="header-cta">Вземи своя комплект →</a>
-</header>
+  <!-- URGENCY BAR -->
+  <div class="urgency-bar">
+    <span class="limited-badge"><span class="pulse">◆</span> Лимитирана серия</span>
+    <span>Само <strong>100 комплекта</strong> налични — присъедини се към жените, които вече избраха себе си.</span>
+  </div>
+
+  <!-- HEADER -->
+  <header class="site-header">
+    <a href="#" class="logo-text">
+      A.M.I.
+      <span class="logo-sub">A Mindful Inspiration</span>
+    </a>
+    <a href="/checkout" class="header-cta">Вземи своя комплект →</a>
+  </header>
+
+</div>
 
 
 <!-- ==================== HERO ==================== -->
 <section class="hero">
   <div class="hero-inner">
 
-    <!-- LEFT: Product Images + Bonuses -->
+    <!-- LEFT: Images -->
     <div class="hero-images">
-      <div class="hero-img-placeholder">
-        <img
-          src="https://content.app-sources.com/s/510617328782760951/uploads/Изображения/Тъмен_фон_Любов_към_себе_си-4902979.png"
-          alt="A.M.I. Карти Любов към Себе си – комплект"
-        >
-        <div class="badge-float top-right">32 карти</div>
+      <div class="hero-imgs-row">
+        <!-- Woman lifestyle image -->
+        <div class="hero-img-woman">
+          <img
+            src="https://content.app-sources.com/s/510617328782760951/uploads/Изображения/ChatGPT_Image_30.05.2026_г._00_05_44-0137104.png"
+            alt="Жена с карти A.M.I."
+          >
+        </div>
+        <!-- Product image -->
+        <div class="hero-img-product">
+          <img
+            src="https://content.app-sources.com/s/510617328782760951/uploads/Изображения/Тъмен_фон_Любов_към_себе_си-4902979.png"
+            alt="A.M.I. Карти Любов към Себе си – комплект"
+          >
+          <div class="badge-float top-right">32 карти</div>
+        </div>
       </div>
 
       <!-- BONUSES BOX -->
@@ -1356,8 +1449,12 @@
     <div class="hero-content">
       <div class="brand-name">A.M.I. — A Mindful Inspiration</div>
 
+      <span class="hero-audience-tag">За жената, която дава на всички — освен на себе си</span>
+
       <h1 class="hero-tagline mb-8">
-        „Пак ли постави себе си на последно място?"
+        <span class="hero-bold">Обичала си всички.</span><br>
+        <span class="hero-question">Кога последно</span><br>
+        <span class="hero-bold">обича себе си?</span>
       </h1>
 
       <p class="hero-subtitle mb-16">
