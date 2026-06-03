@@ -29,16 +29,9 @@
       -webkit-font-smoothing: antialiased;
     }
 
-    /* ══════════════════════════════
-       STICKY TOP
-    ══════════════════════════════ */
-    .sticky-wrap {
-      position: sticky;
-      top: 0;
-      z-index: 300;
-    }
+    /* ══ STICKY TOP ══ */
+    .sticky-wrap { position: sticky; top: 0; z-index: 300; }
 
-    /* Urgency bar */
     .urgency-bar {
       background: linear-gradient(135deg, var(--rose) 0%, var(--rose-deep) 100%);
       color: var(--white);
@@ -48,7 +41,6 @@
       justify-content: center;
       gap: 12px;
       font-size: 12px;
-      letter-spacing: 0.02em;
       flex-wrap: wrap;
       text-align: center;
     }
@@ -77,11 +69,10 @@
       animation: blink 2s ease-in-out infinite;
     }
 
-    @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
+    @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0.3} }
 
     .urgency-bar b { color: #F2D9D9; }
 
-    /* Header */
     .site-header {
       background: var(--white);
       padding: 16px 48px;
@@ -92,7 +83,7 @@
       box-shadow: 0 1px 0 rgba(139,79,107,0.08);
     }
 
-    .logo-wrap { text-decoration: none; display: flex; flex-direction: column; }
+    .logo-wrap { text-decoration: none; }
 
     .logo-main {
       font-family: 'Playfair Display', serif;
@@ -100,17 +91,17 @@
       font-weight: 700;
       color: var(--rose);
       letter-spacing: 0.1em;
-      line-height: 1;
+      display: block;
     }
 
     .logo-sub {
-      font-family: 'Lato', sans-serif;
       font-size: 8px;
       font-weight: 400;
       letter-spacing: 0.22em;
       text-transform: uppercase;
       color: var(--mid);
       margin-top: 3px;
+      display: block;
     }
 
     .site-nav {
@@ -123,20 +114,14 @@
     .site-nav a {
       font-family: 'Lato', sans-serif;
       font-size: 14px;
-      font-weight: 400;
       color: var(--dark);
       text-decoration: none;
-      letter-spacing: 0.02em;
       transition: color 0.2s;
     }
 
     .site-nav a:hover { color: var(--rose); }
 
-    .header-right {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-    }
+    .header-right { display: flex; align-items: center; gap: 14px; }
 
     .header-cta {
       background: var(--rose);
@@ -152,128 +137,92 @@
       transition: background 0.25s, transform 0.25s;
     }
 
-    .header-cta:hover {
-      background: var(--rose-deep);
-      transform: translateY(-1px);
-    }
+    .header-cta:hover { background: var(--rose-deep); transform: translateY(-1px); }
 
-    .header-heart {
-      font-size: 18px;
-      color: var(--rose);
-      cursor: pointer;
-      opacity: 0.7;
-      transition: opacity 0.2s;
-    }
+    .header-heart { font-size: 18px; color: var(--rose); opacity: 0.7; cursor: pointer; }
 
-    .header-heart:hover { opacity: 1; }
-
-    /* ══════════════════════════════
-       HERO
-    ══════════════════════════════ */
+    /* ══ HERO ══ */
     .hero {
       background: var(--bg);
       position: relative;
-      min-height: calc(100vh - 110px);
-      display: flex;
-      align-items: center;
       overflow: hidden;
     }
 
-    /* Woman image — right side, full height */
-    .hero-img-wrap {
-      position: absolute;
-      right: 0;
-      top: 0;
-      bottom: 0;
-      width: 52%;
-      pointer-events: none;
-    }
-
-    .hero-img-wrap img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: left center;
-      display: block;
-    }
-
-    /* Soft left fade so image blends into bg */
-    .hero-img-wrap::before {
-      content: '';
-      position: absolute;
-      top: 0; bottom: 0; left: 0;
-      width: 120px;
-      background: linear-gradient(to right, var(--bg), transparent);
-      z-index: 1;
-    }
-
-    /* Left text column */
-    .hero-text {
-      position: relative;
-      z-index: 2;
-      width: 50%;
-      padding: 64px 32px 64px 72px;
-    }
-
-    /* — Tag — */
-    .hero-tag {
-      display: flex;
+    .hero-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
       align-items: center;
-      gap: 8px;
+      min-height: calc(100vh - 110px);
+    }
+
+    /* LEFT — text */
+    .hero-text {
+      padding: 60px 40px 60px 72px;
+      z-index: 2;
+    }
+
+    /* ── Audience pill (Elsa style) ── */
+    .audience-pill {
+      display: inline-block;
+      background: rgba(242,217,217,0.45);
+      border: 1px solid var(--blush);
+      border-radius: 50px;
+      padding: 7px 18px;
       font-family: 'Montserrat', sans-serif;
-      font-size: 12px;
-      font-weight: 600;
-      letter-spacing: 0.12em;
+      font-size: 7px;          /* ~40% smaller than 12px */
+      font-weight: 700;
+      letter-spacing: 0.14em;
       text-transform: uppercase;
       color: var(--rose);
-      margin-bottom: 18px;
+      margin-bottom: 24px;
+      line-height: 1.6;
     }
 
-    .hero-tag .tag-heart { font-size: 13px; }
-
-    /* — BIG headline — */
-    .hero-headline {
+    /* ── Big promise (Elsa headline style) ── */
+    .hero-promise {
       font-family: 'Montserrat', sans-serif;
-      font-size: clamp(34px, 4.2vw, 60px);
+      font-size: clamp(30px, 3.2vw, 48px);
       font-weight: 900;
-      line-height: 1.08;
-      letter-spacing: -0.01em;
+      line-height: 1.18;
       color: var(--dark);
-      text-transform: uppercase;
-      margin-bottom: 20px;
+      margin-bottom: 10px;
+      letter-spacing: -0.01em;
     }
 
-    /* — Sun ornament — */
-    .sun-ornament {
-      display: block;
-      margin-bottom: 20px;
-      opacity: 0.55;
-      width: 36px;
+    /* Rose accent words in the promise */
+    .hero-promise .accent {
+      color: var(--rose);
     }
 
-    /* — Sub text — */
+    /* Thin divider (Elsa style) */
+    .promise-divider {
+      width: 48px;
+      height: 2px;
+      background: var(--blush);
+      border-radius: 2px;
+      margin: 18px 0 22px;
+    }
+
+    /* ── Sub mechanism ── */
     .hero-sub {
       font-family: 'Lato', sans-serif;
       font-size: 15px;
       line-height: 1.75;
       color: var(--mid);
-      margin-bottom: 28px;
       max-width: 400px;
+      margin-bottom: 28px;
     }
 
-    .hero-sub strong {
-      color: var(--dark);
-      font-weight: 700;
-    }
+    .hero-sub strong { color: var(--dark); font-weight: 700; }
 
-    /* — Product block — */
-    .product-block {
-      margin-bottom: 32px;
-    }
+    /* ── Product name ── */
+    .product-block { margin-bottom: 32px; }
 
     .product-brand {
       font-family: 'Montserrat', sans-serif;
-      font-size: clamp(28px, 3vw, 44px);
+      font-size: clamp(26px, 2.8vw, 42px);
       font-weight: 900;
       letter-spacing: 0.04em;
       color: var(--dark);
@@ -284,7 +233,7 @@
 
     .product-title {
       font-family: 'Montserrat', sans-serif;
-      font-size: clamp(16px, 1.6vw, 22px);
+      font-size: clamp(14px, 1.4vw, 20px);
       font-weight: 700;
       letter-spacing: 0.08em;
       text-transform: uppercase;
@@ -294,13 +243,12 @@
     }
 
     .product-desc {
-      font-family: 'Lato', sans-serif;
       font-size: 13px;
       color: var(--light);
       letter-spacing: 0.03em;
     }
 
-    /* — CTA — */
+    /* ── CTA ── */
     .hero-cta-btn {
       display: inline-block;
       background: var(--rose);
@@ -317,17 +265,10 @@
       transition: background 0.25s, transform 0.25s;
     }
 
-    .hero-cta-btn:hover {
-      background: var(--rose-deep);
-      transform: translateY(-2px);
-    }
+    .hero-cta-btn:hover { background: var(--rose-deep); transform: translateY(-2px); }
 
-    /* — 3 proof pills — */
-    .proof-row {
-      display: flex;
-      gap: 20px;
-      flex-wrap: wrap;
-    }
+    /* ── 3 proof items ── */
+    .proof-row { display: flex; gap: 20px; flex-wrap: wrap; }
 
     .proof-item {
       display: flex;
@@ -338,23 +279,33 @@
       text-align: center;
     }
 
-    .proof-icon {
-      font-size: 18px;
-      opacity: 0.6;
-      color: var(--rose);
-      line-height: 1;
+    .proof-icon { font-size: 18px; color: var(--rose); opacity: 0.65; line-height: 1; }
+    .proof-text { font-size: 11px; color: var(--mid); line-height: 1.4; }
+
+    /* RIGHT — image column */
+    .hero-img-col {
+      position: relative;
+      height: 100%;
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      overflow: hidden;
     }
 
-    .proof-text {
-      font-size: 11px;
-      color: var(--mid);
-      line-height: 1.4;
-      letter-spacing: 0.01em;
+    /* The image: scale down ~30% so the full woman is visible */
+    .hero-img-col img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      /* Shift focus to upper-center so woman's face/body is the focal point */
+      object-position: center 15%;
+      /* Scale down 30% via transform — reveals more of the image within frame */
+      transform: scale(0.72);
+      transform-origin: center top;
+      display: block;
     }
 
-    /* ══════════════════════════════
-       QUOTE STRIP
-    ══════════════════════════════ */
+    /* ══ QUOTE STRIP ══ */
     .quote-strip {
       background: var(--white);
       padding: 36px 48px;
@@ -366,18 +317,15 @@
       font-size: 20px;
       font-style: italic;
       color: var(--dark);
-      margin-bottom: 12px;
       max-width: 680px;
-      margin-left: auto;
-      margin-right: auto;
-      line-height: 1.6;
+      margin: 0 auto 12px;
+      line-height: 1.65;
     }
 
     .quote-strip blockquote::before { content: '" '; color: var(--rose); }
     .quote-strip blockquote::after  { content: '"'; color: var(--rose); }
 
     .quote-author {
-      font-family: 'Lato', sans-serif;
       font-size: 13px;
       color: var(--light);
       display: flex;
@@ -388,21 +336,15 @@
 
     .stars { color: var(--gold); letter-spacing: 2px; font-size: 14px; }
 
-    /* ══════════════════════════════
-       BENEFITS ROW
-    ══════════════════════════════ */
-    .benefits-strip {
-      background: var(--bg);
-      padding: 40px 48px 20px;
-    }
+    /* ══ BENEFITS ROW ══ */
+    .benefits-strip { background: var(--bg); padding: 40px 48px 20px; }
 
     .benefits-grid {
       max-width: 900px;
-      margin: 0 auto;
+      margin: 0 auto 28px;
       display: grid;
       grid-template-columns: repeat(4, 1fr);
       gap: 16px;
-      margin-bottom: 28px;
     }
 
     .benefit-item {
@@ -413,79 +355,75 @@
       gap: 10px;
     }
 
-    .benefit-icon-wrap {
-      font-size: 24px;
-      color: var(--rose);
-      opacity: 0.65;
-      line-height: 1;
-    }
-
-    .benefit-text {
-      font-size: 12px;
-      color: var(--mid);
-      line-height: 1.45;
-      font-weight: 400;
-    }
+    .benefit-icon-wrap { font-size: 24px; color: var(--rose); opacity: 0.65; }
+    .benefit-text { font-size: 12px; color: var(--mid); line-height: 1.45; }
 
     .benefits-footer {
       text-align: center;
-      font-family: 'Lato', sans-serif;
       font-size: 14px;
       color: var(--rose);
       padding-bottom: 32px;
       letter-spacing: 0.02em;
     }
 
-    /* ══════════════════════════════
-       RESPONSIVE
-    ══════════════════════════════ */
+    /* ══ RESPONSIVE ══ */
     @media (max-width: 960px) {
       .site-nav    { display: none; }
       .site-header { padding: 14px 24px; }
       .header-cta  { font-size: 11px; padding: 10px 20px; }
 
-      .hero {
-        flex-direction: column;
-        align-items: stretch;
+      .hero-inner {
+        grid-template-columns: 1fr;
         min-height: auto;
       }
 
-      /* Image on top on mobile */
-      .hero-img-wrap {
-        position: relative;
-        width: 100%;
-        height: 56vw;
-        min-height: 260px;
-      }
-
-      .hero-img-wrap::before { display: none; }
-
-      .hero-img-wrap img {
-        object-position: center 20%;
-      }
-
+      /* Mobile order: text first (Elsa style), image second */
       .hero-text {
-        width: 100%;
-        padding: 40px 24px 48px;
+        order: 1;
+        padding: 40px 24px 32px;
+        text-align: center;
       }
 
-      .proof-row { gap: 12px; }
-      .proof-item { max-width: 80px; }
+      .audience-pill { font-size: 9px; }
+
+      .promise-divider { margin-left: auto; margin-right: auto; }
+
+      .hero-sub { max-width: 100%; margin-left: auto; margin-right: auto; }
+
+      .product-block { text-align: center; }
+
+      .proof-row { justify-content: center; }
+
+      /* Image below text on mobile — contained, shows full woman */
+      .hero-img-col {
+        order: 2;
+        height: auto;
+        padding: 0 24px 40px;
+      }
+
+      .hero-img-col img {
+        width: 100%;
+        height: auto;
+        object-fit: contain;
+        object-position: center center;
+        transform: none;          /* no scale on mobile — show full image naturally */
+        max-height: 70vw;
+        border-radius: 20px;
+        box-shadow: 0 16px 40px rgba(139,79,107,0.18);
+      }
 
       .quote-strip { padding: 28px 24px; }
       .quote-strip blockquote { font-size: 17px; }
 
       .benefits-strip { padding: 32px 24px 16px; }
-      .benefits-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 20px;
-      }
+      .benefits-grid { grid-template-columns: repeat(2,1fr); gap: 20px; }
     }
 
     @media (max-width: 480px) {
-      .urgency-bar { font-size: 11px; }
-      .hero-headline { font-size: clamp(28px, 9vw, 38px); }
-      .product-brand { font-size: clamp(24px, 8vw, 36px); }
+      .urgency-bar   { font-size: 11px; }
+      .header-cta    { display: none; }
+      .audience-pill { font-size: 8px; padding: 6px 14px; }
+      .hero-text     { padding: 32px 20px 28px; }
     }
   </style>
 </head>
@@ -503,7 +441,6 @@
       <span class="logo-main">A.M.I.</span>
       <span class="logo-sub">A Mindful Inspiration</span>
     </a>
-
     <nav>
       <ul class="site-nav">
         <li><a href="#">За продукта</a></li>
@@ -512,7 +449,6 @@
         <li><a href="#">За мен</a></li>
       </ul>
     </nav>
-
     <div class="header-right">
       <a href="#order" class="header-cta">Поръчай сега</a>
       <span class="header-heart">♡</span>
@@ -523,76 +459,73 @@
 
 <!-- ══ HERO ══ -->
 <section class="hero">
+  <div class="hero-inner">
 
-  <!-- Woman photo — right half, absolute -->
-  <div class="hero-img-wrap">
-    <img
-      src="https://content.app-sources.com/s/510617328782760951/uploads/%D0%98%D0%B7%D0%BE%D0%B1%D1%80%D0%B0%D0%B6%D0%B5%D0%BD%D0%B8%D1%8F/ChatGPT_Image_30.05.2026_%D0%B3._00_05_44-0137104.png"
-      alt="Жена с карти A.M.I."
-    >
-  </div>
+    <!-- LEFT: text column -->
+    <div class="hero-text">
 
-  <!-- Text — left column -->
-  <div class="hero-text">
+      <!-- Audience pill — Elsa style, small font -->
+      <div class="audience-pill">
+        За жени, които често забравят себе си и дават повече, отколкото получават.
+      </div>
 
-    <!-- Tag -->
-    <p class="hero-tag">
-      <span class="tag-heart">♥</span>
-      За жени, които
-    </p>
+      <!-- Big promise — Elsa headline style with rose accent -->
+      <h1 class="hero-promise">
+        Само <span class="accent">10 минути</span> на ден,<br>
+        които ти помагат да<br>
+        <span class="accent">избираш себе си</span><br>
+        по-уверено.
+      </h1>
 
-    <!-- Big headline -->
-    <h1 class="hero-headline">
-      Често забравят<br>
-      себе си и дават<br>
-      повече, отколкото<br>
-      получават.
-    </h1>
+      <!-- Thin divider (Elsa) -->
+      <div class="promise-divider"></div>
 
-    <!-- Sun ornament -->
-    <svg class="sun-ornament" viewBox="0 0 36 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M18 2 L18 0 M18 20 L18 18 M2 10 L0 10 M36 10 L34 10 M5.5 4.5 L4 3 M32 3 L30.5 4.5 M5.5 15.5 L4 17 M30.5 15.5 L32 17" stroke="#8B4F6B" stroke-width="1.5" stroke-linecap="round"/>
-      <circle cx="18" cy="10" r="5" stroke="#8B4F6B" stroke-width="1.5"/>
-    </svg>
+      <!-- Sub mechanism -->
+      <p class="hero-sub">
+        <strong>Поставяш граници по-уверено</strong> и създаваш повече вътрешен баланс — с 1 карта, малко действие и кратка медитация всяка сутрин.
+      </p>
 
-    <!-- Sub text -->
-    <p class="hero-sub">
-      <strong>Само 10 минути</strong> на ден, които ти помагат
-      да избираш себе си по-често, да поставяш
-      граници по-уверено и да създадеш повече вътрешен баланс.
-    </p>
+      <!-- Product -->
+      <div class="product-block">
+        <span class="product-brand">A.M.I.</span>
+        <span class="product-title">Любов към себе си</span>
+        <span class="product-desc">32 карти за осъзната грижа към себе си</span>
+      </div>
 
-    <!-- Product -->
-    <div class="product-block">
-      <span class="product-brand">A.M.I.</span>
-      <span class="product-title">Любов към себе си</span>
-      <span class="product-desc">32 карти за осъзната грижа към себе си</span>
+      <!-- CTA -->
+      <a href="#order" class="hero-cta-btn">Поръчай сега</a>
+
+      <!-- 3 proof items -->
+      <div class="proof-row">
+        <div class="proof-item">
+          <span class="proof-icon">🌿</span>
+          <span class="proof-text">Създадени с любов и лекота</span>
+        </div>
+        <div class="proof-item">
+          <span class="proof-icon">♡</span>
+          <span class="proof-text">Помагат ти да избереш себе си</span>
+        </div>
+        <div class="proof-item">
+          <span class="proof-icon">☀</span>
+          <span class="proof-text">Твой ритуал за вътрешен баланс</span>
+        </div>
+      </div>
+
     </div>
 
-    <!-- CTA -->
-    <a href="#order" class="hero-cta-btn">Поръчай сега</a>
-
-    <!-- 3 proof items -->
-    <div class="proof-row">
-      <div class="proof-item">
-        <span class="proof-icon">🌿</span>
-        <span class="proof-text">Създадени с любов и лекота</span>
-      </div>
-      <div class="proof-item">
-        <span class="proof-icon">♡</span>
-        <span class="proof-text">Помагат ти да избереш себе си</span>
-      </div>
-      <div class="proof-item">
-        <span class="proof-icon">☀</span>
-        <span class="proof-text">Твой ритуал за вътрешен баланс</span>
-      </div>
+    <!-- RIGHT: woman image — scaled 30% down so full figure is visible -->
+    <div class="hero-img-col">
+      <img
+        src="https://content.app-sources.com/s/510617328782760951/uploads/%D0%98%D0%B7%D0%BE%D0%B1%D1%80%D0%B0%D0%B6%D0%B5%D0%BD%D0%B8%D1%8F/ChatGPT_Image_30.05.2026_%D0%B3._00_05_44-0137104.png"
+        alt="Жена с карти A.M.I."
+      >
     </div>
 
   </div>
 </section>
 
 
-<!-- ══ QUOTE STRIP ══ -->
+<!-- ══ QUOTE ══ -->
 <div class="quote-strip">
   <blockquote>
     Тези карти ми напомнят кой съм аз. Всеки ден избирам себе си с любов.
@@ -604,32 +537,26 @@
 </div>
 
 
-<!-- ══ BENEFITS ROW ══ -->
+<!-- ══ BENEFITS ══ -->
 <div class="benefits-strip">
   <div class="benefits-grid">
-
     <div class="benefit-item">
       <div class="benefit-icon-wrap">🪷</div>
       <p class="benefit-text">Повече любов<br>към себе си</p>
     </div>
-
     <div class="benefit-item">
       <div class="benefit-icon-wrap">🛡</div>
       <p class="benefit-text">Увереност и<br>вътрешна сила</p>
     </div>
-
     <div class="benefit-item">
       <div class="benefit-icon-wrap">⚖</div>
       <p class="benefit-text">Поставяне на граници<br>без вина</p>
     </div>
-
     <div class="benefit-item">
       <div class="benefit-icon-wrap">☀</div>
       <p class="benefit-text">Спокойствие<br>и лекота</p>
     </div>
-
   </div>
-
   <p class="benefits-footer">♥ &nbsp;Защото най-важната връзка е тази със себе си.&nbsp; ♥</p>
 </div>
 
