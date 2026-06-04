@@ -212,35 +212,17 @@
       margin-bottom: 10px;
     }
 
-    /* 3 product elements in one line */
-    .product-elements {
-      display: flex;
-      gap: 0;
-      flex-wrap: nowrap;
-    }
-
-    .product-el {
-      font-family: 'Lato', sans-serif;
-      font-size: 12px;
+    /* Product description sentence */
+    .product-desc-text {
+      font-size: 13px;
       color: var(--mid);
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      white-space: nowrap;
+      line-height: 1.65;
+      max-width: 400px;
     }
 
-    .product-el + .product-el::before {
-      content: '·';
-      color: var(--blush);
-      margin-right: 6px;
-    }
-
-    .product-el .el-dot {
-      width: 5px; height: 5px;
-      border-radius: 50%;
-      background: var(--rose);
-      opacity: 0.5;
-      flex-shrink: 0;
+    .product-desc-text strong {
+      color: var(--dark);
+      font-weight: 700;
     }
 
     /* CTA */
@@ -256,32 +238,59 @@
     }
     .hero-cta-btn:hover { background: var(--rose-deep); transform: translateY(-2px); }
 
-    /* Proof row */
-    .proof-row { display: flex; gap: 20px; flex-wrap: wrap; }
-    .proof-item {
-      display: flex; flex-direction: column;
-      align-items: center; gap: 6px;
-      max-width: 90px; text-align: center;
+    /* Social proof row */
+    .social-proof-row {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      flex-wrap: wrap;
     }
-    .proof-icon { font-size: 18px; color: var(--rose); opacity: 0.65; }
-    .proof-text { font-size: 11px; color: var(--mid); line-height: 1.4; }
 
-    /* RIGHT image — desktop */
+    .sp-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1px;
+    }
+
+    .sp-num {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--rose);
+      line-height: 1.2;
+    }
+
+    .sp-label {
+      font-size: 11px;
+      color: var(--light);
+      letter-spacing: 0.02em;
+      white-space: nowrap;
+    }
+
+    .sp-divider {
+      color: var(--blush);
+      font-size: 18px;
+      line-height: 1;
+      font-weight: 300;
+    }
+
+    /* RIGHT image — desktop: show full woman, no crop */
     .hero-img-col {
       position: relative;
       height: 100%;
-      overflow: hidden;
       display: flex;
-      align-items: center;
+      align-items: flex-end;
+      justify-content: center;
+      background: var(--bg);
     }
 
     .hero-img-col img {
       width: 100%;
       height: 100%;
-      object-fit: cover;
-      object-position: center 15%;
-      transform: scale(0.72);
-      transform-origin: center top;
+      object-fit: contain;   /* full image, no cropping */
+      object-position: center bottom;
+      display: block;
     }
 
     /* ══ QUOTE ══ */
@@ -392,23 +401,25 @@
 
       .proof-row { justify-content: center; }
 
-      /* Image column — flex: 1 fills remaining space, creating the PEEK effect */
+      /* Image column — flex:1 fills remaining viewport, peek effect */
       .hero-img-col {
         order: 2;
         flex: 1;
-        min-height: 160px;   /* guarantees at least this much peeking */
-        overflow: hidden;
+        min-height: 180px;
         align-items: flex-start;
+        background: var(--bg);
       }
 
       .hero-img-col img {
         width: 100%;
         height: 100%;
-        object-fit: cover;
-        object-position: center top;  /* show woman's face/upper body */
-        transform: none;
+        object-fit: contain;        /* no crop — full woman visible */
+        object-position: center top;
         display: block;
       }
+
+      .social-proof-row { justify-content: center; }
+      .product-desc-text { max-width: 100%; text-align: center; }
 
       /* Quote & benefits */
       .quote-strip { padding: 28px 24px; }
@@ -464,9 +475,9 @@
         За жени, които често забравят себе си и дават повече, отколкото получават.
       </div>
 
-      <!-- Big promise with rose accents -->
+      <!-- Big promise — без повторение на "10 минути" -->
       <h1 class="hero-promise">
-        Само <span class="accent">10 минути</span> на ден, които ти помагат да <span class="accent">избираш себе си</span> по-уверено.
+        <span class="accent">Избирай себе си</span> всеки ден — с повече увереност, граници и <span class="accent">любов.</span>
       </h1>
 
       <!-- Thin divider -->
@@ -484,36 +495,32 @@
         <span class="product-brand">Карти A.M.I.</span>
         <span class="product-title">„Любов към себе си"</span>
 
-        <!-- 3 product elements -->
-        <div class="product-elements">
-          <div class="product-el">
-            <span class="el-dot"></span>Утвърждение
-          </div>
-          <div class="product-el">
-            <span class="el-dot"></span>Действие
-          </div>
-          <div class="product-el">
-            <span class="el-dot"></span>Медитация
-          </div>
-        </div>
+        <!-- Product description -->
+        <p class="product-desc-text">
+          Всяка карта носи <strong>утвърждение</strong> за по-добро самочувствие,
+          <strong>конкретно действие</strong> за изпълнение същия ден и
+          <strong>медитация</strong> чрез QR код — три стъпки към по-осъзната грижа за себе си.
+        </p>
       </div>
 
       <!-- CTA -->
       <a href="#order" class="hero-cta-btn">Поръчай сега</a>
 
-      <!-- Proof -->
-      <div class="proof-row">
-        <div class="proof-item">
-          <span class="proof-icon">🌿</span>
-          <span class="proof-text">Създадени с любов и лекота</span>
+      <!-- Social proof strip -->
+      <div class="social-proof-row">
+        <div class="sp-item">
+          <span class="sp-num">1000+</span>
+          <span class="sp-label">клиентки</span>
         </div>
-        <div class="proof-item">
-          <span class="proof-icon">♡</span>
-          <span class="proof-text">Помагат ти да избереш себе си</span>
+        <span class="sp-divider">|</span>
+        <div class="sp-item">
+          <span class="sp-num">4.9/5</span>
+          <span class="sp-label">средна оценка</span>
         </div>
-        <div class="proof-item">
-          <span class="proof-icon">☀</span>
-          <span class="proof-text">Твой ритуал за вътрешен баланс</span>
+        <span class="sp-divider">|</span>
+        <div class="sp-item">
+          <span class="sp-num">♥</span>
+          <span class="sp-label">Любим ежедневен ритуал</span>
         </div>
       </div>
 
