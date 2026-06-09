@@ -351,61 +351,58 @@
       .site-nav    { display: none; }
       .site-header { padding: 14px 24px; }
 
-      /* Hero becomes full-viewport flex column */
-      .hero {
-        min-height: 100svh;
-        display: flex;
-        flex-direction: column;
-      }
+      .hero { min-height: auto; }
 
       .hero-inner {
         grid-template-columns: 1fr;
         min-height: auto;
-        flex: 1;
-        display: flex;
-        flex-direction: column;
-        max-width: 100%;
       }
 
-      /* Text column — top, centered */
+      /* Text column — compact padding so image peeks on first load */
       .hero-text {
         order: 1;
-        padding: 28px 24px 20px;
+        padding: 22px 24px 16px;
         text-align: center;
-        flex-shrink: 0;
       }
 
       .audience-pill {
         font-size: 10px;
         padding: 7px 16px;
+        margin-bottom: 16px;
       }
 
-      /* Smaller headline on mobile so image can peek */
       .hero-promise {
-        font-size: clamp(26px, 7.5vw, 36px);
-        line-height: 1.2;
+        font-size: clamp(24px, 7vw, 34px);
+        line-height: 1.18;
+        margin-bottom: 8px;
       }
 
-      .promise-divider { margin-left: auto; margin-right: auto; }
+      .promise-divider { margin: 12px auto 14px; }
 
       .hero-sub {
         max-width: 100%;
         font-size: 13px;
-        line-height: 1.55;
+        line-height: 1.5;
+        margin-bottom: 16px;
         margin-left: auto; margin-right: auto;
       }
 
-      .product-block { text-align: center; }
+      .product-block { text-align: center; margin-bottom: 18px; }
+      .product-brand { font-size: clamp(22px, 6vw, 30px); }
 
-      .product-elements { justify-content: center; gap: 6px; }
+      /* Hide product description on mobile above fold — shows after scroll */
+      .product-desc-text { display: none; }
 
-      .proof-row { justify-content: center; }
+      .hero-cta-btn { margin-bottom: 16px; }
 
-      /* Image column — flex:1 fills remaining viewport, peek effect */
+      .social-proof-row { justify-content: center; margin-bottom: 0; }
+
+      /* Image — fixed peek height: always shows top 25% of woman's photo */
       .hero-img-col {
         order: 2;
-        flex: 1;
-        min-height: 180px;
+        height: 28vh;        /* ~235px on 844px phone — top of woman visible */
+        min-height: 140px;
+        overflow: hidden;
         align-items: flex-start;
         background: var(--bg);
       }
@@ -413,14 +410,10 @@
       .hero-img-col img {
         width: 100%;
         height: 100%;
-        object-fit: contain;        /* no crop — full woman visible */
-        object-position: center top;
+        object-fit: cover;
+        object-position: center 5%;  /* show very top = woman's face/shoulders */
         display: block;
       }
-
-      .social-proof-row { justify-content: center; }
-      .product-block { text-align: center; }
-      .product-desc-text { max-width: 100%; text-align: center; }
 
       /* Quote & benefits */
       .quote-strip { padding: 28px 24px; }
@@ -473,7 +466,7 @@
 
       <!-- Audience pill -->
       <div class="audience-pill">
-        За жени, които често забравят себе си и дават повече, отколкото получават.
+      За жени, уморени да дават на всички — освен на себе си.
       </div>
 
       <!-- Big promise — removed per request -->
@@ -509,7 +502,7 @@
       </div>
 
       <!-- CTA -->
-      <a href="#order" class="hero-cta-btn">Избирам себе си днес</a>
+      <a href="#order" class="hero-cta-btn">Поръчай сега своя ритуал</a>
 
       <!-- Social proof strip -->
       <div class="social-proof-row">
@@ -546,10 +539,10 @@
 <!-- ══ QUOTE ══ -->
 <div class="quote-strip">
   <blockquote>
-    Тези карти ми напомнят кой съм аз. Всеки ден избирам себе си с любов.
+    Тези карти ми напомнят всеки ден за моята стойност и ме научиха да казвам „не" — без вина.
   </blockquote>
   <p class="quote-author">
-    – Десислава, 34 г.
+    – А. Илиева, 34 г.
     <span class="stars">★★★★★</span>
   </p>
 </div>
