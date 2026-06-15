@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>A.M.I. – Карти Любов към Себе си</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;900&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lato:ital,wght@0,300;0,400;0,700;1,300&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:        #F5EBE0;
+      --rose:      #8B4F6B;
+      --rose-lt:   #C4899E;   /* lighter rose for accent words in sub */
+      --rose-deep: #6B3A50;
+      --blush:     #F2D9D9;
+      --gold:      #C9A84C;
+      --dark:      #2C1A1A;
+      --mid:       #6B4E4E;
+      --light:     #9E7A7A;
+      --white:     #FDFAF7;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Lato', sans-serif;
+      background: var(--bg);
+      color: var(--dark);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ══ STICKY TOP ══ */
+    .sticky-wrap { position: sticky; top: 0; z-index: 300; }
+
+    .urgency-bar {
+      background: linear-gradient(135deg, var(--rose) 0%, var(--rose-deep) 100%);
+      color: var(--white);
+      padding: 8px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      font-size: 12px;
+      flex-wrap: wrap;
+      text-align: center;
+    }
+
+    .limited-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      background: rgba(201,168,76,0.2);
+      border: 1px solid var(--gold);
+      color: #F5E0A0;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 3px 10px;
+      border-radius: 50px;
+      white-space: nowrap;
+    }
+
+    .dot-pulse {
+      display: inline-block;
+      width: 5px; height: 5px;
+      border-radius: 50%;
+      background: var(--gold);
+      animation: blink 2s ease-in-out infinite;
+    }
+
+    @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0.3} }
+
+    .urgency-bar b { color: #F2D9D9; }
+
+    /* Header */
+    .site-header {
+      background: var(--white);
+      padding: 16px 48px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      box-shadow: 0 1px 0 rgba(139,79,107,0.08);
+    }
+
+    .logo-wrap { text-decoration: none; }
+    .logo-main {
+      font-family: 'Playfair Display', serif;
+      font-size: 21px; font-weight: 700;
+      color: var(--rose); letter-spacing: 0.1em; display: block;
+    }
+    .logo-sub {
+      font-size: 8px; letter-spacing: 0.22em;
+      text-transform: uppercase; color: var(--mid);
+      margin-top: 3px; display: block;
+    }
+
+    .site-nav { display: flex; gap: 36px; list-style: none; }
+    .site-nav a { font-size: 14px; color: var(--dark); text-decoration: none; transition: color .2s; }
+    .site-nav a:hover { color: var(--rose); }
+
+    .header-right { display: flex; align-items: center; gap: 14px; }
+
+    .header-cta {
+      background: var(--rose); color: var(--white);
+      padding: 11px 26px; border-radius: 50px;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 12px; font-weight: 700;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      text-decoration: none; transition: background .25s, transform .25s;
+    }
+    .header-cta:hover { background: var(--rose-deep); transform: translateY(-1px); }
+
+    .header-heart { font-size: 18px; color: var(--rose); opacity: 0.7; cursor: pointer; }
+
+    /* ══ HERO — DESKTOP ══ */
+    .hero {
+      background: var(--bg);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      min-height: calc(100vh - 110px);
+    }
+
+    /* LEFT text */
+    .hero-text { padding: 60px 40px 60px 72px; z-index: 2; }
+
+    /* Audience pill */
+    .audience-pill {
+      display: inline-block;
+      background: rgba(242,217,217,0.45);
+      border: 1px solid var(--blush);
+      border-radius: 50px;
+      padding: 7px 18px;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--rose);
+      margin-bottom: 22px;
+      line-height: 1.6;
+    }
+
+    /* Big promise headline */
+    .hero-promise {
+      font-family: 'Montserrat', sans-serif;
+      font-size: clamp(30px, 3.2vw, 48px);
+      font-weight: 900;
+      line-height: 1.18;
+      color: var(--dark);
+      margin-bottom: 10px;
+      letter-spacing: -0.01em;
+    }
+
+    .hero-promise .accent { color: var(--rose); }
+
+    /* Divider */
+    .promise-divider {
+      width: 48px; height: 2px;
+      background: var(--blush); border-radius: 2px;
+      margin: 16px 0 20px;
+    }
+
+    /* Subheadline — new text, tighter, lighter accent */
+    .hero-sub {
+      font-family: 'Lato', sans-serif;
+      font-size: 14px;
+      line-height: 1.6;
+      color: var(--mid);
+      max-width: 400px;
+      margin-bottom: 28px;
+    }
+
+    .hero-sub strong { color: var(--dark); font-weight: 700; }
+    /* Light rose accent for specific words */
+    .hero-sub .sub-accent {
+      color: var(--rose-lt);
+      font-weight: 700;
+    }
+
+    /* Product block */
+    .product-block { margin-bottom: 28px; text-align: left; }
+
+    .product-brand {
+      font-family: 'Montserrat', sans-serif;
+      font-size: clamp(24px, 2.6vw, 38px);
+      font-weight: 900;
+      letter-spacing: 0.04em;
+      color: var(--dark);
+      line-height: 1;
+      display: block;
+      margin-bottom: 3px;
+    }
+
+    .product-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(14px, 1.4vw, 20px);
+      font-weight: 700;
+      font-style: italic;
+      color: var(--rose);
+      display: block;
+      margin-bottom: 10px;
+    }
+
+    /* Product description sentence */
+    .product-desc-text {
+      font-size: 13px;
+      color: var(--mid);
+      line-height: 1.65;
+      max-width: 400px;
+    }
+
+    .product-desc-text strong {
+      color: var(--dark);
+      font-weight: 700;
+    }
+
+    /* CTA */
+    .hero-cta-btn {
+      display: inline-block;
+      background: var(--rose); color: var(--white);
+      padding: 14px 32px; border-radius: 50px;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 13px; font-weight: 700;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      text-decoration: none; margin-bottom: 30px;
+      transition: background .25s, transform .25s;
+    }
+    .hero-cta-btn:hover { background: var(--rose-deep); transform: translateY(-2px); }
+
+    /* Social proof row */
+    .social-proof-row {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .sp-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1px;
+    }
+
+    .sp-num {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--rose);
+      line-height: 1.2;
+    }
+
+    .sp-label {
+      font-size: 11px;
+      color: var(--light);
+      letter-spacing: 0.02em;
+      white-space: nowrap;
+    }
+
+    .sp-divider {
+      color: var(--blush);
+      font-size: 18px;
+      line-height: 1;
+      font-weight: 300;
+    }
+
+    /* RIGHT image — desktop: show full woman, no crop */
+    .hero-img-col {
+      position: relative;
+      height: 100%;
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      background: var(--bg);
+    }
+
+    .hero-img-col img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;   /* full image, no cropping */
+      object-position: center bottom;
+      display: block;
+    }
+
+    /* ══ QUOTE ══ */
+    .quote-strip {
+      background: var(--white);
+      padding: 36px 48px;
+      text-align: center;
+    }
+
+    .quote-strip blockquote {
+      font-family: 'Playfair Display', serif;
+      font-size: 20px; font-style: italic;
+      color: var(--dark);
+      max-width: 680px; margin: 0 auto 12px;
+      line-height: 1.65;
+    }
+
+    .quote-strip blockquote::before { content: '" '; color: var(--rose); }
+    .quote-strip blockquote::after  { content: '"'; color: var(--rose); }
+
+    .quote-author {
+      font-size: 13px; color: var(--light);
+      display: flex; align-items: center;
+      justify-content: center; gap: 12px;
+    }
+
+    .stars { color: var(--gold); letter-spacing: 2px; font-size: 14px; }
+
+    /* ══ BENEFITS ══ */
+    .benefits-strip { background: var(--bg); padding: 40px 48px 20px; }
+
+    .benefits-grid {
+      max-width: 900px; margin: 0 auto 28px;
+      display: grid;
+      grid-template-columns: repeat(4,1fr);
+      gap: 16px;
+    }
+
+    .benefit-item {
+      text-align: center;
+      display: flex; flex-direction: column;
+      align-items: center; gap: 10px;
+    }
+
+    .benefit-icon-wrap { font-size: 24px; color: var(--rose); opacity: 0.65; }
+    .benefit-text { font-size: 12px; color: var(--mid); line-height: 1.45; }
+
+    .benefits-footer {
+      text-align: center; font-size: 14px;
+      color: var(--rose); padding-bottom: 32px;
+      letter-spacing: 0.02em;
+    }
+
+    /* ══ MOBILE ══
+       Goal: text fills top of screen, image PEEKS at the bottom
+       on first load — like Elsa's book peeking. */
+    @media (max-width: 960px) {
+      .site-nav    { display: none; }
+      .site-header { padding: 14px 24px; }
+
+      .hero { min-height: auto; }
+
+      .hero-inner {
+        grid-template-columns: 1fr;
+        min-height: auto;
+      }
+
+      /* Text column — compact padding so image peeks on first load */
+      .hero-text {
+        order: 1;
+        padding: 22px 24px 16px;
+        text-align: center;
+      }
+
+      .audience-pill {
+        font-size: 10px;
+        padding: 7px 16px;
+        margin-bottom: 16px;
+      }
+
+      .hero-promise {
+        font-size: clamp(24px, 7vw, 34px);
+        line-height: 1.18;
+        margin-bottom: 8px;
+      }
+
+      .promise-divider { margin: 12px auto 14px; }
+
+      .hero-sub {
+        max-width: 100%;
+        font-size: 13px;
+        line-height: 1.5;
+        margin-bottom: 16px;
+        margin-left: auto; margin-right: auto;
+      }
+
+      .product-block { text-align: center; margin-bottom: 18px; }
+      .product-brand { font-size: clamp(22px, 6vw, 30px); }
+
+      /* Hide product description on mobile above fold — shows after scroll */
+      .product-desc-text { display: none; }
+
+      .hero-cta-btn { margin-bottom: 16px; }
+
+      .social-proof-row { justify-content: center; margin-bottom: 0; }
+
+      /* Image — fixed peek height: always shows top 25% of woman's photo */
+      .hero-img-col {
+        order: 2;
+        height: 28vh;        /* ~235px on 844px phone — top of woman visible */
+        min-height: 140px;
+        overflow: hidden;
+        align-items: flex-start;
+        background: var(--bg);
+      }
+
+      .hero-img-col img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center 5%;  /* show very top = woman's face/shoulders */
+        display: block;
+      }
+
+      /* Quote & benefits */
+      .quote-strip { padding: 28px 24px; }
+      .quote-strip blockquote { font-size: 17px; }
+      .benefits-strip { padding: 32px 24px 16px; }
+      .benefits-grid { grid-template-columns: repeat(2,1fr); gap: 20px; }
+    }
+
+    @media (max-width: 480px) {
+      .urgency-bar { font-size: 11px; }
+      .header-cta  { display: none; }
+      .hero-text   { padding: 24px 20px 16px; }
+      .hero-promise { font-size: clamp(24px, 7vw, 32px); }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ══ STICKY TOP ══ -->
+<div class="sticky-wrap">
+  <div class="urgency-bar">
+    <span class="limited-badge"><span class="dot-pulse"></span> Лимитирана серия</span>
+    <span>Само <b>100 комплекта</b> налични — присъедини се към жените, избрали себе си.</span>
+  </div>
+  <header class="site-header">
+    <a href="#" class="logo-wrap">
+      <span class="logo-main">A.M.I.</span>
+      <span class="logo-sub">A Mindful Inspiration</span>
+    </a>
+    <nav><ul class="site-nav">
+      <li><a href="#">За продукта</a></li>
+      <li><a href="#">Как работи</a></li>
+      <li><a href="#">Отзиви</a></li>
+      <li><a href="#">За мен</a></li>
+    </ul></nav>
+    <div class="header-right">
+      <a href="#order" class="header-cta">Поръчай сега</a>
+      <span class="header-heart">♡</span>
+    </div>
+  </header>
+</div>
+
+
+<!-- ══ HERO ══ -->
+<section class="hero">
+  <div class="hero-inner">
+
+    <!-- TEXT — top on mobile, left on desktop -->
+    <div class="hero-text">
+
+      <!-- Audience pill -->
+      <div class="audience-pill">
+      За жени, уморени да дават на всички — освен на себе си.
+      </div>
+
+      <!-- Big promise — removed per request -->
+
+
+      <!-- Big promise -->
+      <h1 class="hero-promise">
+        Всичко се променя, когато започнеш да <span class="accent">избираш себе си.</span>
+      </h1>
+
+      <!-- Thin divider -->
+      <div class="promise-divider"></div>
+
+      <!-- Subheadline — new text, tighter, with lighter rose accents -->
+      <p class="hero-sub">
+        Превърни <span class="sub-accent">10 минути</span> на ден в свой личен ритуал,
+        който ти напомня, че и ти <span class="sub-accent">заслужаваш</span> повече
+        <span class="sub-accent">внимание, грижа и любов.</span>
+      </p>
+
+      <!-- Product name — centered, prominent -->
+      <div class="product-block">
+        <span class="product-brand">Карти A.M.I.</span>
+        <span class="product-title">„Любов към себе си"</span>
+
+        <!-- Product description -->
+        <p class="product-desc-text">
+          Всяка карта носи <strong>утвърждение</strong> за по-добро самочувствие,
+          <strong>конкретно действие</strong> за изпълнение същия ден и
+          <strong>медитация</strong> чрез QR код за вътрешен баланс.<br><br>
+          Три стъпки за повече увереност, спокойствие и любов към себе си.
+        </p>
+      </div>
+
+      <!-- CTA -->
+      <a href="#order" class="hero-cta-btn">Поръчай сега своя ритуал</a>
+
+      <!-- Social proof strip -->
+      <div class="social-proof-row">
+        <div class="sp-item">
+          <span class="sp-num">1000+</span>
+          <span class="sp-label">клиентки</span>
+        </div>
+        <span class="sp-divider">|</span>
+        <div class="sp-item">
+          <span class="sp-num">4.9/5</span>
+          <span class="sp-label">средна оценка</span>
+        </div>
+        <span class="sp-divider">|</span>
+        <div class="sp-item">
+          <span class="sp-num">♥</span>
+          <span class="sp-label">Любим ежедневен ритуал</span>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- IMAGE — peeks at bottom on mobile, right column on desktop -->
+    <div class="hero-img-col">
+      <img
+        src="https://content.app-sources.com/s/510617328782760951/uploads/%D0%98%D0%B7%D0%BE%D0%B1%D1%80%D0%B0%D0%B6%D0%B5%D0%BD%D0%B8%D1%8F/ChatGPT_Image_30.05.2026_%D0%B3._00_05_44-0137104.png"
+        alt="Жена с карти A.M.I."
+      >
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ══ QUOTE ══ -->
+<div class="quote-strip">
+  <blockquote>
+    Тези карти ми напомнят всеки ден за моята стойност и ме научиха да казвам „не" — без вина.
+  </blockquote>
+  <p class="quote-author">
+    – А. Илиева, 34 г.
+    <span class="stars">★★★★★</span>
+  </p>
+</div>
+
+
+<!-- ══ BENEFITS ══ -->
+<div class="benefits-strip">
+  <div class="benefits-grid">
+    <div class="benefit-item">
+      <div class="benefit-icon-wrap">🪷</div>
+      <p class="benefit-text">Повече любов<br>към себе си</p>
+    </div>
+    <div class="benefit-item">
+      <div class="benefit-icon-wrap">🛡</div>
+      <p class="benefit-text">Увереност и<br>вътрешна сила</p>
+    </div>
+    <div class="benefit-item">
+      <div class="benefit-icon-wrap">⚖</div>
+      <p class="benefit-text">Поставяне на граници<br>без вина</p>
+    </div>
+    <div class="benefit-item">
+      <div class="benefit-icon-wrap">☀</div>
+      <p class="benefit-text">Спокойствие<br>и лекота</p>
+    </div>
+  </div>
+  <p class="benefits-footer">♥ &nbsp;Защото най-важната връзка е тази със себе си.&nbsp; ♥</p>
+</div>
+
+
+<!-- ══ DETAILED BENEFITS ══ -->
+<section style="background:#FDFAF7;padding:72px 24px 80px;">
+  <div style="max-width:660px;margin:0 auto;">
+
+    <h2 style="font-family:'Playfair Display',serif;font-size:clamp(26px,5vw,36px);font-weight:700;color:#2C1A1A;text-align:center;line-height:1.25;margin-bottom:14px;">
+      Малки ритуали.<br>Големи промени.
+    </h2>
+    <p style="font-family:'Lato',sans-serif;font-size:15px;color:#6B4E4E;text-align:center;line-height:1.8;margin-bottom:52px;max-width:540px;margin-left:auto;margin-right:auto;">
+      Всяка карта съчетава невронаука, осъзнато действие и медитация, за да създава нови навици на мислене и грижа към себе си.
+    </p>
+
+    <!-- Benefit 1 -->
+    <div style="display:flex;flex-direction:column;align-items:center;text-align:center;margin-bottom:40px;">
+      <div style="width:64px;height:64px;border-radius:50%;background:linear-gradient(135deg,#F2D9D9,#E8C4C4);display:flex;align-items:center;justify-content:center;font-size:28px;margin-bottom:20px;box-shadow:0 4px 16px rgba(139,79,107,0.12);">
+        🛡
+      </div>
+      <h3 style="font-family:'Playfair Display',serif;font-size:clamp(18px,3.5vw,22px);font-weight:700;color:#2C1A1A;margin-bottom:12px;line-height:1.3;">
+        Научи се да поставяш себе си на първо място
+      </h3>
+      <p style="font-family:'Lato',sans-serif;font-size:15px;color:#6B4E4E;line-height:1.8;max-width:520px;margin-bottom:20px;">
+        Всяка сутрин с карта A.M.I. практикуваш малко, но значимо действие на самогрижа — и с времето установяваш здрави граници без да се чувстваш виновна.
+      </p>
+      <div style="background:linear-gradient(135deg,#F2D9D9 0%,#FAF0E8 100%);border-left:3px solid #C9A84C;border-radius:8px;padding:16px 24px;width:100%;max-width:520px;">
+        <p style="font-family:'Lato',sans-serif;font-size:13px;font-weight:700;color:#8B4F6B;margin:0;letter-spacing:0.03em;">
+          ✦ Резултат: По-малко изтощение, повече увереност в решенията ти.
+        </p>
+      </div>
+    </div>
+
+    <!-- Gold divider -->
+    <div style="display:flex;align-items:center;gap:16px;margin-bottom:40px;max-width:520px;margin-left:auto;margin-right:auto;">
+      <div style="flex:1;height:1px;background:linear-gradient(90deg,transparent,#C9A84C,transparent);"></div>
+      <span style="color:#C9A84C;font-size:14px;">✦</span>
+      <div style="flex:1;height:1px;background:linear-gradient(90deg,transparent,#C9A84C,transparent);"></div>
+    </div>
+
+    <!-- Benefit 2 -->
+    <div style="display:flex;flex-direction:column;align-items:center;text-align:center;margin-bottom:40px;">
+      <div style="width:64px;height:64px;border-radius:50%;background:linear-gradient(135deg,#F2D9D9,#E8C4C4);display:flex;align-items:center;justify-content:center;font-size:28px;margin-bottom:20px;box-shadow:0 4px 16px rgba(139,79,107,0.12);">
+        🪷
+      </div>
+      <h3 style="font-family:'Playfair Display',serif;font-size:clamp(18px,3.5vw,22px);font-weight:700;color:#2C1A1A;margin-bottom:12px;line-height:1.3;">
+        Изгради ежедневен ритуал за себе си
+      </h3>
+      <p style="font-family:'Lato',sans-serif;font-size:15px;color:#6B4E4E;line-height:1.8;max-width:520px;margin-bottom:20px;">
+        Само 10 минути на ден са достатъчни. Утвърждение, действие, медитация — три стъпки, които изграждат нов навик на самолюбие и вътрешен мир.
+      </p>
+      <div style="background:linear-gradient(135deg,#F2D9D9 0%,#FAF0E8 100%);border-left:3px solid #C9A84C;border-radius:8px;padding:16px 24px;width:100%;max-width:520px;">
+        <p style="font-family:'Lato',sans-serif;font-size:13px;font-weight:700;color:#8B4F6B;margin:0;letter-spacing:0.03em;">
+          ✦ Резултат: По-спокойна сутрин и усещане, че денят е твой.
+        </p>
+      </div>
+    </div>
+
+    <!-- Gold divider -->
+    <div style="display:flex;align-items:center;gap:16px;margin-bottom:40px;max-width:520px;margin-left:auto;margin-right:auto;">
+      <div style="flex:1;height:1px;background:linear-gradient(90deg,transparent,#C9A84C,transparent);"></div>
+      <span style="color:#C9A84C;font-size:14px;">✦</span>
+      <div style="flex:1;height:1px;background:linear-gradient(90deg,transparent,#C9A84C,transparent);"></div>
+    </div>
+
+    <!-- Benefit 3 -->
+    <div style="display:flex;flex-direction:column;align-items:center;text-align:center;margin-bottom:20px;">
+      <div style="width:64px;height:64px;border-radius:50%;background:linear-gradient(135deg,#F2D9D9,#E8C4C4);display:flex;align-items:center;justify-content:center;font-size:28px;margin-bottom:20px;box-shadow:0 4px 16px rgba(139,79,107,0.12);">
+        ☀
+      </div>
+      <h3 style="font-family:'Playfair Display',serif;font-size:clamp(18px,3.5vw,22px);font-weight:700;color:#2C1A1A;margin-bottom:12px;line-height:1.3;">
+        Промени начина си на мислене за себе си
+      </h3>
+      <p style="font-family:'Lato',sans-serif;font-size:15px;color:#6B4E4E;line-height:1.8;max-width:520px;margin-bottom:20px;">
+        Невронауката показва, че редовното повторение на позитивни утвърждения буквално препрограмира мозъка. Картите A.M.I. ти дават точно тези думи — всеки ден, точното напомняне, от което се нуждаеш.
+      </p>
+      <div style="background:linear-gradient(135deg,#F2D9D9 0%,#FAF0E8 100%);border-left:3px solid #C9A84C;border-radius:8px;padding:16px 24px;width:100%;max-width:520px;">
+        <p style="font-family:'Lato',sans-serif;font-size:13px;font-weight:700;color:#8B4F6B;margin:0;letter-spacing:0.03em;">
+          ✦ Резултат: По-малко самокритика, повече приемане и любов към себе си.
+        </p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+</body>
+</html>
