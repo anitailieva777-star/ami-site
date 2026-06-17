@@ -176,9 +176,9 @@
       display: inline-flex !important;
       align-items: center !important;
       gap: 6px !important;
-      background: rgba(168,0,0,0.12) !important;
-      border: 1px solid rgba(168,0,0,0.40) !important;
-      color: #c04040 !important;
+      background: rgba(201,168,76,0.08) !important;
+      border: 1px solid rgba(201,168,76,0.45) !important;
+      color: #C9A84C !important;
       font-size: 11px !important;
       font-weight: 700 !important;
       letter-spacing: 0.12em !important;
@@ -190,7 +190,7 @@
 
     .hero-author {
       font-size: 13px !important;
-      color: #C9A84C !important;
+      color: #F5F0E8 !important;
       letter-spacing: 0.18em !important;
       text-transform: uppercase !important;
       margin-bottom: 10px !important;
@@ -198,33 +198,44 @@
 
     .hero-title {
       margin-bottom: 20px !important;
-      line-height: 1 !important;
+      background: transparent !important;
+      background-color: transparent !important;
+      display: flex !important;
+      flex-direction: column !important;
+      gap: 2px !important;
+    }
+    .title-row {
+      display: flex !important;
+      align-items: baseline !important;
+      gap: 14px !important;
       background: transparent !important;
       background-color: transparent !important;
     }
-    .title-main {
-      display: block !important;
+    .title-row-2 {
+      padding-left: 2.2em !important;
+    }
+    .t-gold-lg {
       font-family: 'Playfair Display', Georgia, serif !important;
-      font-size: clamp(52px, 7vw, 88px) !important;
+      font-size: clamp(46px, 6.5vw, 82px) !important;
       font-weight: 800 !important;
       color: #C9A84C !important;
       letter-spacing: 0.04em !important;
       line-height: 1.0 !important;
-      margin-bottom: 4px !important;
       background: transparent !important;
       background-color: transparent !important;
     }
-    .title-sub {
-      display: block !important;
-      font-family: 'Playfair Display', Georgia, serif !important;
-      font-size: clamp(18px, 2.4vw, 28px) !important;
-      font-weight: 400 !important;
+    .t-white-sm {
+      font-family: 'Inter', system-ui, sans-serif !important;
+      font-size: clamp(20px, 2.8vw, 34px) !important;
+      font-weight: 300 !important;
       color: #F5F0E8 !important;
       font-style: italic !important;
-      letter-spacing: 0.10em !important;
-      line-height: 1.4 !important;
+      letter-spacing: 0.06em !important;
+      line-height: 1.0 !important;
       background: transparent !important;
       background-color: transparent !important;
+      align-self: flex-end !important;
+      margin-bottom: 8px !important;
     }
 
     .hero-sub {
@@ -902,8 +913,9 @@
       .ben-grid { grid-template-columns: 1fr !important; }
       .test-grid { grid-template-columns: 1fr !important; }
       .pain-grid { grid-template-columns: 1fr !important; }
-      .title-main { font-size: clamp(46px, 12vw, 64px) !important; }
-      .title-sub { font-size: clamp(16px, 4.5vw, 22px) !important; }
+      .t-gold-lg { font-size: clamp(42px, 11vw, 62px) !important; }
+      .t-white-sm { font-size: clamp(18px, 4.2vw, 28px) !important; }
+      .title-row-2 { padding-left: 1.6em !important; }
     }
 
     @media (max-width: 600px) {
@@ -913,7 +925,9 @@
       .price-new { font-size: 40px !important; }
       .footer-links { gap: 18px !important; }
       .hero-img-col { max-height: 280px !important; }
-      .title-main { font-size: clamp(42px, 13vw, 58px) !important; }
+      .t-gold-lg { font-size: clamp(38px, 12.5vw, 54px) !important; }
+      .t-white-sm { font-size: clamp(16px, 4.8vw, 24px) !important; }
+      .title-row-2 { padding-left: 1.2em !important; }
     }
   </style>
 </head>
@@ -949,8 +963,12 @@
         <p class="hero-author">Димо Кацарски</p>
 
         <h1 class="hero-title">
-          <span class="title-main">Добрият Мъж</span>
-          <span class="title-sub">е лош съпруг</span>
+          <span class="title-row title-row-1">
+            <span class="t-gold-lg">Добрият</span><span class="t-white-sm">мъж</span>
+          </span>
+          <span class="title-row title-row-2">
+            <span class="t-white-sm">е лош</span><span class="t-gold-lg">съпруг</span>
+          </span>
         </h1>
 
         <p class="hero-sub">
