@@ -47,7 +47,7 @@
 
     /* ── ANNOUNCEMENT BAR ── */
     .ann-bar {
-      background: linear-gradient(90deg, #0a0800 0%, #5C3D00 18%, #B8900A 36%, #E8CC7A 50%, #B8900A 64%, #5C3D00 82%, #0a0800 100%) !important;
+      background: linear-gradient(90deg, #5C3D00 0%, #B8900A 28%, #E8CC7A 50%, #B8900A 72%, #5C3D00 100%) !important;
       padding: 11px 20px !important;
       text-align: center !important;
       font-size: 13px !important;
@@ -903,10 +903,10 @@
 
     /* ── RESPONSIVE ── */
     @media (max-width: 900px) {
-      .hero-wrap { flex-direction: column !important; gap: 28px !important; }
-      /* Mobile: headline first, book cover second (partially visible) */
+      .hero-wrap { flex-direction: column !important; gap: 20px !important; }
+      /* Mobile: headline first, book cover peeks below */
       .hero-cnt-col { order: 1 !important; padding-top: 0 !important; }
-      .hero-img-col { order: 2 !important; flex: none !important; width: 100% !important; max-width: 480px !important; margin: 0 auto !important; max-height: 340px !important; overflow: hidden !important; }
+      .hero-img-col { order: 2 !important; flex: none !important; width: 100% !important; max-width: 420px !important; margin: 0 auto !important; }
       .hero-img-stage { padding: 6px !important; }
       .pkgs { grid-template-columns: 1fr !important; gap: 22px !important; }
       .sol-grid { grid-template-columns: 1fr !important; gap: 44px !important; }
@@ -919,12 +919,12 @@
     }
 
     @media (max-width: 600px) {
-      .hero { padding: 32px 16px !important; }
+      .hero { padding: 20px 16px 0 16px !important; }
       .sec { padding: 64px 16px !important; }
       .guar-box { padding: 36px 24px !important; }
       .price-new { font-size: 40px !important; }
       .footer-links { gap: 18px !important; }
-      .hero-img-col { max-height: 280px !important; }
+      .hero-img-col { max-width: 360px !important; }
       .t-gold-lg { font-size: clamp(38px, 12.5vw, 54px) !important; }
       .t-white-sm { font-size: clamp(16px, 4.8vw, 24px) !important; }
       .title-row-2 { padding-left: 1.2em !important; }
