@@ -65,6 +65,9 @@
       background: linear-gradient(90deg, transparent, #C9A84C 30%, #C9A84C 70%, transparent) !important;
     }
 
+    /* Desktop: hide the inline mobile cover */
+    .hero-img-mobile { display: none !important; }
+
     /* ── HERO ── */
     .hero {
       background-color: #1c2534 !important;
@@ -903,10 +906,12 @@
 
     /* ── RESPONSIVE ── */
     @media (max-width: 900px) {
-      .hero-wrap { flex-direction: column !important; gap: 20px !important; }
-      /* Mobile: headline first, book cover peeks below */
-      .hero-cnt-col { order: 1 !important; padding-top: 0 !important; }
-      .hero-img-col { order: 2 !important; flex: none !important; width: 100% !important; max-width: 420px !important; margin: 0 auto !important; }
+      .hero-wrap { flex-direction: column !important; gap: 0 !important; }
+      /* Mobile: image col hidden — inline cover used instead */
+      .hero-img-col { display: none !important; }
+      .hero-cnt-col { order: 1 !important; padding-top: 0 !important; width: 100% !important; }
+      /* Show the inline cover between subtitle and bullets */
+      .hero-img-mobile { display: block !important; width: 100% !important; max-width: 380px !important; margin: 20px auto 24px auto !important; }
       .hero-img-stage { padding: 6px !important; }
       .pkgs { grid-template-columns: 1fr !important; gap: 22px !important; }
       .sol-grid { grid-template-columns: 1fr !important; gap: 44px !important; }
@@ -924,7 +929,7 @@
       .guar-box { padding: 36px 24px !important; }
       .price-new { font-size: 40px !important; }
       .footer-links { gap: 18px !important; }
-      .hero-img-col { max-width: 360px !important; }
+      .hero-img-mobile { max-width: 300px !important; }
       .t-gold-lg { font-size: clamp(38px, 12.5vw, 54px) !important; }
       .t-white-sm { font-size: clamp(16px, 4.8vw, 24px) !important; }
       .title-row-2 { padding-left: 1.2em !important; }
@@ -974,6 +979,17 @@
         <p class="hero-sub">
           Открий защо добрите ти качества ти пречат в любовта — и как да изградиш стабилна връзка с жена, която те цени наистина.
         </p>
+
+        <!-- Book cover — shown only on mobile, between subtitle and bullets -->
+        <div class="hero-img-mobile">
+          <div class="hero-img-stage">
+            <div class="hero-img-box">
+              <img src="https://content.app-sources.com/s/060969136638313651/uploads/%D0%98%D0%B7%D0%BE%D0%B1%D1%80%D0%B0%D0%B6%D0%B5%D0%BD%D0%B8%D1%8F/%D0%9A%D0%BE%D1%80%D0%B8%D1%86%D0%B0_%D0%9A%D0%9D%D0%98%D0%93%D0%90-4901583.png"
+                   alt="Книгата Добрият Мъж е Лош Съпруг от Димо Кацарски"
+                   style="width:100% !important; display:block !important; border-radius:8px !important;">
+            </div>
+          </div>
+        </div>
 
         <ul class="hero-checks">
           <li>
