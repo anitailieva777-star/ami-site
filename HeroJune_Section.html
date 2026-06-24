@@ -397,16 +397,21 @@
 
       .social-proof-row { justify-content: center; margin-bottom: 0; }
 
-      /* Image gallery — full image visible on mobile */
+      /* Image gallery — full image visible on mobile, no cropping */
       .hero-img-col {
         order: 2;
-        aspect-ratio: 3 / 4;
-        height: auto;
-        min-height: 260px;
-        max-height: 72vw;
+        width: 100%;
+        height: 88vw;   /* ~330px on 375px phone: portrait images show fully */
+        max-height: none;
+        min-height: 0;
         overflow: hidden;
-        align-items: stretch;
         background: var(--bg);
+      }
+
+      .hero-slider,
+      .hero-slides,
+      .hero-slide {
+        height: 100%;
       }
 
       .hero-img-col img,
