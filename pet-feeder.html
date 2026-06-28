@@ -159,12 +159,25 @@
     background: var(--white);
     padding: 60px 0 80px;
   }
+
+  /* Desktop: 2-column grid */
   .hero-inner {
     display: grid;
     grid-template-columns: 60% 40%;
-    gap: 60px;
+    grid-template-rows: auto;
+    column-gap: 60px;
+    row-gap: 0;
     align-items: start;
   }
+  /* Desktop column assignments */
+  .hero-image-wrap   { grid-column: 1; grid-row: 1 / 99; }
+  .hi-urgency        { grid-column: 2; }
+  .hi-brand          { grid-column: 2; }
+  .hi-badges         { grid-column: 2; margin-top: 18px; }
+  .hi-stars          { grid-column: 2; margin-top: 8px; }
+  .hi-price          { grid-column: 2; margin-top: 16px; }
+  .hi-rest           { grid-column: 2; margin-top: 0; }
+
   .hero-image-wrap {
     position: sticky;
     top: 24px;
@@ -182,15 +195,27 @@
     object-fit: cover;
     border-radius: var(--radius);
   }
-  .hero-badges { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 18px; }
-  .hero-title {
-    font-size: clamp(26px, 4vw, 40px);
+
+  /* Brand title block */
+  .hero-brand-name {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(28px, 4vw, 42px);
     font-weight: 700;
     color: var(--text);
-    margin-bottom: 14px;
-    line-height: 1.18;
+    line-height: 1.15;
+    margin-bottom: 8px;
   }
-  .hero-stars { display: flex; align-items: center; gap: 8px; margin-bottom: 20px; }
+  .hero-brand-sub {
+    font-family: 'Inter', sans-serif;
+    font-size: clamp(15px, 2vw, 18px);
+    font-weight: 400;
+    color: var(--text-muted);
+    line-height: 1.45;
+    margin-bottom: 0;
+  }
+
+  .hero-badges { display: flex; gap: 8px; flex-wrap: wrap; }
+  .hero-stars { display: flex; align-items: center; gap: 8px; }
   .stars { color: var(--gold); font-size: 18px; letter-spacing: 2px; }
   .hero-stars a { font-size: 13px; color: var(--text-muted); border-bottom: 1px solid var(--border); }
   .hero-price { margin-bottom: 22px; }
@@ -497,11 +522,20 @@
   .footer-links a:hover { color: var(--white); }
   .footer-copy { font-size: 13px; }
 
-  /* ─── MOBILE URGENCY ORDER ─── */
-  .hero-urgency-mobile { display: none; }
-  @media (max-width: 900px) {
-    .hero-urgency-mobile { display: block; }
-    .hero-right .urgency-bar { display: none; }
+  /* ─── HALF STAR ─── */
+  .star-half {
+    display: inline-block;
+    position: relative;
+    color: #E0D0A0;
+  }
+  .star-half::before {
+    content: '★';
+    position: absolute;
+    left: 0; top: 0;
+    color: var(--gold);
+    width: 55%;
+    overflow: hidden;
+    display: block;
   }
 
   /* ─── ANIMATIONS ─── */
@@ -513,10 +547,21 @@
 
   /* ─── RESPONSIVE ─── */
   @media (max-width: 900px) {
-    .hero-inner { grid-template-columns: 1fr; gap: 24px; display: flex; flex-direction: column; }
-    .hero-image-wrap { position: static; max-width: 100%; order: 3; }
-    .hero-right { order: 2; }
-    .hero-urgency-mobile { order: 1; }
+    /* Mobile: flex column, explicit order */
+    .hero-inner {
+      display: flex !important;
+      flex-direction: column;
+      gap: 0;
+    }
+    .hi-urgency    { order: 1; margin-bottom: 20px; }
+    .hi-brand      { order: 2; text-align: center; margin-bottom: 20px; }
+    .hero-image-wrap { order: 3; position: static; max-width: 100%; margin-bottom: 20px; }
+    .hi-badges     { order: 4; justify-content: center; margin-top: 0; margin-bottom: 12px; }
+    .hi-stars      { order: 5; justify-content: center; margin-top: 0; margin-bottom: 0; }
+    .hi-price      { order: 6; text-align: center; margin-top: 16px; }
+    .hi-rest       { order: 7; margin-top: 20px; }
+    .hero-brand-name { text-align: center; }
+    .hero-brand-sub  { text-align: center; }
     .problem-grid { grid-template-columns: 1fr; }
     .solution-inner { grid-template-columns: 1fr; }
     .features-grid { grid-template-columns: 1fr; }
@@ -570,14 +615,20 @@
   <div class="container">
     <div class="hero-inner">
 
-      <!-- MOBILE URGENCY (shows above title on mobile, hidden on desktop) -->
-      <div class="hero-urgency-mobile">
+      <!-- 1. URGENCY BAR (mobile: order 1 · desktop: col 2 row 1) -->
+      <div class="hi-urgency">
         <div class="urgency-bar" style="margin-bottom:0;">
-          ⚠️ Само <strong>&nbsp;20 броя&nbsp;</strong> налични · 🎁 2 безплатни бонуса · 🛡️ 30-дневна гаранция
+          ⚠️ Само <strong>20 броя</strong> налични · 🎁 2 безплатни бонуса · 🛡️ 30-дневна гаранция
         </div>
       </div>
 
-      <!-- LEFT: Product Image -->
+      <!-- 2. BRAND TITLE (mobile: order 2 · desktop: col 2 row 2) -->
+      <div class="hi-brand">
+        <div class="hero-brand-name">HappyPet 🐾</div>
+        <div class="hero-brand-sub">Автоматична хранилка за кучета и котки с WiFi, Таймер и App Контрол</div>
+      </div>
+
+      <!-- 3. PRODUCT IMAGE (mobile: order 3 · desktop: col 1 span all rows) -->
       <div class="hero-image-wrap">
         <img
           src="https://content.app-sources.com/s/227404442638844551/uploads/Изображения/Нов_постер_на_продукта-2644611.png"
@@ -586,33 +637,38 @@
         />
       </div>
 
-      <!-- RIGHT: Product Info -->
-      <div class="hero-right">
-        <div class="hero-badges">
-          <span class="badge">⭐ Ново</span>
-          <span class="badge">📦 Бърза доставка</span>
-        </div>
+      <!-- 4. BADGES (mobile: order 4 · desktop: col 2) -->
+      <div class="hi-badges">
+        <span class="badge">⭐ Ново</span>
+        <span class="badge">📦 Бърза доставка</span>
+      </div>
 
-        <h1 class="hero-title">🐾 HappyPet Автоматична Хранилка за Кучета и Котки с WiFi, Таймер и App Контрол</h1>
-
+      <!-- 5. STARS + REVIEWS (mobile: order 5 · desktop: col 2) -->
+      <div class="hi-stars">
         <div class="hero-stars">
-          <span class="stars">★★★★★</span>
-          <a href="#reviews">127 отзива</a>
+          <span class="stars">★★★★<span class="star-half">★</span></span>
+          <a href="#reviews">227 отзива</a>
         </div>
+      </div>
 
-        <div class="hero-price">
+      <!-- 6. PRICE + CTA (mobile: order 6 · desktop: col 2) -->
+      <div class="hi-price">
+        <div class="hero-price" style="margin-bottom:16px;">
           <div class="price-old">Редовна цена: 69.90€</div>
           <div>
             <span class="price-new">54.90€</span>
             <span class="price-save">Спести 15€</span>
           </div>
         </div>
+        <a href="/checkout" id="mainCta" class="btn-primary" style="width:100%; margin-bottom:12px;">
+          🛒 Вземи комплекта — 84.90€
+        </a>
+        <div style="text-align:center; font-size:13px; color:var(--text-muted); margin-top:4px;">или изберете пакет по-долу</div>
+      </div>
 
-        <div class="urgency-bar">
-          ⚠️ Само <strong>&nbsp;20 броя&nbsp;</strong> на тази цена. Включен безплатен PDF гайд "Настройка за 10 минути".
-        </div>
-
-        <ul class="hero-bullets">
+      <!-- 7. REST: bullets, packages, trust (mobile: order 7 · desktop: col 2) -->
+      <div class="hi-rest">
+        <ul class="hero-bullets" style="margin-top:20px; margin-bottom:24px;">
           <li><span class="icon">✓</span> До <strong>6 хранения на ден</strong> — настроени от телефона</li>
           <li><span class="icon">✓</span> <strong>Вградена камера</strong> и двупосочно аудио — виждаш и чуваш любимеца</li>
           <li><span class="icon">✓</span> <strong>Работи при спиране на тока</strong> — двойно захранване (ток + батерии)</li>
@@ -667,19 +723,14 @@
 
         </div>
 
-        <a href="/checkout" id="mainCta" class="btn-primary" style="width:100%; margin-bottom: 12px;">
-          🛒 Вземи комплекта — 84.90€
-        </a>
-        <div style="text-align:center; font-size:13px; color:var(--text-muted);">или изберете пакет по-горе</div>
-
         <!-- TRUST BADGES -->
-        <div class="trust-badges">
+        <div class="trust-badges" style="margin-top:20px; padding-top:20px; border-top:1px solid var(--border);">
           <div class="trust-item"><span class="ti">🚚</span> Безплатна доставка над 60€</div>
           <div class="trust-item"><span class="ti">🛡️</span> 30-дневна гаранция</div>
           <div class="trust-item"><span class="ti">🔒</span> Сигурно плащане</div>
           <div class="trust-item"><span class="ti">📦</span> Доставка 2–4 дни</div>
         </div>
-      </div><!-- /right -->
+      </div><!-- /hi-rest -->
 
     </div>
   </div>
