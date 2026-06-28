@@ -497,6 +497,13 @@
   .footer-links a:hover { color: var(--white); }
   .footer-copy { font-size: 13px; }
 
+  /* ─── MOBILE URGENCY ORDER ─── */
+  .hero-urgency-mobile { display: none; }
+  @media (max-width: 900px) {
+    .hero-urgency-mobile { display: block; }
+    .hero-right .urgency-bar { display: none; }
+  }
+
   /* ─── ANIMATIONS ─── */
   .fade-in { opacity: 0; transform: translateY(24px); transition: opacity 0.6s ease, transform 0.6s ease; }
   .fade-in.visible { opacity: 1; transform: none; }
@@ -506,8 +513,10 @@
 
   /* ─── RESPONSIVE ─── */
   @media (max-width: 900px) {
-    .hero-inner { grid-template-columns: 1fr; gap: 32px; }
-    .hero-image-wrap { position: static; max-width: 480px; }
+    .hero-inner { grid-template-columns: 1fr; gap: 24px; display: flex; flex-direction: column; }
+    .hero-image-wrap { position: static; max-width: 100%; order: 3; }
+    .hero-right { order: 2; }
+    .hero-urgency-mobile { order: 1; }
     .problem-grid { grid-template-columns: 1fr; }
     .solution-inner { grid-template-columns: 1fr; }
     .features-grid { grid-template-columns: 1fr; }
@@ -538,11 +547,11 @@
 
 <!-- ── TOP BAR ── -->
 <div class="top-bar">
-  <span>⚡ Безплатна доставка над 60€</span>
-  <span class="sep">|</span>
+  <span>⚠️ Само 20 броя налични на тази цена</span>
+  <span class="sep">·</span>
+  <span>🎁 2 безплатни бонуса с поръчка</span>
+  <span class="sep">·</span>
   <span>🛡️ 30-дневна гаранция</span>
-  <span class="sep">|</span>
-  <span>⚠️ Само 20 броя налични</span>
 </div>
 
 <!-- ── STICKY BUY BAR (mobile) ── -->
@@ -561,23 +570,30 @@
   <div class="container">
     <div class="hero-inner">
 
+      <!-- MOBILE URGENCY (shows above title on mobile, hidden on desktop) -->
+      <div class="hero-urgency-mobile">
+        <div class="urgency-bar" style="margin-bottom:0;">
+          ⚠️ Само <strong>&nbsp;20 броя&nbsp;</strong> налични · 🎁 2 безплатни бонуса · 🛡️ 30-дневна гаранция
+        </div>
+      </div>
+
       <!-- LEFT: Product Image -->
       <div class="hero-image-wrap">
         <img
-          src="https://content.app-sources.com/s/060969136638313651/uploads/Изображения/Спокойствие_и_редовно_хранене_за_любимеца-2592282.png"
-          alt="Смарт автоматична хранилка за котки и малки кучета"
+          src="https://content.app-sources.com/s/227404442638844551/uploads/Изображения/Нов_постер_на_продукта-2644611.png"
+          alt="HappyPet автоматична хранилка за котки и кучета"
           loading="eager"
         />
       </div>
 
       <!-- RIGHT: Product Info -->
-      <div>
+      <div class="hero-right">
         <div class="hero-badges">
           <span class="badge">⭐ Ново</span>
           <span class="badge">📦 Бърза доставка</span>
         </div>
 
-        <h1 class="hero-title">Смарт Автоматична Хранилка 2L — с WiFi, Таймер и App Контрол</h1>
+        <h1 class="hero-title">🐾 HappyPet Автоматична Хранилка за Кучета и Котки с WiFi, Таймер и App Контрол</h1>
 
         <div class="hero-stars">
           <span class="stars">★★★★★</span>
