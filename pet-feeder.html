@@ -171,7 +171,6 @@
   }
   /* Desktop column assignments */
   .hero-image-wrap   { grid-column: 1; grid-row: 1 / 99; }
-  .hi-urgency        { grid-column: 2; }
   .hi-audience       { grid-column: 2; }
   .hi-brand          { grid-column: 2; }
   .hi-badges         { grid-column: 2; margin-top: 18px; }
@@ -572,14 +571,13 @@
       flex-direction: column;
       gap: 0;
     }
-    .hi-urgency    { order: 1; margin-bottom: 12px; }
-    .hi-audience   { order: 2; margin-bottom: 16px; }
-    .hi-brand      { order: 3; text-align: center; margin-bottom: 20px; }
-    .hero-image-wrap { order: 4; position: static; max-width: 100%; margin-bottom: 20px; }
-    .hi-badges     { order: 5; justify-content: center; margin-top: 0; margin-bottom: 12px; }
-    .hi-stars      { order: 6; justify-content: center; margin-top: 0; margin-bottom: 0; }
-    .hi-price      { order: 7; text-align: center; margin-top: 16px; }
-    .hi-rest       { order: 8; margin-top: 20px; }
+    .hi-audience   { order: 1; margin-bottom: 16px; }
+    .hi-brand      { order: 2; text-align: center; margin-bottom: 20px; }
+    .hero-image-wrap { order: 3; position: static; max-width: 100%; margin-bottom: 20px; }
+    .hi-badges     { order: 4; justify-content: center; margin-top: 0; margin-bottom: 12px; }
+    .hi-stars      { order: 5; justify-content: center; margin-top: 0; margin-bottom: 0; }
+    .hi-price      { order: 6; text-align: center; margin-top: 16px; }
+    .hi-rest       { order: 7; margin-top: 20px; }
     .hero-brand-name { text-align: center; }
     .hero-brand-sub  { text-align: center; }
     .audience-pill   { display: flex; text-align: left; }
@@ -613,11 +611,11 @@
 
 <!-- ── TOP BAR ── -->
 <div class="top-bar">
-  <span>🚚 Безплатна доставка над 60€</span>
+  <span>⚠️ Само 20 броя налични на тази цена</span>
   <span class="sep">·</span>
-  <span>🔒 Сигурно плащане</span>
+  <span>🎁 2 безплатни бонуса с поръчка</span>
   <span class="sep">·</span>
-  <span>📦 Доставка 2–4 работни дни</span>
+  <span>🛡️ 30-дневна гаранция</span>
 </div>
 
 <!-- ── STICKY BUY BAR (mobile) ── -->
@@ -636,14 +634,7 @@
   <div class="container">
     <div class="hero-inner">
 
-      <!-- 1. URGENCY BAR (mobile: order 1 · desktop: col 2 row 1) -->
-      <div class="hi-urgency">
-        <div class="urgency-bar" style="margin-bottom:0;">
-          ⚠️ Само <strong>20 броя</strong> налични · 🎁 2 безплатни бонуса · 🛡️ 30-дневна гаранция
-        </div>
-      </div>
-
-      <!-- 1b. AUDIENCE PILL (mobile: order 2 · desktop: col 2) -->
+      <!-- 1. AUDIENCE PILL (mobile: order 1 · desktop: col 2 first) -->
       <div class="hi-audience">
         <div class="audience-pill">
           🐱🐶 <span>За <strong>заети стопани</strong>, които искат любимецът им винаги да е нахранен – дори когато ги няма.</span>
