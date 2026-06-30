@@ -268,10 +268,13 @@
     align-items: flex-start;
     gap: 10px;
     font-size: 15px;
-    margin-bottom: 10px;
+    line-height: 1.6;
+    margin-bottom: 14px;
     color: var(--text);
   }
   .hero-bullets li .icon { color: var(--teal); font-size: 18px; flex-shrink: 0; margin-top: 1px; }
+  .hero-bullets li .benefit-text { flex: 1; }
+  .hero-bullets li .benefit-text strong { color: var(--text); font-weight: 700; }
 
   /* ─── PACKAGE CARDS ─── */
   .pkg-label { font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: var(--text-muted); margin-bottom: 12px; }
@@ -584,16 +587,24 @@
       flex-direction: column;
       gap: 0;
     }
-    .hi-audience   { order: 1; margin-bottom: 16px; }
-    .hi-brand      { order: 2; text-align: center; margin-bottom: 20px; }
-    .hero-image-wrap { order: 3; position: static; max-width: 100%; margin-bottom: 20px; }
+    .hi-audience   { order: 1; margin-bottom: 10px; }
+    .hi-brand      { order: 2; text-align: center; margin-bottom: 10px; }
+    .hero-image-wrap { order: 3; position: static; max-width: 100%; margin-bottom: 20px; aspect-ratio: 1.05 / 1; }
     .hi-badges     { order: 4; justify-content: center; margin-top: 0; margin-bottom: 12px; }
     .hi-stars      { order: 5; justify-content: center; margin-top: 0; margin-bottom: 0; }
     .hi-price      { order: 6; text-align: center; margin-top: 16px; }
     .hi-rest       { order: 7; margin-top: 20px; }
     .hero-brand-name { text-align: center; }
     .hero-brand-sub  { text-align: center; }
-    .audience-pill   { display: flex; text-align: left; }
+    .audience-pill   {
+      display: flex;
+      width: 100%;
+      text-align: left;
+      border-radius: 18px;
+      padding: 12px 18px;
+    }
+    .hero-brand-name { margin-bottom: 4px; }
+    .hero-brand-sub  { font-size: 14px; }
     .problem-grid { grid-template-columns: 1fr; }
     .solution-inner { grid-template-columns: 1fr; }
     .features-grid { grid-template-columns: 1fr; }
@@ -608,8 +619,9 @@
   @media (max-width: 600px) {
     .top-bar span { display: block; margin: 2px 0; }
     .top-bar .sep { display: none; }
-    .hero { padding: 36px 0 56px; }
+    .hero { padding: 20px 0 56px; }
     .hero-title { font-size: 26px; }
+    .hero-brand-name { font-size: 26px; }
     .price-new { font-size: 32px; }
     .pkg-cards { }
     .trust-badges { gap: 12px; }
@@ -701,9 +713,9 @@
       <!-- 7. REST: bullets, packages, trust (mobile: order 7 · desktop: col 2) -->
       <div class="hi-rest">
         <ul class="hero-bullets" style="margin-top:20px; margin-bottom:24px;">
-          <li><span class="icon">✓</span> <strong>До 6 хранения на ден</strong>, зададени от теб — хранилката ги изпълнява точно <strong>в точен час</strong>, всеки ден, без изключение.</li>
-          <li><span class="icon">✓</span> <strong>С вградена камера и двупосочно аудио</strong> — отваряш app-а, виждаш го, говориш му. Той чува гласа ти.</li>
-          <li><span class="icon">✓</span> <strong>Двойно захранване — ток и батерии едновременно.</strong> При токов удар превключва автоматично.</li>
+          <li><span class="icon">✓</span><span class="benefit-text"><strong>До 6 хранения на ден</strong>, зададени от теб — хранилката ги изпълнява точно <strong>в точен час</strong>, всеки ден, без изключение.</span></li>
+          <li><span class="icon">✓</span><span class="benefit-text"><strong>С вградена камера и двупосочно аудио</strong> — отваряш app-а, виждаш го, говориш му. Той чува гласа ти.</span></li>
+          <li><span class="icon">✓</span><span class="benefit-text"><strong>Двойно захранване — ток и батерии едновременно.</strong> При токов удар превключва автоматично.</span></li>
         </ul>
 
         <!-- PACKAGE SELECTOR -->
