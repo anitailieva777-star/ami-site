@@ -316,6 +316,19 @@
   .trust-item { display: flex; align-items: center; gap: 7px; font-size: 12px; color: var(--text-muted); font-weight: 500; }
   .trust-item .ti { font-size: 18px; color: var(--teal); }
 
+  /* ─── HERO GUARANTEE NOTE ─── */
+  .hero-guarantee-note {
+    background: #F0FAF8;
+    border: 1px solid #C5E8E2;
+    border-radius: 12px;
+    padding: 14px 16px;
+    font-size: 13px;
+    color: var(--text-muted);
+    line-height: 1.6;
+    margin-top: 16px;
+  }
+  .hero-guarantee-note strong { color: var(--text); }
+
   /* ─── SECTION GENERIC ─── */
   section { padding: 80px 0; }
   .section-label { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--teal); margin-bottom: 10px; }
@@ -670,7 +683,7 @@
         </div>
       </div>
 
-      <!-- 6. PRICE + CTA (mobile: order 6 · desktop: col 2) -->
+      <!-- 6. PRICE + CTA + GUARANTEE (mobile: order 6 · desktop: col 2) -->
       <div class="hi-price">
         <div class="hero-price" style="margin-bottom:16px;">
           <div class="price-old">Редовна цена: 69.90€</div>
@@ -680,17 +693,17 @@
           </div>
         </div>
         <a href="/checkout" id="mainCta" class="btn-primary" style="width:100%; margin-bottom:12px;">
-          🛒 Вземи HappyPet сега само за 54.90€
+          🛒 Поръчай HappyPaws сега — само 54.90€
         </a>
-        <div style="text-align:center; font-size:13px; color:var(--text-muted); margin-top:4px;">или избери пакет по-долу</div>
+        <div style="text-align:center; font-size:13px; color:var(--text-muted); margin-top:4px; margin-bottom:4px;">🛡️ 30-дневна гаранция за връщане на парите</div>
       </div>
 
       <!-- 7. REST: bullets, packages, trust (mobile: order 7 · desktop: col 2) -->
       <div class="hi-rest">
         <ul class="hero-bullets" style="margin-top:20px; margin-bottom:24px;">
-          <li><span class="icon">✓</span> До <strong>6 хранения на ден</strong> — настроени от телефона</li>
-          <li><span class="icon">✓</span> <strong>Вградена камера</strong> и двупосочно аудио — виждаш и чуваш любимеца</li>
-          <li><span class="icon">✓</span> <strong>Работи при спиране на тока</strong> — двойно захранване (ток + батерии)</li>
+          <li><span class="icon">✓</span> <strong>До 6 хранения на ден</strong>, зададени от теб — хранилката ги изпълнява точно <strong>в точен час</strong>, всеки ден, без изключение.</li>
+          <li><span class="icon">✓</span> <strong>С вградена камера и двупосочно аудио</strong> — отваряш app-а, виждаш го, говориш му. Той чува гласа ти.</li>
+          <li><span class="icon">✓</span> <strong>Двойно захранване — ток и батерии едновременно.</strong> При токов удар превключва автоматично.</li>
         </ul>
 
         <!-- PACKAGE SELECTOR -->
@@ -744,10 +757,14 @@
 
         <!-- TRUST BADGES -->
         <div class="trust-badges" style="margin-top:20px; padding-top:20px; border-top:1px solid var(--border);">
-          <div class="trust-item"><span class="ti">🚚</span> Безплатна доставка над 60€</div>
-          <div class="trust-item"><span class="ti">🛡️</span> 30-дневна гаранция</div>
           <div class="trust-item"><span class="ti">🔒</span> Сигурно плащане</div>
-          <div class="trust-item"><span class="ti">📦</span> Доставка 2–4 дни</div>
+          <div class="trust-item"><span class="ti">📦</span> Доставка до 2–3 дни</div>
+          <div class="trust-item"><span class="ti">🎁</span> Включени 2 дигитални бонуса</div>
+        </div>
+
+        <!-- GUARANTEE NOTE -->
+        <div class="hero-guarantee-note">
+          🛡️ <strong>30-дневна гаранция</strong> — изпробвай я в реални условия. Ако не си доволен по каквато и да е причина — връщаме парите без въпроси.
         </div>
       </div><!-- /hi-rest -->
 
