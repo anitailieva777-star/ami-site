@@ -175,8 +175,7 @@
   .hi-brand          { grid-column: 2; }
   .hi-badges         { grid-column: 2; margin-top: 18px; }
   .hi-stars          { grid-column: 2; margin-top: 8px; }
-  .hi-price          { grid-column: 2; margin-top: 16px; }
-  .hi-rest           { grid-column: 2; margin-top: 0; }
+  .hi-rest           { grid-column: 2; margin-top: 16px; }
 
   .hero-image-wrap {
     position: sticky;
@@ -592,8 +591,8 @@
     .hero-image-wrap { order: 3; position: static; max-width: 100%; margin-bottom: 20px; aspect-ratio: 1.05 / 1; }
     .hi-badges     { order: 4; justify-content: center; margin-top: 0; margin-bottom: 12px; }
     .hi-stars      { order: 5; justify-content: center; margin-top: 0; margin-bottom: 0; }
-    .hi-price      { order: 6; text-align: center; margin-top: 16px; }
-    .hi-rest       { order: 7; margin-top: 20px; }
+    .hi-rest       { order: 6; margin-top: 20px; }
+    .hi-rest .hero-price { text-align: center; }
     .hero-brand-name { text-align: center; }
     .hero-brand-sub  { text-align: center; }
     .audience-pill   {
@@ -695,24 +694,9 @@
         </div>
       </div>
 
-      <!-- 6. PRICE + CTA + GUARANTEE (mobile: order 6 · desktop: col 2) -->
-      <div class="hi-price">
-        <div class="hero-price" style="margin-bottom:16px;">
-          <div class="price-old">Редовна цена: 69.90€</div>
-          <div>
-            <span class="price-new">54.90€</span>
-            <span class="price-save">Спести 15€</span>
-          </div>
-        </div>
-        <a href="/checkout" id="mainCta" class="btn-primary" style="width:100%; margin-bottom:12px;">
-          🛒 Поръчай HappyPaws сега — само 54.90€
-        </a>
-        <div style="text-align:center; font-size:13px; color:var(--text-muted); margin-top:4px; margin-bottom:4px;">🛡️ 30-дневна гаранция за връщане на парите</div>
-      </div>
-
-      <!-- 7. REST: bullets, packages, trust (mobile: order 7 · desktop: col 2) -->
+      <!-- 6. REST: benefits, packages, CTA, guarantee, trust (mobile: order 6 · desktop: col 2) -->
       <div class="hi-rest">
-        <ul class="hero-bullets" style="margin-top:20px; margin-bottom:24px;">
+        <ul class="hero-bullets" style="margin-top:8px; margin-bottom:24px;">
           <li><span class="icon">✓</span><span class="benefit-text"><strong>До 6 хранения на ден</strong>, зададени от теб — хранилката ги изпълнява точно <strong>в точен час</strong>, всеки ден, без изключение.</span></li>
           <li><span class="icon">✓</span><span class="benefit-text"><strong>С вградена камера и двупосочно аудио</strong> — отваряш app-а, виждаш го, говориш му. Той чува гласа ти.</span></li>
           <li><span class="icon">✓</span><span class="benefit-text"><strong>Двойно захранване — ток и батерии едновременно.</strong> При токов удар превключва автоматично.</span></li>
@@ -767,16 +751,30 @@
 
         </div>
 
-        <!-- TRUST BADGES -->
-        <div class="trust-badges" style="margin-top:20px; padding-top:20px; border-top:1px solid var(--border);">
-          <div class="trust-item"><span class="ti">🔒</span> Сигурно плащане</div>
-          <div class="trust-item"><span class="ti">📦</span> Доставка до 2–3 дни</div>
-          <div class="trust-item"><span class="ti">🎁</span> Включени 2 дигитални бонуса</div>
+        <!-- PRICE -->
+        <div class="hero-price" style="margin-top:24px; margin-bottom:16px;">
+          <div class="price-old">Редовна цена: 69.90€</div>
+          <div>
+            <span class="price-new">54.90€</span>
+            <span class="price-save">Спести 15€</span>
+          </div>
         </div>
+
+        <!-- CTA -->
+        <a href="/checkout" id="mainCta" class="btn-primary" style="width:100%; margin-bottom:20px;">
+          👉 Поръчай своя HappyPaws сега само за 54.90€
+        </a>
 
         <!-- GUARANTEE NOTE -->
         <div class="hero-guarantee-note">
           🛡️ <strong>30-дневна гаранция</strong> — изпробвай я в реални условия. Ако не си доволен по каквато и да е причина — връщаме парите без въпроси.
+        </div>
+
+        <!-- TRUST BADGES -->
+        <div class="trust-badges" style="margin-top:16px; padding-top:16px; border-top:1px solid var(--border);">
+          <div class="trust-item"><span class="ti">🔒</span> Сигурно плащане</div>
+          <div class="trust-item"><span class="ti">📦</span> Доставка до 2–3 дни</div>
+          <div class="trust-item"><span class="ti">🎁</span> Включени 2 дигитални бонуса</div>
         </div>
       </div><!-- /hi-rest -->
 
