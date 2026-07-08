@@ -358,44 +358,42 @@
         min-height: auto;
       }
 
-      /* Text column — compact padding so image peeks on first load */
+      /* Text column — compact so gallery peeks below on first view */
       .hero-text {
         order: 1;
-        padding: 22px 24px 16px;
+        padding: 10px 20px 10px;
         text-align: center;
       }
 
-      .audience-pill {
-        font-size: 10px;
-        padding: 7px 16px;
-        margin-bottom: 16px;
-      }
+      /* Hide pill on mobile — saves ~46px */
+      .audience-pill { display: none; }
 
       .hero-promise {
-        font-size: clamp(24px, 7vw, 34px);
+        font-size: clamp(22px, 6.5vw, 32px);
         line-height: 1.18;
-        margin-bottom: 8px;
+        margin-bottom: 6px;
       }
 
-      .promise-divider { margin: 12px auto 14px; }
+      .promise-divider { margin: 8px auto 10px; }
 
       .hero-sub {
         max-width: 100%;
         font-size: 13px;
-        line-height: 1.5;
-        margin-bottom: 16px;
+        line-height: 1.45;
+        margin-bottom: 12px;
         margin-left: auto; margin-right: auto;
       }
 
-      .product-block { text-align: center; margin-bottom: 18px; }
-      .product-brand { font-size: clamp(22px, 6vw, 30px); }
+      .product-block { text-align: center; margin-bottom: 12px; }
+      .product-brand { font-size: clamp(20px, 5.5vw, 28px); }
 
-      /* Hide product description on mobile above fold — shows after scroll */
+      /* Hide product description and social proof on mobile above fold */
       .product-desc-text { display: none; }
 
-      .hero-cta-btn { margin-bottom: 16px; }
+      .hero-cta-btn { margin-bottom: 10px; }
 
-      .social-proof-row { justify-content: center; margin-bottom: 0; }
+      /* Hide social proof on mobile — saves ~40px */
+      .social-proof-row { display: none; }
 
       /* Image gallery — full image visible on mobile, no cropping */
       .hero-img-col {
