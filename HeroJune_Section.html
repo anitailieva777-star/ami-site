@@ -368,10 +368,26 @@
       /* Hide pill on mobile — saves ~46px */
       .audience-pill { display: none; }
 
+      .urgency-bar {
+        padding: 5px 14px;
+        font-size: 11px;
+        gap: 8px;
+      }
+
       .hero-promise {
-        font-size: clamp(22px, 6.5vw, 32px);
+        font-size: clamp(17px, 5vw, 24px);
         line-height: 1.18;
         margin-bottom: 6px;
+      }
+
+      /* Hide CTA inside text on mobile — shown below gallery instead */
+      .hero-text .hero-cta-btn { display: none; }
+
+      /* Mobile CTA below gallery */
+      .hero-cta-mobile {
+        order: 3;
+        text-align: center;
+        padding: 18px 20px 10px;
       }
 
       .promise-divider { margin: 8px auto 10px; }
@@ -429,11 +445,12 @@
       .benefits-grid { grid-template-columns: repeat(2,1fr); gap: 20px; }
     }
 
+    /* Desktop — hide the mobile-only CTA */
+    .hero-cta-mobile { display: none; }
+
     @media (max-width: 480px) {
-      .urgency-bar { font-size: 11px; }
+      .urgency-bar { font-size: 10px; padding: 4px 12px; }
       .header-cta  { display: none; }
-      .hero-text   { padding: 24px 20px 16px; }
-      .hero-promise { font-size: clamp(24px, 7vw, 32px); }
     }
 
     /* ══ HERO SLIDER ══ */
@@ -634,6 +651,11 @@
         </div>
 
       </div>
+    </div>
+
+    <!-- CTA под галерията — видим само на мобилен -->
+    <div class="hero-cta-mobile">
+      <a href="#order" class="hero-cta-btn">Поръчай сега своя ритуал</a>
     </div>
 
   </div>
