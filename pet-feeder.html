@@ -43,24 +43,16 @@
 
   .hero, .container, .container-sm, section { max-width: 100vw; box-sizing: border-box; }
 
-  /* ─── FULL-BLEED BREAKOUT ───
-     Forces top-level blocks to escape any narrower parent container
-     (e.g. a page-builder column/widget wrapper that constrains width).
-     Not scoped to "body >" because when this code is embedded inline
-     inside a page-builder's DOM, these elements are NOT direct children
-     of the real <body> — they sit nested inside the builder's own
-     wrapper divs (grid-row/grid-column/widget/code-widget-content). */
+  /* ─── WIDTH SAFETY ───
+     Simple, non-viewport-relative width rule: always fill whatever the
+     parent gives us, no more, no less. Avoids the risk of 100vw/negative-
+     margin breakout math clashing with an unknown host page's own layout. */
   .top-bar,
   .sticky-bar,
   section,
   footer {
-    width: 100vw !important;
-    max-width: 100vw !important;
-    position: relative !important;
-    left: 50% !important;
-    right: 50% !important;
-    margin-left: -50vw !important;
-    margin-right: -50vw !important;
+    width: 100% !important;
+    max-width: 100% !important;
     box-sizing: border-box !important;
   }
 
