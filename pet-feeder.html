@@ -640,6 +640,143 @@
     .ba-cta .btn-primary { width: auto; }
   }
 
+  /* ─── STORY SECTION (mobile-first, CSS grid areas) ─── */
+  .story-section {
+    background: var(--bg-beige);
+    padding: 48px 0;
+  }
+  .story-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 32px 18px;
+    background: var(--white);
+    border-radius: 24px;
+  }
+
+  /* Mobile order via grid-template-areas: label+title+subtitle -> photo -> body+signature */
+  .story-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "texttop"
+      "photo"
+      "textbottom";
+    row-gap: 24px;
+  }
+  .story-text-top    { grid-area: texttop; }
+  .story-photo-col   { grid-area: photo; }
+  .story-text-bottom { grid-area: textbottom; }
+
+  .story-label-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    justify-content: center;
+    margin-bottom: 10px;
+  }
+  .story-label-row .story-paw { color: var(--teal); font-size: 15px; }
+  .story-label {
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--teal);
+  }
+  .story-title {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-size: clamp(24px, 6vw, 34px);
+    color: var(--text);
+    text-align: center;
+    line-height: 1.25;
+    max-width: 20ch;
+    margin: 0 auto 12px;
+  }
+  .story-subtitle {
+    font-family: 'Inter', sans-serif;
+    font-style: italic;
+    font-size: 14px;
+    color: var(--text-muted);
+    text-align: center;
+    line-height: 1.6;
+    max-width: 46ch;
+    margin: 0 auto;
+  }
+  .story-photo-wrap {
+    width: 100%;
+    max-width: 520px;
+    margin: 0 auto;
+  }
+  .story-photo {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 20px;
+    display: block;
+  }
+  .story-body p {
+    font-family: 'Inter', sans-serif;
+    font-size: 15px;
+    line-height: 1.6;
+    color: var(--text);
+    margin-bottom: 16px;
+    max-width: 60ch;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .story-signature {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 17px;
+    color: var(--teal);
+    text-align: center;
+    margin-top: 8px;
+  }
+
+  @media (min-width: 900px) {
+    .story-inner { padding: 56px; }
+    .story-grid {
+      grid-template-columns: 45% 55%;
+      column-gap: 56px;
+      row-gap: 12px;
+      grid-template-areas:
+        "photo texttop"
+        "photo textbottom";
+      align-items: center;
+    }
+    .story-photo-col { align-self: center; }
+    .story-label-row, .story-title, .story-subtitle { text-align: left; justify-content: flex-start; }
+    .story-title { max-width: none; margin-left: 0; }
+    .story-subtitle { max-width: none; margin-left: 0; }
+    .story-body p { text-align: left; margin-left: 0; max-width: none; }
+    .story-signature { text-align: left; }
+    .story-photo-wrap { max-width: none; }
+  }
+
+  /* ─── STORY CTA ─── */
+  .story-final-cta {
+    text-align: center;
+    max-width: 520px;
+    margin: 32px auto 0;
+    padding: 0 18px;
+  }
+  .story-final-cta-note {
+    font-size: 15px;
+    color: var(--text);
+    margin-bottom: 16px;
+    line-height: 1.5;
+  }
+  .story-final-cta .btn-primary {
+    width: 90%;
+    min-height: 56px;
+    font-size: 17px !important;
+  }
+
+  @media (min-width: 600px) {
+    .story-final-cta .btn-primary { width: auto; min-width: 320px; }
+  }
+
   /* ─── FAQ ─── */
   .faq-section { background: var(--bg); }
   .faq-list { margin-top: 48px; max-width: 720px; margin-left: auto; margin-right: auto; }
@@ -1004,6 +1141,53 @@
       <a href="/checkout" class="btn-primary">🐾 Любимецът ми заслужава това →</a>
       <div class="ba-cta-note">30-дневна гаранция · Само 20 броя налични</div>
     </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     STORY SECTION
+════════════════════════════════════════ -->
+<section class="story-section fade-in">
+  <div class="story-inner">
+    <div class="story-grid">
+
+      <div class="story-text-top">
+        <div class="story-label-row">
+          <span class="story-paw">🐾</span>
+          <span class="story-label">Моята история</span>
+        </div>
+        <h2 class="story-title">Всичко започна с Тиана.</h2>
+        <p class="story-subtitle">„Не търсех автоматична хранилка, но като всеки стопанин, и аз исках спокойствието да знам, че моят померан е нахранен навреме – дори когато не съм у дома."</p>
+      </div>
+
+      <div class="story-photo-col">
+        <div class="story-photo-wrap">
+          <img
+            class="story-photo"
+            src="https://content.app-sources.com/s/227404442638844551/uploads/Изображения/Аз_и_ТИана-4038586.png"
+            alt="Ани и Тиана — белият померан"
+            width="800"
+            height="800"
+            loading="lazy"
+          />
+        </div>
+      </div>
+
+      <div class="story-text-bottom">
+        <div class="story-body">
+          <p>Тиана е моят бял померан и като всеки стопанин исках да съм спокойна, че се храни навреме — дори когато работя до късно или не съм у дома.</p>
+          <p>След много търсене попаднах на автоматичната хранилка, която ми даде точно това спокойствие. Вече не гледах постоянно часовника и не се чудех дали е останала гладна.</p>
+          <p>Така се роди идеята да предложа това практично решение и на други заети стопани.</p>
+        </div>
+        <div class="story-signature">Ани и Тиана</div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="story-final-cta">
+    <div class="story-final-cta-note">Осигури спокойствие за себе си и редовно хранене за своя любимец.</div>
+    <a href="#pkgCards" class="btn-primary" onclick="event.preventDefault(); document.getElementById('pkgCards').scrollIntoView({behavior:'smooth', block:'center'});">Искам HappyPet</a>
   </div>
 </section>
 
