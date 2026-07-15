@@ -999,6 +999,80 @@
     .bonus-price-row { justify-content: flex-start; }
   }
 
+  /* ─── EASY STEPS SECTION (mobile-first, no cards, minimal) ─── */
+  .easy-section {
+    background: var(--bg-beige);
+    padding: 40px 0;
+  }
+  .easy-header {
+    text-align: center;
+    max-width: 480px;
+    margin: 0 auto 32px;
+    padding: 0 18px;
+  }
+  .easy-title {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-size: clamp(22px, 6vw, 28px);
+    color: var(--teal-dark);
+    margin-bottom: 8px;
+  }
+  .easy-subtitle {
+    font-size: 14px;
+    color: var(--text-muted);
+    line-height: 1.5;
+  }
+
+  .easy-steps {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    max-width: 320px;
+    margin: 0 auto;
+    padding: 0 18px;
+  }
+  .easy-step {
+    text-align: center;
+  }
+  .easy-step-icon {
+    font-size: 40px;
+    margin-bottom: 8px;
+    line-height: 1;
+  }
+  .easy-step-text {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text);
+    line-height: 1.4;
+  }
+  .easy-arrow {
+    color: var(--teal);
+    font-size: 20px;
+    line-height: 1;
+    margin: 4px 0;
+    transform: rotate(90deg);
+  }
+
+  @media (min-width: 700px) {
+    .easy-steps {
+      flex-direction: row;
+      align-items: flex-start;
+      justify-content: center;
+      max-width: 900px;
+      gap: 24px;
+    }
+    .easy-step { flex: 0 0 220px; max-width: 220px; }
+    .easy-step-icon { font-size: 52px; margin-bottom: 12px; }
+    .easy-step-text { font-size: 15px; }
+    .easy-arrow {
+      margin: 0;
+      align-self: center;
+      font-size: 24px;
+      transform: translateY(-10px) rotate(0deg);
+    }
+  }
+
   /* ─── FAQ ─── */
   .faq-section { background: var(--bg); }
   .faq-list { margin-top: 48px; max-width: 720px; margin-left: auto; margin-right: auto; }
@@ -1489,6 +1563,33 @@
 
   <div class="bonus-cta">
     <a href="#pkgCards" class="btn-primary" onclick="event.preventDefault(); document.getElementById('pkgCards').scrollIntoView({behavior:'smooth', block:'center'});">👉 Искам своите бонуси</a>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     EASY STEPS SECTION
+════════════════════════════════════════ -->
+<section class="easy-section fade-in">
+  <div class="easy-header">
+    <div class="easy-title">🐾 Толкова е лесно</div>
+    <p class="easy-subtitle">Само 3 лесни стъпки и HappyPet се грижи за любимеца ви всеки ден.</p>
+  </div>
+
+  <div class="easy-steps">
+    <div class="easy-step">
+      <div class="easy-step-icon">🐾</div>
+      <div class="easy-step-text">Напълнете с гранули</div>
+    </div>
+    <div class="easy-arrow">→</div>
+    <div class="easy-step">
+      <div class="easy-step-icon">📱</div>
+      <div class="easy-step-text">Настройте часовете през приложението</div>
+    </div>
+    <div class="easy-arrow">→</div>
+    <div class="easy-step">
+      <div class="easy-step-icon">🍽️</div>
+      <div class="easy-step-text">HappyPet храни любимеца автоматично</div>
+    </div>
   </div>
 </section>
 
