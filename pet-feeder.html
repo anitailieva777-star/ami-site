@@ -177,9 +177,11 @@
   /* Desktop column assignments */
   .hero-image-wrap   { grid-column: 1; grid-row: 1 / 99; }
   .hi-audience       { grid-column: 2; }
-  .hi-brand          { grid-column: 2; }
-  .hi-badges         { grid-column: 2; margin-top: 18px; }
-  .hi-stars          { grid-column: 2; margin-top: 8px; }
+  .hi-headline       { grid-column: 2; margin-top: 14px; }
+  .hi-subheadline    { grid-column: 2; margin-top: 10px; }
+  .hi-mechanism      { grid-column: 2; margin-top: 16px; }
+  .hi-trust          { grid-column: 2; margin-top: 18px; }
+  .hi-bullets        { grid-column: 2; margin-top: 18px; }
   .hi-rest           { grid-column: 2; margin-top: 16px; }
 
   .hero-image-wrap {
@@ -198,24 +200,56 @@
     border-radius: var(--radius);
   }
 
-  /* Brand title block */
-  .hero-brand-name {
+  /* Headline (H1) */
+  .hero-h1 {
     font-family: 'Playfair Display', serif;
-    font-size: clamp(28px, 4vw, 42px);
+    font-size: clamp(26px, 5.5vw, 44px);
     font-weight: 700;
     color: var(--text);
-    line-height: 1.15;
-    margin-bottom: 8px;
+    line-height: 1.2;
+    margin: 0;
   }
-  .hero-brand-sub {
+  .hero-h1 .hero-h1-accent { color: var(--teal); }
+
+  /* Subheadline */
+  .hero-subheadline {
     font-family: 'Inter', sans-serif;
-    font-size: clamp(15px, 2vw, 18px);
+    font-size: clamp(15px, 2vw, 17px);
     font-weight: 400;
     color: var(--text-muted);
-    line-height: 1.45;
-    margin-bottom: 0;
+    line-height: 1.6;
+    margin: 0;
+  }
+  .hero-subheadline strong { color: var(--text); font-weight: 700; }
+
+  /* Smart Routine mechanism block */
+  .hero-mechanism {
+    background: #F0FAF8;
+    border: 1px solid #C5E8E2;
+    border-radius: 14px;
+    padding: 12px 16px;
+  }
+  .hero-mechanism-label {
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--teal-dark);
+    margin-bottom: 4px;
+  }
+  .hero-mechanism-text {
+    font-size: 13px;
+    color: var(--text-muted);
+    line-height: 1.5;
   }
 
+  /* Trust row: badges + rating */
+  .hero-trust {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 14px;
+  }
   .hero-badges { display: flex; gap: 8px; flex-wrap: wrap; }
   .hero-stars { display: flex; align-items: center; gap: 8px; }
   .stars { color: var(--gold); font-size: 18px; letter-spacing: 2px; }
@@ -1132,10 +1166,12 @@
       flex-direction: column;
       gap: 0;
     }
-    .hi-audience   { order: 1 !important; margin-bottom: 10px !important; }
-    .hi-brand      { order: 2 !important; text-align: center !important; margin-bottom: 10px !important; }
+    .hi-audience   { order: 1 !important; margin-bottom: 12px !important; }
+    .hi-headline   { order: 2 !important; text-align: center !important; margin-top: 0 !important; margin-bottom: 10px !important; }
+    .hi-subheadline{ order: 3 !important; text-align: center !important; margin-top: 0 !important; margin-bottom: 14px !important; }
+    .hi-mechanism  { order: 4 !important; margin-top: 0 !important; margin-bottom: 18px !important; text-align: center !important; }
     .hero-image-wrap {
-      order: 3 !important;
+      order: 5 !important;
       position: static !important;
       width: calc(100% + 32px) !important;
       max-width: calc(100% + 32px) !important;
@@ -1149,12 +1185,10 @@
       border-radius: 0 !important;
       object-fit: contain !important;
     }
-    .hi-badges     { order: 4 !important; justify-content: center !important; margin-top: 0 !important; margin-bottom: 12px !important; }
-    .hi-stars      { order: 5 !important; justify-content: center !important; margin-top: 0 !important; margin-bottom: 0 !important; }
-    .hi-rest       { order: 6 !important; margin-top: 20px !important; }
+    .hi-trust      { order: 6 !important; justify-content: center !important; margin-top: 0 !important; margin-bottom: 16px !important; }
+    .hi-bullets    { order: 7 !important; margin-top: 0 !important; margin-bottom: 8px !important; }
+    .hi-rest       { order: 8 !important; margin-top: 12px !important; }
     .hi-rest .hero-price { text-align: center !important; }
-    .hero-brand-name { text-align: center !important; }
-    .hero-brand-sub  { text-align: center !important; }
     .audience-pill   {
       display: flex !important;
       width: 100% !important;
@@ -1162,8 +1196,6 @@
       border-radius: 18px !important;
       padding: 12px 18px !important;
     }
-    .hero-brand-name { margin-bottom: 4px !important; }
-    .hero-brand-sub  { font-size: 14px !important; }
     .problem-grid { grid-template-columns: 1fr; }
     .solution-inner { grid-template-columns: 1fr; }
     .features-grid { grid-template-columns: 1fr; }
@@ -1179,8 +1211,7 @@
     .top-bar span { display: block; margin: 2px 0; }
     .top-bar .sep { display: none; }
     .hero { padding: 20px 0 56px; }
-    .hero-title { font-size: 26px; }
-    .hero-brand-name { font-size: 26px; }
+    .hero-h1 { font-size: 26px; }
     .price-new { font-size: 32px; }
     .pkg-cards { }
     .trust-badges { gap: 12px; }
@@ -1221,17 +1252,29 @@
       <!-- 1. AUDIENCE PILL (mobile: order 1 · desktop: col 2 first) -->
       <div class="hi-audience">
         <div class="audience-pill">
-          🐱🐶 <span>За <strong>заети стопани</strong>, които искат любимецът им винаги да е нахранен – дори когато ги няма.</span>
+          🐾 <span>За стопани, които искат <strong>повече свобода</strong> — без компромис с грижата за домашния любимец.</span>
         </div>
       </div>
 
-      <!-- 2. BRAND TITLE (mobile: order 3 · desktop: col 2 row 3) -->
-      <div class="hi-brand">
-        <div class="hero-brand-name">HappyPet 🐾</div>
-        <div class="hero-brand-sub">Автоматична хранилка за кучета и котки с WiFi, Таймер и App Контрол</div>
+      <!-- 2. HEADLINE / H1 (mobile: order 2 · desktop: col 2) -->
+      <div class="hi-headline">
+        <h1 class="hero-h1">Не позволявайте часовете за хранене да определят <span class="hero-h1-accent">деня ви.</span></h1>
       </div>
 
-      <!-- 3. PRODUCT IMAGE (mobile: order 3 · desktop: col 1 span all rows) -->
+      <!-- 3. SUBHEADLINE (mobile: order 3 · desktop: col 2) -->
+      <div class="hi-subheadline">
+        <p class="hero-subheadline">HappyPet е <strong>интелигентна автоматична хранилка</strong>, която поддържа постоянен хранителен режим и се грижи любимецът ви да бъде <strong>нахранен навреме</strong> — дори когато денят ви се промени.</p>
+      </div>
+
+      <!-- 4. SMART ROUTINE MECHANISM (mobile: order 4 · desktop: col 2) -->
+      <div class="hi-mechanism">
+        <div class="hero-mechanism">
+          <div class="hero-mechanism-label">HappyPet Smart Routine™</div>
+          <div class="hero-mechanism-text">Задавате часовете и порциите веднъж, а HappyPet поддържа режима всеки ден.</div>
+        </div>
+      </div>
+
+      <!-- 5. PRODUCT IMAGE (mobile: order 5 · desktop: col 1 span all rows) -->
       <div class="hero-image-wrap">
         <img
           src="https://content.app-sources.com/s/227404442638844551/uploads/Изображения/Нов_постер_на_продукта-2644611.png"
@@ -1240,28 +1283,31 @@
         />
       </div>
 
-      <!-- 4. BADGES (mobile: order 4 · desktop: col 2) -->
-      <div class="hi-badges">
-        <span class="badge">⭐ Ново</span>
-        <span class="badge">📦 Бърза доставка</span>
-      </div>
-
-      <!-- 5. STARS + REVIEWS (mobile: order 5 · desktop: col 2) -->
-      <div class="hi-stars">
-        <div class="hero-stars">
-          <span class="stars">★★★★<span class="star-half">★</span></span>
-          <a href="#reviews">227 отзива</a>
+      <!-- 6. TRUST ROW: badges + rating (mobile: order 6 · desktop: col 2) -->
+      <div class="hi-trust">
+        <div class="hero-trust">
+          <div class="hero-badges">
+            <span class="badge">⭐ Ново</span>
+            <span class="badge">📦 Бърза доставка</span>
+          </div>
+          <div class="hero-stars">
+            <span class="stars">★★★★<span class="star-half">★</span></span>
+            <a href="#reviews">227 отзива</a>
+          </div>
         </div>
       </div>
 
-      <!-- 6. REST: benefits, packages, CTA, guarantee, trust (mobile: order 6 · desktop: col 2) -->
-      <div class="hi-rest">
-        <ul class="hero-bullets" style="margin-top:8px; margin-bottom:24px;">
-          <li><span class="icon">✓</span><span class="benefit-text"><strong>До 6 хранения на ден</strong>, зададени от теб — хранилката ги изпълнява точно <strong>в точен час</strong>, всеки ден, без изключение.</span></li>
-          <li><span class="icon">✓</span><span class="benefit-text"><strong>С вградена камера и двупосочно аудио</strong> — отваряш app-а, виждаш го, говориш му. Той чува гласа ти.</span></li>
-          <li><span class="icon">✓</span><span class="benefit-text"><strong>Двойно захранване — ток и батерии едновременно.</strong> При токов удар превключва автоматично.</span></li>
+      <!-- 7. PRODUCT BULLETS (mobile: order 7 · desktop: col 2) -->
+      <div class="hi-bullets">
+        <ul class="hero-bullets" style="margin-bottom:0;">
+          <li><span class="icon">✓</span><span class="benefit-text"><strong>До 6 хранения дневно</strong> — задавате режима веднъж, а HappyPet го изпълнява всеки ден.</span></li>
+          <li><span class="icon">✓</span><span class="benefit-text">Виждате, чувате и говорите с любимеца си през приложението.</span></li>
+          <li><span class="icon">✓</span><span class="benefit-text">Работи с ток и батерии, за да не бъде пропуснато хранене при прекъсване на захранването.</span></li>
         </ul>
+      </div>
 
+      <!-- 8. REST: packages, price, CTA, guarantee, trust (mobile: order 8 · desktop: col 2) -->
+      <div class="hi-rest">
         <!-- PACKAGE SELECTOR -->
         <div class="pkg-label">Избери своя пакет:</div>
         <div class="pkg-cards" id="pkgCards">
