@@ -211,6 +211,16 @@
   }
   .hero-h1 .hero-h1-accent { color: var(--teal); }
 
+  /* Brand mark — small, above the subheadline, distinct from the H1 */
+  .hero-brand-mark {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-size: clamp(19px, 3vw, 23px);
+    color: var(--teal-dark);
+    line-height: 1.2;
+    margin-bottom: 6px;
+  }
+
   /* Subheadline */
   .hero-subheadline {
     font-family: 'Inter', sans-serif;
@@ -1169,22 +1179,23 @@
     .hi-audience   { order: 1 !important; margin-bottom: 12px !important; }
     .hi-headline   { order: 2 !important; text-align: center !important; margin-top: 0 !important; margin-bottom: 10px !important; }
     .hi-subheadline{ order: 3 !important; text-align: center !important; margin-top: 0 !important; margin-bottom: 14px !important; }
-    .hi-mechanism  { order: 4 !important; margin-top: 0 !important; margin-bottom: 18px !important; text-align: center !important; }
     .hero-image-wrap {
-      order: 5 !important;
+      order: 4 !important;
       position: static !important;
       width: calc(100% + 32px) !important;
       max-width: calc(100% + 32px) !important;
       margin-left: -16px !important;
       margin-right: -16px !important;
-      margin-bottom: 20px !important;
+      margin-bottom: 18px !important;
       border-radius: 0 !important;
-      aspect-ratio: 1.15 / 1;
+      aspect-ratio: 4 / 5;
     }
     .hero-image-wrap img {
       border-radius: 0 !important;
-      object-fit: contain !important;
+      object-fit: cover !important;
+      object-position: center bottom !important;
     }
+    .hi-mechanism  { order: 5 !important; margin-top: 0 !important; margin-bottom: 18px !important; text-align: center !important; }
     .hi-trust      { order: 6 !important; justify-content: center !important; margin-top: 0 !important; margin-bottom: 16px !important; }
     .hi-bullets    { order: 7 !important; margin-top: 0 !important; margin-bottom: 8px !important; }
     .hi-rest       { order: 8 !important; margin-top: 12px !important; }
@@ -1263,24 +1274,25 @@
 
       <!-- 3. SUBHEADLINE (mobile: order 3 · desktop: col 2) -->
       <div class="hi-subheadline">
-        <p class="hero-subheadline">HappyPet е <strong>интелигентна автоматична хранилка</strong>, която поддържа постоянен хранителен режим и се грижи любимецът ви да бъде <strong>нахранен навреме</strong> — дори когато денят ви се промени.</p>
+        <div class="hero-brand-mark">HappyPet 🐾</div>
+        <p class="hero-subheadline"><strong>Интелигентна автоматична хранилка</strong>, която поддържа постоянен хранителен режим и се грижи любимецът ви да бъде <strong>нахранен навреме</strong> — дори когато денят ви се промени.</p>
       </div>
 
-      <!-- 4. SMART ROUTINE MECHANISM (mobile: order 4 · desktop: col 2) -->
-      <div class="hi-mechanism">
-        <div class="hero-mechanism">
-          <div class="hero-mechanism-label">HappyPet Smart Routine™</div>
-          <div class="hero-mechanism-text">Задавате часовете и порциите веднъж, а HappyPet поддържа режима всеки ден.</div>
-        </div>
-      </div>
-
-      <!-- 5. PRODUCT IMAGE (mobile: order 5 · desktop: col 1 span all rows) -->
+      <!-- 4. PRODUCT IMAGE (mobile: order 4 · desktop: col 1 span all rows) -->
       <div class="hero-image-wrap">
         <img
           src="https://content.app-sources.com/s/227404442638844551/uploads/Изображения/Нов_постер_на_продукта-2644611.png"
           alt="HappyPet автоматична хранилка за котки и кучета"
           loading="eager"
         />
+      </div>
+
+      <!-- 5. SMART ROUTINE MECHANISM (mobile: order 5 · desktop: col 2) -->
+      <div class="hi-mechanism">
+        <div class="hero-mechanism">
+          <div class="hero-mechanism-label">HappyPet Smart Routine™</div>
+          <div class="hero-mechanism-text">Задавате часовете и порциите веднъж, а HappyPet поддържа режима всеки ден.</div>
+        </div>
       </div>
 
       <!-- 6. TRUST ROW: badges + rating (mobile: order 6 · desktop: col 2) -->
