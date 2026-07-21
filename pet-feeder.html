@@ -333,11 +333,24 @@
     gap: 10px;
     font-size: 15px;
     line-height: 1.6;
-    margin-bottom: 14px;
+    margin-bottom: 18px;
     color: var(--text);
   }
   .hero-bullets li .icon { color: var(--teal); font-size: 18px; flex-shrink: 0; margin-top: 1px; }
   .hero-bullets li .benefit-text { flex: 1; }
+  .hero-bullets li .benefit-hook {
+    display: block;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 3px;
+  }
+  .hero-bullets li .benefit-detail {
+    display: block;
+    font-weight: 400;
+    color: var(--text-muted);
+    font-size: 14px;
+    line-height: 1.55;
+  }
   .hero-bullets li .benefit-text strong { color: var(--text); font-weight: 700; }
 
   /* ─── PACKAGE CARDS ─── */
@@ -1206,7 +1219,7 @@
       margin-right: -16px !important;
       margin-bottom: 18px !important;
       border-radius: 0 !important;
-      aspect-ratio: 4 / 5;
+      aspect-ratio: 3 / 4;
     }
     .hero-image-wrap img {
       border-radius: 0 !important;
@@ -1236,6 +1249,15 @@
     .footer-links { justify-content: center; }
     section { padding: 56px 0; }
   }
+  /* Tablet range (desktop 2-col grid still active) — crop the caption
+     out of the hero photo here too, matching mobile treatment */
+  @media (min-width: 901px) and (max-width: 1024px) {
+    .hero-image-wrap { aspect-ratio: 4 / 5; }
+    .hero-image-wrap img {
+      object-fit: cover !important;
+      object-position: center bottom !important;
+    }
+  }
   @media (max-width: 600px) {
     .hero { padding: 20px 0 56px; }
     .hero-h1 { font-size: 26px; }
@@ -1256,13 +1278,13 @@
   <div class="top-bar-track">
     <span>⚠️ Само 20 броя налични на тази цена</span>
     <span class="sep">·</span>
-    <span>🎁 2 безплатни бонуса с поръчка</span>
+    <span>🎁 2 безплатни бонуса с поръчка в следващите 48 часа</span>
     <span class="sep">·</span>
     <span>🛡️ 30-дневна гаранция</span>
     <span class="sep">·</span>
     <span>⚠️ Само 20 броя налични на тази цена</span>
     <span class="sep">·</span>
-    <span>🎁 2 безплатни бонуса с поръчка</span>
+    <span>🎁 2 безплатни бонуса с поръчка в следващите 48 часа</span>
     <span class="sep">·</span>
     <span>🛡️ 30-дневна гаранция</span>
     <span class="sep">·</span>
@@ -1337,9 +1359,27 @@
       <!-- 7. PRODUCT BULLETS (mobile: order 7 · desktop: col 2) -->
       <div class="hi-bullets">
         <ul class="hero-bullets" style="margin-bottom:0;">
-          <li><span class="icon">✓</span><span class="benefit-text"><strong>До 6 хранения дневно</strong> — задавате режима веднъж, а HappyPet го изпълнява всеки ден.</span></li>
-          <li><span class="icon">✓</span><span class="benefit-text">Виждате, чувате и говорите с любимеца си през приложението.</span></li>
-          <li><span class="icon">✓</span><span class="benefit-text">Работи с ток и батерии, за да не бъде пропуснато хранене при прекъсване на захранването.</span></li>
+          <li>
+            <span class="icon">✓</span>
+            <span class="benefit-text">
+              <span class="benefit-hook">Хранене навреме — всеки ден</span>
+              <span class="benefit-detail">Задавате до 6 хранения и подходящите порции, а HappyPet изпълнява режима автоматично в избраните часове.</span>
+            </span>
+          </li>
+          <li>
+            <span class="icon">✓</span>
+            <span class="benefit-text">
+              <span class="benefit-hook">По-близо до любимеца, дори когато ви няма</span>
+              <span class="benefit-detail">Виждате го, чувате го и говорите с него през приложението благодарение на камерата и двупосочното аудио.</span>
+            </span>
+          </li>
+          <li>
+            <span class="icon">✓</span>
+            <span class="benefit-text">
+              <span class="benefit-hook">Без пропуснато хранене при спиране на тока</span>
+              <span class="benefit-detail">HappyPet работи едновременно с ток и батерии и автоматично преминава към резервното захранване.</span>
+            </span>
+          </li>
         </ul>
       </div>
 
