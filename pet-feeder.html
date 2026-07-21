@@ -51,18 +51,32 @@
   img { max-width: 100% !important; height: auto; display: block; box-sizing: border-box; }
   a { text-decoration: none; color: inherit; }
 
-  /* ─── TOP BAR ─── */
+  /* ─── TOP BAR (single-line scrolling ticker) ─── */
   .top-bar {
     background: var(--teal) !important;
     color: var(--white) !important;
-    text-align: center !important;
-    padding: 10px 16px !important;
+    padding: 10px 0 !important;
     font-size: 13px !important;
     font-weight: 500 !important;
     letter-spacing: 0.02em !important;
+    overflow: hidden;
+    white-space: nowrap;
   }
-  .top-bar span { margin: 0 12px; }
-  .top-bar .sep { opacity: 0.4; }
+  .top-bar-track {
+    display: inline-flex;
+    align-items: center;
+    white-space: nowrap;
+    animation: top-bar-scroll 16s linear infinite;
+  }
+  .top-bar-track span { margin: 0 20px; white-space: nowrap; }
+  .top-bar-track .sep { opacity: 0.4; }
+  @keyframes top-bar-scroll {
+    from { transform: translateX(0); }
+    to   { transform: translateX(-50%); }
+  }
+  @media (max-width: 600px) {
+    .top-bar-track { animation-duration: 12s; }
+  }
 
   /* ─── STICKY BUY BAR ─── */
   .sticky-bar {
@@ -211,14 +225,18 @@
   }
   .hero-h1 .hero-h1-accent { color: var(--teal); }
 
-  /* Brand mark — small, above the subheadline, distinct from the H1 */
+  /* Brand mark — above the subheadline, deliberately separated from the H1 */
   .hero-brand-mark {
     font-family: 'Playfair Display', serif;
     font-weight: 700;
     font-size: clamp(19px, 3vw, 23px);
     color: var(--teal-dark);
     line-height: 1.2;
-    margin-bottom: 6px;
+    letter-spacing: 0.01em;
+    margin-top: 20px;
+    padding-top: 16px;
+    margin-bottom: 8px;
+    border-top: 1px solid var(--border);
   }
 
   /* Subheadline */
@@ -1219,8 +1237,6 @@
     section { padding: 56px 0; }
   }
   @media (max-width: 600px) {
-    .top-bar span { display: block; margin: 2px 0; }
-    .top-bar .sep { display: none; }
     .hero { padding: 20px 0 56px; }
     .hero-h1 { font-size: 26px; }
     .price-new { font-size: 32px; }
@@ -1235,13 +1251,22 @@
 </head>
 <body>
 
-<!-- ── TOP BAR ── -->
+<!-- ── TOP BAR (scrolling ticker, single line) ── -->
 <div class="top-bar">
-  <span>⚠️ Само 20 броя налични на тази цена</span>
-  <span class="sep">·</span>
-  <span>🎁 2 безплатни бонуса с поръчка</span>
-  <span class="sep">·</span>
-  <span>🛡️ 30-дневна гаранция</span>
+  <div class="top-bar-track">
+    <span>⚠️ Само 20 броя налични на тази цена</span>
+    <span class="sep">·</span>
+    <span>🎁 2 безплатни бонуса с поръчка</span>
+    <span class="sep">·</span>
+    <span>🛡️ 30-дневна гаранция</span>
+    <span class="sep">·</span>
+    <span>⚠️ Само 20 броя налични на тази цена</span>
+    <span class="sep">·</span>
+    <span>🎁 2 безплатни бонуса с поръчка</span>
+    <span class="sep">·</span>
+    <span>🛡️ 30-дневна гаранция</span>
+    <span class="sep">·</span>
+  </div>
 </div>
 
 <!-- ── STICKY BUY BAR (mobile) ── -->
