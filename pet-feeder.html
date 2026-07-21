@@ -1249,6 +1249,45 @@
     .footer-links { justify-content: center; }
     section { padding: 56px 0; }
   }
+  /* ─── PHONE-ONLY FIRST VIEWPORT (under 768px) ───
+     Goal: on first load, the visitor sees text (top half) AND the top
+     of the product photo (bottom half, dog's head) at the same time —
+     everything else (mechanism, trust row, bullets, packages, CTA)
+     sits just below the fold and appears on scroll. Desktop (>768px)
+     and the 768–900px tablet range are untouched by this block. */
+  @media (max-width: 768px) {
+    .hero { padding: 0 !important; }
+    .hero .container { padding: 24px 16px 16px !important; }
+    .hero-inner { min-height: calc(100vh - 40px) !important; }
+
+    .hero-h1 { font-size: 26px !important; }
+    .audience-pill { font-size: 13px !important; }
+
+    /* Image becomes the second, fixed-height "peek" block right after
+       the text — margin-bottom:auto eats the remaining viewport space
+       so everything after it (mechanism onward) is pushed below the
+       first screen, without hiding it or touching the DOM. */
+    .hero-image-wrap {
+      width: 100% !important;
+      max-width: 100% !important;
+      margin-left: 0 !important;
+      margin-right: 0 !important;
+      margin-bottom: auto !important;
+      height: 280px !important;
+      aspect-ratio: unset !important;
+      border-radius: 16px 16px 0 0 !important;
+      overflow: hidden !important;
+    }
+    .hero-image-wrap img {
+      width: 100% !important;
+      height: 100% !important;
+      object-fit: cover !important;
+      object-position: top center !important;
+      border-radius: 16px 16px 0 0 !important;
+    }
+    .hi-mechanism { margin-top: 20px !important; }
+  }
+
   /* Tablet range (desktop 2-col grid still active) — crop the caption
      out of the hero photo here too, matching mobile treatment */
   @media (min-width: 901px) and (max-width: 1024px) {
