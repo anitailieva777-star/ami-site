@@ -20,6 +20,7 @@
   doc.write(HTML_CONTENT);
   doc.close();
 
+  var lastHeight = 0;
   function resizeIframe() {
     try {
       var body = iframe.contentWindow.document.body;
@@ -28,22 +29,43 @@
         body.scrollHeight, body.offsetHeight,
         html.clientHeight, html.scrollHeight, html.offsetHeight
       );
-      iframe.style.height = height + 'px';
+      if (height > 0 && height !== lastHeight) {
+        lastHeight = height;
+        iframe.style.height = height + 'px';
+      }
     } catch (e) { /* no-op */ }
   }
 
   iframe.addEventListener('load', function () {
     resizeIframe();
-    setTimeout(resizeIframe, 300);
-    setTimeout(resizeIframe, 1000);
-    setTimeout(resizeIframe, 2500);
+
+    // Re-check on every image inside the iframe as it finishes loading —
+    // images are the main reason height can change after initial paint.
+    try {
+      var imgs = iframe.contentWindow.document.images;
+      for (var i = 0; i < imgs.length; i++) {
+        if (!imgs[i].complete) {
+          imgs[i].addEventListener('load', resizeIframe);
+          imgs[i].addEventListener('error', resizeIframe);
+        }
+      }
+    } catch (e) { /* no-op */ }
+
+    // Keep polling for a while (covers web fonts swapping, slow/CDN
+    // images, layout shifts) instead of stopping after a couple of
+    // fixed delays — a stale/short height is what causes leftover
+    // blank space or clipped content below the fold.
+    var pollCount = 0;
+    var pollId = setInterval(function () {
+      resizeIframe();
+      pollCount++;
+      if (pollCount > 40) clearInterval(pollId); // ~20s of polling, then stop
+    }, 500);
 
     try {
       var ro = new iframe.contentWindow.ResizeObserver(resizeIframe);
       ro.observe(iframe.contentWindow.document.body);
-    } catch (e) {
-      setInterval(resizeIframe, 1000);
-    }
+    } catch (e) { /* no-op — the interval above still covers us */ }
   });
 
   window.addEventListener('resize', resizeIframe);
