@@ -1258,21 +1258,20 @@
   @media (max-width: 768px) {
     .hero { padding: 0 !important; }
     .hero .container { padding: 24px 16px 16px !important; }
-    .hero-inner { min-height: calc(100vh - 40px) !important; }
 
     .hero-h1 { font-size: 26px !important; }
     .audience-pill { font-size: 13px !important; }
 
-    /* Image becomes the second, fixed-height "peek" block right after
-       the text — margin-bottom:auto eats the remaining viewport space
-       so everything after it (mechanism onward) is pushed below the
-       first screen, without hiding it or touching the DOM. */
+    /* Image becomes a fixed-height "peek" block right after the text.
+       No forced min-height/auto-margin here — that created a large
+       blank gap on phones where the natural content is shorter than
+       100vh. Content now just flows naturally: text, then image peek,
+       then mechanism/trust/bullets/packages right after, no gap. */
     .hero-image-wrap {
       width: 100% !important;
       max-width: 100% !important;
       margin-left: 0 !important;
       margin-right: 0 !important;
-      margin-bottom: auto !important;
       height: 190px !important;
       aspect-ratio: unset !important;
       border-radius: 16px 16px 0 0 !important;
