@@ -1219,12 +1219,11 @@
       margin-right: -16px !important;
       margin-bottom: 18px !important;
       border-radius: 0 !important;
-      aspect-ratio: 3 / 4;
+      aspect-ratio: 4 / 3;
     }
     .hero-image-wrap img {
       border-radius: 0 !important;
-      object-fit: cover !important;
-      object-position: center top !important;
+      object-fit: contain !important;
     }
     .hi-mechanism  { order: 5 !important; margin-top: 0 !important; margin-bottom: 18px !important; text-align: center !important; }
     .hi-trust      { order: 6 !important; justify-content: center !important; margin-top: 0 !important; margin-bottom: 16px !important; }
@@ -1261,41 +1260,11 @@
 
     .hero-h1 { font-size: 26px !important; }
     .audience-pill { font-size: 13px !important; }
-
-    /* Image becomes a fixed-height "peek" block right after the text.
-       No forced min-height/auto-margin here — that created a large
-       blank gap on phones where the natural content is shorter than
-       100vh. Content now just flows naturally: text, then image peek,
-       then mechanism/trust/bullets/packages right after, no gap. */
-    .hero-image-wrap {
-      width: 100% !important;
-      max-width: 100% !important;
-      margin-left: 0 !important;
-      margin-right: 0 !important;
-      height: 190px !important;
-      aspect-ratio: unset !important;
-      border-radius: 16px 16px 0 0 !important;
-      overflow: hidden !important;
-    }
-    .hero-image-wrap img {
-      width: 100% !important;
-      height: 100% !important;
-      object-fit: cover !important;
-      object-position: top center !important;
-      border-radius: 16px 16px 0 0 !important;
-    }
     .hi-mechanism { margin-top: 20px !important; }
   }
-
-  /* Tablet range (desktop 2-col grid still active) — crop the caption
-     out of the hero photo here too, matching mobile treatment */
-  @media (min-width: 901px) and (max-width: 1024px) {
-    .hero-image-wrap { aspect-ratio: 4 / 5; }
-    .hero-image-wrap img {
-      object-fit: cover !important;
-      object-position: center top !important;
-    }
-  }
+  /* No tablet-specific crop needed anymore — the hero photo has no
+     baked-in caption to hide, so it's shown uncropped (contain) at
+     every width via the base rule above. */
   @media (max-width: 600px) {
     .hero { padding: 20px 0 56px; }
     .hero-h1 { font-size: 26px; }
