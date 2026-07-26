@@ -1398,55 +1398,6 @@
 
       <!-- 8. REST: packages, price, CTA, guarantee, trust (mobile: order 8 · desktop: col 2) -->
       <div class="hi-rest">
-        <!-- PACKAGE SELECTOR -->
-        <div class="pkg-label">Избери своя пакет:</div>
-        <div class="pkg-cards" id="pkgCards">
-
-          <div class="pkg-card" data-pkg="solo" onclick="selectPkg(this, '/checkout?pkg=solo')">
-            <div class="pkg-card-inner">
-              <div class="pkg-radio" id="radio-solo"></div>
-              <div style="flex:1">
-                <div class="pkg-card-name">Само хранилката</div>
-                <div class="pkg-card-desc">Смарт хранилка 2L с WiFi + безплатен PDF гайд</div>
-              </div>
-              <div class="pkg-card-price">
-                <div class="pkg-price-main">54.90€</div>
-                <div class="pkg-price-old">69.90€</div>
-              </div>
-            </div>
-          </div>
-
-          <div class="pkg-card popular selected" data-pkg="bundle" onclick="selectPkg(this, '/checkout?pkg=bundle')">
-            <div class="pkg-popular-badge">⭐ Най-популярен</div>
-            <div class="pkg-card-inner">
-              <div class="pkg-radio" id="radio-bundle" style="border-color:var(--teal);background:var(--teal);"></div>
-              <div style="flex:1">
-                <div class="pkg-card-name">Пълна грижа — Хранилка + Фонтан</div>
-                <div class="pkg-card-desc">Автоматично хранене + чиста течаща вода винаги</div>
-              </div>
-              <div class="pkg-card-price">
-                <div class="pkg-price-main">84.90€</div>
-                <div class="pkg-price-old">94.80€</div>
-              </div>
-            </div>
-          </div>
-
-          <div class="pkg-card" data-pkg="premium" onclick="selectPkg(this, '/checkout?pkg=premium')">
-            <div class="pkg-card-inner">
-              <div class="pkg-radio" id="radio-premium"></div>
-              <div style="flex:1">
-                <div class="pkg-card-name">Премиум комплект — Хранилка + Фонтан + Подложка</div>
-                <div class="pkg-card-desc">Всичко необходимо за пълна грижа и чист под</div>
-              </div>
-              <div class="pkg-card-price">
-                <div class="pkg-price-main">89.90€</div>
-                <div class="pkg-price-old">109.70€</div>
-              </div>
-            </div>
-          </div>
-
-        </div>
-
         <!-- PRICE -->
         <div class="hero-price" style="margin-top:24px; margin-bottom:16px;">
           <div class="price-old">Редовна цена: 69.90€</div>
@@ -1626,7 +1577,7 @@
 
   <div class="story-final-cta">
     <div class="story-final-cta-note">Осигури спокойствие за себе си и редовно хранене за своя любимец.</div>
-    <a href="#pkgCards" class="btn-primary" onclick="event.preventDefault(); document.getElementById('pkgCards').scrollIntoView({behavior:'smooth', block:'center'});">Искам HappyPet</a>
+    <a href="/checkout" class="btn-primary">Искам HappyPet</a>
   </div>
 </section>
 
@@ -1705,7 +1656,7 @@
   </div>
 
   <div class="bonus-cta">
-    <a href="#pkgCards" class="btn-primary" onclick="event.preventDefault(); document.getElementById('pkgCards').scrollIntoView({behavior:'smooth', block:'center'});">👉 Искам своите бонуси</a>
+    <a href="/checkout" class="btn-primary">👉 Искам своите бонуси</a>
   </div>
 </section>
 
@@ -1946,49 +1897,6 @@
      JAVASCRIPT
 ════════════════════════════════════════ -->
 <script>
-// ── PACKAGE SELECTOR ──
-const pkgData = {
-  solo:    { label: 'Купи сега — 54.90€', url: '/checkout?pkg=solo' },
-  bundle:  { label: 'Вземи комплекта — 84.90€', url: '/checkout?pkg=bundle' },
-  premium: { label: 'Максималната грижа — 89.90€', url: '/checkout?pkg=premium' }
-};
-let currentPkg = 'bundle';
-
-function selectPkg(card, url) {
-  document.querySelectorAll('.pkg-card').forEach(c => {
-    c.classList.remove('selected');
-    const r = c.querySelector('.pkg-radio');
-    r.style.background = '';
-    r.style.borderColor = '';
-  });
-  card.classList.add('selected');
-  const r = card.querySelector('.pkg-radio');
-  r.style.background = 'var(--teal)';
-  r.style.borderColor = 'var(--teal)';
-  r.innerHTML = '';
-  const dot = document.createElement('span');
-  dot.style.cssText = 'width:7px;height:7px;background:white;border-radius:50%;display:block;';
-  r.appendChild(dot);
-
-  currentPkg = card.dataset.pkg;
-  const d = pkgData[currentPkg];
-  const mainCta = document.getElementById('mainCta');
-  mainCta.textContent = '🛒 ' + d.label;
-  mainCta.href = d.url;
-}
-
-// Init selected radio dot
-(function() {
-  const sel = document.querySelector('.pkg-card.selected .pkg-radio');
-  if (sel) {
-    sel.style.background = 'var(--teal)';
-    sel.style.borderColor = 'var(--teal)';
-    const dot = document.createElement('span');
-    dot.style.cssText = 'width:7px;height:7px;background:white;border-radius:50%;display:block;';
-    sel.appendChild(dot);
-  }
-})();
-
 // ── STICKY BAR (mobile) ──
 const stickyBar = document.getElementById('stickyBar');
 const heroSection = document.querySelector('.hero');
