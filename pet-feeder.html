@@ -1110,6 +1110,7 @@
     flex-direction: column;
     align-items: center;
     gap: 8px;
+    width: 100%;
     max-width: 320px;
     margin: 0 auto;
     padding: 0 18px;
@@ -1118,40 +1119,47 @@
     text-align: center;
   }
   .easy-step-icon {
-    font-size: 40px;
-    margin-bottom: 8px;
+    font-size: 52px;
+    margin-bottom: 12px;
     line-height: 1;
+  }
+  .easy-step-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 20px;
+    color: var(--text);
+    margin-bottom: 6px;
   }
   .easy-step-text {
     font-size: 14px;
-    font-weight: 600;
-    color: var(--text);
-    line-height: 1.4;
+    color: var(--text-muted);
+    line-height: 1.6;
+    max-width: 180px;
+    margin: 0 auto;
   }
   .easy-arrow {
     color: var(--teal);
-    font-size: 20px;
+    font-size: 28px;
     line-height: 1;
     margin: 4px 0;
     transform: rotate(90deg);
+    display: block;
+    text-align: center;
+    align-self: center;
   }
 
   @media (min-width: 700px) {
     .easy-steps {
       flex-direction: row;
-      align-items: flex-start;
+      align-items: center;
       justify-content: center;
       max-width: 900px;
       gap: 24px;
     }
     .easy-step { flex: 0 0 220px; max-width: 220px; }
-    .easy-step-icon { font-size: 52px; margin-bottom: 12px; }
-    .easy-step-text { font-size: 15px; }
     .easy-arrow {
       margin: 0;
       align-self: center;
-      font-size: 24px;
-      transform: translateY(-10px) rotate(0deg);
+      transform: rotate(0deg);
     }
   }
 
@@ -1421,10 +1429,40 @@
         <div class="trust-badges" style="margin-top:16px; padding-top:16px; border-top:1px solid var(--border);">
           <div class="trust-item"><span class="ti">🔒</span> Сигурно плащане</div>
           <div class="trust-item"><span class="ti">📦</span> Доставка до 2–3 дни</div>
-          <div class="trust-item"><span class="ti">🎁</span> Включени 2 дигитални бонуса</div>
+          <div class="trust-item"><span class="ti">🎁</span> Включени 2 бонуса при поръчка в следващите 48ч</div>
         </div>
       </div><!-- /hi-rest -->
 
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     HOW IT WORKS SECTION
+════════════════════════════════════════ -->
+<section class="easy-section fade-in">
+  <div class="easy-header">
+    <div class="easy-title">🐾 Как работи HappyPet</div>
+    <p class="easy-subtitle">Само 3 лесни стъпки и HappyPet се грижи за любимеца ви всеки ден.</p>
+  </div>
+
+  <div class="easy-steps">
+    <div class="easy-step">
+      <div class="easy-step-icon">📦</div>
+      <div class="easy-step-title">Напълни резервоара</div>
+      <div class="easy-step-text">Напълни резервоара с гранулирана храна. Само веднъж седмично.</div>
+    </div>
+    <div class="easy-arrow">→</div>
+    <div class="easy-step">
+      <div class="easy-step-icon">📱</div>
+      <div class="easy-step-title">Настрой приложението</div>
+      <div class="easy-step-text">Настрой часовете и порциите от приложението. Веднъж — и готово.</div>
+    </div>
+    <div class="easy-arrow">→</div>
+    <div class="easy-step">
+      <div class="easy-step-icon">🍽️</div>
+      <div class="easy-step-title">Готово</div>
+      <div class="easy-step-text">HappyPet храни любимеца автоматично — всеки ден, без теб.</div>
     </div>
   </div>
 </section>
@@ -1613,7 +1651,7 @@
           <li><span class="bonus-check">✔</span><span>Най-честите грешки, които стопаните допускат</span></li>
         </ul>
         <div class="bonus-price-row">
-          <span class="bonus-price-old">24,90 €</span>
+          <span class="bonus-price-old">9,90 €</span>
           <span class="bonus-price-free">🎁 ПОДАРЪК</span>
         </div>
       </div>
@@ -1639,7 +1677,7 @@
           <li><span class="bonus-check">✔</span><span>Как да настроите правилните порции в HappyPet</span></li>
         </ul>
         <div class="bonus-price-row">
-          <span class="bonus-price-old">19,90 €</span>
+          <span class="bonus-price-old">12,90 €</span>
           <span class="bonus-price-free">🎁 ПОДАРЪК</span>
         </div>
       </div>
@@ -1649,7 +1687,7 @@
 
   <div class="bonus-value-block">
     <div class="bonus-value-title">Обща стойност на бонусите</div>
-    <div class="bonus-value-old">44,80 €</div>
+    <div class="bonus-value-old">22,80 €</div>
     <div class="bonus-value-arrow">➡️</div>
     <div class="bonus-value-today">0 € днес</div>
     <p class="bonus-value-note"><strong>Само през следващите 48 часа</strong> получавате двата бонуса напълно БЕЗПЛАТНО при поръчка на HappyPet.</p>
@@ -1657,33 +1695,6 @@
 
   <div class="bonus-cta">
     <a href="/checkout" class="btn-primary">👉 Искам своите бонуси</a>
-  </div>
-</section>
-
-<!-- ═══════════════════════════════════════
-     EASY STEPS SECTION
-════════════════════════════════════════ -->
-<section class="easy-section fade-in">
-  <div class="easy-header">
-    <div class="easy-title">🐾 Толкова е лесно</div>
-    <p class="easy-subtitle">Само 3 лесни стъпки и HappyPet се грижи за любимеца ви всеки ден.</p>
-  </div>
-
-  <div class="easy-steps">
-    <div class="easy-step">
-      <div class="easy-step-icon">🐾</div>
-      <div class="easy-step-text">Напълнете с гранули</div>
-    </div>
-    <div class="easy-arrow">→</div>
-    <div class="easy-step">
-      <div class="easy-step-icon">📱</div>
-      <div class="easy-step-text">Настройте часовете през приложението</div>
-    </div>
-    <div class="easy-arrow">→</div>
-    <div class="easy-step">
-      <div class="easy-step-icon">🍽️</div>
-      <div class="easy-step-text">HappyPet храни любимеца автоматично</div>
-    </div>
   </div>
 </section>
 
