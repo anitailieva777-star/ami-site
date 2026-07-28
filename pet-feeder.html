@@ -555,50 +555,106 @@
   .guarantee-title { font-size: 28px; margin-bottom: 12px; }
   .guarantee-text { font-size: 16px; color: var(--text-muted); line-height: 1.7; }
 
-  /* ─── UPSELL SECTION ─── */
-  .upsell-section { background: var(--white); }
-  .upsell-inner {
+  /* ─── BUMP SECTION — CLEAN MAT ─── */
+  .bump-section { background: var(--white); }
+  .bump-box {
+    background: #F0FAF8;
+    border: 2px solid #2A7D6E;
+    border-radius: 20px;
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 40px;
+    overflow: hidden;
+  }
+  .bump-inner {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 60px;
+    gap: 40px;
     align-items: center;
-    background: linear-gradient(135deg, #F0FAF8 0%, #E8F5F2 100%);
-    border-radius: 24px;
-    padding: 56px;
-    border: 1px solid #C5E8E2;
   }
-  .upsell-img-placeholder {
-    background: var(--white);
-    border: 2px dashed #C5E8E2;
-    border-radius: var(--radius);
-    aspect-ratio: 1/1;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--text-muted);
-    font-size: 13px;
-    font-style: italic;
-    text-align: center;
-    padding: 24px;
+  .bump-text-col { order: 1; }
+  .bump-img-col { order: 2; }
+  .bump-img-col img {
+    width: 100%;
+    border-radius: 16px;
+    object-fit: cover;
+    object-position: center;
+    display: block;
   }
-  .upsell-badge {
-    background: var(--teal);
-    color: var(--white);
-    font-size: 12px;
-    font-weight: 700;
-    padding: 5px 14px;
+  .bump-badge {
+    background: #2A7D6E;
+    color: #fff;
+    font-size: 11px;
     border-radius: 50px;
+    padding: 4px 14px;
     display: inline-block;
     margin-bottom: 16px;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
   }
-  .upsell-title { font-size: 28px; margin-bottom: 12px; }
-  .upsell-copy { font-size: 16px; color: var(--text-muted); margin-bottom: 24px; line-height: 1.7; }
-  .upsell-price { margin-bottom: 28px; }
-  .upsell-price-main { font-size: 32px; font-weight: 700; color: var(--teal); font-family: 'Playfair Display', serif; }
-  .upsell-price-copy { font-size: 14px; color: var(--text-muted); margin-top: 4px; }
-  .upsell-price-copy strong { color: var(--text); }
+  .bump-price-old {
+    font-size: 14px;
+    text-decoration: line-through;
+    color: var(--text-muted);
+  }
+  .bump-price-new {
+    font-size: 28px;
+    font-weight: 600;
+    color: #2A7D6E;
+  }
+  .bump-save-badge {
+    background: #EAF3DE;
+    color: #27500A;
+    font-size: 12px;
+    border-radius: 50px;
+    padding: 3px 10px;
+    display: inline-block;
+    margin-left: 8px;
+  }
+  .bump-btn-main {
+    width: 100%;
+    background: #2A7D6E;
+    color: #fff;
+    border-radius: 50px;
+    padding: 16px 24px;
+    font-size: 15px;
+    font-weight: 600;
+    display: block;
+    text-align: center;
+    margin-top: 20px;
+  }
+  .bump-btn-secondary {
+    width: 100%;
+    background: #fff;
+    border: 2px solid #2A7D6E;
+    color: #2A7D6E;
+    border-radius: 50px;
+    padding: 14px 24px;
+    font-size: 14px;
+    display: block;
+    text-align: center;
+    margin-top: 10px;
+  }
+  .bump-btn-secondary .bump-btn-line2 {
+    display: block;
+    font-size: 12px;
+    text-decoration: line-through;
+    font-weight: 400;
+    margin-top: 2px;
+  }
+  .bump-note {
+    font-size: 12px;
+    color: var(--text-muted);
+    text-align: center;
+    margin-top: 12px;
+  }
+
+  @media (max-width: 768px) {
+    .bump-box { padding: 20px 16px; }
+    .bump-inner { grid-template-columns: 1fr; gap: 0; }
+    .bump-img-col { order: 1; margin: -20px -16px 20px; }
+    .bump-img-col img { width: 100%; border-radius: 12px 12px 0 0; max-height: 240px; }
+    .bump-text-col { order: 2; }
+    .bump-btn-main, .bump-btn-secondary { width: 100%; }
+  }
 
   /* ─── FINAL CTA ─── */
   .final-cta-section {
@@ -1256,7 +1312,6 @@
     .features-grid { grid-template-columns: 1fr; }
     .how-steps { grid-template-columns: 1fr; }
     .reviews-grid { grid-template-columns: 1fr; }
-    .upsell-inner { grid-template-columns: 1fr; padding: 32px; }
     .guarantee-inner { flex-direction: column; text-align: center; padding: 36px 28px; }
     .footer-inner { flex-direction: column; text-align: center; }
     .footer-links { justify-content: center; }
@@ -1288,7 +1343,6 @@
     .guarantee-icon { font-size: 56px; }
     .final-cta-section { padding: 64px 0; }
     .btn-primary.large { font-size: 16px !important; padding: 16px 32px !important; }
-    .upsell-inner { padding: 28px 20px; }
   }
 </style>
 </head>
@@ -1799,28 +1853,32 @@
 <!-- ═══════════════════════════════════════
      UPSELL — WATER FOUNTAIN
 ════════════════════════════════════════ -->
-<section class="upsell-section fade-in">
+<section class="bump-section fade-in">
   <div class="container">
-    <div style="text-align:center; max-width:560px; margin:0 auto 48px;">
+    <div style="text-align:center; margin-bottom:32px;">
       <div class="section-label">Перфектното допълнение</div>
-      <h2 class="section-title">Пълната грижа — за храната и за водата</h2>
+      <h2 class="section-title">Силиконова подложка за хранилка HappyPet Clean Mat™</h2>
+      <p style="font-size:15px; color:var(--text-muted); margin-top:8px;">Всичко остава чисто — дори след всяко хранене.</p>
     </div>
-    <div class="upsell-inner">
-      <div class="upsell-img-placeholder">
-        [СНИМКА: Безшумен воден фонтан за домашни любимци — стилен, на светъл фон]
-      </div>
-      <div>
-        <div class="upsell-badge">🐾 Препоръчваме заедно</div>
-        <h3 class="upsell-title">Безшумен Автоматичен Воден Фонтан за Домашни Любимци</h3>
-        <p class="upsell-copy">Хранилката се грижи за храната. Фонтанът — за водата. Течаща, филтрирана вода 24/7 — котките и кучетата пият повече вода, когато тя се движи. По-добро здраве, по-малко посещения при вет.</p>
-        <div class="upsell-price">
-          <div class="upsell-price-main">39.90€</div>
-          <div class="upsell-price-copy">Пълна грижа заедно: <strong>84.90€ вместо 94.80€</strong></div>
+    <div class="bump-box">
+      <div class="bump-inner">
+        <div class="bump-img-col">
+          <img src="https://content.app-sources.com/s/227404442638844551/uploads/Изображения/Happy_Pet_Clean_без_заглавие-5246782.png" alt="HappyPet Clean Mat — силиконова подложка за хранилка" loading="lazy" />
         </div>
-        <a href="/checkout?pkg=bundle" class="btn-primary" style="margin-bottom:12px; display:inline-flex;">
-          🌊 Вземи хранилка + фонтан — 84.90€
-        </a>
-        <p style="font-size:13px; color:var(--text-muted); margin-top:8px;">Спестяваш 9.90€ спрямо поотделно</p>
+        <div class="bump-text-col">
+          <div class="bump-badge">🐾 Препоръчваме заедно</div>
+          <div>
+            <span class="bump-price-old">14.90€</span>
+            <span class="bump-save-badge">Спестяваш 3€</span>
+          </div>
+          <div class="bump-price-new">11.90€</div>
+          <a href="/checkout" class="bump-btn-main">Вземи сега HappyPet Clean Mat™ — само 11.90€</a>
+          <a href="/checkout" class="bump-btn-secondary">
+            <strong>Пълна грижа заедно: 66.80€</strong>
+            <span class="bump-btn-line2">вместо 76.80€</span>
+          </a>
+          <p class="bump-note">30-дневна гаранция · Само 20 броя налични</p>
+        </div>
       </div>
     </div>
   </div>
