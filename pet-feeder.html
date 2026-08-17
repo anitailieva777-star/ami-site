@@ -614,26 +614,23 @@
     background: #2A7D6E;
     color: #fff;
     border-radius: 50px;
-    padding: 16px 24px;
+    padding: 14px 24px;
     font-size: 15px;
     font-weight: 600;
     display: block;
     text-align: center;
     margin-top: 20px;
   }
-  .bump-combo-note {
-    text-align: center;
-    font-size: 13px;
-    color: var(--text-muted);
-    margin-top: 10px;
-  }
-  .bump-combo-note strong { color: var(--text); font-weight: 600; }
-  .bump-combo-note .bump-btn-line2 {
-    display: inline-block;
-    font-size: 12px;
-    text-decoration: line-through;
+  .bump-btn-main .bump-btn-combo {
+    display: block;
+    font-size: 11px;
     font-weight: 400;
-    margin-left: 6px;
+    opacity: 0.85;
+    margin-top: 3px;
+  }
+  .bump-btn-main .bump-btn-combo .bump-btn-line2 {
+    text-decoration: line-through;
+    margin-left: 4px;
   }
   .bump-btn-decline {
     display: block;
@@ -641,7 +638,7 @@
     font-size: 13px;
     color: var(--text-muted);
     opacity: 0.7;
-    margin-top: 14px;
+    margin-top: 10px;
   }
   .bump-btn-decline:hover { opacity: 1; }
   .bump-note {
@@ -1883,10 +1880,12 @@
             <span class="bump-save-badge">Спестяваш 3€</span>
           </div>
           <div class="bump-price-new">11.90€</div>
-          <a href="https://happypet.convertbuilder.com/checkout" target="_top" class="bump-btn-main">Вземи сега HappyPet Clean Mat™ — само 11.90€</a>
-          <div class="bump-combo-note"><strong>Пълна грижа заедно: 66.80€</strong><span class="bump-btn-line2">вместо 76.80€</span></div>
-          <p class="bump-note">30-дневна гаранция · Само 20 броя налични</p>
+          <a href="https://happypet.convertbuilder.com/checkout" target="_top" class="bump-btn-main">
+            Вземи сега HappyPet Clean Mat™ — само 11.90€
+            <span class="bump-btn-combo">Пълна грижа заедно: 66.80€<span class="bump-btn-line2">вместо 76.80€</span></span>
+          </a>
           <a href="https://happypet.convertbuilder.com/checkout" target="_top" class="bump-btn-decline">Не, благодаря</a>
+          <p class="bump-note">30-дневна гаранция · Само 20 броя налични · 🎁 Включени 2 PDF наръчника напълно БЕЗПЛАТНО в следващите 48 часа</p>
         </div>
       </div>
     </div>
