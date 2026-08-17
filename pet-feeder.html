@@ -621,25 +621,29 @@
     text-align: center;
     margin-top: 20px;
   }
-  .bump-btn-secondary {
-    width: 100%;
-    background: #fff;
-    border: 2px solid #2A7D6E;
-    color: #2A7D6E;
-    border-radius: 50px;
-    padding: 14px 24px;
-    font-size: 14px;
-    display: block;
+  .bump-combo-note {
     text-align: center;
+    font-size: 13px;
+    color: var(--text-muted);
     margin-top: 10px;
   }
-  .bump-btn-secondary .bump-btn-line2 {
-    display: block;
+  .bump-combo-note strong { color: var(--text); font-weight: 600; }
+  .bump-combo-note .bump-btn-line2 {
+    display: inline-block;
     font-size: 12px;
     text-decoration: line-through;
     font-weight: 400;
-    margin-top: 2px;
+    margin-left: 6px;
   }
+  .bump-btn-decline {
+    display: block;
+    text-align: center;
+    font-size: 13px;
+    color: var(--text-muted);
+    opacity: 0.7;
+    margin-top: 14px;
+  }
+  .bump-btn-decline:hover { opacity: 1; }
   .bump-note {
     font-size: 12px;
     color: var(--text-muted);
@@ -653,7 +657,7 @@
     .bump-img-col { order: 1; margin: -20px -16px 20px; background: #F0FAF8; }
     .bump-img-col img { width: 100%; border-radius: 12px 12px 0 0; max-height: 280px; object-fit: contain; }
     .bump-text-col { order: 2; }
-    .bump-btn-main, .bump-btn-secondary { width: 100%; }
+    .bump-btn-main { width: 100%; }
   }
 
   /* ─── FINAL CTA ─── */
@@ -1880,12 +1884,9 @@
           </div>
           <div class="bump-price-new">11.90€</div>
           <a href="https://happypet.convertbuilder.com/checkout" target="_top" class="bump-btn-main">Вземи сега HappyPet Clean Mat™ — само 11.90€</a>
-          <a href="https://happypet.convertbuilder.com/checkout" target="_top" class="bump-btn-secondary">
-            <strong>Пълна грижа заедно: 66.80€</strong>
-            <span class="bump-btn-line2">вместо 76.80€</span>
-          </a>
+          <div class="bump-combo-note"><strong>Пълна грижа заедно: 66.80€</strong><span class="bump-btn-line2">вместо 76.80€</span></div>
           <p class="bump-note">30-дневна гаранция · Само 20 броя налични</p>
-          <a href="https://happypet.convertbuilder.com/thank-you" target="_top" style="display:block; text-align:center; font-size:13px; color:var(--text-muted); margin-top:14px; text-decoration:underline;">Не, благодаря</a>
+          <a href="https://happypet.convertbuilder.com/checkout" target="_top" class="bump-btn-decline">Не, благодаря</a>
         </div>
       </div>
     </div>
