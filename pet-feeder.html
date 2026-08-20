@@ -2039,15 +2039,36 @@ function toggleFaq(item) {
 </script>
 
 <script>
+// Works both as a normal page AND embedded inside the isolated iframe
+// bootstrap (pet-feeder-embed.html). Inside that iframe, the iframe
+// itself never scrolls (scrolling="no", height matches content), so
+// window.scrollTo() here would try to scroll the iframe — which can't
+// move — instead of the real page. We detect that case and scroll
+// window.top instead, adding the iframe's own offset within the host
+// page so the target lands in the right spot either way.
 document.querySelectorAll('a[href="#bump-section"]')
   .forEach(function(btn) {
     btn.addEventListener('click', function(e) {
       e.preventDefault();
       var target = document.getElementById('bump-section');
+      if (!target) return;
       var offset = 20;
-      var targetPosition = target.getBoundingClientRect().top
-                          + window.pageYOffset - offset;
-      window.scrollTo({
+
+      var scrollWin = window;
+      var iframeOffset = 0;
+      try {
+        if (window.top !== window && window.frameElement) {
+          scrollWin = window.top;
+          iframeOffset = window.frameElement.getBoundingClientRect().top + window.top.pageYOffset;
+        }
+      } catch (err) {
+        // cross-origin or blocked — fall back to scrolling this window
+        scrollWin = window;
+        iframeOffset = 0;
+      }
+
+      var targetPosition = iframeOffset + target.getBoundingClientRect().top + window.pageYOffset - offset;
+      scrollWin.scrollTo({
         top: targetPosition,
         behavior: 'smooth'
       });
