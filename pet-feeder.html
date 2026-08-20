@@ -27,7 +27,7 @@
     --shadow-hover: 0 8px 40px rgba(0,0,0,0.12);
   }
 
-  html { scroll-behavior: smooth; max-width: 100%; overflow-x: hidden; }
+  html { scroll-behavior: smooth !important; max-width: 100%; overflow-x: hidden; }
 
   body {
     font-family: 'Inter', sans-serif;
@@ -1625,7 +1625,7 @@
     </div>
 
     <div class="ba-cta">
-      <a href="#bump" class="btn-primary" onclick="event.preventDefault(); document.getElementById('bump').scrollIntoView({behavior:'smooth', block:'start'});">🐾 Любимецът ми заслужава това →</a>
+      <a href="#bump-section" class="btn-primary">🐾 Любимецът ми заслужава това →</a>
       <div style="font-size:13px; color:#2A7D6E; font-weight:600; text-align:center; margin-top:10px;">🎁 Включени 2 PDF наръчника напълно БЕЗПЛАТНО</div>
       <div class="ba-cta-note">30-дневна гаранция · Само 20 броя налични</div>
     </div>
@@ -1760,7 +1760,7 @@
   </div>
 
   <div class="bonus-cta">
-    <a href="#bump" class="btn-primary" onclick="event.preventDefault(); document.getElementById('bump').scrollIntoView({behavior:'smooth', block:'start'});">👉 Искам своите бонуси</a>
+    <a href="#bump-section" class="btn-primary">👉 Искам своите бонуси</a>
   </div>
 </section>
 
@@ -1865,7 +1865,7 @@
 <!-- ═══════════════════════════════════════
      UPSELL — WATER FOUNTAIN
 ════════════════════════════════════════ -->
-<section class="bump-section fade-in" id="bump">
+<section class="bump-section fade-in" id="bump-section">
   <div class="container">
     <div style="text-align:center; margin-bottom:32px;">
       <div class="section-label">Перфектното допълнение</div>
@@ -2036,6 +2036,23 @@ function toggleFaq(item) {
   document.querySelectorAll('.faq-item.open').forEach(i => i.classList.remove('open'));
   if (!isOpen) item.classList.add('open');
 }
+</script>
+
+<script>
+document.querySelectorAll('a[href="#bump-section"]')
+  .forEach(function(btn) {
+    btn.addEventListener('click', function(e) {
+      e.preventDefault();
+      var target = document.getElementById('bump-section');
+      var offset = 20;
+      var targetPosition = target.getBoundingClientRect().top
+                          + window.pageYOffset - offset;
+      window.scrollTo({
+        top: targetPosition,
+        behavior: 'smooth'
+      });
+    });
+  });
 </script>
 
 </body>
