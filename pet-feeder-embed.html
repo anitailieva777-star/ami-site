@@ -74,6 +74,16 @@
       }
     } catch (e) { /* no-op */ }
 
+    // Web fonts (Playfair Display / Inter) load asynchronously and can
+    // reflow text after the first resize pass, shrinking or growing
+    // the page height — resize again once they're ready so the iframe
+    // doesn't end up taller or shorter than the actual content.
+    try {
+      if (iframe.contentWindow.document.fonts && iframe.contentWindow.document.fonts.ready) {
+        iframe.contentWindow.document.fonts.ready.then(resizeIframe);
+      }
+    } catch (e) { /* no-op */ }
+
     var pollCount = 0;
     var pollId = setInterval(function () {
       resizeIframe();
