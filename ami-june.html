@@ -1,0 +1,1432 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>A.M.I. – Карти „Любов към Себе си"</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
+<style>
+  /* ── RESET & BASE ── */
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Lato', sans-serif !important;
+    background: #FAF0E8 !important;
+    color: #3D2B2B !important;
+    overflow-x: hidden !important;
+  }
+  a { text-decoration: none; color: inherit; }
+  img { max-width: 100%; height: auto; display: block; }
+
+  /* ── CSS VARS ── */
+  :root {
+    --rose: #E8C4C4;
+    --blush: #F2D9D9;
+    --cream: #FAF0E8;
+    --gold: #C9A84C;
+    --dark-pink: #8B4F6B;
+    --white: #FDFAF7;
+    --dark: #3D2B2B;
+    --mid: #6B4E4E;
+    --bg-dark: #3D2B2B;
+  }
+
+  /* ── FADE-IN ANIMATION ── */
+  .fade-in {
+    opacity: 0 !important;
+    transform: translateY(28px) !important;
+    transition: opacity 0.7s ease, transform 0.7s ease !important;
+  }
+  .fade-in.visible {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+  }
+  .fade-in-delay-1 { transition-delay: 0.1s !important; }
+  .fade-in-delay-2 { transition-delay: 0.2s !important; }
+  .fade-in-delay-3 { transition-delay: 0.3s !important; }
+  .fade-in-delay-4 { transition-delay: 0.4s !important; }
+
+  /* ══════════════════════════════════════
+     1. URGENCY BAR
+  ══════════════════════════════════════ */
+  .urgency-bar {
+    background: linear-gradient(135deg, var(--dark-pink) 0%, #6B3A50 100%) !important;
+    color: var(--white) !important;
+    text-align: center !important;
+    padding: 10px 16px !important;
+    font-family: 'Lato', sans-serif !important;
+    font-size: 12px !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.06em !important;
+    line-height: 1.5 !important;
+    position: relative !important;
+    z-index: 200 !important;
+  }
+  .urgency-bar span { color: #FFD700 !important; }
+
+  /* ══════════════════════════════════════
+     2. STICKY HEADER
+  ══════════════════════════════════════ */
+  .sticky-header {
+    position: sticky !important;
+    top: 0 !important;
+    z-index: 100 !important;
+    background: rgba(253, 250, 247, 0.97) !important;
+    backdrop-filter: blur(8px) !important;
+    border-bottom: 1px solid var(--rose) !important;
+    padding: 12px 24px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+  }
+  .header-logo {
+    font-family: 'Playfair Display', serif !important;
+    font-size: 20px !important;
+    font-weight: 700 !important;
+    color: var(--dark-pink) !important;
+    letter-spacing: 0.12em !important;
+  }
+  .header-logo span {
+    font-family: 'Lato', sans-serif !important;
+    font-size: 9px !important;
+    font-weight: 400 !important;
+    letter-spacing: 0.2em !important;
+    display: block !important;
+    color: var(--mid) !important;
+    text-transform: uppercase !important;
+    margin-top: -2px !important;
+  }
+  .header-cta {
+    background: linear-gradient(135deg, var(--dark-pink) 0%, #6B3A50 100%) !important;
+    color: var(--white) !important;
+    padding: 9px 22px !important;
+    border-radius: 50px !important;
+    font-family: 'Lato', sans-serif !important;
+    font-size: 12px !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.08em !important;
+    text-transform: uppercase !important;
+    border: none !important;
+    cursor: pointer !important;
+    transition: transform 0.2s, box-shadow 0.2s !important;
+    white-space: nowrap !important;
+  }
+  .header-cta:hover {
+    transform: translateY(-1px) !important;
+    box-shadow: 0 6px 20px rgba(139,79,107,0.35) !important;
+  }
+
+  /* ══════════════════════════════════════
+     3. HERO SECTION
+  ══════════════════════════════════════ */
+  .hero-section {
+    background: linear-gradient(160deg, var(--blush) 0%, var(--cream) 60%, #F7EDE6 100%) !important;
+    padding: 0 !important;
+  }
+  .hero-inner {
+    max-width: 1160px !important;
+    margin: 0 auto !important;
+    display: flex !important;
+    align-items: stretch !important;
+    min-height: 560px !important;
+  }
+  .hero-img-col {
+    width: 55% !important;
+    flex-shrink: 0 !important;
+    overflow: hidden !important;
+    position: relative !important;
+  }
+  .hero-img-col img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    object-position: center top !important;
+    display: block !important;
+  }
+  .hero-text-col {
+    width: 45% !important;
+    padding: 44px 40px 40px 40px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+  }
+  .hero-hook {
+    font-family: 'Playfair Display', serif !important;
+    font-size: clamp(26px, 3.5vw, 40px) !important;
+    font-weight: 700 !important;
+    color: var(--dark) !important;
+    line-height: 1.2 !important;
+    margin-bottom: 10px !important;
+  }
+  .hero-italic {
+    font-family: 'Playfair Display', serif !important;
+    font-style: italic !important;
+    font-size: clamp(15px, 2vw, 19px) !important;
+    color: var(--dark-pink) !important;
+    margin-bottom: 20px !important;
+  }
+  .hero-divider {
+    width: 48px !important;
+    height: 2px !important;
+    background: linear-gradient(90deg, var(--gold), transparent) !important;
+    margin-bottom: 18px !important;
+  }
+  .hero-product-name {
+    font-family: 'Playfair Display', serif !important;
+    font-size: clamp(16px, 2vw, 20px) !important;
+    font-weight: 600 !important;
+    color: var(--dark-pink) !important;
+    margin-bottom: 10px !important;
+    letter-spacing: 0.04em !important;
+  }
+  .hero-desc {
+    font-family: 'Lato', sans-serif !important;
+    font-size: 15px !important;
+    color: var(--mid) !important;
+    line-height: 1.65 !important;
+    margin-bottom: 8px !important;
+  }
+  .hero-small {
+    font-family: 'Lato', sans-serif !important;
+    font-size: 12px !important;
+    color: #9A7070 !important;
+    line-height: 1.6 !important;
+    margin-bottom: 24px !important;
+  }
+
+  /* Bonus block */
+  .bonus-block {
+    background: var(--white) !important;
+    border: 1px solid var(--rose) !important;
+    border-radius: 12px !important;
+    padding: 18px 20px !important;
+    margin-bottom: 24px !important;
+  }
+  .bonus-title {
+    font-family: 'Lato', sans-serif !important;
+    font-size: 11px !important;
+    font-weight: 700 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.14em !important;
+    color: var(--gold) !important;
+    margin-bottom: 12px !important;
+  }
+  .bonus-item {
+    display: flex !important;
+    align-items: flex-start !important;
+    gap: 8px !important;
+    margin-bottom: 8px !important;
+    font-family: 'Lato', sans-serif !important;
+    font-size: 13px !important;
+    color: var(--mid) !important;
+    line-height: 1.4 !important;
+  }
+  .bonus-item:last-child { margin-bottom: 0 !important; }
+  .bonus-price {
+    margin-left: auto !important;
+    white-space: nowrap !important;
+    font-size: 12px !important;
+    color: #9A7070 !important;
+    text-decoration: line-through !important;
+    flex-shrink: 0 !important;
+  }
+  .bonus-total {
+    margin-top: 12px !important;
+    padding-top: 10px !important;
+    border-top: 1px solid var(--rose) !important;
+    font-family: 'Lato', sans-serif !important;
+    font-size: 12px !important;
+    color: var(--dark-pink) !important;
+    font-weight: 700 !important;
+  }
+
+  /* Packages */
+  .packages-row {
+    display: flex !important;
+    gap: 10px !important;
+    margin-bottom: 20px !important;
+  }
+  .pkg-card {
+    flex: 1 !important;
+    border: 2px solid var(--rose) !important;
+    border-radius: 12px !important;
+    padding: 14px 10px !important;
+    text-align: center !important;
+    background: var(--white) !important;
+    position: relative !important;
+    cursor: pointer !important;
+    transition: border-color 0.2s, transform 0.2s !important;
+  }
+  .pkg-card:hover {
+    border-color: var(--dark-pink) !important;
+    transform: translateY(-2px) !important;
+  }
+  .pkg-card.popular {
+    border-color: var(--dark-pink) !important;
+    background: linear-gradient(160deg, #FDF0F5 0%, var(--white) 100%) !important;
+  }
+  .pkg-badge {
+    position: absolute !important;
+    top: -11px !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    background: linear-gradient(135deg, var(--dark-pink), #6B3A50) !important;
+    color: var(--white) !important;
+    font-size: 9px !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.1em !important;
+    text-transform: uppercase !important;
+    padding: 3px 10px !important;
+    border-radius: 20px !important;
+    white-space: nowrap !important;
+  }
+  .pkg-badge.gold-badge {
+    background: linear-gradient(135deg, var(--gold), #A8872A) !important;
+    color: #fff !important;
+  }
+  .pkg-name {
+    font-family: 'Playfair Display', serif !important;
+    font-size: 12px !important;
+    font-weight: 600 !important;
+    color: var(--dark) !important;
+    margin-bottom: 6px !important;
+    line-height: 1.3 !important;
+  }
+  .pkg-old-price {
+    font-size: 11px !important;
+    color: #aaa !important;
+    text-decoration: line-through !important;
+    margin-bottom: 2px !important;
+  }
+  .pkg-price {
+    font-family: 'Playfair Display', serif !important;
+    font-size: 20px !important;
+    font-weight: 700 !important;
+    color: var(--dark-pink) !important;
+    margin-bottom: 10px !important;
+  }
+  .pkg-btn {
+    display: block !important;
+    background: linear-gradient(135deg, var(--dark-pink), #6B3A50) !important;
+    color: var(--white) !important;
+    padding: 8px 12px !important;
+    border-radius: 50px !important;
+    font-size: 11px !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.06em !important;
+    text-transform: uppercase !important;
+    border: none !important;
+    cursor: pointer !important;
+    width: 100% !important;
+    transition: opacity 0.2s !important;
+  }
+  .pkg-btn:hover { opacity: 0.88 !important; }
+
+  /* Trust badges */
+  .trust-badges {
+    display: flex !important;
+    gap: 12px !important;
+    flex-wrap: wrap !important;
+  }
+  .trust-badge {
+    display: flex !important;
+    align-items: center !important;
+    gap: 5px !important;
+    font-family: 'Lato', sans-serif !important;
+    font-size: 11px !important;
+    color: var(--mid) !important;
+    font-weight: 600 !important;
+  }
+
+  /* ══════════════════════════════════════
+     SECTION SHARED STYLES
+  ══════════════════════════════════════ */
+  .section-label {
+    font-family: 'Lato', sans-serif !important;
+    font-size: 10px !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.22em !important;
+    text-transform: uppercase !important;
+    color: var(--gold) !important;
+    margin-bottom: 14px !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 10px !important;
+    justify-content: center !important;
+  }
+  .section-label::before, .section-label::after {
+    content: '' !important;
+    flex: 1 !important;
+    max-width: 50px !important;
+    height: 1px !important;
+    background: var(--gold) !important;
+    opacity: 0.5 !important;
+  }
+  .section-h2 {
+    font-family: 'Playfair Display', serif !important;
+    font-size: clamp(28px, 5vw, 42px) !important;
+    font-weight: 700 !important;
+    line-height: 1.2 !important;
+    margin-bottom: 16px !important;
+  }
+  .section-sub {
+    font-family: 'Playfair Display', serif !important;
+    font-style: italic !important;
+    font-size: clamp(15px, 2vw, 18px) !important;
+    line-height: 1.65 !important;
+    max-width: 580px !important;
+    margin: 0 auto !important;
+  }
+
+  /* ══════════════════════════════════════
+     4. PROBLEM SECTION
+  ══════════════════════════════════════ */
+  .problem-section {
+    background: var(--bg-dark) !important;
+    padding: 72px 24px !important;
+    text-align: center !important;
+  }
+  .problem-section .section-label { color: var(--rose) !important; }
+  .problem-section .section-label::before, .problem-section .section-label::after { background: var(--rose) !important; }
+  .problem-section .section-h2 { color: var(--white) !important; }
+  .problem-section .section-sub { color: var(--rose) !important; }
+  .problem-grid {
+    display: grid !important;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)) !important;
+    gap: 16px !important;
+    max-width: 960px !important;
+    margin: 44px auto 0 !important;
+  }
+  .problem-card {
+    background: rgba(253,250,247,0.06) !important;
+    border: 1px solid rgba(232,196,196,0.2) !important;
+    border-radius: 14px !important;
+    padding: 28px 20px !important;
+    text-align: center !important;
+    transition: background 0.3s, transform 0.3s !important;
+  }
+  .problem-card:hover {
+    background: rgba(232,196,196,0.12) !important;
+    transform: translateY(-3px) !important;
+  }
+  .problem-card-icon {
+    font-size: 28px !important;
+    margin-bottom: 14px !important;
+    display: block !important;
+  }
+  .problem-card-text {
+    font-family: 'Playfair Display', serif !important;
+    font-size: 15px !important;
+    font-weight: 600 !important;
+    color: var(--white) !important;
+    line-height: 1.4 !important;
+  }
+
+  /* ══════════════════════════════════════
+     5. BEFORE / AFTER
+  ══════════════════════════════════════ */
+  .ba-section {
+    background: var(--blush) !important;
+    padding: 72px 24px !important;
+    text-align: center !important;
+  }
+  .ba-section .section-h2 { color: var(--dark) !important; }
+  .ba-inner {
+    display: flex !important;
+    gap: 20px !important;
+    max-width: 800px !important;
+    margin: 44px auto 0 !important;
+  }
+  .ba-col {
+    flex: 1 !important;
+    border-radius: 16px !important;
+    padding: 32px 28px !important;
+    text-align: left !important;
+  }
+  .ba-col.before {
+    background: #E8D0D0 !important;
+    border: 1px solid #D4B0B0 !important;
+  }
+  .ba-col.after {
+    background: linear-gradient(160deg, #FDF5F0 0%, var(--white) 100%) !important;
+    border: 1px solid var(--rose) !important;
+  }
+  .ba-head {
+    font-family: 'Playfair Display', serif !important;
+    font-size: 20px !important;
+    font-weight: 700 !important;
+    margin-bottom: 20px !important;
+  }
+  .ba-col.before .ba-head { color: #6B3A3A !important; }
+  .ba-col.after .ba-head { color: var(--dark-pink) !important; }
+  .ba-item {
+    display: flex !important;
+    align-items: flex-start !important;
+    gap: 10px !important;
+    margin-bottom: 14px !important;
+    font-family: 'Lato', sans-serif !important;
+    font-size: 14px !important;
+    line-height: 1.5 !important;
+  }
+  .ba-col.before .ba-item { color: #6B3A3A !important; }
+  .ba-col.after .ba-item { color: var(--mid) !important; }
+  .ba-icon { font-size: 16px !important; flex-shrink: 0 !important; margin-top: 1px !important; }
+
+  /* ══════════════════════════════════════
+     6. SOLUTION SECTION
+  ══════════════════════════════════════ */
+  .solution-section {
+    background: var(--cream) !important;
+    padding: 72px 24px !important;
+  }
+  .solution-inner {
+    max-width: 1000px !important;
+    margin: 0 auto !important;
+    display: flex !important;
+    gap: 52px !important;
+    align-items: center !important;
+  }
+  .solution-img {
+    width: 40% !important;
+    flex-shrink: 0 !important;
+    border-radius: 20px !important;
+    overflow: hidden !important;
+    box-shadow: 0 16px 48px rgba(139,79,107,0.18) !important;
+  }
+  .solution-img img {
+    width: 100% !important;
+    height: 360px !important;
+    object-fit: cover !important;
+    display: block !important;
+  }
+  .solution-content { flex: 1 !important; }
+  .solution-content .section-label { justify-content: flex-start !important; }
+  .solution-content .section-label::after { display: none !important; }
+  .solution-content .section-h2 {
+    color: var(--dark) !important;
+    text-align: left !important;
+    margin-bottom: 20px !important;
+  }
+  .solution-text {
+    font-family: 'Lato', sans-serif !important;
+    font-size: 15px !important;
+    color: var(--mid) !important;
+    line-height: 1.7 !important;
+    margin-bottom: 24px !important;
+  }
+  .solution-quote {
+    background: linear-gradient(135deg, var(--blush) 0%, #FBF0F0 100%) !important;
+    border-left: 3px solid var(--dark-pink) !important;
+    border-radius: 0 12px 12px 0 !important;
+    padding: 18px 22px !important;
+    font-family: 'Playfair Display', serif !important;
+    font-style: italic !important;
+    font-size: 16px !important;
+    color: var(--dark-pink) !important;
+    line-height: 1.6 !important;
+    margin-bottom: 28px !important;
+  }
+  .solution-cta {
+    display: inline-block !important;
+    background: linear-gradient(135deg, var(--dark-pink), #6B3A50) !important;
+    color: var(--white) !important;
+    padding: 15px 38px !important;
+    border-radius: 50px !important;
+    font-family: 'Lato', sans-serif !important;
+    font-size: 14px !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.08em !important;
+    text-transform: uppercase !important;
+    box-shadow: 0 8px 28px rgba(139,79,107,0.28) !important;
+    transition: transform 0.2s, box-shadow 0.2s !important;
+    border: none !important;
+    cursor: pointer !important;
+  }
+  .solution-cta:hover {
+    transform: translateY(-2px) !important;
+    box-shadow: 0 12px 36px rgba(139,79,107,0.38) !important;
+  }
+
+  /* ══════════════════════════════════════
+     7. HOW IT WORKS
+  ══════════════════════════════════════ */
+  .how-section {
+    background: var(--blush) !important;
+    padding: 72px 24px !important;
+    text-align: center !important;
+  }
+  .how-section .section-h2 { color: var(--dark) !important; margin-bottom: 8px !important; }
+  .how-steps {
+    display: flex !important;
+    gap: 24px !important;
+    max-width: 960px !important;
+    margin: 52px auto 0 !important;
+  }
+  .how-step {
+    flex: 1 !important;
+    position: relative !important;
+  }
+  .how-step-num {
+    width: 44px !important;
+    height: 44px !important;
+    background: linear-gradient(135deg, var(--dark-pink), #6B3A50) !important;
+    color: var(--white) !important;
+    border-radius: 50% !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    font-family: 'Playfair Display', serif !important;
+    font-size: 18px !important;
+    font-weight: 700 !important;
+    margin: 0 auto 20px !important;
+    position: relative !important;
+    z-index: 1 !important;
+  }
+  .how-step-img {
+    width: 100% !important;
+    height: 220px !important;
+    object-fit: cover !important;
+    border-radius: 16px !important;
+    margin-bottom: 20px !important;
+    box-shadow: 0 8px 24px rgba(139,79,107,0.15) !important;
+  }
+  .how-step-title {
+    font-family: 'Playfair Display', serif !important;
+    font-size: 18px !important;
+    font-weight: 700 !important;
+    color: var(--dark) !important;
+    margin-bottom: 10px !important;
+  }
+  .how-step-desc {
+    font-family: 'Lato', sans-serif !important;
+    font-size: 13px !important;
+    color: var(--mid) !important;
+    line-height: 1.6 !important;
+  }
+  .how-connector {
+    position: absolute !important;
+    top: 22px !important;
+    right: -14px !important;
+    width: 24px !important;
+    height: 2px !important;
+    background: linear-gradient(90deg, var(--dark-pink), transparent) !important;
+    z-index: 0 !important;
+  }
+
+  /* ══════════════════════════════════════
+     8. REVIEWS
+  ══════════════════════════════════════ */
+  .reviews-section {
+    background: var(--cream) !important;
+    padding: 72px 24px !important;
+    text-align: center !important;
+  }
+  .reviews-section .section-h2 { color: var(--dark) !important; margin-bottom: 44px !important; }
+  .reviews-grid {
+    display: grid !important;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)) !important;
+    gap: 20px !important;
+    max-width: 960px !important;
+    margin: 0 auto !important;
+  }
+  .review-card {
+    background: var(--white) !important;
+    border: 1px solid var(--rose) !important;
+    border-radius: 16px !important;
+    padding: 28px 24px !important;
+    text-align: left !important;
+    transition: box-shadow 0.3s, transform 0.3s !important;
+  }
+  .review-card:hover {
+    box-shadow: 0 12px 32px rgba(139,79,107,0.12) !important;
+    transform: translateY(-3px) !important;
+  }
+  .review-stars {
+    color: var(--gold) !important;
+    font-size: 15px !important;
+    letter-spacing: 2px !important;
+    margin-bottom: 14px !important;
+  }
+  .review-text {
+    font-family: 'Playfair Display', serif !important;
+    font-style: italic !important;
+    font-size: 15px !important;
+    color: var(--dark) !important;
+    line-height: 1.65 !important;
+    margin-bottom: 20px !important;
+  }
+  .review-author {
+    display: flex !important;
+    align-items: center !important;
+    gap: 12px !important;
+  }
+  .review-avatar {
+    width: 44px !important;
+    height: 44px !important;
+    border-radius: 50% !important;
+    object-fit: cover !important;
+    border: 2px solid var(--rose) !important;
+    flex-shrink: 0 !important;
+    background: var(--rose) !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    font-family: 'Playfair Display', serif !important;
+    font-size: 18px !important;
+    color: var(--dark-pink) !important;
+    font-weight: 700 !important;
+  }
+  .review-name {
+    font-family: 'Lato', sans-serif !important;
+    font-size: 13px !important;
+    font-weight: 700 !important;
+    color: var(--dark) !important;
+  }
+  .review-role {
+    font-family: 'Lato', sans-serif !important;
+    font-size: 11px !important;
+    color: #9A7070 !important;
+    margin-top: 2px !important;
+  }
+
+  /* ══════════════════════════════════════
+     9. BUMP OFFER
+  ══════════════════════════════════════ */
+  .bump-section {
+    background: var(--blush) !important;
+    padding: 48px 24px !important;
+  }
+  .bump-box {
+    max-width: 780px !important;
+    margin: 0 auto !important;
+    background: var(--white) !important;
+    border: 2px dashed var(--dark-pink) !important;
+    border-radius: 20px !important;
+    padding: 32px !important;
+    display: flex !important;
+    gap: 28px !important;
+    align-items: center !important;
+  }
+  .bump-img-wrap {
+    width: 160px !important;
+    flex-shrink: 0 !important;
+    border-radius: 12px !important;
+    overflow: hidden !important;
+  }
+  .bump-img-wrap img {
+    width: 100% !important;
+    height: 160px !important;
+    object-fit: cover !important;
+    display: block !important;
+  }
+  .bump-content { flex: 1 !important; }
+  .bump-badge {
+    display: inline-block !important;
+    background: linear-gradient(135deg, var(--dark-pink), #6B3A50) !important;
+    color: var(--white) !important;
+    font-size: 10px !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.12em !important;
+    text-transform: uppercase !important;
+    padding: 4px 12px !important;
+    border-radius: 20px !important;
+    margin-bottom: 12px !important;
+  }
+  .bump-title {
+    font-family: 'Playfair Display', serif !important;
+    font-size: 20px !important;
+    font-weight: 700 !important;
+    color: var(--dark) !important;
+    margin-bottom: 8px !important;
+    line-height: 1.3 !important;
+  }
+  .bump-desc {
+    font-family: 'Lato', sans-serif !important;
+    font-size: 14px !important;
+    color: var(--mid) !important;
+    line-height: 1.6 !important;
+    margin-bottom: 16px !important;
+  }
+  .bump-price-row {
+    display: flex !important;
+    align-items: center !important;
+    gap: 10px !important;
+    margin-bottom: 16px !important;
+  }
+  .bump-old { font-size: 14px !important; color: #aaa !important; text-decoration: line-through !important; }
+  .bump-new {
+    font-family: 'Playfair Display', serif !important;
+    font-size: 24px !important;
+    font-weight: 700 !important;
+    color: var(--dark-pink) !important;
+  }
+  .bump-discount {
+    background: #FFE4E4 !important;
+    color: #C0392B !important;
+    font-size: 11px !important;
+    font-weight: 700 !important;
+    padding: 3px 8px !important;
+    border-radius: 6px !important;
+  }
+  .bump-add-btn {
+    display: inline-block !important;
+    background: linear-gradient(135deg, var(--dark-pink), #6B3A50) !important;
+    color: var(--white) !important;
+    padding: 12px 28px !important;
+    border-radius: 50px !important;
+    font-family: 'Lato', sans-serif !important;
+    font-size: 13px !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.06em !important;
+    text-transform: uppercase !important;
+    border: none !important;
+    cursor: pointer !important;
+    margin-right: 14px !important;
+    transition: transform 0.2s !important;
+  }
+  .bump-add-btn:hover { transform: translateY(-1px) !important; }
+  .bump-decline {
+    font-family: 'Lato', sans-serif !important;
+    font-size: 12px !important;
+    color: #aaa !important;
+    text-decoration: underline !important;
+    cursor: pointer !important;
+    border: none !important;
+    background: none !important;
+  }
+
+  /* ══════════════════════════════════════
+     10. GUARANTEE
+  ══════════════════════════════════════ */
+  .guarantee-section {
+    background: var(--bg-dark) !important;
+    padding: 72px 24px !important;
+    text-align: center !important;
+  }
+  .guarantee-badge {
+    width: 90px !important;
+    height: 90px !important;
+    border-radius: 50% !important;
+    background: linear-gradient(135deg, var(--gold), #A8872A) !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    font-size: 36px !important;
+    margin: 0 auto 24px !important;
+    box-shadow: 0 8px 24px rgba(201,168,76,0.3) !important;
+  }
+  .guarantee-h2 {
+    font-family: 'Playfair Display', serif !important;
+    font-size: clamp(24px, 4vw, 36px) !important;
+    font-weight: 700 !important;
+    color: var(--white) !important;
+    margin-bottom: 18px !important;
+    line-height: 1.25 !important;
+  }
+  .guarantee-text {
+    font-family: 'Lato', sans-serif !important;
+    font-size: 16px !important;
+    color: var(--rose) !important;
+    line-height: 1.7 !important;
+    max-width: 520px !important;
+    margin: 0 auto 32px !important;
+  }
+
+  /* ══════════════════════════════════════
+     11. FAQ
+  ══════════════════════════════════════ */
+  .faq-section {
+    background: var(--cream) !important;
+    padding: 72px 24px !important;
+  }
+  .faq-section .section-h2 {
+    color: var(--dark) !important;
+    text-align: center !important;
+    margin-bottom: 44px !important;
+  }
+  .faq-list {
+    max-width: 700px !important;
+    margin: 0 auto !important;
+  }
+  .faq-item {
+    border-bottom: 1px solid var(--rose) !important;
+    overflow: hidden !important;
+  }
+  .faq-q {
+    width: 100% !important;
+    background: none !important;
+    border: none !important;
+    text-align: left !important;
+    padding: 20px 0 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    cursor: pointer !important;
+    font-family: 'Playfair Display', serif !important;
+    font-size: 16px !important;
+    font-weight: 600 !important;
+    color: var(--dark) !important;
+    gap: 12px !important;
+  }
+  .faq-q:hover { color: var(--dark-pink) !important; }
+  .faq-icon {
+    width: 24px !important;
+    height: 24px !important;
+    border-radius: 50% !important;
+    background: var(--rose) !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    font-size: 16px !important;
+    color: var(--dark-pink) !important;
+    flex-shrink: 0 !important;
+    transition: transform 0.3s !important;
+  }
+  .faq-item.open .faq-icon { transform: rotate(45deg) !important; }
+  .faq-a {
+    font-family: 'Lato', sans-serif !important;
+    font-size: 14px !important;
+    color: var(--mid) !important;
+    line-height: 1.7 !important;
+    padding: 0 0 20px !important;
+    display: none !important;
+  }
+  .faq-item.open .faq-a { display: block !important; }
+
+  /* ══════════════════════════════════════
+     12. FINAL CTA
+  ══════════════════════════════════════ */
+  .final-cta-section {
+    background: linear-gradient(160deg, var(--blush) 0%, #F8EAE8 100%) !important;
+    padding: 80px 24px !important;
+    text-align: center !important;
+  }
+  .final-cta-h2 {
+    font-family: 'Playfair Display', serif !important;
+    font-size: clamp(28px, 5vw, 44px) !important;
+    font-weight: 700 !important;
+    color: var(--dark) !important;
+    margin-bottom: 16px !important;
+    line-height: 1.2 !important;
+  }
+  .final-cta-sub {
+    font-family: 'Playfair Display', serif !important;
+    font-style: italic !important;
+    font-size: clamp(15px, 2vw, 18px) !important;
+    color: var(--dark-pink) !important;
+    margin-bottom: 36px !important;
+  }
+  .final-cta-btn {
+    display: inline-block !important;
+    background: linear-gradient(135deg, var(--dark-pink), #6B3A50) !important;
+    color: var(--white) !important;
+    padding: 18px 52px !important;
+    border-radius: 50px !important;
+    font-family: 'Lato', sans-serif !important;
+    font-size: 15px !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.08em !important;
+    text-transform: uppercase !important;
+    box-shadow: 0 10px 32px rgba(139,79,107,0.35) !important;
+    border: none !important;
+    cursor: pointer !important;
+    transition: transform 0.2s, box-shadow 0.2s !important;
+    text-decoration: none !important;
+  }
+  .final-cta-btn:hover {
+    transform: translateY(-2px) !important;
+    box-shadow: 0 14px 40px rgba(139,79,107,0.45) !important;
+  }
+
+  /* ══════════════════════════════════════
+     13. FOOTER
+  ══════════════════════════════════════ */
+  .footer {
+    background: var(--bg-dark) !important;
+    padding: 40px 24px !important;
+    text-align: center !important;
+  }
+  .footer-logo {
+    font-family: 'Playfair Display', serif !important;
+    font-size: 22px !important;
+    font-weight: 700 !important;
+    color: var(--rose) !important;
+    letter-spacing: 0.14em !important;
+    margin-bottom: 4px !important;
+  }
+  .footer-tagline {
+    font-family: 'Lato', sans-serif !important;
+    font-size: 10px !important;
+    color: #9A7070 !important;
+    letter-spacing: 0.18em !important;
+    text-transform: uppercase !important;
+    margin-bottom: 24px !important;
+  }
+  .footer-links {
+    display: flex !important;
+    gap: 24px !important;
+    justify-content: center !important;
+    flex-wrap: wrap !important;
+    margin-bottom: 20px !important;
+  }
+  .footer-links a {
+    font-family: 'Lato', sans-serif !important;
+    font-size: 12px !important;
+    color: #9A7070 !important;
+    text-decoration: none !important;
+    transition: color 0.2s !important;
+  }
+  .footer-links a:hover { color: var(--rose) !important; }
+  .footer-copy {
+    font-family: 'Lato', sans-serif !important;
+    font-size: 11px !important;
+    color: #6B4E4E !important;
+  }
+
+  /* ══════════════════════════════════════
+     14. FLOATING CTA (mobile)
+  ══════════════════════════════════════ */
+  .float-cta {
+    display: none !important;
+    position: fixed !important;
+    bottom: 16px !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    z-index: 999 !important;
+    background: linear-gradient(135deg, var(--dark-pink), #6B3A50) !important;
+    color: var(--white) !important;
+    padding: 14px 32px !important;
+    border-radius: 50px !important;
+    font-family: 'Lato', sans-serif !important;
+    font-size: 13px !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.08em !important;
+    text-transform: uppercase !important;
+    box-shadow: 0 8px 28px rgba(139,79,107,0.45) !important;
+    white-space: nowrap !important;
+    text-decoration: none !important;
+  }
+
+  /* ══════════════════════════════════════
+     RESPONSIVE
+  ══════════════════════════════════════ */
+  @media (max-width: 768px) {
+    .float-cta { display: block !important; }
+    .hero-inner { flex-direction: column !important; min-height: auto !important; }
+    .hero-img-col { width: 100% !important; height: 75vw !important; max-height: 340px !important; }
+    .hero-text-col { width: 100% !important; padding: 28px 20px !important; }
+    .packages-row { flex-direction: column !important; }
+    .solution-inner { flex-direction: column !important; gap: 28px !important; }
+    .solution-img { width: 100% !important; }
+    .ba-inner { flex-direction: column !important; }
+    .how-steps { flex-direction: column !important; }
+    .how-connector { display: none !important; }
+    .bump-box { flex-direction: column !important; align-items: flex-start !important; }
+    .bump-img-wrap { width: 100% !important; }
+    .bump-img-wrap img { height: 200px !important; width: 100% !important; }
+    .problem-grid { grid-template-columns: 1fr 1fr !important; }
+    .urgency-bar { font-size: 10px !important; padding: 8px 12px !important; }
+    .sticky-header { padding: 10px 16px !important; }
+    .header-logo { font-size: 17px !important; }
+    .hero-hook { font-size: 24px !important; }
+    .final-cta-section { padding-bottom: 80px !important; }
+  }
+
+  @media (max-width: 480px) {
+    .problem-grid { grid-template-columns: 1fr !important; }
+    .reviews-grid { grid-template-columns: 1fr !important; }
+    .trust-badges { flex-direction: column !important; gap: 6px !important; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ══ 1. URGENCY BAR ══ -->
+<div class="urgency-bar">
+  ⚠️ Лимитирана серия – само <span>100 комплекта</span> · Безплатна доставка при 3 тестета · 30-дневна гаранция
+</div>
+
+<!-- ══ 2. STICKY HEADER ══ -->
+<header class="sticky-header">
+  <div class="header-logo">
+    A.M.I.
+    <span>A Mindful Inspiration</span>
+  </div>
+  <a href="/checkout" class="header-cta">Поръчай сега</a>
+</header>
+
+<!-- ══ 3. HERO SECTION ══ -->
+<section class="hero-section">
+  <div class="hero-inner">
+    <!-- Left: Image -->
+    <div class="hero-img-col">
+      <img src="Amaya_s_AMI.png" alt="Амая с карти A.M.I.">
+    </div>
+    <!-- Right: Content -->
+    <div class="hero-text-col">
+      <h1 class="hero-hook fade-in">Пак ли постави себе си на последно място?</h1>
+      <p class="hero-italic fade-in fade-in-delay-1">Ти заслужаваш повече.</p>
+      <div class="hero-divider fade-in fade-in-delay-1"></div>
+      <h2 class="hero-product-name fade-in fade-in-delay-2">Карти A.M.I. „Любов към Себе си"</h2>
+      <p class="hero-desc fade-in fade-in-delay-2">С 10 минути сутрин на ден започваш да изграждаш вътрешна увереност и любов към себе си.</p>
+      <p class="hero-small fade-in fade-in-delay-2">32 карти с утвърждения + конкретно действие на гърба + QR код към медитации</p>
+
+      <!-- Bonus block -->
+      <div class="bonus-block fade-in fade-in-delay-3">
+        <div class="bonus-title">🎁 Безплатни бонуси към всяка поръчка:</div>
+        <div class="bonus-item">
+          <span>🎁</span>
+          <span>PDF „Наука за афирмациите + Невроактивация"</span>
+          <span class="bonus-price">17.90€</span>
+        </div>
+        <div class="bonus-item">
+          <span>🎁</span>
+          <span>Специално селектирани медитации</span>
+          <span class="bonus-price">17.40€</span>
+        </div>
+        <div class="bonus-item">
+          <span>🎁</span>
+          <span>Ритуал за лични граници и самоуважение</span>
+          <span class="bonus-price">18.40€</span>
+        </div>
+        <div class="bonus-item">
+          <span>🎁</span>
+          <span>Елегантна дървена подложка A.M.I.</span>
+          <span class="bonus-price">5.96€</span>
+        </div>
+        <div class="bonus-total">✦ Общо бонуси: 59.66€ – твои безплатно</div>
+      </div>
+
+      <!-- Packages -->
+      <div class="packages-row fade-in fade-in-delay-3">
+        <div class="pkg-card">
+          <div class="pkg-name">Моят<br>A.M.I.</div>
+          <div class="pkg-old-price">88.50€</div>
+          <div class="pkg-price">26€</div>
+          <a href="/checkout" class="pkg-btn">Избирам</a>
+        </div>
+        <div class="pkg-card popular">
+          <div class="pkg-badge">Най-популярен</div>
+          <div class="pkg-name">Ритуал<br>A.M.I.</div>
+          <div class="pkg-old-price">137€</div>
+          <div class="pkg-price">41€</div>
+          <a href="/checkout" class="pkg-btn">Избирам</a>
+        </div>
+        <div class="pkg-card">
+          <div class="pkg-badge gold-badge">Най-изгоден</div>
+          <div class="pkg-name">Пълно<br>преживяване</div>
+          <div class="pkg-old-price">177€</div>
+          <div class="pkg-price">52€</div>
+          <a href="/checkout" class="pkg-btn">Избирам</a>
+        </div>
+      </div>
+
+      <!-- Trust badges -->
+      <div class="trust-badges fade-in fade-in-delay-4">
+        <div class="trust-badge">🛡️ 30-дневна гаранция</div>
+        <div class="trust-badge">🚚 Безплатна доставка при 3+</div>
+        <div class="trust-badge">🔒 Сигурно плащане</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ 4. PROBLEM SECTION ══ -->
+<section class="problem-section">
+  <div class="section-label fade-in">A.M.I.</div>
+  <h2 class="section-h2 fade-in">Познато ли ти е?</h2>
+  <p class="section-sub fade-in" style="color:#E8C4C4;">Ако поне едно от тези те докосва – тези карти са създадени специално за теб.</p>
+  <div class="problem-grid">
+    <div class="problem-card fade-in">
+      <span class="problem-card-icon">😶</span>
+      <div class="problem-card-text">Казваш „да" когато искаш да кажеш „не"</div>
+    </div>
+    <div class="problem-card fade-in fade-in-delay-1">
+      <span class="problem-card-icon">🔍</span>
+      <div class="problem-card-text">Търсиш одобрение преди всяко решение</div>
+    </div>
+    <div class="problem-card fade-in fade-in-delay-2">
+      <span class="problem-card-icon">😰</span>
+      <div class="problem-card-text">Събуждаш се с тревожност всяка сутрин</div>
+    </div>
+    <div class="problem-card fade-in fade-in-delay-3">
+      <span class="problem-card-icon">💔</span>
+      <div class="problem-card-text">Даваш на всички – забравяш себе си</div>
+    </div>
+    <div class="problem-card fade-in fade-in-delay-4">
+      <span class="problem-card-icon">📚</span>
+      <div class="problem-card-text">Знаеш всичко на теория – но нищо не се променя</div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ 5. BEFORE / AFTER ══ -->
+<section class="ba-section">
+  <div class="section-label fade-in">Трансформацията</div>
+  <h2 class="section-h2 fade-in">Разликата, която правят 10 минути на ден</h2>
+  <div class="ba-inner">
+    <div class="ba-col before fade-in">
+      <div class="ba-head">Преди 😔</div>
+      <div class="ba-item"><span class="ba-icon">✗</span><span>Казваш „да" и се чувстваш ядосана на себе си</span></div>
+      <div class="ba-item"><span class="ba-icon">✗</span><span>Търсиш одобрение преди всяко решение</span></div>
+      <div class="ba-item"><span class="ba-icon">✗</span><span>Събуждаш се с тревога и тежест</span></div>
+      <div class="ba-item"><span class="ba-icon">✗</span><span>Даваш на всички – и нямаш нищо за себе си</span></div>
+      <div class="ba-item"><span class="ba-icon">✗</span><span>Знаеш, но не се чувстваш различно</span></div>
+    </div>
+    <div class="ba-col after fade-in fade-in-delay-2">
+      <div class="ba-head">След 🌸</div>
+      <div class="ba-item"><span class="ba-icon" style="color:#8B4F6B;">✓</span><span>Казваш „не" без вина и с увереност</span></div>
+      <div class="ba-item"><span class="ba-icon" style="color:#8B4F6B;">✓</span><span>Решаваш от себе си, с яснота</span></div>
+      <div class="ba-item"><span class="ba-icon" style="color:#8B4F6B;">✓</span><span>Събуждаш се с намерение и спокойствие</span></div>
+      <div class="ba-item"><span class="ba-icon" style="color:#8B4F6B;">✓</span><span>Избираш себе си първа – и даваш повече на другите</span></div>
+      <div class="ba-item"><span class="ba-icon" style="color:#8B4F6B;">✓</span><span>Промяната се случва отвътре, ден след ден</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ 6. SOLUTION SECTION ══ -->
+<section class="solution-section">
+  <div class="solution-inner">
+    <div class="solution-img fade-in">
+      <img src="https://content.app-sources.com/s/510617328782760951/thumbnails/640x480/Изображения/Тъмен_фона_на_ЛЮБОВ_към_СЕБЕ_си-4876968.png"
+           alt="Карти A.M.I. Любов към Себе си">
+    </div>
+    <div class="solution-content">
+      <div class="section-label fade-in">Решението</div>
+      <h2 class="section-h2 fade-in">Но за щастие вече има нов начин...</h2>
+      <p class="solution-text fade-in fade-in-delay-1">
+        Карти A.M.I. „Любов към Себе си" не са поредните мотивационни карти. Те съчетават утвърждения, базирани на невронауката, с конкретни малки действия, които пренаписват вътрешния ти диалог – ден след ден.
+      </p>
+      <div class="solution-quote fade-in fade-in-delay-2">
+        „Аз съм ценност и се грижа за себе си с любов и уважение."
+      </div>
+      <a href="/checkout" class="solution-cta fade-in fade-in-delay-3">Искам своите карти →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ══ 7. HOW IT WORKS ══ -->
+<section class="how-section">
+  <div class="section-label fade-in">Методът</div>
+  <h2 class="section-h2 fade-in">Как работи</h2>
+  <p class="section-sub fade-in" style="color:#6B4E4E;">Само 10 минути сутрин. Три прости стъпки. Реална промяна.</p>
+  <div class="how-steps">
+    <div class="how-step fade-in">
+      <div class="how-step-num">1</div>
+      <img class="how-step-img" src="https://content.app-sources.com/s/510617328782760951/thumbnails/640x480/Изображения/ChatGPT_Image_30.05.2026_г._00_05_44-0137104.png" alt="Изтегляне на карта">
+      <div class="how-step-title">Изтегли своята карта за деня</div>
+      <div class="how-step-desc">Всяка сутрин изтегляш една карта с утвърждение. Прочети го на глас – три пъти.</div>
+      <div class="how-connector"></div>
+    </div>
+    <div class="how-step fade-in fade-in-delay-2">
+      <div class="how-step-num">2</div>
+      <img class="how-step-img" src="https://content.app-sources.com/s/510617328782760951/thumbnails/640x480/Изображения/Финална_карта_с_афирмация-2223098.png" alt="Действие на гърба">
+      <div class="how-step-title">Изпълни действието на гърба</div>
+      <div class="how-step-desc">На гърба на всяка карта има малко конкретно действие. То превръща думите в реален опит.</div>
+      <div class="how-connector"></div>
+    </div>
+    <div class="how-step fade-in fade-in-delay-4">
+      <div class="how-step-num">3</div>
+      <img class="how-step-img" src="https://content.app-sources.com/s/510617328782760951/thumbnails/640x480/Изображения/Аз_медитирам-2224550.png" alt="Медитация">
+      <div class="how-step-title">Свържи се чрез медитация</div>
+      <div class="how-step-desc">Сканирай QR кода и влез в медитацията, подбрана специално за тази карта.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ 8. REVIEWS ══ -->
+<section class="reviews-section">
+  <div class="section-label fade-in">Отзиви</div>
+  <h2 class="section-h2 fade-in">Какво казват жените, които вече практикуват</h2>
+  <div class="reviews-grid">
+    <div class="review-card fade-in">
+      <div class="review-stars">★★★★★</div>
+      <p class="review-text">„Карти A.M.I. промениха сутрините ми — чувствам се по-спокойна и уверена само след няколко дни."</p>
+      <div class="review-author">
+        <div class="review-avatar">Д</div>
+        <div>
+          <div class="review-name">Десислава К.</div>
+          <div class="review-role">Йога инструктор</div>
+        </div>
+      </div>
+    </div>
+    <div class="review-card fade-in fade-in-delay-2">
+      <div class="review-stars">★★★★★</div>
+      <p class="review-text">„Този сутрешен ритуал е най-добрата грижа за душата ми. Всяка карта ме спира и ме кара да се вслушам в себе си."</p>
+      <div class="review-author">
+        <div class="review-avatar">А</div>
+        <div>
+          <div class="review-name">Александра Г.</div>
+          <div class="review-role">Дизайнер</div>
+        </div>
+      </div>
+    </div>
+    <div class="review-card fade-in fade-in-delay-4">
+      <div class="review-stars">★★★★★</div>
+      <p class="review-text">„Прекрасно е да усещаш увереност отвътре, без да се правиш на силна. Тези карти ми помогнаха да се върна при себе си."</p>
+      <div class="review-author">
+        <div class="review-avatar">М</div>
+        <div>
+          <div class="review-name">Мария Д.</div>
+          <div class="review-role">Майка и предприемач</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ 9. BUMP OFFER ══ -->
+<section class="bump-section">
+  <div class="bump-box fade-in">
+    <div class="bump-img-wrap">
+      <img src="https://content.app-sources.com/s/510617328782760951/uploads/Изображения/Гривна_AMI-9282142.png" alt="Гривна Женска хармония A.M.I.">
+    </div>
+    <div class="bump-content">
+      <div class="bump-badge">✦ Специална добавка към поръчката</div>
+      <div class="bump-title">Добави своя талисман „Женска хармония"</div>
+      <p class="bump-desc">Нежна енергийна гривна от розов кварц и лунен камък – носи ритуала навсякъде с теб. Всеки ден е ритуал, дори далеч от дома.</p>
+      <div class="bump-price-row">
+        <span class="bump-old">20.90€</span>
+        <span class="bump-new">10.90€</span>
+        <span class="bump-discount">–48%</span>
+      </div>
+      <a href="/checkout" class="bump-add-btn">Добави към поръчката</a>
+      <button class="bump-decline" onclick="this.closest('.bump-section').style.display='none'">Не, благодаря</button>
+    </div>
+  </div>
+</section>
+
+<!-- ══ 10. GUARANTEE ══ -->
+<section class="guarantee-section">
+  <div class="guarantee-badge fade-in">🛡️</div>
+  <h2 class="guarantee-h2 fade-in">30 дни за вътрешна промяна.<br>Или връщаме парите.</h2>
+  <p class="guarantee-text fade-in fade-in-delay-2">
+    Ако след 30 дни ежедневна практика с картите A.M.I. не усетиш промяна в начина, по който говориш на себе си – връщаме пълната сума без въпроси. Защото вярваме в метода и в теб.
+  </p>
+  <a href="/checkout" class="final-cta-btn fade-in fade-in-delay-3" style="background:linear-gradient(135deg,#C9A84C,#A8872A)!important;color:#3D2B2B!important;">
+    Да, избирам себе си сега
+  </a>
+</section>
+
+<!-- ══ 11. FAQ ══ -->
+<section class="faq-section">
+  <h2 class="section-h2 fade-in">Често задавани въпроси</h2>
+  <div class="faq-list">
+
+    <div class="faq-item fade-in">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        За кого са тези карти?
+        <div class="faq-icon">+</div>
+      </button>
+      <div class="faq-a">
+        Картите A.M.I. са създадени за жени, които искат да изградят по-здравословна връзка със себе си – повече самоуважение, по-малко самокритика, по-ясни граници. Подходящи са за всяка жена, независимо от опит с медитация или утвърждения.
+      </div>
+    </div>
+
+    <div class="faq-item fade-in fade-in-delay-1">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        Колко бързо ще видя резултати?
+        <div class="faq-icon">+</div>
+      </button>
+      <div class="faq-a">
+        Много жени споделят, че чувстват разлика още в първата седмица – по-спокойни сутрини, по-малко тревожност. Невронауката показва, че за трайна промяна в мисловните модели са нужни минимум 21 дни редовна практика. Затова предлагаме 30-дневна гаранция.
+      </div>
+    </div>
+
+    <div class="faq-item fade-in fade-in-delay-2">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        Как работят QR кодовете?
+        <div class="faq-icon">+</div>
+      </button>
+      <div class="faq-a">
+        На гърба на всяка карта има QR код. Сканираш го с телефона си и той те отвежда към специално подбрана медитация, която допълва утвърждението на карта. Медитациите са достъпни по всяко време.
+      </div>
+    </div>
+
+    <div class="faq-item fade-in fade-in-delay-3">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        Каква е политиката за връщане?
+        <div class="faq-icon">+</div>
+      </button>
+      <div class="faq-a">
+        Предлагаме 30-дневна гаранция за промяна. Ако след 30 дни редовна практика не усетиш разлика, свържи се с нас и ще върнем пълната сума – без въпроси и без бюрокрация.
+      </div>
+    </div>
+
+    <div class="faq-item fade-in fade-in-delay-4">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        Как се доставят картите?
+        <div class="faq-icon">+</div>
+      </button>
+      <div class="faq-a">
+        Доставяме до цяла България с куриер. При поръчка на 3 или повече тестета доставката е безплатна. При единична поръчка таксата за доставка е посочена при финализиране на поръчката. Срокът за доставка е 3–5 работни дни.
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ══ 12. FINAL CTA ══ -->
+<section class="final-cta-section">
+  <div class="section-label fade-in">A.M.I.</div>
+  <h2 class="final-cta-h2 fade-in">Готова ли си да избереш себе си?</h2>
+  <p class="final-cta-sub fade-in fade-in-delay-1">Не поредния ден, в който поставяш всички преди себе си.</p>
+  <a href="/checkout" class="final-cta-btn fade-in fade-in-delay-2">✦ Да, избирам себе си сега</a>
+</section>
+
+<!-- ══ 13. FOOTER ══ -->
+<footer class="footer">
+  <div class="footer-logo">A.M.I.</div>
+  <div class="footer-tagline">A Mindful Inspiration</div>
+  <div class="footer-links">
+    <a href="https://ami-inspiration.com/obschi-usloviya" target="_blank" rel="noopener">Общи условия</a>
+    <a href="https://ami-inspiration.com/politika-za-poveritelnost" target="_blank" rel="noopener">Политика за поверителност</a>
+    <a href="https://ami-inspiration.com/dostavka-i-plaschane" target="_blank" rel="noopener">Доставка и плащане</a>
+  </div>
+  <div class="footer-copy">© 2026 A.M.I. – A Mindful Inspiration. Всички права запазени.</div>
+</footer>
+
+<!-- ══ FLOATING CTA (mobile) ══ -->
+<a href="/checkout" class="float-cta">✦ Поръчай сега</a>
+
+<!-- ══ SCRIPTS ══ -->
+<script>
+  /* ── Fade-in on scroll ── */
+  (function() {
+    var els = document.querySelectorAll('.fade-in');
+    var io = new IntersectionObserver(function(entries) {
+      entries.forEach(function(e) {
+        if (e.isIntersecting) {
+          e.target.classList.add('visible');
+          io.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+    els.forEach(function(el) { io.observe(el); });
+  })();
+
+  /* ── FAQ accordion ── */
+  function toggleFaq(btn) {
+    var item = btn.closest('.faq-item');
+    var isOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item.open').forEach(function(i) {
+      i.classList.remove('open');
+    });
+    if (!isOpen) item.classList.add('open');
+  }
+
+  /* ── Hide floating CTA when hero packages visible ── */
+  (function() {
+    var floatBtn = document.querySelector('.float-cta');
+    var packages = document.querySelector('.packages-row');
+    if (!floatBtn || !packages) return;
+    var io2 = new IntersectionObserver(function(entries) {
+      floatBtn.style.display = entries[0].isIntersecting ? 'none' : '';
+    }, { threshold: 0.5 });
+    io2.observe(packages);
+  })();
+</script>
+</body>
+</html>
