@@ -141,6 +141,7 @@
     border: none !important;
     border-radius: var(--radius-btn) !important;
     padding: 16px 36px !important;
+    min-height: 48px !important;
     font-family: 'Inter', sans-serif !important;
     font-size: 16px !important;
     font-weight: 700 !important;
@@ -152,7 +153,7 @@
   .btn-primary:hover {
     background: var(--teal-dark) !important;
     transform: translateY(-1px) !important;
-    box-shadow: 0 6px 24px rgba(42,125,110,0.35) !important;
+    box-shadow: 0 4px 16px rgba(42,125,110,0.22) !important;
   }
   .btn-primary.large { padding: 20px 48px !important; font-size: 18px !important; }
   .btn-secondary {
@@ -601,7 +602,7 @@
   }
   .objection-card:hover {
     border-color: var(--teal);
-    box-shadow: 0 10px 30px rgba(0,0,0,0.18);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.10);
     transform: translateY(-2px);
   }
   .objection-card.last { grid-column: 1 / -1; max-width: calc(50% - 12px); margin: 0 auto; }
@@ -858,6 +859,7 @@
   .bonus-card {
     position: relative;
     background: var(--white);
+    border: 1px solid var(--border);
     border-radius: 20px;
     box-shadow: var(--shadow);
     padding: 28px 20px 24px;
