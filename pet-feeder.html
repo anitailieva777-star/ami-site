@@ -1981,11 +1981,21 @@ if (window.top === window) {
   document.querySelectorAll('a[href="#happypet-gifts"]').forEach(function (btn) {
     btn.addEventListener('click', function (e) {
       e.preventDefault();
-      const target = document.getElementById('happypet-gifts');
-      if (!target) return;
       const offset = 20;
-      const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - offset;
-      window.scrollTo({ top: targetPosition, behavior: 'smooth' });
+      // Lazy-loaded images above this section (before/after photos, the
+      // personal-story photo) can still be loading when the click
+      // happens, shifting the page layout a moment after we scroll.
+      // Re-measure and correct the scroll a couple of times shortly
+      // after so the first click lands reliably, not just the second.
+      function scrollToGifts() {
+        const target = document.getElementById('happypet-gifts');
+        if (!target) return;
+        const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - offset;
+        window.scrollTo({ top: targetPosition, behavior: 'smooth' });
+      }
+      scrollToGifts();
+      setTimeout(scrollToGifts, 350);
+      setTimeout(scrollToGifts, 800);
     });
   });
 }
