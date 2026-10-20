@@ -174,6 +174,21 @@
   }
   .btn-secondary:hover { background: var(--teal); color: var(--white); }
 
+  /* ─── GIFTS SECONDARY CTA (hero) ─── */
+  .gifts-link-cta {
+    display: block;
+    text-align: center;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--teal-dark);
+    padding: 10px 8px;
+    margin-bottom: 20px;
+    min-height: 40px;
+    cursor: pointer;
+  }
+  .gifts-link-cta:hover { color: var(--teal); text-decoration: underline; }
+
   /* ─── HERO ─── */
   .hero {
     background: var(--white);
@@ -815,16 +830,24 @@
     .story-final-cta .btn-primary { width: auto; min-width: 320px; }
   }
 
-  /* ─── BONUS SECTION (mobile-first) ─── */
+  /* ─── GIFTS SECTION (3 gifts, mobile-first) ─── */
   .bonus-section {
     background: var(--bg);
-    padding: 48px 0;
+    padding: 56px 0;
   }
   .bonus-header {
     text-align: center;
     max-width: 640px;
     margin: 0 auto 32px;
     padding: 0 18px;
+  }
+  .bonus-eyebrow {
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--teal);
+    margin-bottom: 10px;
   }
   .bonus-header-title {
     font-family: 'Playfair Display', serif;
@@ -835,207 +858,181 @@
     margin-bottom: 12px;
   }
   .bonus-header-subtitle {
-    font-family: 'Inter', sans-serif;
-    font-weight: 600;
-    font-size: 16px;
-    color: var(--teal);
-    margin-bottom: 12px;
-  }
-  .bonus-header-intro {
-    font-size: 14px;
+    font-size: 15px;
     color: var(--text-muted);
     line-height: 1.6;
-  }
-
-  .bonus-cards {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    padding: 0 18px;
-    max-width: 900px;
+    max-width: 520px;
     margin: 0 auto;
   }
 
-  .bonus-card {
+  .gifts-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 24px;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 18px;
+  }
+  @media (min-width: 900px) {
+    .gifts-grid { grid-template-columns: repeat(3, 1fr); align-items: stretch; }
+  }
+
+  .gift-card {
     position: relative;
     background: var(--white);
     border: 1px solid var(--border);
     border-radius: 20px;
     box-shadow: var(--shadow);
-    padding: 28px 20px 24px;
-  }
-  .bonus-card-badge {
-    position: absolute;
-    top: -14px;
-    left: 20px;
-    width: 36px;
-    height: 36px;
-    border-radius: 50%;
-    background: var(--teal);
+    padding: 20px 20px 24px;
     display: flex;
+    flex-direction: column;
+    transition: opacity 0.32s ease, transform 0.32s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+  }
+  /* Visible by default — JS only arms the hidden starting state right
+     before observing, so content never disappears if JS/observer fails. */
+  .gift-card.gift-armed { opacity: 0; transform: translateY(16px); }
+  .gift-card.visible { opacity: 1 !important; transform: none !important; }
+  .gift-card:hover { box-shadow: var(--shadow-hover); border-color: #D7ECE6; }
+  .gift-card.visible:hover { transform: translateY(-3px); }
+  @media (prefers-reduced-motion: reduce) {
+    .gift-card { transition: none; opacity: 1; transform: none; }
+    .gift-card.visible:hover { transform: none; }
+  }
+
+  .gift-badge-row { display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px; }
+  .gift-badge {
+    display: inline-flex;
     align-items: center;
-    justify-content: center;
-    font-size: 17px;
-    box-shadow: 0 4px 12px rgba(42,125,110,0.35);
-  }
-
-  /* Mobile order via grid areas: cover -> title -> benefits -> price */
-  .bonus-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-template-areas:
-      "cover"
-      "label"
-      "title"
-      "benefits"
-      "price";
-    row-gap: 14px;
-    margin-top: 10px;
-  }
-  .bonus-cover   { grid-area: cover; }
-  .bonus-label   { grid-area: label; }
-  .bonus-card-title { grid-area: title; }
-  .bonus-benefits    { grid-area: benefits; }
-  .bonus-price-row   { grid-area: price; }
-
-  .bonus-cover img {
-    width: 100%;
-    max-width: 340px;
-    margin: 0 auto;
-    display: block;
-    height: auto;
-  }
-
-  .bonus-label {
+    gap: 4px;
+    background: #E8F5F2;
+    color: var(--teal-dark);
     font-size: 12px;
     font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-    color: var(--teal);
-    text-align: center;
+    padding: 4px 10px;
+    border-radius: 50px;
   }
-  .bonus-card-title {
-    font-family: 'Playfair Display', serif;
+  .gift-type {
+    font-size: 11px;
     font-weight: 700;
-    font-size: 19px;
-    color: var(--text);
-    line-height: 1.4;
-    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--text-muted);
   }
-  .bonus-benefits {
-    list-style: none;
-  }
-  .bonus-benefits li {
-    display: flex;
-    align-items: flex-start;
-    gap: 10px;
-    font-size: 14px;
-    line-height: 1.6;
-    color: var(--text);
-    margin-bottom: 10px;
-  }
-  .bonus-benefits li .bonus-check { color: var(--teal); flex-shrink: 0; font-weight: 700; }
 
-  .bonus-price-row {
+  .gift-media {
+    position: relative;
+    border-radius: 14px;
+    overflow: hidden;
+    background: var(--bg-beige);
+    aspect-ratio: 1 / 1;
+    margin-bottom: 16px;
+  }
+  .gift-media img { width: 100%; height: 100%; object-fit: contain; display: block; }
+
+  /* Gallery (gift #1 only) */
+  .gift-gallery { position: relative; width: 100%; height: 100%; }
+  .gift-gallery-track {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.3s ease;
+    touch-action: pan-y;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .gift-gallery-track { transition: none; }
+  }
+  .gift-gallery-slide {
+    flex: 0 0 100%;
+    width: 100%;
+    height: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 14px;
-    padding-top: 8px;
-    border-top: 1px solid var(--border);
   }
-  .bonus-price-old {
-    font-size: 16px;
-    color: var(--text-muted);
-    text-decoration: line-through;
+  .gift-gallery-slide img { width: 100%; height: 100%; object-fit: contain; }
+  .gift-gallery-arrow {
+    display: none;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.92);
+    border: 1px solid var(--border);
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 14px;
+    line-height: 1;
+    color: var(--text);
   }
-  .bonus-price-free {
-    background: #E8F5F2;
-    color: var(--teal);
-    font-weight: 700;
-    font-size: 13px;
-    padding: 5px 14px;
-    border-radius: 50px;
+  .gift-gallery-arrow:focus-visible { outline: 2px solid var(--teal); outline-offset: 2px; }
+  .gift-gallery-arrow.prev { left: 8px; }
+  .gift-gallery-arrow.next { right: 8px; }
+  @media (min-width: 900px) {
+    .gift-gallery-arrow { display: flex; }
   }
+  .gift-gallery-dots {
+    position: absolute;
+    bottom: 8px;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    gap: 6px;
+  }
+  .gift-gallery-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: rgba(0,0,0,0.25);
+    border: none;
+    padding: 0;
+    cursor: pointer;
+  }
+  .gift-gallery-dot:focus-visible { outline: 2px solid var(--teal); outline-offset: 2px; }
+  .gift-gallery-dot.active { background: var(--teal); }
 
-  /* ─── VALUE BLOCK ─── */
-  .bonus-value-block {
-    max-width: 640px;
-    margin: 32px auto 0;
-    padding: 28px 20px;
-    margin-left: 18px;
-    margin-right: 18px;
-    background: #EFFAF6;
-    border: 1.5px solid #A9DFCF;
+  .gift-title {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-size: 18px;
+    color: var(--text);
+    margin-bottom: 8px;
+  }
+  .gift-desc { font-size: 14px; color: var(--text-muted); line-height: 1.6; }
+
+  /* ─── GIFTS SUMMARY (compact, no second gallery of photos) ─── */
+  .gifts-summary {
+    max-width: 520px;
+    margin: 40px auto 0;
+    padding: 28px 24px;
+    background: var(--white);
+    border: 1.5px solid var(--border);
     border-radius: 20px;
     text-align: center;
   }
-  .bonus-value-title {
-    font-size: 13px;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.06em;
-    color: var(--teal-dark);
-    margin-bottom: 10px;
-  }
-  .bonus-value-old {
-    font-size: 20px;
-    color: var(--text-muted);
-    text-decoration: line-through;
-    margin-bottom: 4px;
-  }
-  .bonus-value-arrow {
-    font-size: 18px;
-    margin-bottom: 4px;
-  }
-  .bonus-value-today {
+  .gifts-summary-title {
     font-family: 'Playfair Display', serif;
     font-weight: 700;
-    font-size: clamp(38px, 12vw, 52px);
-    color: var(--teal);
-    line-height: 1.1;
-    margin-bottom: 14px;
-  }
-  .bonus-value-note {
-    font-size: 14px;
+    font-size: 18px;
     color: var(--text);
-    line-height: 1.6;
+    margin-bottom: 10px;
   }
-
-  /* ─── BONUS CTA ─── */
-  .bonus-cta {
-    text-align: center;
-    max-width: 520px;
-    margin: 28px auto 0;
-    padding: 0 18px;
+  .gifts-summary-price {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-size: clamp(32px, 8vw, 40px);
+    color: var(--teal);
+    margin-bottom: 10px;
   }
-  .bonus-cta .btn-primary {
-    width: 92%;
-    min-height: 56px;
-    font-size: 17px !important;
-  }
+  .gifts-summary-note { font-size: 13px; color: var(--text-muted); margin-bottom: 4px; }
+  .gifts-summary-shipping { font-size: 12px; color: var(--text-muted); margin-bottom: 20px; }
+  .gifts-summary .btn-primary { width: 100%; }
 
   @media (min-width: 600px) {
-    .bonus-value-block { margin-left: auto; margin-right: auto; }
-    .bonus-cta .btn-primary { width: auto; min-width: 320px; }
-  }
-
-  @media (min-width: 900px) {
-    .bonus-grid {
-      grid-template-columns: 38% 62%;
-      column-gap: 32px;
-      row-gap: 10px;
-      grid-template-areas:
-        "cover label"
-        "cover title"
-        "cover benefits"
-        "cover price";
-      align-items: start;
-    }
-    .bonus-cover { align-self: center; }
-    .bonus-cover img { max-width: none; }
-    .bonus-label, .bonus-card-title { text-align: left; }
-    .bonus-price-row { justify-content: flex-start; }
+    .gifts-summary .btn-primary { width: auto; min-width: 320px; }
   }
 
   /* ─── EASY STEPS SECTION (mobile-first, no cards, minimal) ─── */
@@ -1260,13 +1257,13 @@
   <div class="top-bar-track">
     <span>⚠️ Само 20 броя налични на тази цена</span>
     <span class="sep">·</span>
-    <span>🎁 2 безплатни бонуса с поръчка в следващите 48 часа</span>
+    <span>🎁 3 безплатни подаръка • 🐾 2 физически + 1 PDF наръчник • ⏳ Само до 31.10.2026 г.</span>
     <span class="sep">·</span>
     <span>🛡️ 30-дневна гаранция</span>
     <span class="sep">·</span>
     <span>⚠️ Само 20 броя налични на тази цена</span>
     <span class="sep">·</span>
-    <span>🎁 2 безплатни бонуса с поръчка в следващите 48 часа</span>
+    <span>🎁 3 безплатни подаръка • 🐾 2 физически + 1 PDF наръчник • ⏳ Само до 31.10.2026 г.</span>
     <span class="sep">·</span>
     <span>🛡️ 30-дневна гаранция</span>
     <span class="sep">·</span>
@@ -1376,9 +1373,12 @@
         </div>
 
         <!-- CTA -->
-        <a href="https://happypet.convertbuilder.com/checkout" target="_top" id="mainCta" class="btn-primary" style="width:100%; margin-bottom:20px;">
+        <a href="https://happypet.convertbuilder.com/checkout" target="_top" id="mainCta" class="btn-primary" style="width:100%; margin-bottom:12px;">
           👉 Поръчай своя HappyPet сега само за 54.90€
         </a>
+
+        <!-- SECONDARY CTA → gifts section -->
+        <a href="#happypet-gifts" class="gifts-link-cta">🎁 Виж 3-те подаръка ↓</a>
 
         <!-- GUARANTEE NOTE -->
         <div class="hero-guarantee-note">
@@ -1389,7 +1389,7 @@
         <div class="trust-badges" style="margin-top:16px; padding-top:16px; border-top:1px solid var(--border);">
           <div class="trust-item"><span class="ti">🔒</span> Сигурно плащане</div>
           <div class="trust-item"><span class="ti">📦</span> Доставка до 2–3 дни</div>
-          <div class="trust-item"><span class="ti">🎁</span> Включени 2 бонуса при поръчка в следващите 48ч</div>
+          <div class="trust-item"><span class="ti">🎁</span> Включени 3 БЕЗПЛАТНИ подаръка при поръчка до 31 октомври!</div>
         </div>
       </div><!-- /hi-rest -->
 
@@ -1478,7 +1478,7 @@
 
     <div class="objections-cta">
       <a href="https://happypet.convertbuilder.com/checkout" target="_top" class="btn-primary large">🛒 Поръчай сега само за 54.90€ →</a>
-      <div style="font-size:13px; color:#FFFFFF; font-weight:600; text-align:center; margin-top:10px;">🎁 Включени 2 PDF наръчника напълно БЕЗПЛАТНО</div>
+      <div style="font-size:13px; color:#FFFFFF; font-weight:600; text-align:center; margin-top:10px;">🎁 Включени 3 БЕЗПЛАТНИ подаръка при поръчка до 31 октомври!</div>
       <div class="objections-cta-note">30-дневна гаранция · Само 20 броя на тази цена</div>
     </div>
   </div>
@@ -1522,7 +1522,7 @@
 
     <div class="ba-cta">
       <a href="https://happypet.convertbuilder.com/checkout" target="_top" class="btn-primary">🐾 Любимецът ми заслужава това →</a>
-      <div style="font-size:13px; color:#2A7D6E; font-weight:600; text-align:center; margin-top:10px;">🎁 Включени 2 PDF наръчника напълно БЕЗПЛАТНО</div>
+      <div style="font-size:13px; color:#2A7D6E; font-weight:600; text-align:center; margin-top:10px;">🎁 Включени 3 БЕЗПЛАТНИ подаръка при поръчка до 31 октомври!</div>
       <div class="ba-cta-note">30-дневна гаранция · Само 20 броя налични</div>
     </div>
   </div>
@@ -1584,79 +1584,77 @@
 <!-- ═══════════════════════════════════════
      BONUS SECTION
 ════════════════════════════════════════ -->
-<section class="bonus-section fade-in">
+<section class="bonus-section fade-in" id="happypet-gifts">
   <div class="bonus-header">
-    <h2 class="bonus-header-title">🎁 Подарък за вас: Само през следващите 48 часа</h2>
-    <p class="bonus-header-subtitle">Получавате 2 премиум PDF наръчника напълно БЕЗПЛАТНО.</p>
-    <p class="bonus-header-intro">За да направим първите дни с HappyPet още по-лесни, ще получите два практични бонуса, които ще ви помогнат да изградите правилен хранителен режим още от първия ден.</p>
+    <div class="bonus-eyebrow">🎁 Специална оферта до 31 октомври</div>
+    <h2 class="bonus-header-title">Твоята HappyPet хранилка идва с 3 подаръка!</h2>
+    <p class="bonus-header-subtitle">Два практични физически подаръка и един полезен PDF наръчник — включени без допълнително заплащане.</p>
   </div>
 
-  <div class="bonus-cards">
+  <div class="gifts-grid">
 
-    <!-- BONUS 1 -->
-    <div class="bonus-card">
-      <div class="bonus-card-badge">🎁</div>
-      <div class="bonus-grid">
-        <div class="bonus-cover">
-          <img
-            src="https://content.app-sources.com/s/227404442638844551/uploads/Изображения/Бонус_1_Ръководство_за_хранилката-4121664.png"
-            alt="Бонус 1 — Как да научите кучето или котката си да използва автоматичната хранилка"
-            loading="lazy"
-          />
-        </div>
-        <div class="bonus-label">Бонус №1 · Практическо ръководство</div>
-        <h3 class="bonus-card-title">„Как да научите кучето или котката си да използва автоматичната хранилка само за няколко дни"</h3>
-        <ul class="bonus-benefits">
-          <li><span class="bonus-check">✔</span><span>Първо запознаване с хранилката</span></li>
-          <li><span class="bonus-check">✔</span><span>Как да избегнете страха от новото устройство</span></li>
-          <li><span class="bonus-check">✔</span><span>Лесни техники за по-бързо привикване</span></li>
-          <li><span class="bonus-check">✔</span><span>Най-честите грешки, които стопаните допускат</span></li>
-        </ul>
-        <div class="bonus-price-row">
-          <span class="bonus-price-old">9,90 €</span>
-          <span class="bonus-price-free">🎁 ПОДАРЪК</span>
+    <!-- GIFT 1 — HappyPet Spa Brush (physical, gallery) -->
+    <div class="gift-card">
+      <div class="gift-badge-row">
+        <span class="gift-badge">🎁 Подарък</span>
+        <span class="gift-type">Физически подарък</span>
+      </div>
+      <div class="gift-media">
+        <div class="gift-gallery" data-gift-gallery>
+          <div class="gift-gallery-track">
+            <div class="gift-gallery-slide">
+              <img src="https://content.app-sources.com/s/227404442638844551/uploads/Изображения/Happy_Pet_SPA_Brush-2500262.png" alt="HappyPet Spa четка — основен изглед" loading="lazy" />
+            </div>
+            <div class="gift-gallery-slide">
+              <img src="https://content.app-sources.com/s/227404442638844551/uploads/Изображения/Happy_Pet_SPA_brush_2-2500274.png" alt="HappyPet Spa четка — допълнителен изглед" loading="lazy" />
+            </div>
+          </div>
+          <button type="button" class="gift-gallery-arrow prev" aria-label="Предишна снимка">‹</button>
+          <button type="button" class="gift-gallery-arrow next" aria-label="Следваща снимка">›</button>
+          <div class="gift-gallery-dots">
+            <button type="button" class="gift-gallery-dot active" aria-label="Снимка 1"></button>
+            <button type="button" class="gift-gallery-dot" aria-label="Снимка 2"></button>
+          </div>
         </div>
       </div>
+      <h3 class="gift-title">HappyPet Spa четка</h3>
+      <p class="gift-desc">Превърни къпането в приятен ритуал! Силиконова четка с контейнер за шампоан за по-лесно нанасяне и нежно масажиране при къпане.</p>
     </div>
 
-    <!-- BONUS 2 -->
-    <div class="bonus-card">
-      <div class="bonus-card-badge">🎁</div>
-      <div class="bonus-grid">
-        <div class="bonus-cover">
-          <img
-            src="https://content.app-sources.com/s/227404442638844551/uploads/Изображения/Бонус_2_Наръчник_за_хранене_на_любимци-4121321.png"
-            alt="Бонус 2 — Колко храна е достатъчна? Наръчник според възрастта и теглото на вашия любимец"
-            loading="lazy"
-          />
-        </div>
-        <div class="bonus-label">Бонус №2 · Практичен наръчник</div>
-        <h3 class="bonus-card-title">„Колко храна е достатъчна? Наръчник според възрастта и теглото на вашия любимец"</h3>
-        <ul class="bonus-benefits">
-          <li><span class="bonus-check">✔</span><span>Препоръчителни количества за кучета</span></li>
-          <li><span class="bonus-check">✔</span><span>Препоръчителни количества за котки</span></li>
-          <li><span class="bonus-check">✔</span><span>Насоки според възрастта</span></li>
-          <li><span class="bonus-check">✔</span><span>Как да настроите правилните порции в HappyPet</span></li>
-        </ul>
-        <div class="bonus-price-row">
-          <span class="bonus-price-old">12,90 €</span>
-          <span class="bonus-price-free">🎁 ПОДАРЪК</span>
-        </div>
+    <!-- GIFT 2 — HappyPet Чисти лапи (physical, single image) -->
+    <div class="gift-card">
+      <div class="gift-badge-row">
+        <span class="gift-badge">🎁 Подарък</span>
+        <span class="gift-type">Физически подарък</span>
       </div>
+      <div class="gift-media">
+        <img src="https://content.app-sources.com/s/227404442638844551/uploads/Изображения/Happy_Pet_Wet_wipes-2500282.png" alt="HappyPet Чисти лапи — мокри кърпички с алое и лайка" loading="lazy" />
+      </div>
+      <h3 class="gift-title">HappyPet Чисти лапи</h3>
+      <p class="gift-desc">Нежна грижа за чисти лапички и козинка! 4 мини пакета мокри кърпички с алое и лайка — практични за ежедневна употреба у дома и навън.</p>
+    </div>
+
+    <!-- GIFT 3 — HappyPet PDF наръчник (digital, single image) -->
+    <div class="gift-card">
+      <div class="gift-badge-row">
+        <span class="gift-badge">🎁 Подарък</span>
+        <span class="gift-type">Дигитален подарък</span>
+      </div>
+      <div class="gift-media">
+        <img src="https://content.app-sources.com/s/227404442638844551/uploads/Изображения/Наръчник_за_спокойно_хранене-2500300.png" alt="HappyPet — Наръчник за спокойно и правилно хранене" loading="lazy" />
+      </div>
+      <h3 class="gift-title">HappyPet — Наръчник за спокойно и правилно хранене</h3>
+      <p class="gift-desc">Практични стъпки за привикване към автоматичната хранилка и полезни насоки за определяне на подходящите порции.</p>
     </div>
 
   </div>
 
-  <div class="bonus-value-block">
-    <div class="bonus-value-title">Обща стойност на бонусите</div>
-    <div class="bonus-value-old">22,80 €</div>
-    <div class="bonus-value-arrow">➡️</div>
-    <div class="bonus-value-today">0 € днес</div>
-    <p class="bonus-value-note"><strong>Само през следващите 48 часа</strong> получавате двата бонуса напълно БЕЗПЛАТНО при поръчка на HappyPet.</p>
-  </div>
-
-  <div class="bonus-cta">
-    <a href="https://happypet.convertbuilder.com/checkout" target="_top" class="btn-primary">👉 Искам своите бонуси</a>
+  <div class="gifts-summary">
+    <div class="gifts-summary-title">HappyPet автоматична хранилка + 3 подаръка</div>
+    <div class="gifts-summary-price">54,90 €</div>
+    <p class="gifts-summary-note">Плащаш при получаване • Без предварително плащане</p>
+    <p class="gifts-summary-shipping">Доставката се заплаща отделно.</p>
+    <a href="https://happypet.convertbuilder.com/checkout" target="_top" class="btn-primary">🎁 Поръчай HappyPet с 3 подаръка</a>
   </div>
 </section>
 
@@ -1769,7 +1767,7 @@
     <a href="https://happypet.convertbuilder.com/checkout" target="_top" class="btn-primary large" style="background:var(--white) !important; color:var(--teal) !important; margin-bottom:16px; display:inline-flex;">
       🛒 Поръчай сега само за 54.90€ →
     </a>
-    <div style="font-size:13px; color:#FFFFFF; font-weight:600; text-align:center; margin-top:10px;">🎁 Включени 2 PDF наръчника напълно БЕЗПЛАТНО</div>
+    <div style="font-size:13px; color:#FFFFFF; font-weight:600; text-align:center; margin-top:10px;">🎁 Включени 3 БЕЗПЛАТНИ подаръка при поръчка до 31 октомври!</div>
     <div class="final-cta-note">⚠️ Само 20 броя на тази цена · 30-дневна гаранция</div>
   </div>
 </section>
@@ -1897,6 +1895,89 @@ function toggleFaq(item) {
   const isOpen = item.classList.contains('open');
   document.querySelectorAll('.faq-item.open').forEach(i => i.classList.remove('open'));
   if (!isOpen) item.classList.add('open');
+}
+
+// ── GIFT CARDS: reveal-once on scroll (fail-safe: visible by default) ──
+const giftCards = document.querySelectorAll('.gift-card');
+if (window.IntersectionObserver) {
+  const gio = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        gio.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.15 });
+  giftCards.forEach(el => {
+    el.classList.add('gift-armed');
+    gio.observe(el);
+  });
+  setTimeout(() => giftCards.forEach(el => el.classList.add('visible')), 4000);
+}
+
+// ── GIFT GALLERY (gift #1 — Spa Brush): swipe / arrows / dots / keyboard ──
+document.querySelectorAll('[data-gift-gallery]').forEach(function (gallery) {
+  const track = gallery.querySelector('.gift-gallery-track');
+  const slides = gallery.querySelectorAll('.gift-gallery-slide');
+  const dots = gallery.querySelectorAll('.gift-gallery-dot');
+  const prevBtn = gallery.querySelector('.gift-gallery-arrow.prev');
+  const nextBtn = gallery.querySelector('.gift-gallery-arrow.next');
+  let index = 0;
+
+  function goTo(i) {
+    index = (i + slides.length) % slides.length;
+    track.style.transform = 'translateX(-' + (index * 100) + '%)';
+    dots.forEach((d, di) => d.classList.toggle('active', di === index));
+  }
+
+  if (prevBtn) prevBtn.addEventListener('click', () => goTo(index - 1));
+  if (nextBtn) nextBtn.addEventListener('click', () => goTo(index + 1));
+  dots.forEach((d, di) => d.addEventListener('click', () => goTo(di)));
+
+  gallery.setAttribute('tabindex', '0');
+  gallery.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowLeft') { e.preventDefault(); goTo(index - 1); }
+    if (e.key === 'ArrowRight') { e.preventDefault(); goTo(index + 1); }
+  });
+
+  // Touch swipe — only hijack horizontal drags so vertical page scroll stays untouched.
+  let startX = 0, startY = 0, dx = 0, dy = 0, dragging = false;
+  track.addEventListener('touchstart', (e) => {
+    const t = e.touches[0];
+    startX = t.clientX; startY = t.clientY; dx = 0; dy = 0; dragging = true;
+  }, { passive: true });
+  track.addEventListener('touchmove', (e) => {
+    if (!dragging) return;
+    const t = e.touches[0];
+    dx = t.clientX - startX;
+    dy = t.clientY - startY;
+    if (Math.abs(dx) > Math.abs(dy)) e.preventDefault();
+  }, { passive: false });
+  track.addEventListener('touchend', () => {
+    if (!dragging) return;
+    dragging = false;
+    if (Math.abs(dx) > Math.abs(dy) && Math.abs(dx) > 40) {
+      goTo(dx < 0 ? index + 1 : index - 1);
+    }
+  });
+});
+
+// ── SECONDARY HERO CTA → smooth-scroll to #happypet-gifts ──
+// Standalone-page case only (window.top === window). When embedded via
+// pet-feeder-embed.html's iframe bootstrap, that outer script owns the
+// scroll instead — see the comment on the bump-section fix earlier for
+// why (the iframe itself never scrolls).
+if (window.top === window) {
+  document.querySelectorAll('a[href="#happypet-gifts"]').forEach(function (btn) {
+    btn.addEventListener('click', function (e) {
+      e.preventDefault();
+      const target = document.getElementById('happypet-gifts');
+      if (!target) return;
+      const offset = 20;
+      const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - offset;
+      window.scrollTo({ top: targetPosition, behavior: 'smooth' });
+    });
+  });
 }
 </script>
 
