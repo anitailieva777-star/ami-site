@@ -533,9 +533,15 @@
   .review-card:hover { box-shadow: var(--shadow-hover); }
   .review-screenshot {
     display: block;
-    width: 100%;
+    width: 88%;
+    max-width: 360px;
     height: auto;
+    margin: 0 auto;
     border-radius: calc(var(--radius) - 4px);
+  }
+
+  @media (min-width: 900px) {
+    .review-screenshot { width: 80%; max-width: 320px; }
   }
 
   /* ─── GUARANTEE ─── */
