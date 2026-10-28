@@ -526,35 +526,17 @@
   .review-card {
     background: var(--bg);
     border-radius: var(--radius);
-    padding: 28px;
+    padding: 8px;
     border: 1px solid var(--border);
     transition: box-shadow 0.2s;
   }
   .review-card:hover { box-shadow: var(--shadow-hover); }
-  .review-header { display: flex; align-items: center; gap: 16px; margin-bottom: 16px; }
-  .review-avatar {
-    width: 52px; height: 52px;
-    border-radius: 50%;
-    display: flex; align-items: center; justify-content: center;
-    font-size: 16px; font-weight: 700; color: var(--white);
-    flex-shrink: 0;
-    font-family: 'Playfair Display', serif;
-    overflow: hidden;
+  .review-screenshot {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: calc(var(--radius) - 4px);
   }
-  .review-avatar img {
-    width: 100%; height: 100%;
-    object-fit: cover;
-    border-radius: 50%;
-  }
-  .review-avatar-1 { background: #C9A84C; }
-  .review-avatar-2 { background: #2A7D6E; }
-  .review-avatar-3 { background: #C1756F; }
-  .review-avatar-4 { background: #4A6FA5; }
-  .review-name { font-weight: 700; font-size: 15px; }
-  .review-role { font-size: 12px; color: var(--text-muted); }
-  .review-stars { color: var(--gold); font-size: 15px; letter-spacing: 2px; margin-bottom: 12px; }
-  .review-text { font-size: 15px; color: var(--text); line-height: 1.7; font-style: italic; }
-  .review-date { font-size: 12px; color: var(--text-muted); margin-top: 12px; }
 
   /* ─── GUARANTEE ─── */
   .guarantee-section { background: var(--bg-beige); }
@@ -1685,63 +1667,19 @@
     <div class="reviews-grid">
 
       <div class="review-card">
-        <div class="review-header">
-          <div class="review-avatar review-avatar-1">
-            <img src="https://content.app-sources.com/s/227404442638844551/uploads/Изображения/Отзив_1-4730953.jpg" alt="Мария Георгиева" loading="lazy" />
-          </div>
-          <div>
-            <div class="review-name">Мария Георгиева</div>
-            <div class="review-role">София</div>
-          </div>
-        </div>
-        <div class="review-stars">★★★★★</div>
-        <div class="review-text">„Първоначално се чудех дали изобщо ми е нужна автоматична хранилка, но още след първата седмица усетих разликата. Използвам HappyPet вече повече от 3 месеца и досега не се е случвало Чери да пропусне хранене. Спестява ми време всеки ден и вече не се съобразявам постоянно с часовете за хранене."</div>
-        <div class="review-date">✓ Верифицирана покупка · Преди 3 месеца</div>
+        <img class="review-screenshot" src="https://content.app-sources.com/s/227404442638844551/uploads/Изображения/Screenshot_FB-3194900.png" alt="Отзив във Facebook за HappyPet хранилка" loading="lazy" />
       </div>
 
       <div class="review-card">
-        <div class="review-header">
-          <div class="review-avatar review-avatar-2">
-            <img src="https://content.app-sources.com/s/227404442638844551/uploads/Изображения/Отзив_3-4730937.jpg" alt="Петър Димитров" loading="lazy" />
-          </div>
-          <div>
-            <div class="review-name">Петър Димитров</div>
-            <div class="review-role">Пловдив</div>
-          </div>
-        </div>
-        <div class="review-stars">★★★★★</div>
-        <div class="review-text">„Най-много ми харесва, че не се налага постоянно да гледам часовника. Дори когато се забавя или имам ангажименти след работа, знам, че Роки е нахранен навреме. Определено беше една от най-полезните покупки за него."</div>
-        <div class="review-date">✓ Верифицирана покупка · Преди 1 месец</div>
+        <img class="review-screenshot" src="https://content.app-sources.com/s/227404442638844551/uploads/Изображения/Чат_с_отзив_за_HappyPet_хранилка-3194900.png" alt="Съобщение с отзив за HappyPet хранилка" loading="lazy" />
       </div>
 
       <div class="review-card">
-        <div class="review-header">
-          <div class="review-avatar review-avatar-3">
-            <img src="https://content.app-sources.com/s/227404442638844551/uploads/Изображения/Отзив-4901639.png" alt="Елена Тодорова" loading="lazy" />
-          </div>
-          <div>
-            <div class="review-name">Елена Тодорова</div>
-            <div class="review-role">Варна</div>
-          </div>
-        </div>
-        <div class="review-stars">★★★★★</div>
-        <div class="review-text">„Тоби много бързо свикна с хранилката и вече сам отива при нея малко преди часа за хранене. За мен най-голямото предимство е, че не се налага да бързам към вкъщи, ако се забавя след работа. Наистина ми спести много притеснения."</div>
-        <div class="review-date">✓ Верифицирана покупка · Преди 3 седмици</div>
+        <img class="review-screenshot" src="https://content.app-sources.com/s/227404442638844551/uploads/Изображения/Тъмен_Messenger_чат_с_Петър_Димитров-3195221.png" alt="Messenger разговор с Петър Димитров за HappyPet" loading="lazy" />
       </div>
 
       <div class="review-card">
-        <div class="review-header">
-          <div class="review-avatar review-avatar-4">
-            <img src="https://content.app-sources.com/s/227404442638844551/uploads/Изображения/Отзив_пудел-4902162.png" alt="Пенка Йорданова" loading="lazy" />
-          </div>
-          <div>
-            <div class="review-name">Пенка Йорданова</div>
-            <div class="review-role">Панагюрище</div>
-          </div>
-        </div>
-        <div class="review-stars">★★★★★</div>
-        <div class="review-text">„Случвало ни се е да спре токът, докато не съм вкъщи, и хранилката просто е продължила да работи на батерии. Боби си получи храната навреме, а аз дори не разбрах за прекъсването, докато не се прибрах. Точно тази функция ме кара да ѝ имам доверие."</div>
-        <div class="review-date">✓ Верифицирана покупка · Преди 2 месеца</div>
+        <img class="review-screenshot" src="https://content.app-sources.com/s/227404442638844551/uploads/Изображения/Чат_за_умна_хранилка_HappyPet-3194900.png" alt="Чат за умната хранилка HappyPet" loading="lazy" />
       </div>
 
     </div>
