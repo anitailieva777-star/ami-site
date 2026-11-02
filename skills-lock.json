@@ -121,6 +121,12 @@
       "skillPath": "skills/free-tools/SKILL.md",
       "computedHash": "3fd8ab504b9b6d791b307baed7a87f49b455fc084ff367772c7418b8a57ce56d"
     },
+    "html-demo": {
+      "source": "MengTo/Skills",
+      "sourceType": "github",
+      "skillPath": "agent-skills/web-design/html-demo/SKILL.md",
+      "computedHash": "7139afc0194b340899ff1ba4abbf40b834a5b10e0cfb4d1a282aef34bd63e8ad"
+    },
     "image": {
       "source": "coreyhaines31/marketingskills",
       "sourceType": "github",
