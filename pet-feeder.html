@@ -1035,28 +1035,24 @@
   }
 
   /* ─── EASY STEPS SECTION (mobile-first, no cards, minimal) ─── */
-  /* ─── DEMO VIDEO ─── */
-  .video-demo-section {
-    background: var(--white);
-    padding: 40px 0 56px;
-  }
-  .video-demo-wrap {
-    max-width: 420px;
-    margin: 0 auto;
-  }
-  .video-demo-player {
-    display: block;
-    width: 100%;
-    height: auto;
-    max-height: 80vh;
-    border-radius: var(--radius);
-    box-shadow: var(--shadow);
-    background: #000;
-  }
-
   .easy-section {
     background: var(--bg-beige);
     padding: 40px 0;
+  }
+  .easy-video-wrap {
+    max-width: 380px;
+    margin: 20px auto 32px;
+    padding: 0 18px;
+  }
+  .easy-video-player {
+    display: block;
+    width: 100%;
+    height: auto;
+    max-height: 70vh;
+    border-radius: var(--radius);
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow);
+    background: var(--white);
   }
   .easy-header {
     text-align: center;
@@ -1424,6 +1420,16 @@
     <p class="easy-subtitle">Само 3 лесни стъпки и HappyPet се грижи за любимеца ви всеки ден.</p>
   </div>
 
+  <div class="easy-video-wrap">
+    <video
+      class="easy-video-player"
+      src="https://content.app-sources.com/s/227404442638844551/uploads/Изображения/happypet-demo-h264-3980095.mp4"
+      controls
+      playsinline
+      preload="metadata"
+    ></video>
+  </div>
+
   <div class="easy-steps">
     <div class="easy-step">
       <div class="easy-step-icon">📦</div>
@@ -1442,21 +1448,6 @@
       <div class="easy-step-title">Готово</div>
       <div class="easy-step-text">HappyPet храни любимеца автоматично — всеки ден, без теб.</div>
     </div>
-  </div>
-</section>
-
-<!-- ═══════════════════════════════════════
-     DEMO VIDEO (right after "Как работи HappyPet")
-════════════════════════════════════════ -->
-<section class="video-demo-section fade-in">
-  <div class="container video-demo-wrap">
-    <video
-      class="video-demo-player"
-      src="https://content.app-sources.com/s/227404442638844551/uploads/Изображения/lv_0_20261106172910-3979310.mp4"
-      controls
-      playsinline
-      preload="metadata"
-    ></video>
   </div>
 </section>
 
