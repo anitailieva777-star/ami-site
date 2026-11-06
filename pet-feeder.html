@@ -1035,6 +1035,27 @@
   }
 
   /* ─── EASY STEPS SECTION (mobile-first, no cards, minimal) ─── */
+  /* ─── DEMO VIDEO ─── */
+  .video-demo-section {
+    background: var(--white);
+    padding: 40px 0 56px;
+  }
+  .video-demo-wrap {
+    max-width: 420px;
+    margin: 0 auto;
+  }
+  .video-demo-player {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 9 / 16;
+    max-height: 80vh;
+    object-fit: cover;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    background: #000;
+  }
+
   .easy-section {
     background: var(--bg-beige);
     padding: 40px 0;
@@ -1423,6 +1444,21 @@
       <div class="easy-step-title">Готово</div>
       <div class="easy-step-text">HappyPet храни любимеца автоматично — всеки ден, без теб.</div>
     </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     DEMO VIDEO (right after "Как работи HappyPet")
+════════════════════════════════════════ -->
+<section class="video-demo-section fade-in">
+  <div class="container video-demo-wrap">
+    <video
+      class="video-demo-player"
+      src="https://content.app-sources.com/s/227404442638844551/uploads/Изображения/HappyPet_demo.mp4"
+      controls
+      playsinline
+      preload="metadata"
+    ></video>
   </div>
 </section>
 
