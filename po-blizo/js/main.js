@@ -74,7 +74,8 @@
   });
 
   /* ----------------------------------------------------------
-     3. Лепкава лента „Поръчай“ — след hero, скрива се над офертата/формата
+     3. Лепкава лента „Поръчай“ — винаги, когато главният бутон в hero не се вижда;
+        скрива се над офертата
      ---------------------------------------------------------- */
   var bar = document.querySelector(".sticky-cta");
   var heroCtas = document.querySelector(".hero-ctas");
@@ -87,7 +88,7 @@
       bar.querySelectorAll("a").forEach(function (l) { l.tabIndex = on ? 0 : -1; });
     };
     new IntersectionObserver(function (en) {
-      en.forEach(function (x) { pastHero = !x.isIntersecting && x.boundingClientRect.top < 0; });
+      en.forEach(function (x) { pastHero = !x.isIntersecting; }); // главният бутон не се вижда (над или под екрана)
       sync();
     }).observe(heroCtas);
     var ho = new IntersectionObserver(function (en) {
@@ -108,46 +109,69 @@
   var gsap = window.gsap;
   if (window.ScrollTrigger) gsap.registerPlugin(window.ScrollTrigger);
 
-  /* 4а. Анимирано начало — общо ≤ 2,5 сек., не блокира текста и бутоните */
+  /* 4а. Анимирано начало — общо ≤ 2,5 сек., не блокира текста и бутоните.
+         Нощта рисува съзвездията и нишката, после те „кацат“ върху кутията на снимката. */
   var sky = document.querySelector(".hero-sky");
+  var night = document.querySelector(".hero-night");
+  var photo = document.querySelector(".hero-photo");
+
+  // Къде е централната звезда и колко широки са профилите върху кутията на снимката
+  // (в пиксели от оригинала 1122×1402).
+  var PHOTO = { w: 1122, h: 1402, star: [578, 489], span: 540 };
+  var SKY = { vbX: 0, vbY: 14, vbW: 360, vbH: 196, star: [180, 140], span: 278 };
+
+  function landing() {
+    var v = photo.getBoundingClientRect();
+    var pos = getComputedStyle(photo).objectPosition.split(" ").map(function (x) { return parseFloat(x) / 100; });
+    var sc = Math.max(v.width / PHOTO.w, v.height / PHOTO.h);
+    var ox = (v.width - PHOTO.w * sc) * (isNaN(pos[0]) ? .5 : pos[0]);
+    var oy = (v.height - PHOTO.h * sc) * (isNaN(pos[1]) ? .5 : pos[1]);
+    var tx = v.left + ox + PHOTO.star[0] * sc, ty = v.top + oy + PHOTO.star[1] * sc;
+    var r = sky.getBoundingClientRect();
+    var k = r.width / SKY.vbW;
+    var sx = r.left + (SKY.star[0] - SKY.vbX) * k, sy = r.top + (SKY.star[1] - SKY.vbY) * k;
+    var scale = (PHOTO.span * sc) / (SKY.span * k);
+    return { x: tx - sx, y: ty - sy, scale: scale, origin: ((SKY.star[0] - SKY.vbX) / SKY.vbW * 100) + "% " + ((SKY.star[1] - SKY.vbY) / SKY.vbH * 100) + "%" };
+  }
+
+  var landed = null;
+  function land() { return landed || (landed = landing()); }
+
   var intro = gsap.timeline({ defaults: { ease: "power2.out" }, onComplete: endIntro });
   intro
     // звездите изгряват
-    .fromTo(sky.querySelectorAll(".fs, .sp"), { opacity: 0, scale: .2 }, { opacity: function (i, el) { return el.classList.contains("sp") ? .8 : .55; }, scale: 1, duration: .45, stagger: { each: .008, from: "random" } }, 0)
-    .fromTo(sky.querySelectorAll(".st"), { opacity: 0, scale: .2 }, { opacity: 1, scale: 1, duration: .35, stagger: { each: .009, from: "random" } }, .1)
+    .fromTo(sky.querySelectorAll(".fs, .sp"), { opacity: 0, scale: .2 }, { opacity: function (i, el) { return el.classList.contains("sp") ? .8 : .55; }, scale: 1, duration: .4, stagger: { each: .007, from: "random" } }, 0)
+    .fromTo(sky.querySelectorAll(".st"), { opacity: 0, scale: .2 }, { opacity: 1, scale: 1, duration: .3, stagger: { each: .008, from: "random" } }, .1)
     // линиите оформят двата профила
-    .fromTo(sky.querySelectorAll(".ln"), { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: .5, ease: "power1.inOut", stagger: .045 }, .8)
+    .fromTo(sky.querySelectorAll(".ln"), { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: .45, ease: "power1.inOut", stagger: .06 }, .6)
     // нишката се изтегля
-    .fromTo(sky.querySelector(".thread"), { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: .5, ease: "power2.inOut" }, 1.6)
+    .fromTo(sky.querySelector(".thread"), { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: .45, ease: "power2.inOut" }, 1.2)
     // звездата в средата пламва
-    .fromTo(sky.querySelector(".core"), { opacity: 0, scale: .3 }, { opacity: 1, scale: 1, duration: .45, ease: "back.out(2)" }, 1.95)
-    // кутията и картите изплуват
-    .to(".box-stage", { opacity: 1, "--ey": "0px", duration: .6 }, 1.9)
-    .to(".hero-cards", { opacity: 1, "--ey": "0px", duration: .6 }, 1.95);
+    .fromTo(sky.querySelector(".core"), { opacity: 0, scale: .3 }, { opacity: 1, scale: 1, duration: .4, ease: "back.out(2)" }, 1.5)
+    // съзвездията „кацат“ върху кутията, нощта се разтваря в снимката
+    .to(sky, { transformOrigin: "50% 64.29%", x: function () { return land().x; }, y: function () { return land().y; }, scale: function () { return land().scale; }, duration: .65, ease: "power2.inOut" }, 1.8)
+    .to(night, { backgroundColor: "rgba(20,32,57,0)", duration: .7, ease: "power1.inOut" }, 1.8)
+    .to(night, { opacity: 0, duration: .35, ease: "power1.in" }, 2.15)
+    .set(night, { visibility: "hidden" }, 2.5);
   window.__pbIntro = intro; // за тестове
 
-  /* 4б. Скрол: кутията се завърта и капакът се повдига (scrub) */
+  /* 4б. Скрол: снимката леко се приближава, докато hero излиза (scrub) */
   var mm = gsap.matchMedia();
   if (window.ScrollTrigger) {
     window.ScrollTrigger.config({ ignoreMobileResize: true });
-    var box = document.querySelector(".box3d");
     var scrub = gsap.timeline({
       defaults: { ease: "none" },
-      scrollTrigger: { trigger: ".hero", start: "top top", end: "+=75%", pin: true, scrub: .6, anticipatePin: 1 }
+      scrollTrigger: { trigger: ".hero", start: "top top", end: "bottom top", scrub: .6 }
     });
-    scrub
-      .fromTo(box, { "--rz": "-8deg" }, { "--rz": "7deg" }, 0)
-      .fromTo(box, { "--lift": "0px", "--tilt": "0deg" }, { "--lift": "18px", "--tilt": "9deg" }, .25)
-      .to(sky, { opacity: .45 }, .2);
+    scrub.fromTo(photo, { scale: 1, yPercent: 0 }, { scale: 1.08, yPercent: 6 }, 0);
     window.__pbScrub = scrub;
   }
 
-  /* 4в. Паралакс: само слоят със звездите, макс. 7px, само с мишка */
+  /* 4в. Паралакс: само снимката, макс. 7px, само с мишка */
   mm.add("(hover: hover) and (pointer: fine)", function () {
-    var field = sky.querySelector(".field");
     var hero = document.querySelector(".hero");
-    var xTo = gsap.quickTo(field, "x", { duration: .9, ease: "power3.out" });
-    var yTo = gsap.quickTo(field, "y", { duration: .9, ease: "power3.out" });
+    var xTo = gsap.quickTo(photo, "x", { duration: .9, ease: "power3.out" });
+    var yTo = gsap.quickTo(photo, "y", { duration: .9, ease: "power3.out" });
     function move(e) {
       var r = hero.getBoundingClientRect();
       xTo(((e.clientX - r.left) / r.width - .5) * 14);

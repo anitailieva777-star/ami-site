@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="bg">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>ПО-БЛИЗО — дизайн на кутията и картите</title>
+<link rel="stylesheet" href="css/styles.css">
+<style>
+  body{background:var(--ivory)}
+  .sheet{max-width:1100px;margin:0 auto;padding:40px var(--gutter) 80px}
+  .sheet h1{font-size:clamp(30px,6vw,48px)}
+  .sheet h2{font-size:clamp(24px,4.5vw,32px);margin:56px 0 6px}
+  .note{color:#4a5470;font-size:14.5px;max-width:62ch;margin-top:8px}
+  .row{display:flex;flex-wrap:wrap;gap:28px 22px;align-items:flex-end;margin-top:26px}
+  .item{display:flex;flex-direction:column;align-items:center;gap:10px}
+  .cap{font-size:12.5px;color:#4a5470;text-align:center;line-height:1.35}
+  .cap code{font-size:12px;color:var(--navy)}
+  .stagebox{display:flex;justify-content:center;align-items:center;padding:70px 20px 40px;background:radial-gradient(70% 60% at 50% 45%,#e9dccd,#d9c4b4);border-radius:18px}
+  .stagebox .box-stage{--w:min(220px,46vw)}
+  .compare{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:22px;margin-top:22px}
+  .compare figure{margin:0}
+  .compare img{border-radius:12px;width:100%}
+  .swatch{display:flex;flex-wrap:wrap;align-items:center;gap:18px;padding:26px;border-radius:16px;margin-top:16px}
+  .swatch--navy{background:var(--navy);color:var(--ivory)}
+  .swatch--ivory{background:var(--ivory);border:1px solid #e3d6c8}
+  .swatch .pb-card{--cardw:110px}
+  .btn--alt{background:var(--alt);color:var(--ivory);box-shadow:0 10px 28px -10px rgba(90,30,39,.7)}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <filter id="goldGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation=".7" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <radialGradient id="threadHalo"><stop offset="0" stop-color="#FFF1D6" stop-opacity=".55"/><stop offset="1" stop-color="#FFF1D6" stop-opacity="0"/></radialGradient>
+    <symbol id="cb-s1" viewBox="0 0 63 88">
+<g class="cb-dots"><circle cx="6" cy="32.81" r="0.25"/><circle cx="8.3" cy="57.63" r="0.28"/><circle cx="32.39" cy="34.05" r="0.29"/><circle cx="20.36" cy="19.11" r="0.35"/><circle cx="13.17" cy="28.82" r="0.32"/><circle cx="48.16" cy="28.96" r="0.2"/><circle cx="17.1" cy="50.12" r="0.32"/><circle cx="34.28" cy="34.72" r="0.24"/><circle cx="21.7" cy="53.77" r="0.18"/><circle cx="15.85" cy="40.56" r="0.35"/><circle cx="6.69" cy="29.05" r="0.39"/><circle cx="32.63" cy="11.81" r="0.33"/><circle cx="54.91" cy="25.23" r="0.4"/><circle cx="6.95" cy="49.05" r="0.37"/><circle cx="54.41" cy="23.21" r="0.22"/><circle cx="46.78" cy="62.88" r="0.36"/><circle cx="56.99" cy="54.03" r="0.28"/><circle cx="19.01" cy="42.93" r="0.19"/><circle cx="54.55" cy="55.89" r="0.26"/><circle cx="50.59" cy="6.08" r="0.34"/><circle cx="54.51" cy="38.99" r="0.34"/><circle cx="31.98" cy="57.18" r="0.28"/></g>
+<polyline class="cb-ln" points="15,47 21,44 26,42 31,37 37,33 41,28"/><polyline class="cb-ln" points="37,33 41,35"/>
+<g class="cb-st"><circle cx="15" cy="47" r="0.75"/><circle cx="21" cy="44" r="0.75"/><circle cx="26" cy="42" r="0.75"/><circle cx="31" cy="37" r="0.75"/><circle cx="37" cy="33" r="0.75"/><circle cx="41" cy="28" r="0.75"/><circle cx="41" cy="35" r=".55"/></g>
+<path class="cb-sp" d="M13 14.4Q13.34 16.66 15.6 17Q13.34 17.34 13 19.6Q12.66 17.34 10.4 17Q12.66 16.66 13 14.4Z"/><path class="cb-sp" d="M46 41.6Q46.44 44.56 49.4 45Q46.44 45.44 46 48.4Q45.56 45.44 42.6 45Q45.56 44.56 46 41.6Z"/><path class="cb-sp" d="M52 11.7Q52.17 12.83 53.3 13Q52.17 13.17 52 14.3Q51.83 13.17 50.7 13Q51.83 12.83 52 11.7Z"/><path class="cb-sp" d="M9 56.9Q9.14 57.86 10.1 58Q9.14 58.14 9 59.1Q8.86 58.14 7.9 58Q8.86 57.86 9 56.9Z"/>
+</symbol>
+<symbol id="cb-s2" viewBox="0 0 63 88">
+<g class="cb-dots"><circle cx="55.02" cy="65.88" r="0.25"/><circle cx="48.62" cy="35.48" r="0.19"/><circle cx="6.63" cy="7.22" r="0.37"/><circle cx="9.99" cy="25.75" r="0.29"/><circle cx="24.72" cy="33.28" r="0.15"/><circle cx="24.85" cy="14.82" r="0.29"/><circle cx="34.29" cy="61.35" r="0.15"/><circle cx="57.87" cy="65.63" r="0.35"/><circle cx="35.08" cy="26.91" r="0.38"/><circle cx="39.53" cy="35.14" r="0.21"/><circle cx="33.31" cy="19.91" r="0.41"/><circle cx="35.31" cy="60.44" r="0.16"/><circle cx="12.76" cy="63.62" r="0.33"/><circle cx="19.85" cy="55.24" r="0.23"/><circle cx="52.34" cy="33.96" r="0.27"/><circle cx="16.72" cy="10.23" r="0.36"/><circle cx="52.03" cy="20.27" r="0.35"/><circle cx="22.71" cy="57.43" r="0.25"/><circle cx="4.05" cy="5.27" r="0.13"/><circle cx="34.65" cy="22.33" r="0.36"/><circle cx="21.43" cy="43.62" r="0.42"/><circle cx="31.11" cy="50.93" r="0.17"/><circle cx="39.95" cy="34.68" r="0.19"/><circle cx="18.57" cy="34.82" r="0.31"/><circle cx="29.25" cy="22.68" r="0.27"/><circle cx="32.02" cy="11.29" r="0.31"/><circle cx="48.9" cy="34.78" r="0.29"/><circle cx="15.76" cy="51.95" r="0.23"/><circle cx="9.74" cy="39.47" r="0.24"/><circle cx="14.85" cy="35.73" r="0.4"/><circle cx="25.66" cy="14.16" r="0.37"/><circle cx="49.86" cy="49.03" r="0.19"/><circle cx="19.54" cy="18.62" r="0.21"/><circle cx="54.51" cy="46.87" r="0.29"/><circle cx="27.23" cy="35.83" r="0.25"/><circle cx="44.82" cy="4.86" r="0.36"/><circle cx="46.99" cy="5.16" r="0.36"/><circle cx="30.74" cy="42.11" r="0.12"/><circle cx="50.46" cy="64.47" r="0.39"/><circle cx="17.66" cy="14.42" r="0.23"/><circle cx="30.15" cy="65.88" r="0.35"/><circle cx="29.82" cy="15.4" r="0.29"/><circle cx="37.24" cy="65.58" r="0.21"/><circle cx="8.66" cy="32.83" r="0.41"/><circle cx="49.79" cy="8.44" r="0.29"/><circle cx="43.84" cy="57.23" r="0.27"/><circle cx="24.02" cy="15.31" r="0.39"/><circle cx="40.23" cy="12.54" r="0.29"/><circle cx="22.91" cy="43.82" r="0.37"/><circle cx="5.5" cy="38.84" r="0.38"/><circle cx="48.44" cy="51.86" r="0.17"/><circle cx="15.55" cy="50.27" r="0.35"/><circle cx="9.31" cy="48.46" r="0.37"/><circle cx="24.81" cy="25.36" r="0.27"/><circle cx="14.73" cy="9.14" r="0.28"/><circle cx="47.46" cy="64.97" r="0.28"/><circle cx="56.46" cy="58.75" r="0.23"/><circle cx="53.84" cy="33.33" r="0.32"/><circle cx="42.31" cy="55.89" r="0.16"/><circle cx="52.02" cy="5.04" r="0.22"/><circle cx="58.47" cy="46.76" r="0.4"/><circle cx="46.89" cy="4.41" r="0.12"/><circle cx="31.88" cy="4.04" r="0.27"/><circle cx="36.72" cy="35.46" r="0.27"/><circle cx="18.18" cy="16.44" r="0.36"/><circle cx="10.37" cy="6.48" r="0.39"/><circle cx="26.22" cy="61.37" r="0.23"/><circle cx="23.2" cy="59.28" r="0.2"/><circle cx="30.06" cy="30.23" r="0.21"/><circle cx="56.87" cy="42.06" r="0.16"/></g>
+<polyline class="cb-ln" points="11,26 17,20 24,27 29,21 34,25"/><polyline class="cb-ln" points="24,27 22,35 30,38 36,33 34,25"/><polyline class="cb-ln" points="30,38 42,40 48,35"/><polyline class="cb-ln" points="42,40 52,45 45,51 37,47 30,38"/><polyline class="cb-ln" points="37,47 28,49 18,44 22,35"/>
+<g class="cb-st"><circle cx="11" cy="26" r="0.55"/><circle cx="17" cy="20" r="0.55"/><circle cx="24" cy="27" r="0.55"/><circle cx="29" cy="21" r="0.55"/><circle cx="34" cy="25" r="0.55"/><circle cx="22" cy="35" r="0.55"/><circle cx="30" cy="38" r="0.55"/><circle cx="36" cy="33" r="0.55"/><circle cx="42" cy="40" r="0.55"/><circle cx="48" cy="35" r="0.55"/><circle cx="52" cy="45" r="0.55"/><circle cx="45" cy="51" r="0.55"/><circle cx="37" cy="47" r="0.55"/><circle cx="28" cy="49" r="0.55"/><circle cx="18" cy="44" r="0.55"/></g>
+<g class="cb-glow"><path class="cb-sp" d="M17 17.6Q17.31 19.69 19.4 20Q17.31 20.31 17 22.4Q16.69 20.31 14.6 20Q16.69 19.69 17 17.6Z"/><path class="cb-sp" d="M30 35.2Q30.36 37.64 32.8 38Q30.36 38.36 30 40.8Q29.64 38.36 27.2 38Q29.64 37.64 30 35.2Z"/><path class="cb-sp" d="M42 37.8Q42.29 39.71 44.2 40Q42.29 40.29 42 42.2Q41.71 40.29 39.8 40Q41.71 39.71 42 37.8Z"/><path class="cb-sp" d="M52 42.4Q52.34 44.66 54.6 45Q52.34 45.34 52 47.6Q51.66 45.34 49.4 45Q51.66 44.66 52 42.4Z"/><path class="cb-sp" d="M24 25.4Q24.21 26.79 25.6 27Q24.21 27.21 24 28.6Q23.79 27.21 22.4 27Q23.79 26.79 24 25.4Z"/><path class="cb-sp" d="M45 11.2Q45.23 12.77 46.8 13Q45.23 13.23 45 14.8Q44.77 13.23 43.2 13Q44.77 12.77 45 11.2Z"/><path class="cb-sp" d="M9 48.6Q9.18 49.82 10.4 50Q9.18 50.18 9 51.4Q8.82 50.18 7.6 50Q8.82 49.82 9 48.6Z"/><path class="cb-sp" d="M56 22.7Q56.17 23.83 57.3 24Q56.17 24.17 56 25.3Q55.83 24.17 54.7 24Q55.83 23.83 56 22.7Z"/></g>
+</symbol>
+<symbol id="cb-s3" viewBox="0 0 63 88">
+<g class="cb-dots"><circle cx="34" cy="42.6" r="0.3"/><circle cx="9.7" cy="12.29" r="0.15"/><circle cx="10.05" cy="54.57" r="0.31"/><circle cx="4.93" cy="35.06" r="0.23"/><circle cx="37.61" cy="62.63" r="0.15"/><circle cx="44.43" cy="57.77" r="0.35"/><circle cx="35.33" cy="11.32" r="0.24"/><circle cx="58" cy="44.68" r="0.33"/><circle cx="40.23" cy="21.51" r="0.22"/><circle cx="57.23" cy="42.49" r="0.28"/><circle cx="31.34" cy="35.41" r="0.32"/><circle cx="20.05" cy="28.07" r="0.34"/><circle cx="9.12" cy="33.01" r="0.3"/><circle cx="44.31" cy="39.56" r="0.34"/><circle cx="22.62" cy="32.67" r="0.38"/><circle cx="10.89" cy="12" r="0.25"/><circle cx="30.88" cy="54.47" r="0.24"/><circle cx="29.81" cy="47.33" r="0.33"/><circle cx="50.6" cy="8.49" r="0.21"/><circle cx="54.35" cy="18.56" r="0.19"/><circle cx="7.97" cy="57.38" r="0.14"/><circle cx="47.62" cy="28.16" r="0.24"/><circle cx="39.93" cy="4.91" r="0.38"/><circle cx="25.58" cy="8.2" r="0.22"/><circle cx="33.54" cy="8.02" r="0.31"/><circle cx="19.12" cy="30.05" r="0.31"/><circle cx="50.83" cy="44.57" r="0.22"/><circle cx="47.01" cy="63.45" r="0.33"/><circle cx="10.69" cy="14.2" r="0.12"/><circle cx="8" cy="4.47" r="0.15"/><circle cx="55.3" cy="45.6" r="0.32"/><circle cx="19.61" cy="43.32" r="0.12"/><circle cx="58.35" cy="19.06" r="0.34"/><circle cx="46.7" cy="52.74" r="0.34"/><circle cx="26.36" cy="20.67" r="0.37"/><circle cx="39.89" cy="8.63" r="0.2"/><circle cx="52.56" cy="6.9" r="0.25"/><circle cx="52.35" cy="53.22" r="0.38"/><circle cx="37.71" cy="17.24" r="0.34"/><circle cx="7.84" cy="30.82" r="0.32"/><circle cx="44.44" cy="65.02" r="0.2"/><circle cx="24.57" cy="19.09" r="0.37"/><circle cx="17.73" cy="53.76" r="0.38"/><circle cx="8.57" cy="64.47" r="0.15"/><circle cx="34.09" cy="29.54" r="0.15"/><circle cx="11.8" cy="49.29" r="0.27"/><circle cx="27.51" cy="41.7" r="0.34"/><circle cx="45.97" cy="63.61" r="0.19"/><circle cx="34.61" cy="19.86" r="0.13"/><circle cx="43.59" cy="60.51" r="0.3"/><circle cx="12" cy="14.57" r="0.3"/><circle cx="23.55" cy="34.55" r="0.3"/><circle cx="38.77" cy="57.05" r="0.39"/><circle cx="5" cy="29.92" r="0.21"/><circle cx="12.42" cy="27.94" r="0.21"/></g>
+<polyline class="cb-ln" points="8,22 13,18 19,23 16,30 23,34 28,29"/><polyline class="cb-ln" points="19,23 24,18"/><polyline class="cb-ln" points="40,50 46,47 52,52 49,58 56,60 43,57"/><polyline class="cb-ln" points="46,47 47,41"/>
+<g class="cb-st"><circle cx="8" cy="22" r="0.55"/><circle cx="13" cy="18" r="0.55"/><circle cx="19" cy="23" r="0.55"/><circle cx="16" cy="30" r="0.55"/><circle cx="23" cy="34" r="0.55"/><circle cx="28" cy="29" r="0.55"/><circle cx="40" cy="50" r="0.55"/><circle cx="46" cy="47" r="0.55"/><circle cx="52" cy="52" r="0.55"/><circle cx="49" cy="58" r="0.55"/><circle cx="56" cy="60" r="0.55"/><circle cx="43" cy="57" r="0.55"/><circle cx="24" cy="18" r=".45"/><circle cx="47" cy="41" r=".45"/></g>
+<path class="cb-thread" d="M40 3C34 12 45 21 38 31C34.5 36 34 40 36 42.5C39.5 46 46 52 43.5 66"/>
+<circle class="cb-halo" cx="36" cy="42.5" r="7"/>
+<g class="cb-glow"><path class="cb-sp cb-core" d="M36 38.9Q36.47 42.03 39.6 42.5Q36.47 42.97 36 46.1Q35.53 42.97 32.4 42.5Q35.53 42.03 36 38.9Z"/><path class="cb-sp" d="M14 59.8Q14.29 61.71 16.2 62Q14.29 62.29 14 64.2Q13.71 62.29 11.8 62Q13.71 61.71 14 59.8Z"/><path class="cb-sp" d="M52 28.4Q52.21 29.79 53.6 30Q52.21 30.21 52 31.6Q51.79 30.21 50.4 30Q51.79 29.79 52 28.4Z"/><path class="cb-sp" d="M10 38.8Q10.16 39.84 11.2 40Q10.16 40.16 10 41.2Q9.84 40.16 8.8 40Q9.84 39.84 10 38.8Z"/><path class="cb-sp" d="M56 8.6Q56.18 9.82 57.4 10Q56.18 10.18 56 11.4Q55.82 10.18 54.6 10Q55.82 9.82 56 8.6Z"/></g>
+</symbol>
+<symbol id="cb-sp" viewBox="0 0 63 88">
+<rect class="cb-frame" x="4" y="4" width="55" height="80" rx="3"/>
+<rect class="cb-frame cb-frame--thin" x="6" y="6" width="51" height="76" rx="2.2"/>
+<path class="cb-thread" d="M17 40C23 40 27 32 31.5 32C36 32 40 40 46 40"/>
+<g class="cb-st"><circle cx="17" cy="40" r=".7"/><circle cx="46" cy="40" r=".7"/></g>
+<path class="cb-sp" d="M31.5 29Q31.89 31.61 34.5 32Q31.89 32.39 31.5 35Q31.11 32.39 28.5 32Q31.11 31.61 31.5 29Z"/><path class="cb-sp" d="M11 9.7Q11.17 10.83 12.3 11Q11.17 11.17 11 12.3Q10.83 11.17 9.7 11Q10.83 10.83 11 9.7Z"/><path class="cb-sp" d="M52 9.7Q52.17 10.83 53.3 11Q52.17 11.17 52 12.3Q51.83 11.17 50.7 11Q51.83 10.83 52 9.7Z"/>
+</symbol>
+  </defs>
+</svg>
+
+<main class="sheet">
+  <h1>Кутията и картите — дизайн в код</h1>
+  <p class="note">Вътрешна страница за преглед (не е част от лендинга и не се индексира). Тук се проверява, че кутията и гърбовете на картите в кода съвпадат с продуктовата снимка. Карта 63×88 мм.</p>
+
+  <h2>Кутията в 3D</h2>
+  <p class="note">Корицата е взета от продуктовата снимка и е изправена, така че е точно официалният дизайн: двата профила, нишката, „ПО-БЛИЗО“, „Разговори, които ни свързват“, „3 нива на близост“.</p>
+  <div class="row">
+    <div class="item stagebox">
+      <div class="box-stage"><div class="box3d" style="--rx:38deg;--rz:-8deg"><div class="box-shadow"></div>
+        <div class="cuboid base"><div class="face f-back"></div><div class="face f-left"></div><div class="face f-right"></div><div class="face f-front"></div>
+          <div class="face f-top"><div class="pb-card pb-card--sp"><svg viewBox="0 0 63 88" aria-hidden="true"><use href="#cb-sp"/></svg><span class="lbl">Отвори вечерта</span></div></div></div>
+        <div class="cuboid lid"><div class="face f-back"></div><div class="face f-left"></div><div class="face f-right"></div><div class="face f-front"></div><div class="face f-top"></div></div>
+      </div></div>
+    </div>
+    <div class="item stagebox">
+      <div class="box-stage"><div class="box3d" style="--rx:46deg;--rz:6deg;--lift:58px;--tilt:14deg"><div class="box-shadow"></div>
+        <div class="cuboid base"><div class="face f-back"></div><div class="face f-left"></div><div class="face f-right"></div><div class="face f-front"></div>
+          <div class="face f-top"><div class="pb-card pb-card--sp"><svg viewBox="0 0 63 88" aria-hidden="true"><use href="#cb-sp"/></svg><span class="lbl">Отвори вечерта</span></div></div></div>
+        <div class="cuboid lid"><div class="face f-back"></div><div class="face f-left"></div><div class="face f-right"></div><div class="face f-front"></div><div class="face f-top"></div></div>
+      </div></div>
+    </div>
+  </div>
+
+  <h2>Гърбове на етапите</h2>
+  <div class="row">
+    <div class="item"><div class="pb-card pb-card--s1" style="--cardw:200px"><svg viewBox="0 0 63 88" aria-hidden="true"><use href="#cb-s1"/></svg><span class="lbl">I · Първите моменти</span></div><p class="cap">Нюд <code>#D9B59C</code><br>тъмносиньо съзвездие</p></div>
+    <div class="item"><div class="pb-card pb-card--s2" style="--cardw:200px"><svg viewBox="0 0 63 88" aria-hidden="true"><use href="#cb-s2"/></svg><span class="lbl">II · Какво се промени</span></div><p class="cap">Тъмносиньо <code>#141C2A</code><br>шампанско-златно съзвездие</p></div>
+    <div class="item"><div class="pb-card pb-card--s3" style="--cardw:200px"><svg viewBox="0 0 63 88" aria-hidden="true"><use href="#cb-s3"/></svg><span class="lbl">III · Какво искаме<br>да запазим</span></div><p class="cap">Винено <code>#5A1E27</code><br>златно съзвездие + светла нишка</p></div>
+  </div>
+
+  <h2>Специални карти</h2>
+  <p class="note">Шампанско <code>#E9DCC6</code> със златни детайли <code>#B08D57</code>.</p>
+  <div class="row">
+    <div class="item"><div class="pb-card pb-card--sp" style="--cardw:150px"><svg viewBox="0 0 63 88" aria-hidden="true"><use href="#cb-sp"/></svg><span class="lbl">Карта-спомен</span></div><p class="cap">×3</p></div>
+    <div class="item"><div class="pb-card pb-card--sp" style="--cardw:150px"><svg viewBox="0 0 63 88" aria-hidden="true"><use href="#cb-sp"/></svg><span class="lbl">Пропускам</span></div><p class="cap">×2</p></div>
+    <div class="item"><div class="pb-card pb-card--sp" style="--cardw:150px"><svg viewBox="0 0 63 88" aria-hidden="true"><use href="#cb-sp"/></svg><span class="lbl">Отвори вечерта</span></div><p class="cap">×1</p></div>
+    <div class="item"><div class="pb-card pb-card--sp" style="--cardw:150px"><svg viewBox="0 0 63 88" aria-hidden="true"><use href="#cb-sp"/></svg><span class="lbl">Как да играете</span></div><p class="cap">×1</p></div>
+  </div>
+
+  <h2>Сравнение със снимката</h2>
+  <div class="compare">
+    <figure><img src="img/box-hero-780.webp" width="780" height="975" alt="Продуктовата снимка: кутията ПО-БЛИЗО и трите тестета"></figure>
+    <figure class="stagebox" style="padding:40px 10px">
+      <div class="row" style="margin:0;justify-content:center">
+        <div class="pb-card pb-card--s1" style="--cardw:min(100px,24vw)"><svg viewBox="0 0 63 88" aria-hidden="true"><use href="#cb-s1"/></svg><span class="lbl">I · Първите моменти</span></div>
+        <div class="pb-card pb-card--s2" style="--cardw:min(100px,24vw)"><svg viewBox="0 0 63 88" aria-hidden="true"><use href="#cb-s2"/></svg><span class="lbl">II · Какво се промени</span></div>
+        <div class="pb-card pb-card--s3" style="--cardw:min(100px,24vw)"><svg viewBox="0 0 63 88" aria-hidden="true"><use href="#cb-s3"/></svg><span class="lbl">III · Какво искаме<br>да запазим</span></div>
+      </div>
+    </figure>
+  </div>
+
+  <h2>Бутонът до виненото</h2>
+  <p class="note">Череша <code>#A3263A</code> (сега) и по-близък до виненото вариант <code>#8E2335</code> — до картата „Какво искаме да запазим“, на тъмен и на светъл фон.</p>
+  <div class="swatch swatch--navy">
+    <div class="pb-card pb-card--s3"><svg viewBox="0 0 63 88" aria-hidden="true"><use href="#cb-s3"/></svg><span class="lbl">III · Какво искаме<br>да запазим</span></div>
+    <a class="btn btn--primary" href="#">Поръчай — 34,90 €</a>
+    <a class="btn btn--alt" style="--alt:#8E2335" href="#">Поръчай — 34,90 €</a>
+  </div>
+  <div class="swatch swatch--ivory">
+    <div class="pb-card pb-card--s3"><svg viewBox="0 0 63 88" aria-hidden="true"><use href="#cb-s3"/></svg><span class="lbl">III · Какво искаме<br>да запазим</span></div>
+    <a class="btn btn--primary" href="#">Поръчай — 34,90 €</a>
+    <a class="btn btn--alt" style="--alt:#8E2335" href="#">Поръчай — 34,90 €</a>
+  </div>
+</main>
+</body>
+</html>

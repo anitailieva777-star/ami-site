@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="bg">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>ПО-БЛИЗО — дизайн на кутията и картите</title>
+<link rel="stylesheet" href="css/styles.css">
+<style>
+  body{background:var(--ivory)}
+  .sheet{max-width:1100px;margin:0 auto;padding:40px var(--gutter) 80px}
+  .sheet h1{font-size:clamp(30px,6vw,48px)}
+  .sheet h2{font-size:clamp(24px,4.5vw,32px);margin:56px 0 6px}
+  .note{color:#4a5470;font-size:14.5px;max-width:62ch;margin-top:8px}
+  .row{display:flex;flex-wrap:wrap;gap:28px 22px;align-items:flex-end;margin-top:26px}
+  .item{display:flex;flex-direction:column;align-items:center;gap:10px}
+  .cap{font-size:12.5px;color:#4a5470;text-align:center;line-height:1.35}
+  .cap code{font-size:12px;color:var(--navy)}
+  .stagebox{display:flex;justify-content:center;align-items:center;padding:70px 20px 40px;background:radial-gradient(70% 60% at 50% 45%,#e9dccd,#d9c4b4);border-radius:18px}
+  .stagebox .box-stage{--w:min(220px,46vw)}
+  .compare{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:22px;margin-top:22px}
+  .compare figure{margin:0}
+  .compare img{border-radius:12px;width:100%}
+  .swatch{display:flex;flex-wrap:wrap;align-items:center;gap:18px;padding:26px;border-radius:16px;margin-top:16px}
+  .swatch--navy{background:var(--navy);color:var(--ivory)}
+  .swatch--ivory{background:var(--ivory);border:1px solid #e3d6c8}
+  .swatch .pb-card{--cardw:110px}
+  .btn--alt{background:var(--alt);color:var(--ivory);box-shadow:0 10px 28px -10px rgba(90,30,39,.7)}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <filter id="goldGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation=".7" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <radialGradient id="threadHalo"><stop offset="0" stop-color="#FFF1D6" stop-opacity=".55"/><stop offset="1" stop-color="#FFF1D6" stop-opacity="0"/></radialGradient>
+    {{CARDS}}
+  </defs>
+</svg>
+
+<main class="sheet">
+  <h1>Кутията и картите — дизайн в код</h1>
+  <p class="note">Вътрешна страница за преглед (не е част от лендинга и не се индексира). Тук се проверява, че кутията и гърбовете на картите в кода съвпадат с продуктовата снимка. Карта 63×88 мм.</p>
+
+  <h2>Кутията в 3D</h2>
+  <p class="note">Корицата е взета от продуктовата снимка и е изправена, така че е точно официалният дизайн: двата профила, нишката, „ПО-БЛИЗО“, „Разговори, които ни свързват“, „3 нива на близост“.</p>
+  <div class="row">
+    <div class="item stagebox">
+      <div class="box-stage"><div class="box3d" style="--rx:38deg;--rz:-8deg"><div class="box-shadow"></div>
+        <div class="cuboid base"><div class="face f-back"></div><div class="face f-left"></div><div class="face f-right"></div><div class="face f-front"></div>
+          <div class="face f-top"><div class="pb-card pb-card--sp"><svg viewBox="0 0 63 88" aria-hidden="true"><use href="#cb-sp"/></svg><span class="lbl">Отвори вечерта</span></div></div></div>
+        <div class="cuboid lid"><div class="face f-back"></div><div class="face f-left"></div><div class="face f-right"></div><div class="face f-front"></div><div class="face f-top"></div></div>
+      </div></div>
+    </div>
+    <div class="item stagebox">
+      <div class="box-stage"><div class="box3d" style="--rx:46deg;--rz:6deg;--lift:58px;--tilt:14deg"><div class="box-shadow"></div>
+        <div class="cuboid base"><div class="face f-back"></div><div class="face f-left"></div><div class="face f-right"></div><div class="face f-front"></div>
+          <div class="face f-top"><div class="pb-card pb-card--sp"><svg viewBox="0 0 63 88" aria-hidden="true"><use href="#cb-sp"/></svg><span class="lbl">Отвори вечерта</span></div></div></div>
+        <div class="cuboid lid"><div class="face f-back"></div><div class="face f-left"></div><div class="face f-right"></div><div class="face f-front"></div><div class="face f-top"></div></div>
+      </div></div>
+    </div>
+  </div>
+
+  <h2>Гърбове на етапите</h2>
+  <div class="row">
+    <div class="item"><div class="pb-card pb-card--s1" style="--cardw:200px"><svg viewBox="0 0 63 88" aria-hidden="true"><use href="#cb-s1"/></svg><span class="lbl">I · Първите моменти</span></div><p class="cap">Нюд <code>#D9B59C</code><br>тъмносиньо съзвездие</p></div>
+    <div class="item"><div class="pb-card pb-card--s2" style="--cardw:200px"><svg viewBox="0 0 63 88" aria-hidden="true"><use href="#cb-s2"/></svg><span class="lbl">II · Какво се промени</span></div><p class="cap">Тъмносиньо <code>#141C2A</code><br>шампанско-златно съзвездие</p></div>
+    <div class="item"><div class="pb-card pb-card--s3" style="--cardw:200px"><svg viewBox="0 0 63 88" aria-hidden="true"><use href="#cb-s3"/></svg><span class="lbl">III · Какво искаме<br>да запазим</span></div><p class="cap">Винено <code>#5A1E27</code><br>златно съзвездие + светла нишка</p></div>
+  </div>
+
+  <h2>Специални карти</h2>
+  <p class="note">Шампанско <code>#E9DCC6</code> със златни детайли <code>#B08D57</code>.</p>
+  <div class="row">
+    <div class="item"><div class="pb-card pb-card--sp" style="--cardw:150px"><svg viewBox="0 0 63 88" aria-hidden="true"><use href="#cb-sp"/></svg><span class="lbl">Карта-спомен</span></div><p class="cap">×3</p></div>
+    <div class="item"><div class="pb-card pb-card--sp" style="--cardw:150px"><svg viewBox="0 0 63 88" aria-hidden="true"><use href="#cb-sp"/></svg><span class="lbl">Пропускам</span></div><p class="cap">×2</p></div>
+    <div class="item"><div class="pb-card pb-card--sp" style="--cardw:150px"><svg viewBox="0 0 63 88" aria-hidden="true"><use href="#cb-sp"/></svg><span class="lbl">Отвори вечерта</span></div><p class="cap">×1</p></div>
+    <div class="item"><div class="pb-card pb-card--sp" style="--cardw:150px"><svg viewBox="0 0 63 88" aria-hidden="true"><use href="#cb-sp"/></svg><span class="lbl">Как да играете</span></div><p class="cap">×1</p></div>
+  </div>
+
+  <h2>Сравнение със снимката</h2>
+  <div class="compare">
+    <figure><img src="img/box-hero-780.webp" width="780" height="975" alt="Продуктовата снимка: кутията ПО-БЛИЗО и трите тестета"></figure>
+    <figure class="stagebox" style="padding:40px 10px">
+      <div class="row" style="margin:0;justify-content:center">
+        <div class="pb-card pb-card--s1" style="--cardw:min(100px,24vw)"><svg viewBox="0 0 63 88" aria-hidden="true"><use href="#cb-s1"/></svg><span class="lbl">I · Първите моменти</span></div>
+        <div class="pb-card pb-card--s2" style="--cardw:min(100px,24vw)"><svg viewBox="0 0 63 88" aria-hidden="true"><use href="#cb-s2"/></svg><span class="lbl">II · Какво се промени</span></div>
+        <div class="pb-card pb-card--s3" style="--cardw:min(100px,24vw)"><svg viewBox="0 0 63 88" aria-hidden="true"><use href="#cb-s3"/></svg><span class="lbl">III · Какво искаме<br>да запазим</span></div>
+      </div>
+    </figure>
+  </div>
+
+  <h2>Бутонът до виненото</h2>
+  <p class="note">Череша <code>#A3263A</code> (сега) и по-близък до виненото вариант <code>#8E2335</code> — до картата „Какво искаме да запазим“, на тъмен и на светъл фон.</p>
+  <div class="swatch swatch--navy">
+    <div class="pb-card pb-card--s3"><svg viewBox="0 0 63 88" aria-hidden="true"><use href="#cb-s3"/></svg><span class="lbl">III · Какво искаме<br>да запазим</span></div>
+    <a class="btn btn--primary" href="#">Поръчай — 34,90 €</a>
+    <a class="btn btn--alt" style="--alt:#8E2335" href="#">Поръчай — 34,90 €</a>
+  </div>
+  <div class="swatch swatch--ivory">
+    <div class="pb-card pb-card--s3"><svg viewBox="0 0 63 88" aria-hidden="true"><use href="#cb-s3"/></svg><span class="lbl">III · Какво искаме<br>да запазим</span></div>
+    <a class="btn btn--primary" href="#">Поръчай — 34,90 €</a>
+    <a class="btn btn--alt" style="--alt:#8E2335" href="#">Поръчай — 34,90 €</a>
+  </div>
+</main>
+</body>
+</html>

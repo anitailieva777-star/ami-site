@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="bg" class="no-js">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>ПО-БЛИЗО — карти за двойки · 3 нива на близост</title>
+<meta name="description" content="ПО-БЛИЗО е тесте от 52 карти за двойки: една вечер седмично, 3 карти по „Пътеката на спомена“ и разговор, който ви сближава. Наложен платеж с преглед.">
+<meta name="theme-color" content="#142039">
+<link rel="canonical" href="[ДОМЕЙН]/">
+
+<meta property="og:type" content="product">
+<meta property="og:locale" content="bg_BG">
+<meta property="og:title" content="ПО-БЛИЗО — карти за двойки">
+<meta property="og:description" content="Една вечер седмично, в която отново наистина си говорите. 52 карти · 15 вечери по пътеката.">
+<meta property="og:url" content="[ДОМЕЙН]/">
+<meta property="og:image" content="[ДОМЕЙН]/img/og-po-blizo.jpg">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="preload" href="fonts/cormorant-garamond-cyrillic-600-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/manrope-cyrillic-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="css/styles.css">
+
+<script>
+(function(d){var c=d.documentElement;c.className=c.className.replace("no-js","js");
+if(!window.matchMedia("(prefers-reduced-motion: reduce)").matches){c.classList.add("intro");
+/* предпазител: ако скриптовете не се заредят, всичко се показва след 4 сек. */
+setTimeout(function(){c.classList.remove("intro")},4000);}})(document);
+</script>
+<script defer src="js/config.js"></script>
+<script defer src="js/vendor/gsap.min.js"></script>
+<script defer src="js/vendor/ScrollTrigger.min.js"></script>
+<script defer src="js/main.js"></script>
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"Product",
+  "name":"ПО-БЛИЗО — карти за двойки",
+  "description":"52 карти за двойки в 3 етапа по „Пътеката на спомена“: Първите моменти, Какво се промени, Какво искаме да запазим.",
+  "brand":{"@type":"Brand","name":"ПО-БЛИЗО"},
+  "image":"[ДОМЕЙН]/img/og-po-blizo.jpg",
+  "offers":[
+    {"@type":"Offer","name":"Основно тесте","price":"34.90","priceCurrency":"EUR","availability":"https://schema.org/InStock","url":"[ДОМЕЙН]/#oferta"},
+    {"@type":"Offer","name":"Подаръчно издание","price":"44.90","priceCurrency":"EUR","availability":"https://schema.org/InStock","url":"[ДОМЕЙН]/#oferta"}
+  ]
+}
+</script>
+</head>
+<body>
+<a class="skip-link" href="#main">Към съдържанието</a>
+
+<!-- Графични символи (логото, гърбът на картите, разделителят) -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <radialGradient id="coreGlow">
+      <stop offset="0" stop-color="#FFF3EA" stop-opacity=".95"/>
+      <stop offset=".25" stop-color="#E8C4B8" stop-opacity=".45"/>
+      <stop offset="1" stop-color="#E8C4B8" stop-opacity="0"/>
+    </radialGradient>
+    <!-- Малкото лого за хедъра -->
+    <symbol id="mark-mini" viewBox="0 0 40 20">
+      <polyline points="3,7 7,3 11,5" fill="none" stroke="currentColor" stroke-width=".8" stroke-opacity=".7"/>
+      <polyline points="29,5 33,3 37,7" fill="none" stroke="currentColor" stroke-width=".8" stroke-opacity=".7"/>
+      <circle cx="3" cy="7" r="1" fill="currentColor"/><circle cx="7" cy="3" r="1" fill="currentColor"/><circle cx="11" cy="5" r="1" fill="currentColor"/>
+      <circle cx="29" cy="5" r="1" fill="currentColor"/><circle cx="33" cy="3" r="1" fill="currentColor"/><circle cx="37" cy="7" r="1" fill="currentColor"/>
+      <path d="M4 13C10 19 14 9 20 10C26 11 30 19 36 13" fill="none" stroke="currentColor" stroke-width="1.1" stroke-linecap="round"/>
+      <path d="M20 6.5Q20.5 9.5 23.5 10Q20.5 10.5 20 13.5Q19.5 10.5 16.5 10Q19.5 9.5 20 6.5Z" fill="#fff6ee"/>
+    </symbol>
+    <!-- Филтър за златно сияние -->
+    <filter id="goldGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation=".7" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <radialGradient id="threadHalo"><stop offset="0" stop-color="#FFF1D6" stop-opacity=".55"/><stop offset="1" stop-color="#FFF1D6" stop-opacity="0"/></radialGradient>
+    <!-- Гърбове на картите (63×88 мм): I, II, III и специалните -->
+    {{CARDS}}
+    <!-- Разделител: линия със звезда -->
+    <symbol id="rule" viewBox="0 0 100 10">
+      <path d="M0 5H43M57 5H100" stroke="currentColor" stroke-width=".6"/>
+      <path d="M50 1Q50.5 4.5 54 5Q50.5 5.5 50 9Q49.5 5.5 46 5Q49.5 4.5 50 1Z" fill="currentColor"/>
+    </symbol>
+  </defs>
+</svg>
+
+<header class="site-header">
+  <a class="brand" href="#main" aria-label="ПО-БЛИЗО — към началото">
+    <svg class="brand-mark" viewBox="0 0 40 20" aria-hidden="true"><use href="#mark-mini"/></svg>
+    <span class="brand-word">ПО-БЛИЗО</span>
+  </a>
+  <a class="btn btn--primary btn--sm hdr-cta" href="#oferta" data-checkout="basic">Поръчай</a>
+</header>
+
+<main id="main">
+
+  <!-- ============ 1 · HERO ============ -->
+  <section class="hero" id="nachalo" aria-labelledby="hero-title">
+    <div class="hero-inner">
+
+      <div class="hero-visual">
+        <img class="hero-photo"
+             src="img/box-hero-780.webp"
+             srcset="img/box-hero-480.webp 480w, img/box-hero-780.webp 780w, img/box-hero-1122.webp 1122w"
+             sizes="(min-width: 900px) 44vw, 100vw"
+             width="1122" height="1402" fetchpriority="high" decoding="async"
+             alt="Кутията ПО-БЛИЗО с два профила от съзвездия, свързани със светла нишка, и трите тестета карти — I · Първите моменти, II · Какво се промени, III · Какво искаме да запазим — на мраморна маса във вечерна светлина">
+        <!-- анимираното начало: нощта, в която съзвездията се свързват и „кацат“ върху кутията -->
+        <div class="hero-night" aria-hidden="true">
+          <svg class="hero-sky" viewBox="0 14 360 196">{{SKY}}</svg>
+        </div>
+      </div>
+
+      <div class="hero-copy">
+        <p class="eyebrow">Карти за двойки · 3 нива на близост</p>
+        <h1 id="hero-title">Една вечер седмично, в която отново <em>наистина</em> си говорите.</h1>
+        <p class="hero-sub">От леко начало до разговор, който ви сближава.</p>
+        <div class="hero-ctas">
+          <a class="btn btn--primary" href="#oferta" data-checkout="basic">Поръчай <span class="price-sep">—</span> 34,90&nbsp;€</a>
+          <a class="btn btn--ghost" href="#opitai">Виж картите</a>
+        </div>
+        <ul class="trust" aria-label="Плащане и доставка">
+          <li>Наложен платеж</li>
+          <li>Преглед преди плащане</li>
+          <li>Доставка 1–3 работни дни</li>
+        </ul>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============ 2 · „Познато ли ти е?“ — следва в следващата стъпка ============ -->
+  <section class="sec-next" id="poznato" aria-labelledby="poznato-title">
+    <h2 id="poznato-title">Познато ли ти е?</h2>
+    <p>[Сцена 2 — в следващата стъпка]</p>
+  </section>
+
+</main>
+
+<div class="sticky-cta" aria-hidden="true">
+  <div>
+    <div class="sc-name">ПО-БЛИЗО</div>
+    <div class="sc-meta"><b>34,90&nbsp;€</b> · наложен платеж</div>
+  </div>
+  <a class="btn btn--primary btn--sm" href="#oferta" data-checkout="basic" tabindex="-1">Поръчай</a>
+</div>
+</body>
+</html>
