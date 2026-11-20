@@ -242,6 +242,61 @@
         .fromTo(cap, { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: .35 }, .55);
     });
 
+    /* 4д. „Отвори кутията“ — закачена сцена: капакът се вдига, картите излитат и се подреждат по видове */
+    var unbox = document.querySelector(".unbox");
+    if (unbox) {
+      root.classList.add("motion");
+      var stage = unbox.querySelector(".unbox-stage"), anchor = unbox.querySelector(".unbox-anchor");
+      var box3d = unbox.querySelector(".box3d"), lid = unbox.querySelector(".lid"), boxWrap = unbox.querySelector(".unbox-box");
+      var flies = gsap.utils.toArray(unbox.querySelectorAll(".fly"));
+      // отместване от центъра на кутията до крайното място на всяка карта (в пиксели, преизчислява се при resize)
+      function offset(fly) {
+        var a = anchor.getBoundingClientRect(), sl = fly.parentElement.getBoundingClientRect();
+        var cs = getComputedStyle(fly).translate.split(" ");
+        var dx = parseFloat(cs[0]) || 0, dy = parseFloat(cs[1]) || 0;
+        return { x: a.left - (sl.left + dx), y: a.top - (sl.top + dy) };
+      }
+      var ut = gsap.timeline({
+        defaults: { ease: "none" },
+        scrollTrigger: { trigger: unbox, start: "top top", end: "+=190%", pin: ".unbox-pin", scrub: .6, anticipatePin: 1, invalidateOnRefresh: true }
+      });
+      // 0–2: капакът се вдига и изчезва
+      ut.fromTo(box3d, { "--lift": "0px", "--tilt": "0deg", "--rz": "-10deg" }, { "--lift": "130px", "--tilt": "16deg", "--rz": "0deg", duration: 2, ease: "power1.inOut" }, 0)
+        .fromTo(lid, { opacity: 1 }, { opacity: 0, duration: .6 }, 1.5);
+      // 2–6.5: картите излитат на дъга (дълбочина translateZ) и кацат по местата си
+      var starts = flies.map(function () { return { r: gsap.utils.random(-28, 28, 1), lift: gsap.utils.random(90, 170, 1) }; });
+      function placeInBox() {
+        flies.forEach(function (fly, i) {
+          gsap.set(fly, { clearProps: "transform" });
+          var o = offset(fly);
+          gsap.set(fly, { x: o.x, y: o.y, z: 0, scale: .5, rotation: starts[i].r, opacity: 0 });
+        });
+      }
+      placeInBox();
+      flies.forEach(function (fly, i) {
+        ut.to(fly, {
+          keyframes: {
+            "12%": { opacity: 1 },
+            "45%": { z: starts[i].lift, scale: 1.08 },
+            "100%": { x: 0, y: 0, z: 0, scale: 1, rotation: 0 }
+          },
+          duration: 2.2, ease: "power2.out"
+        }, 2 + i * .12);
+      });
+      window.ScrollTrigger.addEventListener("refreshInit", function () { ut.progress(0); placeInBox(); });
+      // 4.4–5.8: кутията се смалява и изчезва, преди картите да кацнат над нея
+      ut.to(boxWrap, { scale: .6, yPercent: 20, opacity: 0, duration: 1.4, ease: "power1.in" }, 4.4)
+      // 6.6–8.6: надписите и числата
+        .fromTo(unbox.querySelectorAll(".slot-lbl"), { opacity: 0, y: 8 }, { opacity: 1, y: 0, duration: .6, stagger: .2 }, 6.6);
+      unbox.querySelectorAll(".cnt").forEach(function (c, i) {
+        var n = +c.getAttribute("data-n");
+        ut.fromTo(c, { textContent: 0 }, { textContent: n, snap: { textContent: 1 }, duration: 1.2 }, 6.7 + i * .2);
+      });
+      // 8.6–10: обобщението
+      ut.fromTo(unbox.querySelector(".unbox-sum"), { opacity: 0, y: 12 }, { opacity: 1, y: 0, duration: 1.2 }, 8.6);
+      window.__pbUnbox = ut;
+    }
+
     /* нишката под „Трябва ви повод.“ и във финала се изтегля със скрола */
     gsap.utils.toArray(".close-thread, .final-thread").forEach(function (svg) {
       gsap.timeline({ defaults: { ease: "none" }, scrollTrigger: { trigger: svg, start: "top 96%", end: "top 66%", scrub: .5 } })
