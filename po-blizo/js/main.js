@@ -263,6 +263,8 @@
       // 0–2: капакът се вдига и изчезва
       ut.fromTo(box3d, { "--lift": "0px", "--tilt": "0deg", "--rz": "-10deg" }, { "--lift": "130px", "--tilt": "16deg", "--rz": "0deg", duration: 2, ease: "power1.inOut" }, 0)
         .fromTo(lid, { opacity: 1 }, { opacity: 0, duration: .6 }, 1.5);
+      // кутията започва едра (за да изпълни екрана) и се смалява, докато капакът се вдига
+      ut.fromTo(boxWrap, { scale: 1.45 }, { scale: 1, duration: 2, ease: "power1.inOut", immediateRender: true }, 0);
       // 2–6.5: картите излитат на дъга (дълбочина translateZ) и кацат по местата си
       var starts = flies.map(function () { return { r: gsap.utils.random(-28, 28, 1), lift: gsap.utils.random(90, 170, 1) }; });
       function placeInBox() {
@@ -285,7 +287,7 @@
       });
       window.ScrollTrigger.addEventListener("refreshInit", function () { ut.progress(0); placeInBox(); });
       // 4.4–5.8: кутията се смалява и изчезва, преди картите да кацнат над нея
-      ut.to(boxWrap, { scale: .6, yPercent: 20, opacity: 0, duration: 1.4, ease: "power1.in" }, 4.4)
+      ut.fromTo(boxWrap, { scale: 1, yPercent: 0, opacity: 1 }, { scale: .8, yPercent: 0, opacity: 0, duration: 1.1, ease: "power1.in", immediateRender: false }, 4.1)
       // 6.6–8.6: надписите и числата
         .fromTo(unbox.querySelectorAll(".slot-lbl"), { opacity: 0, y: 8 }, { opacity: 1, y: 0, duration: .6, stagger: .2 }, 6.6);
       unbox.querySelectorAll(".cnt").forEach(function (c, i) {
