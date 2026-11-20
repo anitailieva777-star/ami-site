@@ -299,6 +299,39 @@
       window.__pbUnbox = ut;
     }
 
+    /* 4е. „Пътеката на спомена“ — нишката се изтегля като пътека през 3 спирки */
+    var path = document.querySelector(".path");
+    if (path) {
+      var svgP = path.querySelector(".path-svg"), fut = path.querySelector(".path-future"), thr = path.querySelector(".path-thread");
+      var dots = gsap.utils.toArray(path.querySelectorAll(".stop-dot")), XS = [16, 48, 16];
+      function buildPath() {
+        var h = path.offsetHeight;
+        dots.forEach(function (d, i) { d.style.setProperty("--sx", XS[i % 3] + "px"); });
+        // позициите се смятат от оформлението (offsetTop), не от екрана — анимацията не ги измества
+        var pts = dots.map(function (d, i) { return [XS[i % 3], d.parentElement.offsetTop + d.offsetTop + d.offsetHeight / 2]; });
+        var dStr = "M32 0", prev = [32, 0];
+        pts.concat([[32, h]]).forEach(function (p) {
+          var my = (p[1] - prev[1]) / 2;
+          dStr += " C" + prev[0] + " " + (prev[1] + my) + " " + p[0] + " " + (p[1] - my) + " " + p[0] + " " + p[1];
+          prev = p;
+        });
+        svgP.setAttribute("viewBox", "0 0 64 " + h);
+        fut.setAttribute("d", dStr); thr.setAttribute("d", dStr);
+      }
+      buildPath();
+      window.ScrollTrigger.addEventListener("refreshInit", buildPath);
+      gsap.fromTo(thr, { strokeDashoffset: 1 }, { strokeDashoffset: 0, ease: "none",
+        scrollTrigger: { trigger: path, start: "top 62%", end: "bottom 62%", scrub: .4 } });
+      dots.forEach(function (d) {
+        gsap.fromTo(d, { scale: .3, opacity: .35 }, { scale: 1, opacity: 1, ease: "back.out(2)",
+          scrollTrigger: { trigger: d, start: "top 66%", end: "top 58%", scrub: .4 } });
+      });
+      gsap.utils.toArray(".stop-panel").forEach(function (p) {
+        gsap.fromTo(p, { opacity: .25, y: 26 }, { opacity: 1, y: 0, ease: "none",
+          scrollTrigger: { trigger: p, start: "top 88%", end: "top 62%", scrub: .4 } });
+      });
+    }
+
     /* нишката под „Трябва ви повод.“ и във финала се изтегля със скрола */
     gsap.utils.toArray(".close-thread, .final-thread").forEach(function (svg) {
       gsap.timeline({ defaults: { ease: "none" }, scrollTrigger: { trigger: svg, start: "top 96%", end: "top 66%", scrub: .5 } })

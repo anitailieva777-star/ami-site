@@ -333,6 +333,38 @@ p{margin:0}
 .unbox-sum .btn{margin-top:14px}
 
 /* ============================================================
+   4 · „Пътеката на спомена“
+   ============================================================ */
+.pateka{padding-bottom:72px}
+.pateka-head{text-align:center;max-width:620px;margin:0 auto}
+.eyebrow--ink{color:var(--star)}
+.pateka .sec-title{margin-top:10px}
+.pateka-lead{margin-top:12px;font-size:15.5px;color:#2a3450;text-wrap:balance}
+.path{--col:64px;position:relative;max-width:640px;margin:36px auto 0;padding-left:var(--col)}
+/* без JS: права пунктирна линия */
+.path::before{content:"";position:absolute;left:31px;top:0;bottom:0;border-left:1.5px dashed rgba(93,110,152,.45)}
+.js .path::before{display:none}
+.path-svg{position:absolute;left:0;top:0;width:var(--col);height:100%;overflow:visible}
+.path-future{fill:none;stroke:rgba(93,110,152,.35);stroke-width:1.5;stroke-dasharray:3 6;vector-effect:non-scaling-stroke}
+.path-thread{fill:none;stroke:var(--star);stroke-width:2;stroke-linecap:round;stroke-dasharray:1;stroke-dashoffset:0;vector-effect:non-scaling-stroke}
+.stop-panel{position:relative;margin:0 0 clamp(64px,16vh,140px);padding:16px 16px 14px;background:#FBF7F2;border:1px solid #eadcce;border-radius:16px;box-shadow:0 14px 30px -22px rgba(20,32,57,.45)}
+.stop-panel:last-of-type{margin-bottom:0}
+.stop-dot{position:absolute;top:22px;left:calc(var(--sx,32px) - var(--col) - 12px);width:22px;height:22px;display:grid;place-items:center;border-radius:50%;background:radial-gradient(closest-side,rgba(232,196,184,.9),rgba(232,196,184,0))}
+.stop-dot svg{width:18px;height:18px;fill:var(--navy)}
+.sp-head{display:flex;gap:12px;align-items:flex-start}
+.sp-head .pb-card{--cardw:46px;flex:none;box-shadow:0 6px 12px -6px rgba(20,28,42,.5)}
+.sp-head .pb-card .lbl{display:none}
+.sp-k{font-size:11.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--star)}
+.sp-t{font-size:clamp(22px,6vw,28px);margin-top:2px}
+.sp-d{font-size:13.5px;color:#46506a;margin-top:2px}
+.sp-q{margin-top:12px;font-family:var(--f-display);font-style:italic;font-weight:500;font-size:clamp(20px,5.4vw,24px);line-height:1.25;color:var(--navy)}
+.sp-a{margin-top:10px;font-size:14px;color:#2a3450;padding-top:10px;border-top:1px solid #eadcce}
+.tag-draft{display:inline-block;margin-top:10px;font-size:10.5px;font-weight:700;letter-spacing:.08em;color:#8a6d1f;background:#fff3cd;border-radius:4px;padding:2px 6px}
+.pateka-end{text-align:center;margin-top:44px}
+.pe-sum{font-family:var(--f-display);font-weight:600;font-size:clamp(22px,6vw,28px);margin-bottom:16px;text-wrap:balance}
+.pateka-end .btn{white-space:nowrap;padding:0 22px;max-width:100%}
+
+/* ============================================================
    12 · Финален призив
    ============================================================ */
 .final{padding-left:0;padding-right:0;padding-bottom:110px}
