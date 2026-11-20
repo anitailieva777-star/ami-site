@@ -268,6 +268,37 @@ setTimeout(function(){c.classList.remove("intro")},4000);}})(document);
 
 </main>
 
+<footer class="site-footer" data-theme="dark">
+  <div class="sf-inner">
+    <span class="sf-brand">ПО-БЛИЗО</span>
+    <nav class="sf-links" aria-label="Правна информация">
+      <a href="#">Общи условия [ЧЕРНОВА]</a>
+      <a href="#">Политика за поверителност [ЧЕРНОВА]</a>
+      <a href="politika-biskvitki.html">Политика за бисквитки [ЧЕРНОВА]</a>
+      <a href="#">Право на отказ [ЧЕРНОВА]</a>
+      <button type="button" class="sf-cookie" data-cookie-settings>Настройки за бисквитки</button>
+    </nav>
+    <p class="sf-co">[ИМЕ НА ФИРМАТА] · ЕИК [ПЛЕЙСХОЛДЪР] · [АДРЕС]</p>
+  </div>
+</footer>
+
+<!-- Банер за бисквитки: Pixel се зарежда само след „Приемам“ -->
+<section class="cookie" id="cookie" role="region" aria-label="Бисквитки" hidden>
+  <div class="ck-main">
+    <p class="ck-text"><b>Бисквитки:</b> Meta Pixel за измерване на рекламите. <a href="politika-biskvitki.html">Политика за бисквитки</a></p>
+    <div class="ck-actions">
+      <button type="button" class="ck-btn ck-btn--solid" data-consent="granted">Приемам</button>
+      <button type="button" class="ck-btn ck-btn--line" data-consent="denied">Отказвам</button>
+      <button type="button" class="ck-btn ck-btn--text" aria-expanded="false" aria-controls="ck-prefs" data-cookie-toggle>Настройки</button>
+    </div>
+  </div>
+  <div class="ck-prefs" id="ck-prefs" hidden>
+    <label class="ck-row"><input type="checkbox" checked disabled> <span><b>Необходими</b> — запомнят избора ви. Винаги включени.</span></label>
+    <label class="ck-row"><input type="checkbox" id="ck-marketing"> <span><b>Маркетинг</b> — Meta Pixel: измерване на рекламите.</span></label>
+    <button type="button" class="ck-btn ck-btn--solid" data-consent-save>Запази избора</button>
+  </div>
+</section>
+
 <div class="sticky-cta" aria-hidden="true">
   <div>
     <div class="sc-name">ПО-БЛИЗО</div>

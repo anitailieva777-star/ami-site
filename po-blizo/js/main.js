@@ -50,11 +50,63 @@
     window.fbq("track", "PageView");
     window.fbq("track", "ViewContent", { content_ids: [p.id], content_name: "ПО-БЛИЗО", content_type: "product", value: p.value, currency: cfg.currency });
   }
-  // Банерът за бисквитки (следваща стъпка) ще извиква window.pbConsent("granted" | "denied").
+  /* Банер за бисквитки: Приемам / Отказвам / Настройки. Изборът се пази 180 дни. */
+  var CONSENT_VERSION = 1, CONSENT_DAYS = 180;
+  function readConsent() {
+    try {
+      var c = JSON.parse(localStorage.getItem(CONSENT_KEY + "_v") || "null");
+      if (!c || c.v !== CONSENT_VERSION || Date.now() - c.t > CONSENT_DAYS * 864e5) return null;
+      return c.s;
+    } catch (e) { return null; }
+  }
+  function dropMetaCookies() {
+    ["_fbp", "_fbc"].forEach(function (n) {
+      document.cookie = n + "=; Max-Age=0; path=/";
+      document.cookie = n + "=; Max-Age=0; path=/; domain=." + location.hostname.replace(/^www\./, "");
+    });
+  }
+  var banner = document.getElementById("cookie");
+  var prefs = document.getElementById("ck-prefs");
+  var mk = document.getElementById("ck-marketing");
+  var toggle = banner && banner.querySelector("[data-cookie-toggle]");
+  function showBanner(open) {
+    if (!banner) return;
+    banner.hidden = false;
+    if (mk) mk.checked = readConsent() === "granted";
+    if (open && prefs) { prefs.hidden = false; toggle.setAttribute("aria-expanded", "true"); }
+    if (window.__pbSync) window.__pbSync();
+  }
+  function hideBanner() {
+    if (!banner) return;
+    banner.hidden = true;
+    if (prefs) { prefs.hidden = true; toggle.setAttribute("aria-expanded", "false"); }
+    if (window.__pbSync) window.__pbSync();
+  }
   window.pbConsent = function (state) {
-    try { localStorage.setItem(CONSENT_KEY, state); } catch (e) {}
+    var before = readConsent();
+    try {
+      localStorage.setItem(CONSENT_KEY + "_v", JSON.stringify({ s: state, v: CONSENT_VERSION, t: Date.now() }));
+      localStorage.setItem(CONSENT_KEY, state);
+    } catch (e) {}
     if (state === "granted") loadPixel();
+    else { dropMetaCookies(); if (before === "granted" && window.fbq) location.reload(); }
+    hideBanner();
   };
+  hasConsent = function () { return readConsent() === "granted"; };
+  if (banner) {
+    banner.addEventListener("click", function (e) {
+      var t = e.target.closest("button"); if (!t) return;
+      if (t.hasAttribute("data-consent")) window.pbConsent(t.getAttribute("data-consent"));
+      else if (t.hasAttribute("data-consent-save")) window.pbConsent(mk && mk.checked ? "granted" : "denied");
+      else if (t.hasAttribute("data-cookie-toggle")) {
+        var open = prefs.hidden; prefs.hidden = !open; t.setAttribute("aria-expanded", String(open));
+        if (window.__pbSync) window.__pbSync();
+        if (open && mk) mk.focus();
+      }
+    });
+  }
+  document.querySelectorAll("[data-cookie-settings]").forEach(function (b) { b.addEventListener("click", function () { showBanner(true); }); });
+  if (readConsent() === null) showBanner(false);
   if (hasConsent()) loadPixel();
 
   document.addEventListener("click", function (e) {
@@ -81,9 +133,18 @@
   var heroCtas = document.querySelector(".hero-ctas");
   if (bar && heroCtas && "IntersectionObserver" in window) {
     var pastHero = false, hiders = new Set();
+    var heroBtn = heroCtas.querySelector(".btn--primary"), ck = document.getElementById("cookie");
+    // Ако банерът за бисквитки застъпи главния бутон, показваме лентата „Поръчай“ под банера.
+    var coveredByBanner = function () {
+      if (!ck || ck.hidden || pastHero) return false;
+      // сравняваме с мястото на банера без лентата, за да няма „залепване“
+      var b = heroBtn.getBoundingClientRect(), baseTop = window.innerHeight - 8 - ck.offsetHeight;
+      return b.bottom > baseTop && b.top < window.innerHeight;
+    };
     var sync = function () {
-      var on = pastHero && hiders.size === 0;
+      var on = (pastHero || coveredByBanner()) && hiders.size === 0;
       bar.classList.toggle("is-on", on);
+      root.style.setProperty("--bar-h", on ? bar.offsetHeight + "px" : "0px");
       bar.setAttribute("aria-hidden", on ? "false" : "true");
       bar.querySelectorAll("a").forEach(function (l) { l.tabIndex = on ? 0 : -1; });
     };
@@ -96,6 +157,10 @@
       sync();
     }, { rootMargin: "0px 0px -20% 0px" });
     document.querySelectorAll("[data-hide-sticky]").forEach(function (el) { ho.observe(el); });
+    var raf = 0, onMove = function () { if (!raf) raf = requestAnimationFrame(function () { raf = 0; sync(); }); };
+    window.addEventListener("resize", onMove, { passive: true });
+    window.addEventListener("scroll", onMove, { passive: true });
+    window.__pbSync = sync;
     sync();
   }
 
