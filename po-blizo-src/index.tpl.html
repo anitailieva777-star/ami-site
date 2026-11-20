@@ -98,8 +98,8 @@ setTimeout(function(){c.classList.remove("intro")},4000);}})(document);
 
       <div class="hero-visual">
         <img class="hero-photo"
-             src="img/box-hero-780.webp"
-             srcset="img/box-hero-480.webp 480w, img/box-hero-780.webp 780w, img/box-hero-1122.webp 1122w"
+             src="img/box-hero-800.webp"
+             srcset="img/box-hero-480.webp 480w, img/box-hero-800.webp 800w, img/box-hero-1122.webp 1122w"
              sizes="(min-width: 900px) 44vw, 100vw"
              width="1122" height="1402" fetchpriority="high" decoding="async"
              alt="Кутията ПО-БЛИЗО с два профила от съзвездия, свързани със светла нишка, и трите тестета карти — I · Първите моменти, II · Какво се промени, III · Какво искаме да запазим — на мраморна маса във вечерна светлина">
@@ -128,15 +128,70 @@ setTimeout(function(){c.classList.remove("intro")},4000);}})(document);
   </section>
 
   <!-- Временни секции: показват ритъма светло/тъмно. Съдържанието идва в следващите стъпки. -->
-  <section class="sec sec-stub" id="poznato" data-theme="light" aria-labelledby="poznato-title">
+  <!-- ============ 2 · „Познато ли ти е?“ ============ -->
+  <section class="sec pains" id="poznato" data-theme="light" aria-labelledby="poznato-title">
     <h2 class="sec-title" id="poznato-title">Познато ли ти е?</h2>
-    <p>[Сцена 2 — следва]</p>
+    <ol class="pain-list">
+      <li class="pain">
+        <figure class="pain-fig">
+          <div class="pain-media"><img class="pain-img" src="img/scene-1-sofa-800.webp" srcset="img/scene-1-sofa-480.webp 480w, img/scene-1-sofa-800.webp 800w, img/scene-1-sofa-1122.webp 1122w" sizes="(min-width: 900px) 540px, 100vw" width="1122" height="1402" loading="lazy" decoding="async" alt="Жена и мъж седят в двата края на светъл диван вечер и всеки гледа в своя телефон"></div>
+          <figcaption class="pain-cap">
+            <span class="pain-n" aria-hidden="true">01</span>
+            <h3 class="pain-title">Вечерта е в телефоните.</h3>
+            <p class="pain-text">Седите заедно, но всеки е в своя екран.</p>
+          </figcaption>
+        </figure>
+      </li>
+      <li class="pain">
+        <figure class="pain-fig">
+          <div class="pain-media"><img class="pain-img" src="img/scene-2-kitchen-800.webp" srcset="img/scene-2-kitchen-480.webp 480w, img/scene-2-kitchen-800.webp 800w, img/scene-2-kitchen-1122.webp 1122w" sizes="(min-width: 900px) 540px, 100vw" width="1122" height="1402" loading="lazy" decoding="async" alt="Мъж работи на лаптоп на кухненската маса, а жена стои до плота с чаша в ръка и го гледа"></div>
+          <figcaption class="pain-cap">
+            <span class="pain-n" aria-hidden="true">02</span>
+            <h3 class="pain-title">„Как мина денят?“ — „Добре.“</h3>
+            <p class="pain-text">И разговорът свършва дотук.</p>
+          </figcaption>
+        </figure>
+      </li>
+      <li class="pain">
+        <figure class="pain-fig">
+          <div class="pain-media"><img class="pain-img" src="img/scene-3-dinner-800.webp" srcset="img/scene-3-dinner-480.webp 480w, img/scene-3-dinner-800.webp 800w, img/scene-3-dinner-1050.webp 1050w" sizes="(min-width: 900px) 540px, 100vw" width="1050" height="1312" loading="lazy" decoding="async" alt="Жена и мъж вечерят мълчаливо на кръгла дървена маса — тя гледа в чинията, той гледа встрани"></div>
+          <figcaption class="pain-cap">
+            <span class="pain-n" aria-hidden="true">03</span>
+            <h3 class="pain-title">Вечеря в тишина.</h3>
+            <p class="pain-text">На една маса, но всеки е в мислите си.</p>
+          </figcaption>
+        </figure>
+      </li>
+      <li class="pain">
+        <figure class="pain-fig">
+          <div class="pain-media"><img class="pain-img" src="img/scene-4-window-800.webp" srcset="img/scene-4-window-480.webp 480w, img/scene-4-window-800.webp 800w, img/scene-4-window-1122.webp 1122w" sizes="(min-width: 900px) 540px, 100vw" width="1122" height="1402" loading="lazy" decoding="async" alt="Мъж и жена стоят един до друг до прозореца с нощния град, но гледат в различни посоки"></div>
+          <figcaption class="pain-cap">
+            <span class="pain-n" aria-hidden="true">04</span>
+            <h3 class="pain-title">Един до друг, но далеч.</h3>
+            <p class="pain-text">Кога за последно говорихте за мечти?</p>
+          </figcaption>
+        </figure>
+      </li>
+    </ol>
+    <div class="pain-close">
+      <p>Не ви трябва още време.<br><em>Трябва ви повод.</em></p>
+      <svg class="close-thread" viewBox="0 0 240 40" aria-hidden="true">
+        <path class="ct-line" pathLength="1" d="M8 32C60 32 92 10 120 10C148 10 180 32 232 32"/>
+        <circle class="ct-dot" cx="8" cy="32" r="2"/><circle class="ct-dot" cx="232" cy="32" r="2"/>
+        <path class="ct-star" d="M120 3Q121 9 127 10Q121 11 120 17Q119 11 113 10Q119 9 120 3Z"/>
+      </svg>
+    </div>
   </section>
 
   <section class="sec sec-stub" id="kutiyata" data-theme="light" aria-labelledby="kutiyata-title">
     <h2 class="sec-title" id="kutiyata-title">Отвори кутията</h2>
     <p>[Сцена 3 — следва]</p>
     <a class="btn btn--outline" href="#opitai">Виж картите</a>
+  </section>
+
+  <section class="sec sec-stub" id="opitai" data-theme="light" aria-labelledby="opitai-title">
+    <h2 class="sec-title" id="opitai-title">Опитай 3 карти</h2>
+    <p>[Сцена 7 — следва]</p>
   </section>
 
   <section class="sec sec-stub" id="oferta" data-theme="dark" data-hide-sticky aria-labelledby="oferta-title">
@@ -150,10 +205,39 @@ setTimeout(function(){c.classList.remove("intro")},4000);}})(document);
     <p>[Сцена 11 — следва]</p>
   </section>
 
-  <section class="sec sec-stub" id="final" data-theme="dark" data-hide-sticky aria-labelledby="final-title">
-    <h2 class="sec-title" id="final-title">Първата вечер по пътеката може да е тази седмица.</h2>
-    <p>[Сцена 12 — следва]</p>
-    <a class="btn btn--primary" href="#oferta" data-checkout="basic">Поръчай <span class="price-sep">—</span> 34,90&nbsp;€</a>
+  <!-- ============ 12 · Финален призив ============ -->
+  <section class="sec final" id="final" data-theme="dark" data-hide-sticky aria-labelledby="final-title">
+    <div class="final-inner">
+      <figure class="final-photo">
+        <img src="img/scene-5-evening-800.webp" srcset="img/scene-5-evening-480.webp 480w, img/scene-5-evening-800.webp 800w, img/scene-5-evening-1122.webp 1122w"
+             sizes="(min-width: 900px) 480px, 100vw" width="1122" height="1402" loading="lazy" decoding="async"
+             alt="Две ръце върху мраморна маса до кутията ПО-БЛИЗО и карти от трите етапа, до тях свещ и две чаши вино">
+      </figure>
+      <div class="final-copy">
+        <svg class="final-thread" viewBox="0 0 240 40" aria-hidden="true">
+          <path class="ct-line" pathLength="1" d="M8 32C60 32 92 10 120 10C148 10 180 32 232 32"/>
+          <circle class="ct-dot" cx="8" cy="32" r="2"/><circle class="ct-dot" cx="232" cy="32" r="2"/>
+          <path class="ct-star" d="M120 3Q121 9 127 10Q121 11 120 17Q119 11 113 10Q119 9 120 3Z"/>
+        </svg>
+        <h2 class="final-title" id="final-title">Първата вечер по пътеката може да е тази седмица.</h2>
+        <ul class="final-list">
+          <li>52 карти в 3 етапа</li>
+          <li>15 вечери по Пътеката на спомена</li>
+          <li>Гаранция „3 вечери“</li>
+        </ul>
+        <p class="final-warn">Още една вечер в телефоните или първата вечер по пътеката.</p>
+        <div class="final-ctas">
+          <a class="btn btn--primary" href="#oferta" data-checkout="basic">Поръчай <span class="price-sep">—</span> 34,90&nbsp;€</a>
+          <a class="btn btn--ghost" href="#oferta" data-checkout="gift">Подаръчно издание <span class="price-sep">—</span> 44,90&nbsp;€</a>
+        </div>
+        <ul class="trust" aria-label="Плащане и доставка">
+          <li>Наложен платеж</li>
+          <li>Преглед преди плащане</li>
+          <li>Доставка 1–3 работни дни</li>
+        </ul>
+        <p class="final-ship">Основно издание: доставка по тарифа на куриера. Подаръчно издание: безплатна доставка.</p>
+      </div>
+    </div>
   </section>
 
 </main>

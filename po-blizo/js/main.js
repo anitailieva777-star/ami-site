@@ -167,6 +167,24 @@
     window.__pbScrub = scrub;
   }
 
+  /* 4г. „Познато ли ти е?“ — всяка снимка се отваря със скрола (едно движение на екран) */
+  if (window.ScrollTrigger) {
+    gsap.utils.toArray(".pain-fig").forEach(function (fig) {
+      var media = fig.querySelector(".pain-media"), img = fig.querySelector(".pain-img"), cap = fig.querySelector(".pain-cap");
+      var tl = gsap.timeline({ defaults: { ease: "none" }, scrollTrigger: { trigger: fig, start: "top 92%", end: "top 30%", scrub: .5 } });
+      tl.fromTo(media, { clipPath: "inset(10% 7% 10% 7% round 18px)" }, { clipPath: "inset(0% 0% 0% 0% round 0px)", duration: 1 }, 0)
+        .fromTo(img, { scale: 1.1 }, { scale: 1, duration: 1 }, 0)
+        .fromTo(cap, { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: .35 }, .55);
+    });
+
+    /* нишката под „Трябва ви повод.“ и във финала се изтегля със скрола */
+    gsap.utils.toArray(".close-thread, .final-thread").forEach(function (svg) {
+      gsap.timeline({ defaults: { ease: "none" }, scrollTrigger: { trigger: svg, start: "top 90%", end: "top 55%", scrub: .5 } })
+        .fromTo(svg.querySelector(".ct-line"), { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: 1 }, 0)
+        .fromTo(svg.querySelector(".ct-star"), { scale: 0, opacity: 0 }, { scale: 1, opacity: 1, duration: .3 }, .7);
+    });
+  }
+
   /* 4в. Паралакс: само снимката, макс. 7px, само с мишка */
   mm.add("(hover: hover) and (pointer: fine)", function () {
     var hero = document.querySelector(".hero");
