@@ -179,7 +179,8 @@
 
     /* нишката под „Трябва ви повод.“ и във финала се изтегля със скрола */
     gsap.utils.toArray(".close-thread, .final-thread").forEach(function (svg) {
-      gsap.timeline({ defaults: { ease: "none" }, scrollTrigger: { trigger: svg, start: "top 90%", end: "top 55%", scrub: .5 } })
+      gsap.timeline({ defaults: { ease: "none" }, scrollTrigger: { trigger: svg, start: "top 96%", end: "top 66%", scrub: .5 } })
+        .fromTo(svg.querySelectorAll(".ct-dot"), { opacity: 0 }, { opacity: 1, duration: .15 }, 0)
         .fromTo(svg.querySelector(".ct-line"), { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: 1 }, 0)
         .fromTo(svg.querySelector(".ct-star"), { scale: 0, opacity: 0 }, { scale: 1, opacity: 1, duration: .3 }, .7);
     });
