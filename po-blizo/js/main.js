@@ -163,6 +163,7 @@
     window.addEventListener("scroll", onMove, { passive: true });
     window.__pbSync = sync;
     sync();
+    setTimeout(sync, 450); // след като текстът в hero се плъзне на мястото си
   }
 
   /* ----------------------------------------------------------
