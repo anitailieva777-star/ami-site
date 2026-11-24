@@ -157,11 +157,57 @@
       sync();
     }, { rootMargin: "0px 0px -20% 0px" });
     document.querySelectorAll("[data-hide-sticky]").forEach(function (el) { ho.observe(el); });
+    window.__pbSyncHiders = function (el) { ho.unobserve(el); ho.observe(el); };
     var raf = 0, onMove = function () { if (!raf) raf = requestAnimationFrame(function () { raf = 0; sync(); }); };
     window.addEventListener("resize", onMove, { passive: true });
     window.addEventListener("scroll", onMove, { passive: true });
     window.__pbSync = sync;
     sync();
+  }
+
+  /* ----------------------------------------------------------
+     3б. „Опитай 3 карти“ — обръщане с докосване, карта по карта (работи и без GSAP)
+     ---------------------------------------------------------- */
+  var deck = document.querySelector(".deck");
+  if (deck) {
+    var flips = Array.prototype.slice.call(deck.querySelectorAll(".flip"));
+    var stepN = deck.querySelector(".ds-n"), dotsEl = deck.querySelectorAll(".deck-dots i");
+    var prevB = deck.querySelector(".deck-prev"), nextB = deck.querySelector(".deck-next");
+    var end = document.querySelector(".try-end"), cur = 0;
+    function render() {
+      flips.forEach(function (f, i) {
+        f.classList.toggle("is-active", i === cur);
+        f.classList.toggle("is-past", i < cur);
+        f.setAttribute("aria-hidden", i === cur ? "false" : "true");
+        f.querySelector(".flip-btn").tabIndex = i === cur ? 0 : -1;
+      });
+      stepN.textContent = cur + 1;
+      for (var k = 0; k < dotsEl.length; k++) dotsEl[k].classList.toggle("on", k <= cur);
+      var flipped = flips[cur].classList.contains("is-flipped");
+      deck.classList.toggle("is-flipped", flipped);
+      prevB.disabled = cur === 0;
+      nextB.disabled = !flipped || cur === flips.length - 1;
+      nextB.hidden = cur === flips.length - 1;
+      if (cur === flips.length - 1 && flipped && end.hidden) {
+        end.hidden = false;
+        if (window.__pbSyncHiders) window.__pbSyncHiders(end);
+      }
+    }
+    flips.forEach(function (f, i) {
+      f.querySelector(".flip-btn").addEventListener("click", function () {
+        if (i !== cur) return;
+        var on = !f.classList.contains("is-flipped");
+        f.classList.toggle("is-flipped", on);
+        this.setAttribute("aria-pressed", String(on));
+        // обърната: екранният четец чете въпроса и действието от лицето на картата
+        if (on) { this.dataset.label = this.getAttribute("aria-label") || this.dataset.label; this.removeAttribute("aria-label"); }
+        else if (this.dataset.label) this.setAttribute("aria-label", this.dataset.label);
+        render();
+      });
+    });
+    prevB.addEventListener("click", function () { if (cur > 0) { cur--; render(); } });
+    nextB.addEventListener("click", function () { if (cur < flips.length - 1) { cur++; render(); flips[cur].querySelector(".flip-btn").focus({ preventScroll: true }); } });
+    render();
   }
 
   /* ----------------------------------------------------------
@@ -242,93 +288,85 @@
         .fromTo(cap, { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: .35 }, .55);
     });
 
-    /* 4д. „Отвори кутията“ — закачена сцена: капакът се вдига, картите излитат и се подреждат по видове */
+    /* 4д. „Отвори кутията“ — закачена сцена: капакът се вдига, картите излитат и се подреждат в 3 купчинки.
+          Кутията е под заглавието и излиза от средната купчинка — нищо не се застъпва със заглавието. */
     var unbox = document.querySelector(".unbox");
     if (unbox) {
       root.classList.add("motion");
-      var stage = unbox.querySelector(".unbox-stage"), anchor = unbox.querySelector(".unbox-anchor");
-      var box3d = unbox.querySelector(".box3d"), lid = unbox.querySelector(".lid"), boxWrap = unbox.querySelector(".unbox-box");
-      var flies = gsap.utils.toArray(unbox.querySelectorAll(".fly"));
-      // отместване от центъра на кутията до крайното място на всяка карта (в пиксели, преизчислява се при resize)
+      var boxWrap = unbox.querySelector(".unbox-box"), box3d = unbox.querySelector(".box3d"), lid = unbox.querySelector(".lid");
+      var piles = gsap.utils.toArray(unbox.querySelectorAll(".pile"));
+      // ред на излитане: лявата, дясната, накрая средната (където е била кутията)
+      var order = [piles[0], piles[2], piles[1]];
+      var flies = [];
+      order.forEach(function (p) { gsap.utils.toArray(p.querySelectorAll(".fly")).forEach(function (f) { flies.push(f); }); });
+      var center = unbox.querySelector(".pile:nth-child(2) .pile-cards");
       function offset(fly) {
-        var a = anchor.getBoundingClientRect(), sl = fly.parentElement.getBoundingClientRect();
-        var cs = getComputedStyle(fly).translate.split(" ");
-        var dx = parseFloat(cs[0]) || 0, dy = parseFloat(cs[1]) || 0;
-        return { x: a.left - (sl.left + dx), y: a.top - (sl.top + dy) };
+        var c = center.getBoundingClientRect(), pc = fly.parentElement.getBoundingClientRect();
+        return { x: (c.left + c.width / 2) - (pc.left + pc.width / 2), y: (c.top + c.height / 2) - (pc.top + pc.height / 2) };
       }
-      var ut = gsap.timeline({
-        defaults: { ease: "none" },
-        scrollTrigger: { trigger: unbox, start: "top top", end: "+=190%", pin: ".unbox-pin", scrub: .6, anticipatePin: 1, invalidateOnRefresh: true }
-      });
-      // 0–2: капакът се вдига и изчезва
-      ut.fromTo(box3d, { "--lift": "0px", "--tilt": "0deg", "--rz": "-10deg" }, { "--lift": "130px", "--tilt": "16deg", "--rz": "0deg", duration: 2, ease: "power1.inOut" }, 0)
-        .fromTo(lid, { opacity: 1 }, { opacity: 0, duration: .6 }, 1.5);
-      // кутията започва едра (за да изпълни екрана) и се смалява, докато капакът се вдига
-      ut.fromTo(boxWrap, { scale: 1.45 }, { scale: 1, duration: 2, ease: "power1.inOut", immediateRender: true }, 0);
-      // 2–6.5: картите излитат на дъга (дълбочина translateZ) и кацат по местата си
-      var starts = flies.map(function () { return { r: gsap.utils.random(-28, 28, 1), lift: gsap.utils.random(90, 170, 1) }; });
+      var starts = flies.map(function () { return { r: gsap.utils.random(-22, 22, 1), lift: gsap.utils.random(80, 150, 1) }; });
       function placeInBox() {
         flies.forEach(function (fly, i) {
           gsap.set(fly, { clearProps: "transform" });
           var o = offset(fly);
-          gsap.set(fly, { x: o.x, y: o.y, z: 0, scale: .5, rotation: starts[i].r, opacity: 0 });
+          gsap.set(fly, { x: o.x, y: o.y, z: 0, scale: .55, rotation: starts[i].r, opacity: 0 });
         });
       }
       placeInBox();
+      var ut = gsap.timeline({
+        defaults: { ease: "none" },
+        scrollTrigger: { trigger: unbox, start: "top top", end: "+=150%", pin: ".unbox-pin", scrub: .6, anticipatePin: 1, invalidateOnRefresh: true }
+      });
+      // 0–2: капакът се вдига и изчезва
+      ut.fromTo(box3d, { "--lift": "0px", "--tilt": "0deg", "--rz": "-10deg" }, { "--lift": "60px", "--tilt": "14deg", "--rz": "0deg", duration: 2, ease: "power1.inOut" }, 0)
+        .fromTo(lid, { opacity: 1 }, { opacity: 0, duration: .7 }, 1.3)
+        .fromTo(boxWrap, { opacity: 1, scale: 1 }, { opacity: 0, scale: .85, duration: .9, ease: "power1.in", immediateRender: false }, 4.1);
+      // 2–5.4: картите излитат на дъга (дълбочина translateZ) и кацат леко разместени
       flies.forEach(function (fly, i) {
         ut.to(fly, {
-          keyframes: {
-            "12%": { opacity: 1 },
-            "45%": { z: starts[i].lift, scale: 1.08 },
-            "100%": { x: 0, y: 0, z: 0, scale: 1, rotation: 0 }
-          },
-          duration: 2.2, ease: "power2.out"
-        }, 2 + i * .12);
+          keyframes: { "12%": { opacity: 1 }, "45%": { z: starts[i].lift, scale: 1.06 }, "100%": { x: 0, y: 0, z: 0, scale: 1, rotation: 0 } },
+          duration: 1.8, ease: "power2.out"
+        }, 2 + i * .14);
       });
+      // 5.2–6.4: имената на купчинките, 6.4–7.6: обобщението
+      ut.fromTo(unbox.querySelectorAll(".pile-lbl"), { opacity: 0, y: 8 }, { opacity: 1, y: 0, duration: .6, stagger: .25 }, 5.2)
+        .fromTo(unbox.querySelector(".unbox-sum"), { opacity: 0, y: 12 }, { opacity: 1, y: 0, duration: 1.2 }, 6.4);
       window.ScrollTrigger.addEventListener("refreshInit", function () { ut.progress(0); placeInBox(); });
-      // 4.4–5.8: кутията се смалява и изчезва, преди картите да кацнат над нея
-      ut.fromTo(boxWrap, { scale: 1, yPercent: 0, opacity: 1 }, { scale: .8, yPercent: 0, opacity: 0, duration: 1.1, ease: "power1.in", immediateRender: false }, 4.1)
-      // 6.6–8.6: надписите и числата
-        .fromTo(unbox.querySelectorAll(".slot-lbl"), { opacity: 0, y: 8 }, { opacity: 1, y: 0, duration: .6, stagger: .2 }, 6.6);
-      unbox.querySelectorAll(".cnt").forEach(function (c, i) {
-        var n = +c.getAttribute("data-n");
-        ut.fromTo(c, { textContent: 0 }, { textContent: n, snap: { textContent: 1 }, duration: 1.2 }, 6.7 + i * .2);
-      });
-      // 8.6–10: обобщението
-      ut.fromTo(unbox.querySelector(".unbox-sum"), { opacity: 0, y: 12 }, { opacity: 1, y: 0, duration: 1.2 }, 8.6);
       window.__pbUnbox = ut;
     }
 
-    /* 4е. „Пътеката на спомена“ — нишката се изтегля като пътека през 3 спирки */
+    /* 4е. „Пътеката на спомена“ — нишката минава през трите карти и се изтегля със скрола */
     var path = document.querySelector(".path");
     if (path) {
       var svgP = path.querySelector(".path-svg"), fut = path.querySelector(".path-future"), thr = path.querySelector(".path-thread");
-      var dots = gsap.utils.toArray(path.querySelectorAll(".stop-dot")), XS = [16, 48, 16];
+      var pcards = gsap.utils.toArray(path.querySelectorAll(".stop-card"));
       function buildPath() {
-        var h = path.offsetHeight;
-        dots.forEach(function (d, i) { d.style.setProperty("--sx", XS[i % 3] + "px"); });
-        // позициите се смятат от оформлението (offsetTop), не от екрана — анимацията не ги измества
-        var pts = dots.map(function (d, i) { return [XS[i % 3], d.parentElement.offsetTop + d.offsetTop + d.offsetHeight / 2]; });
-        var dStr = "M32 0", prev = [32, 0];
-        pts.concat([[32, h]]).forEach(function (p) {
+        var w = path.offsetWidth, h = path.offsetHeight;
+        // центрове на картите от оформлението (offset), не от екрана
+        // сумираме offset-ите по веригата до .path (трансформациите от анимацията не влизат в тях)
+        var pts = pcards.map(function (c) {
+          var x = c.offsetWidth / 2, y = c.offsetHeight / 2, el = c;
+          while (el && el !== path) { x += el.offsetLeft; y += el.offsetTop; el = el.offsetParent; }
+          return [x, y];
+        });
+        var d = "M" + pts[0][0] + " " + (pts[0][1] - 62);
+        var prev = [pts[0][0], pts[0][1] - 62];
+        pts.concat([[pts[2][0], pts[2][1] + 62]]).forEach(function (p) {
           var my = (p[1] - prev[1]) / 2;
-          dStr += " C" + prev[0] + " " + (prev[1] + my) + " " + p[0] + " " + (p[1] - my) + " " + p[0] + " " + p[1];
+          d += " C" + prev[0] + " " + (prev[1] + my) + " " + p[0] + " " + (p[1] - my) + " " + p[0] + " " + p[1];
           prev = p;
         });
-        svgP.setAttribute("viewBox", "0 0 64 " + h);
-        fut.setAttribute("d", dStr); thr.setAttribute("d", dStr);
+        svgP.setAttribute("viewBox", "0 0 " + w + " " + h);
+        fut.setAttribute("d", d); thr.setAttribute("d", d);
+        path.classList.add("is-drawn");
       }
       buildPath();
       window.ScrollTrigger.addEventListener("refreshInit", buildPath);
       gsap.fromTo(thr, { strokeDashoffset: 1 }, { strokeDashoffset: 0, ease: "none",
-        scrollTrigger: { trigger: path, start: "top 62%", end: "bottom 62%", scrub: .4 } });
-      dots.forEach(function (d) {
-        gsap.fromTo(d, { scale: .3, opacity: .35 }, { scale: 1, opacity: 1, ease: "back.out(2)",
-          scrollTrigger: { trigger: d, start: "top 66%", end: "top 58%", scrub: .4 } });
-      });
-      gsap.utils.toArray(".stop-panel").forEach(function (p) {
-        gsap.fromTo(p, { opacity: .25, y: 26 }, { opacity: 1, y: 0, ease: "none",
-          scrollTrigger: { trigger: p, start: "top 88%", end: "top 62%", scrub: .4 } });
+        scrollTrigger: { trigger: path, start: "top 80%", end: "bottom 88%", scrub: .4 } });
+      gsap.utils.toArray(path.querySelectorAll(".stop")).forEach(function (st) {
+        gsap.fromTo(st, { opacity: .25, y: 18 }, { opacity: 1, y: 0, ease: "none",
+          scrollTrigger: { trigger: st, start: "top 92%", end: "top 72%", scrub: .4 } });
       });
     }
 

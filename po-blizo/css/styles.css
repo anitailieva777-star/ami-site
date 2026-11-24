@@ -298,71 +298,106 @@ p{margin:0}
    ============================================================ */
 .unbox{padding:0}
 .unbox-pin{
-  min-height:100svh;display:flex;flex-direction:column;align-items:center;
-  padding:56px var(--gutter) calc(84px + env(safe-area-inset-bottom));
+  min-height:100svh;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:0;
+  padding:48px var(--gutter) calc(84px + env(safe-area-inset-bottom));
 }
 .unbox .sec-title{flex:none}
-.unbox-stage{
-  --fanw:clamp(58px,16vw,128px);--pilew:clamp(46px,12.5vw,96px);
-  position:relative;flex:1;width:100%;max-width:1000px;min-height:380px;margin-top:8px;
-  perspective:900px;perspective-origin:50% 40%;
-}
-.unbox-anchor{position:absolute;left:50%;top:47%;width:1px;height:1px}
-.slot{position:absolute;left:var(--x);top:var(--y);width:0;height:0;transform-style:preserve-3d}
-.fly{position:absolute;left:0;top:0;translate:var(--dx) var(--dy);will-change:transform}
-.tilt{rotate:var(--r);transform-origin:50% 85%}
-.slot--fan .pb-card{--cardw:var(--fanw)}
-.slot--pile .pb-card{--cardw:var(--pilew)}
-.fly .pb-card{position:absolute;left:calc(var(--cardw) / -2);top:calc(var(--cardw) * -0.7);box-shadow:0 10px 18px -10px rgba(20,28,42,.55),0 1px 3px rgba(20,28,42,.2)}
+/* място под заглавието, където кутията се появява и отваря — никога върху него */
+.unbox-stage{--cardw:clamp(84px,25vw,150px);width:100%;max-width:760px;padding-top:clamp(84px,13vh,120px);position:relative}
+.piles{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;align-items:start}
+.pile{display:flex;flex-direction:column;align-items:center;min-width:0}
+.pile-cards{position:relative;width:var(--cardw);height:calc(var(--cardw) * 88 / 63)}
+.fly{position:absolute;inset:0;translate:var(--dx) var(--dy);rotate:var(--r);will-change:transform}
+.fly .pb-card{--cardw:inherit;width:100%;box-shadow:0 10px 18px -10px rgba(20,28,42,.5),0 1px 3px rgba(20,28,42,.18)}
 .unbox .pb-card .lbl{display:none}
-.slot-lbl{
-  position:absolute;left:var(--x);top:var(--y);transform:translate(-50%,-30%);
-  width:max-content;max-width:31%;text-align:center;font-size:12px;line-height:1.3;color:#2a3450;
-}
-.slot-lbl--fan{max-width:32%}
-.slot-lbl:not(.slot-lbl--fan){max-width:23%;font-size:11px}
-.slot-lbl b{display:block;font-family:var(--f-display);font-weight:600;font-size:clamp(26px,7vw,40px);line-height:1;color:var(--navy);margin-bottom:2px;font-variant-numeric:lining-nums tabular-nums}
-.slot-lbl span{display:block;font-weight:600;letter-spacing:.02em}
-.unbox-box{display:none;position:absolute;left:50%;top:47%;translate:-50% -50%}
+.pile-lbl{margin-top:24px;text-align:center;font-family:var(--f-display);font-weight:600;font-size:clamp(15px,4.1vw,20px);line-height:1.2;color:var(--navy);text-wrap:balance}
+.unbox-box{display:none;position:absolute;left:50%;top:50%;translate:-50% -50%;z-index:0;pointer-events:none}
 .motion .unbox-box{display:block}
-.unbox .box-stage{--w:clamp(118px,32vw,210px)}
+.unbox .box-stage{--w:clamp(132px,40vw,220px)}
 .unbox .box3d{--rx:48deg;--rz:-10deg}
-.unbox-sum{flex:none;text-align:center;margin-top:10px}
-.unbox-sum p{font-size:15.5px;color:#2a3450}
-.unbox-sum b{font-family:var(--f-display);font-weight:600;font-size:clamp(22px,6vw,30px);color:var(--navy);line-height:1.2}
-.unbox-sum .btn{margin-top:14px}
+.fly{z-index:1}
+.unbox-sum{flex:none;text-align:center;margin-top:32px;max-width:520px}
+.us-big{font-family:var(--f-display);font-weight:600;font-size:clamp(26px,7vw,36px);line-height:1.15;color:var(--navy)}
+.us-small{margin-top:8px;font-size:14px;line-height:1.5;color:#46506a;text-wrap:balance}
+.unbox-sum .btn{margin-top:18px}
 
 /* ============================================================
    4 · „Пътеката на спомена“
    ============================================================ */
-.pateka{padding-bottom:72px}
+.pateka{padding-bottom:64px}
 .pateka-head{text-align:center;max-width:620px;margin:0 auto}
-.eyebrow--ink{color:var(--star)}
-.pateka .sec-title{margin-top:10px}
-.pateka-lead{margin-top:12px;font-size:15.5px;color:#2a3450;text-wrap:balance}
-.path{--col:64px;position:relative;max-width:640px;margin:36px auto 0;padding-left:var(--col)}
-/* без JS: права пунктирна линия */
-.path::before{content:"";position:absolute;left:31px;top:0;bottom:0;border-left:1.5px dashed rgba(93,110,152,.45)}
-.js .path::before{display:none}
-.path-svg{position:absolute;left:0;top:0;width:var(--col);height:100%;overflow:visible}
+.pateka-sub{margin-top:10px;font-family:var(--f-display);font-style:italic;font-weight:500;font-size:clamp(20px,5.4vw,26px);color:var(--navy)}
+.pateka-lead{margin-top:10px;font-size:15px;color:#2a3450;text-wrap:balance}
+/* трите карти, свързани с нишката: карта отляво, текст отдясно */
+.path{--cw:72px;position:relative;max-width:520px;margin:32px auto 0}
+.path-svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible;pointer-events:none}
 .path-future{fill:none;stroke:rgba(93,110,152,.35);stroke-width:1.5;stroke-dasharray:3 6;vector-effect:non-scaling-stroke}
 .path-thread{fill:none;stroke:var(--star);stroke-width:2;stroke-linecap:round;stroke-dasharray:1;stroke-dashoffset:0;vector-effect:non-scaling-stroke}
-.stop-panel{position:relative;margin:0 0 clamp(64px,16vh,140px);padding:16px 16px 14px;background:#FBF7F2;border:1px solid #eadcce;border-radius:16px;box-shadow:0 14px 30px -22px rgba(20,32,57,.45)}
-.stop-panel:last-of-type{margin-bottom:0}
-.stop-dot{position:absolute;top:22px;left:calc(var(--sx,32px) - var(--col) - 12px);width:22px;height:22px;display:grid;place-items:center;border-radius:50%;background:radial-gradient(closest-side,rgba(232,196,184,.9),rgba(232,196,184,0))}
-.stop-dot svg{width:18px;height:18px;fill:var(--navy)}
-.sp-head{display:flex;gap:12px;align-items:flex-start}
-.sp-head .pb-card{--cardw:46px;flex:none;box-shadow:0 6px 12px -6px rgba(20,28,42,.5)}
-.sp-head .pb-card .lbl{display:none}
-.sp-k{font-size:11.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--star)}
-.sp-t{font-size:clamp(22px,6vw,28px);margin-top:2px}
-.sp-d{font-size:13.5px;color:#46506a;margin-top:2px}
-.sp-q{margin-top:12px;font-family:var(--f-display);font-style:italic;font-weight:500;font-size:clamp(20px,5.4vw,24px);line-height:1.25;color:var(--navy)}
-.sp-a{margin-top:10px;font-size:14px;color:#2a3450;padding-top:10px;border-top:1px solid #eadcce}
-.tag-draft{display:inline-block;margin-top:10px;font-size:10.5px;font-weight:700;letter-spacing:.08em;color:#8a6d1f;background:#fff3cd;border-radius:4px;padding:2px 6px}
-.pateka-end{text-align:center;margin-top:44px}
-.pe-sum{font-family:var(--f-display);font-weight:600;font-size:clamp(22px,6vw,28px);margin-bottom:16px;text-wrap:balance}
+.stops{list-style:none;margin:0;padding:0;display:grid;gap:34px;position:relative}
+.stop{display:grid;grid-template-columns:var(--cw) 1fr;gap:20px;align-items:center}
+.stop:nth-child(2){padding-left:28px}
+.stop-card{--cardw:var(--cw);box-shadow:0 10px 18px -10px rgba(20,28,42,.5),0 1px 3px rgba(20,28,42,.18)}
+.stop-card .lbl{display:none}
+.sp-t{font-size:clamp(22px,6vw,28px)}
+.sp-d{font-size:14.5px;color:#46506a;margin-top:4px}
+/* без JS: пунктир между картите */
+.path:not(.is-drawn) .path-svg{display:none}
+.pateka-end{text-align:center;margin-top:36px}
 .pateka-end .btn{white-space:nowrap;padding:0 22px;max-width:100%}
+
+/* ============================================================
+   7 · „Опитай 3 карти“ — мини вечер
+   ============================================================ */
+.try{text-align:center;padding-bottom:72px}
+.try-rule{max-width:440px;margin:14px auto 0;padding:14px 16px;border:1px solid #eadcce;border-radius:14px;background:#FBF7F2;font-size:14.5px;line-height:1.5;color:#2a3450;text-wrap:pretty}
+.deck{--fw:min(300px,78vw);margin:24px auto 0;max-width:420px}
+.deck-step{font-size:12px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--star)}
+.deck-step .ds-n{font-size:15px}
+.deck-dots{display:flex;justify-content:center;gap:8px;margin-top:8px}
+.deck-dots i{width:22px;height:3px;border-radius:3px;background:#e2d3c5;transition:background-color .3s}
+.deck-dots i.on{background:var(--navy)}
+.deck-cards{list-style:none;margin:18px auto 0;padding:0;position:relative;width:var(--fw);height:calc(var(--fw) * 88 / 63)}
+.flip{position:absolute;inset:0;opacity:0;visibility:hidden;transform:translateX(24px);transition:opacity .45s var(--ease-out),transform .45s var(--ease-out),visibility 0s linear .45s}
+.flip.is-active{opacity:1;visibility:visible;transform:none;transition:opacity .45s var(--ease-out),transform .45s var(--ease-out)}
+.flip.is-past{transform:translateX(-24px)}
+.flip-btn{display:block;width:100%;height:100%;padding:0;border:0;background:none;cursor:pointer;perspective:1200px;-webkit-tap-highlight-color:transparent;border-radius:calc(var(--fw) * .075)}
+.flip-btn:focus-visible{outline:2px solid var(--navy);outline-offset:4px}
+.flip-inner{position:relative;display:block;width:100%;height:100%;transform-style:preserve-3d;transition:transform .8s cubic-bezier(.3,.7,.2,1)}
+.flip.is-flipped .flip-inner{transform:rotateY(180deg)}
+.fc{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;border-radius:calc(var(--fw) * .075)}
+.fc-back{--cardw:var(--fw);width:100%;box-shadow:0 22px 40px -22px rgba(20,28,42,.6),0 2px 6px rgba(20,28,42,.18)}
+.fc-front{
+  transform:rotateY(180deg);display:flex;flex-direction:column;text-align:center;
+  background:#FBF6F0;border:1px solid var(--fcc);padding:22px 20px 18px;color:var(--navy);
+  box-shadow:0 22px 40px -22px rgba(20,28,42,.6),0 2px 6px rgba(20,28,42,.18),inset 0 0 0 5px #FBF6F0,inset 0 0 0 6px color-mix(in srgb,var(--fcc) 35%,transparent);
+}
+.fc--s1{--fcc:#A87F5E}.fc--s2{--fcc:#141C2A}.fc--s3{--fcc:#5A1E27}
+.fc-stage{font-family:var(--f-display);font-weight:600;text-transform:uppercase;letter-spacing:.12em;font-size:12.5px;color:var(--fcc)}
+.fc-stage::after{content:"";display:block;width:9px;height:9px;margin:10px auto 0;background:var(--fcc);clip-path:polygon(50% 0,62% 38%,100% 50%,62% 62%,50% 100%,38% 62%,0 50%,38% 38%)}
+.fc-q{flex:1;display:flex;align-items:center;justify-content:center;font-family:var(--f-display);font-weight:600;font-size:clamp(23px,6.6vw,28px);line-height:1.2;text-wrap:balance;padding:8px 2px}
+.fc-act{display:block;border-top:1px solid color-mix(in srgb,var(--fcc) 30%,transparent);padding-top:10px;font-size:12.5px;line-height:1.45;color:#2a3450}
+.fc-act b{display:block;font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--fcc);margin-bottom:3px}
+.deck-hint{margin-top:14px;font-size:13px;color:#46506a;transition:opacity .3s}
+.deck.is-flipped .deck-hint{opacity:0}
+.deck-nav{display:flex;justify-content:center;align-items:center;gap:14px;margin-top:6px}
+.deck-prev{min-height:44px;padding:0 10px;border:0;background:none;font:600 14px/1 var(--f-text);color:var(--navy);cursor:pointer;text-decoration:underline;text-underline-offset:3px}
+.deck-prev:disabled{display:none}
+.deck-next[hidden]{display:none}
+.deck-next:disabled{opacity:.4;cursor:default}
+.try-end{margin-top:28px}
+.try-end[hidden]{display:none}
+.te-big{font-family:var(--f-display);font-weight:600;font-size:clamp(24px,6.6vw,32px);line-height:1.2;margin-bottom:18px}
+/* без JS: трите карти една под друга, с лицето нагоре */
+.no-js .deck-cards{height:auto;display:grid;gap:18px}
+.no-js .flip{position:relative;opacity:1;visibility:visible;transform:none;height:calc(var(--fw) * 88 / 63)}
+.no-js .flip-inner{transform:rotateY(180deg)}
+.no-js .deck-step,.no-js .deck-dots,.no-js .deck-hint,.no-js .deck-nav{display:none}
+@media (prefers-reduced-motion:reduce){
+  .flip-inner{transform:none!important}
+  .fc-front{transform:none;opacity:0;transition:opacity .2s}
+  .flip.is-flipped .fc-front{opacity:1}
+  .flip.is-flipped .fc-back{opacity:0}
+}
 
 /* ============================================================
    12 · Финален призив
@@ -385,6 +420,8 @@ p{margin:0}
 .final-ctas .btn{white-space:nowrap}
 .final{padding-top:var(--band)!important}
 .final-ship{margin-top:10px;font-size:12.5px;color:rgba(247,240,232,.72)}
+.final-guarantee{margin:14px auto 0;max-width:440px;font-size:12.5px;line-height:1.5;color:rgba(247,240,232,.8)}
+.final-guarantee b{color:var(--ivory)}
 
 /* временно съдържание, докато секциите бъдат изградени */
 .sec-stub{text-align:center;padding-bottom:72px}
@@ -468,14 +505,6 @@ p{margin:0}
   .sf-links{justify-content:flex-end}
   .sf-co{grid-column:1/-1}
   .pains .sec-title{margin-bottom:44px}
-  .unbox-pin{padding:72px 40px 48px}
-  .unbox-pin{padding-top:52px}
-  .unbox-stage{min-height:600px;max-width:820px;--fanw:112px;--pilew:76px}
-  .slot--pile{top:calc(var(--y) + 1%)}
-  .slot-lbl:not(.slot-lbl--fan){top:calc(var(--y) - 3%)}
-  .unbox-sum{margin-top:28px}
-  .slot-lbl:not(.slot-lbl--fan){font-size:13px}
-  .slot-lbl{font-size:14px}
   .pain-list{grid-template-columns:1fr 1fr;gap:32px;padding:0 40px}
   .pain-media{border-radius:16px}
   .pain-cap{padding:30px 30px 0;width:62%}
