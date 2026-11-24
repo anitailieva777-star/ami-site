@@ -249,20 +249,46 @@
   function land() { return landed || (landed = landing()); }
 
   var intro = gsap.timeline({ defaults: { ease: "power2.out" }, onComplete: endIntro });
+
+  /* Профилите се „рисуват“ като с перо: линията тръгва от темето надолу,
+     а всяка звезда светва точно когато линията стигне до нея. */
+  function pts(pl) { return pl.getAttribute("points").trim().split(/\s+/).map(function (p) { return p.split(",").map(Number); }); }
+  function trace(pl, start, dur) {
+    var P = pts(pl), seg = [0], total = 0;
+    for (var i = 1; i < P.length; i++) { total += Math.hypot(P[i][0] - P[i - 1][0], P[i][1] - P[i - 1][1]); seg.push(total); }
+    intro.fromTo(pl, { strokeDashoffset: 1 }, { strokeDashoffset: 0, autoRound: false, duration: dur, ease: "none" }, start);
+    return P.map(function (p, i) { return { key: p[0] + "," + p[1], t: start + dur * (total ? seg[i] / total : 0) }; });
+  }
+  var starAt = {};
+  function mark(list) { list.forEach(function (v) { if (!(v.key in starAt) || v.t < starAt[v.key]) starAt[v.key] = v.t; }); }
+  // 1) далечните звезди изгряват тихо
+  intro.fromTo(sky.querySelectorAll(".fs, .sp"), { opacity: 0, scale: .4 }, { opacity: function (i, el) { return el.classList.contains("sp") ? .8 : .55; }, scale: 1, duration: .5, stagger: { each: .006, from: "random" } }, 0);
+  // 2) лицата: двата профила едновременно, едно срещу друго
+  ["l", "r"].forEach(function (side) {
+    var lines = sky.querySelectorAll(".sky-" + side + " .ln");
+    if (lines[0]) mark(trace(lines[0], .3, 1.0));                 // профилът на лицето
+    for (var k = 1; k < lines.length; k++) mark(trace(lines[k], .85 + (k - 1) * .12, .55)); // коса / тил
+  });
+  // 3) всяка звезда светва, когато линията я достигне; самостоятелните — отгоре надолу
+  var loose = [];
+  sky.querySelectorAll(".sky-l .st, .sky-r .st").forEach(function (c) {
+    var key = (+c.getAttribute("cx")) + "," + (+c.getAttribute("cy"));
+    if (key in starAt) intro.fromTo(c, { opacity: 0, scale: .2 }, { opacity: 1, scale: 1, duration: .22, ease: "back.out(3)" }, starAt[key]);
+    else loose.push(c);
+  });
+  loose.sort(function (a, b) { return a.getAttribute("cy") - b.getAttribute("cy"); });
+  loose.forEach(function (c, i) { intro.fromTo(c, { opacity: 0, scale: .2 }, { opacity: 1, scale: 1, duration: .25, ease: "back.out(2)" }, .6 + i * (.75 / Math.max(1, loose.length))); });
   intro
-    // звездите изгряват
-    .fromTo(sky.querySelectorAll(".fs, .sp"), { opacity: 0, scale: .2 }, { opacity: function (i, el) { return el.classList.contains("sp") ? .8 : .55; }, scale: 1, duration: .4, stagger: { each: .007, from: "random" } }, 0)
-    .fromTo(sky.querySelectorAll(".st"), { opacity: 0, scale: .2 }, { opacity: 1, scale: 1, duration: .3, stagger: { each: .008, from: "random" } }, .1)
-    // линиите оформят двата профила
-    .fromTo(sky.querySelectorAll(".ln"), { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: .45, ease: "power1.inOut", stagger: .06 }, .6)
-    // нишката се изтегля
-    .fromTo(sky.querySelector(".thread"), { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: .45, ease: "power2.inOut" }, 1.2)
-    // звездата в средата пламва
-    .fromTo(sky.querySelector(".core"), { opacity: 0, scale: .3 }, { opacity: 1, scale: 1, duration: .4, ease: "back.out(2)" }, 1.5)
-    // съзвездията „кацат“ върху кутията, нощта се разтваря в снимката
-    .to(sky, { transformOrigin: "50% 64.29%", x: function () { return land().x; }, y: function () { return land().y; }, scale: function () { return land().scale; }, duration: .65, ease: "power2.inOut" }, 1.8)
-    .to(night, { backgroundColor: "rgba(20,32,57,0)", duration: .7, ease: "power1.inOut" }, 1.8)
-    .to(night, { opacity: 0, duration: .35, ease: "power1.in" }, 2.15)
+    // 4) нишката се изтегля между тях; звездите в двата ѝ края светват в началото и в края
+    .fromTo(sky.querySelectorAll(".hero-sky > .st")[0] || {}, { opacity: 0, scale: .2 }, { opacity: 1, scale: 1, duration: .2, ease: "back.out(3)" }, 1.33)
+    .fromTo(sky.querySelectorAll(".hero-sky > .st")[1] || {}, { opacity: 0, scale: .2 }, { opacity: 1, scale: 1, duration: .2, ease: "back.out(3)" }, 1.72)
+    .fromTo(sky.querySelector(".thread"), { strokeDashoffset: 1 }, { strokeDashoffset: 0, autoRound: false, duration: .4, ease: "power2.inOut" }, 1.35)
+    // 5) звездата в средата пламва
+    .fromTo(sky.querySelector(".core"), { opacity: 0, scale: .3 }, { opacity: 1, scale: 1, duration: .35, ease: "back.out(2)" }, 1.62)
+    // 6) съзвездията „кацат“ върху кутията, нощта се разтваря в снимката
+    .to(sky, { transformOrigin: "50% 64.29%", x: function () { return land().x; }, y: function () { return land().y; }, scale: function () { return land().scale; }, duration: .62, ease: "power2.inOut" }, 1.85)
+    .to(night, { backgroundColor: "rgba(20,32,57,0)", duration: .6, ease: "power1.inOut" }, 1.85)
+    .to(night, { opacity: 0, duration: .3, ease: "power1.in" }, 2.17)
     .set(night, { visibility: "hidden" }, 2.5);
   window.__pbIntro = intro; // за тестове
 
@@ -362,7 +388,7 @@
       }
       buildPath();
       window.ScrollTrigger.addEventListener("refreshInit", buildPath);
-      gsap.fromTo(thr, { strokeDashoffset: 1 }, { strokeDashoffset: 0, ease: "none",
+      gsap.fromTo(thr, { strokeDashoffset: 1 }, { strokeDashoffset: 0, autoRound: false, ease: "none",
         scrollTrigger: { trigger: path, start: "top 80%", end: "bottom 88%", scrub: .4 } });
       gsap.utils.toArray(path.querySelectorAll(".stop")).forEach(function (st) {
         gsap.fromTo(st, { opacity: .25, y: 18 }, { opacity: 1, y: 0, ease: "none",
@@ -374,7 +400,7 @@
     gsap.utils.toArray(".close-thread, .final-thread").forEach(function (svg) {
       gsap.timeline({ defaults: { ease: "none" }, scrollTrigger: { trigger: svg, start: "top 96%", end: "top 66%", scrub: .5 } })
         .fromTo(svg.querySelectorAll(".ct-dot"), { opacity: 0 }, { opacity: 1, duration: .15 }, 0)
-        .fromTo(svg.querySelector(".ct-line"), { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: 1 }, 0)
+        .fromTo(svg.querySelector(".ct-line"), { strokeDashoffset: 1 }, { strokeDashoffset: 0, autoRound: false, duration: 1 }, 0)
         .fromTo(svg.querySelector(".ct-star"), { scale: 0, opacity: 0 }, { scale: 1, opacity: 1, duration: .3 }, .7);
     });
   }
