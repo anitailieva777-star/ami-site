@@ -152,7 +152,7 @@ p{margin:0}
 .pb-card .lbl{
   position:absolute;left:0;right:0;bottom:11%;text-align:center;color:var(--lblc,var(--art));
   font-family:var(--f-display);font-weight:600;text-transform:uppercase;
-  font-size:calc(var(--cardw) * .056);letter-spacing:.1em;line-height:1.35;padding:0 5%;white-space:nowrap;
+  font-size:calc(var(--cardw) * .056);letter-spacing:.1em;line-height:1.35;padding:0 6%;white-space:normal;text-wrap:balance;
 }
 .pb-card--s1{--bg:#D9B59C;--art:#141C2A}
 .pb-card--s2{--bg:#141C2A;--art:#E6CFA0;--lblc:#EADBBE}
